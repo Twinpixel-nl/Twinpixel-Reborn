@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
 
@@ -8,8 +8,8 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/nl/` },
-      { "@type": "ListItem", "position": 2, "name": "Over", "item": `${site}/nl/over/` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+      { "@type": "ListItem", "position": 2, "name": "Over", "item": `${site}/over/` }
     ]
   }
 ];
@@ -19,8 +19,8 @@ const jsonLd = [
   title="Over ons | TwinPixel"
   description="TwinPixel is Twan (development) en Emma (UX). Wij bouwen snelle, professionele websites in Wageningen."
   lang="nl"
-  canonical="/nl/over/"
-  alternates={{ nl: `${site}/nl/over/` }}
+  canonical="/over/"
+  alternates={{ nl: `${site}/over/`, en: `${site}/en/about/` }}
   jsonLd={jsonLd}
 >
   <section class="section">
@@ -39,9 +39,9 @@ const jsonLd = [
           We werken het liefst dicht bij de klant. Korte lijnen, heldere planning en concrete resultaten.
         </p>
         <div class="mt-5 flex flex-wrap gap-3">
-          <a href="/nl/diensten/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Diensten</a>
-          <a href="/nl/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Portfolio</a>
-          <a href="/nl/contact/" class="btn-primary">Contact</a>
+          <a href="/diensten/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Diensten</a>
+          <a href="/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Portfolio</a>
+          <a href="/contact/" class="btn-primary">Contact</a>
         </div>
       </div>
       <div class="rounded-lg border border-slate-800/60 p-6">

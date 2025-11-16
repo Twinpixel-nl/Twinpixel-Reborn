@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import plant from "../../assets/Sittingplant.webp";
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
 
@@ -26,8 +27,8 @@ const jsonLd = [
   title="Web design in Wageningen | TwinPixel"
   description="We build fast, professional websites that convert. Minimal, focused, and clear."
   lang="en"
-  canonical="/en/"
-  alternates={{ nl: `${site}/nl/`, en: `${site}/en/` }}
+  canonical="/"
+  alternates={{ nl: `${site}/`, en: `${site}/en/` }}
   xDefaultAlternate="/"
   transparentHeader={true}
   noindex={noindex}
@@ -36,16 +37,8 @@ const jsonLd = [
   <!-- Hero -->
   <section class="relative isolate overflow-hidden">
     <picture>
-      <source
-        type="image/avif"
-        srcset="/images/hero-1920.avif 1920w, /images/hero-1280.avif 1280w"
-        sizes="(min-width: 1024px) 100vw, 100vw" />
-      <source
-        type="image/webp"
-        srcset="/images/hero-1920.webp 1920w, /images/hero-1280.webp 1280w"
-        sizes="(min-width: 1024px) 100vw, 100vw" />
       <img
-        src="/images/hero-1280.webp"
+        src={plant.src}
         alt="Twan and colleague discussing website code at TwinPixel"
         width="1920"
         height="1080"

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import plant from "../assets/Sittingplant.webp";
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
 
@@ -73,16 +74,8 @@ const jsonLd = [
   <!-- Hero -->
   <section class="relative isolate overflow-hidden">
     <picture>
-      <source
-        type="image/avif"
-        srcset="/images/hero-1920.avif 1920w, /images/hero-1280.avif 1280w"
-        sizes="(min-width: 1024px) 100vw, 100vw" />
-      <source
-        type="image/webp"
-        srcset="/images/DSC00511.webp 1920w, /images/hero-1280.webp 1280w"
-        sizes="(min-width: 1024px) 100vw, 100vw" />
       <img
-        src="/images/hero-1280.webp"
+        src={plant.src}
         alt="Twan en collega overleggen over websitecode bij TwinPixel"
         width="1920"
         height="1080"
@@ -172,7 +165,7 @@ const jsonLd = [
         <p class="text-slate-400">Binnenkort echte projecten. We vullen hier lokale cases aan.</p>
       )}
       {cases.map((c) => {
-        const cover = c.data.cover || "/uploads/placeholder.webp";
+        const cover = (c.data.cover && !c.data.cover.startsWith('/uploads/')) ? c.data.cover : plant.src;
         const resultLine = (c.data.results && c.data.results[0]) || c.data.description;
         return (
           <a href={`/portfolio/${c.slug}/`} class="card overflow-hidden">

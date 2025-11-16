@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.twinpixel.nl',
   trailingSlash: 'always',
-  integrations: [sitemap({ filter: (page) => !page.includes('/en/') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/en/') && !page.includes('/nl/') })],
   vite: {
     plugins: [tailwind()],
   },

@@ -1,12 +1,11 @@
 ---
-import { swapLang } from "../lib/paths";
+import { swapLang } from "../../lib/paths";
 const pathname = Astro.url.pathname;
 const currentLang: "nl" | "en" = pathname.startsWith("/en/") ? "en" : "nl";
 const altHref = swapLang(pathname);
 const altHrefWithSlash = altHref.endsWith("/") ? altHref : altHref + "/";
 const label = currentLang === "nl" ? "English" : "Nederlands";
 ---
-
 
 <a
   href={altHrefWithSlash}

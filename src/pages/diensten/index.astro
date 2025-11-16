@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
 
@@ -27,8 +27,8 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/nl/` },
-      { "@type": "ListItem", "position": 2, "name": "Diensten", "item": `${site}/nl/diensten/` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+      { "@type": "ListItem", "position": 2, "name": "Diensten", "item": `${site}/diensten/` }
     ]
   },
   {
@@ -36,7 +36,7 @@ const jsonLd = [
     "@type": "Service",
     "name": "Webdesign, SEO en onderhoud",
     "provider": { "@type": "LocalBusiness", "name": "TwinPixel", "areaServed": "Wageningen" },
-    "url": `${site}/nl/diensten/`
+    "url": `${site}/diensten/`
   },
   {
     "@context": "https://schema.org",
@@ -54,8 +54,8 @@ const jsonLd = [
   title="Diensten | TwinPixel"
   description="Webdesign, SEO-optimalisatie en hosting & onderhoud. Snel, minimalistisch en gericht op resultaat."
   lang="nl"
-  canonical="/nl/diensten/"
-  alternates={{ nl: `${site}/nl/diensten/` }}
+  canonical="/diensten/"
+  alternates={{ nl: `${site}/diensten/`, en: `${site}/en/services/` }}
   jsonLd={jsonLd}
 >
   <section class="section">
@@ -116,9 +116,9 @@ const jsonLd = [
 
   <section class="section">
     <div class="flex flex-wrap gap-3">
-      <a href="/nl/prijzen/" class="btn-primary">Bekijk prijzen</a>
-      <a href="/nl/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Bekijk cases</a>
-      <a href="/nl/contact/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Contact</a>
+      <a href="/prijzen/" class="btn-primary">Bekijk prijzen</a>
+      <a href="/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Bekijk cases</a>
+      <a href="/contact/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Contact</a>
     </div>
   </section>
 </BaseLayout>

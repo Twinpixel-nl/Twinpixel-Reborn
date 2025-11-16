@@ -1,6 +1,7 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import plant from "../../assets/Sittingplant.webp";
 
 export const prerender = true;
 
@@ -19,7 +20,9 @@ const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
-const url = `${site}/nl/portfolio/${entry.slug}/`;
+const url = `${site}/portfolio/${entry.slug}/`;
+
+const coverSrc = entry.data.cover && !entry.data.cover.startsWith('/uploads/') ? entry.data.cover : plant.src;
 
 const jsonLd = [
   {
@@ -37,8 +40,8 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/nl/` },
-      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": `${site}/nl/portfolio/` },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": `${site}/portfolio/` },
       { "@type": "ListItem", "position": 3, "name": entry.data.title, "item": url }
     ]
   }
@@ -49,7 +52,7 @@ const jsonLd = [
   title={`${entry.data.title} | TwinPixel`}
   description={entry.data.description}
   lang="nl"
-  canonical={`/nl/portfolio/${entry.slug}/`}
+  canonical={`/portfolio/${entry.slug}/`}
   alternates={{ nl: url }}
   jsonLd={jsonLd}
 >
@@ -62,10 +65,10 @@ const jsonLd = [
       {entry.data.sector && <p class="text-slate-400 mt-1">{entry.data.sector}</p>}
     </header>
 
-    {entry.data.cover && (
+    {coverSrc && (
       <figure class="mb-6">
         <img
-          src={entry.data.cover}
+          src={coverSrc}
           alt={`Coverbeeld: ${entry.data.title}`}
           width="1200"
           height="675"
@@ -79,7 +82,6 @@ const jsonLd = [
 
     <div class="prose text-slate-200">
       <h2>Probleem</h2>
-      {/* Verwacht dat de markdown secties de structuur "Probleem → Aanpak → Resultaat" volgen */}
       <Content />
     </div>
 
@@ -103,7 +105,7 @@ const jsonLd = [
     )}
 
     <footer class="mt-10">
-      <a href="/nl/contact/" class="btn-primary">Neem contact op</a>
+      <a href="/contact/" class="btn-primary">Neem contact op</a>
     </footer>
   </article>
 </BaseLayout>

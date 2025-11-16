@@ -52,6 +52,8 @@ const noindex = true;
   description={post.data.description}
   lang="en"
   ogImage={post.data.ogImage}
+  canonical={`/blog/${post.slug}/`}
+  alternates={{ nl: `${site}/blog/${post.slug}/`, en: `${site}/en/blog/${post.slug}/` }}
   jsonLd={jsonLd}
   noindex={noindex}
 >
