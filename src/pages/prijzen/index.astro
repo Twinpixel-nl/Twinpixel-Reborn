@@ -11,23 +11,37 @@ const jsonLd = [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
       { "@type": "ListItem", "position": 2, "name": "Prijzen", "item": `${site}/prijzen/` }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Prijzen webdesign en SEO",
+    "description": "Pakketten voor een website laten maken, inclusief webdesign, SEO en onderhoud.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "TwinPixel",
+      "areaServed": "Wageningen, Gelderland, Netherlands",
+      "url": `${site}/`
+    },
+    "areaServed": "Wageningen, Gelderland, Netherlands",
+    "url": `${site}/prijzen/`
   }
 ];
 ---
 
 <BaseLayout
-  title="Prijzen | TwinPixel"
-  description="Transparante pakketten met heldere deliverables. Rush in 5 dagen mogelijk (+€100)."
+  title="Kosten website laten maken | Prijzen webdesign Wageningen | TwinPixel"
+  description="Benieuwd naar de kosten van een website laten maken in Wageningen? TwinPixel werkt met transparante pakketten voor webdesign, SEO en onderhoud. Rush in 5 dagen mogelijk (+€100)."
   lang="nl"
   canonical="/prijzen/"
   alternates={{ nl: `${site}/prijzen/` }}
   jsonLd={jsonLd}
 >
   <section class="section">
-    <h1 class="text-3xl md:text-4xl font-semibold mb-6">Pakketten</h1>
+    <h1 class="text-3xl md:text-4xl font-semibold mb-6">Prijzen webdesign &amp; SEO</h1>
     <p class="prose text-slate-300">
-      Kies een pakket dat past bij jouw bedrijf. Duidelijke deliverables, heldere planning en een minimalistisch, snel resultaat.
-      Rush in <strong>5 dagen</strong> is mogelijk <strong>(+€100)</strong>.
+      Benieuwd wat het kost om een <a href="/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">website te laten maken in Wageningen</a>? TwinPixel werkt met duidelijke pakketten voor ZZP en MKB, zodat je precies weet wat je krijgt.
+      Heldere deliverables, vaste scope en een minimalistisch, snel resultaat. Rush in <strong>5 dagen</strong> is mogelijk <strong>(+€100)</strong>, afhankelijk van contentgereedheid.
     </p>
   </section>
 
@@ -79,7 +93,8 @@ const jsonLd = [
     <article class="rounded-lg border border-slate-800/60 p-6">
       <h2 class="text-2xl font-semibold">Maatwerk</h2>
       <p class="text-slate-300 mt-2">
-        Specifieke wensen? We leveren maatwerk op basis van duidelijke doelen en scope. We werken iteratief en meten resultaat.
+        Specifieke wensen of een complexere site? We leveren maatwerk op basis van duidelijke doelen en scope.
+        We denken mee over strategie, content en techniek, en werken iteratief naar een resultaat dat past bij jouw bedrijf.
       </p>
       <div class="mt-5">
         <a href="/contact/" class="btn-primary">Plan een gesprek</a>
@@ -89,9 +104,10 @@ const jsonLd = [
 
   <section class="section">
     <div class="rounded-lg border border-slate-800/60 p-6">
-      <h2 class="text-xl font-semibold">Rush</h2>
+      <h2 class="text-xl font-semibold">Rush-optie</h2>
       <p class="text-slate-300 mt-2">
-        Snel live? Rush in <strong>5 dagen</strong> is mogelijk, toeslag <strong>+€100</strong> (afhankelijk van contentgereedheid).
+        Snel live met je nieuwe website? Rush in <strong>5 dagen</strong> is mogelijk, toeslag <strong>+€100</strong> (afhankelijk van contentgereedheid).
+        Handig als je bijvoorbeeld rond een lancering, event of campagne snel online zichtbaar wilt zijn.
       </p>
     </div>
   </section>

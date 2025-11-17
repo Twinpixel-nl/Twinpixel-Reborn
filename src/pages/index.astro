@@ -15,7 +15,7 @@ const cases = (await getCollection("cases", ({ data }) => data.lang === "nl"))
   .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
   .slice(0, 3);
 
-// JSON-LD: LocalBusiness, WebSite (with SearchAction), BreadcrumbList
+// JSON-LD: LocalBusiness, WebSite, BreadcrumbList
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -30,7 +30,7 @@ const jsonLd = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "name": "TwinPixel",
     "url": `${site}/`,
     "image": `${site}/favicon.svg`,
@@ -62,8 +62,8 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Webdesign in Wageningen"
-  description="Snelle, professionele websites voor ZZP en MKB. Maatwerk, helder, SEO-sterk. Vraag een offerte aan."
+  title="Website laten maken in Wageningen | Webdesign & SEO | TwinPixel"
+  description="Website laten maken in Wageningen? TwinPixel bouwt snelle, professionele en SEO-sterke websites voor ZZP en MKB. Persoonlijk, duidelijk en volledig maatwerk."
   lang="nl"
   canonical="/"
   alternates={{ nl: "/", en: "/en/" }}
@@ -71,12 +71,13 @@ const jsonLd = [
   transparentHeader={true}
   jsonLd={jsonLd}
 >
+
   <!-- Hero -->
   <section class="relative isolate overflow-hidden">
     <picture>
       <img
         src={plant.src}
-        alt="Twan en collega overleggen over websitecode bij TwinPixel"
+        alt="Website laten maken in Wageningen bij TwinPixel – webdesign en ontwikkeling"
         width="1920"
         height="1080"
         class="w-full h-[60vh] md:h-[70vh] object-cover"
@@ -87,9 +88,11 @@ const jsonLd = [
     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-slate-900/10"></div>
 
     <div class="container relative z-10 py-16 md:py-24">
-      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">Webdesign in Wageningen.</h1>
+      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">
+        Website laten maken in Wageningen.
+      </h1>
       <p class="prose mt-4 text-slate-200">
-        Snelle, professionele websites die duidelijk zijn en overtuigen.
+        TwinPixel zorgt voor webdesign in Wageningen dat snel laadt, helder is voor je bezoekers en goed vindbaar is in Google.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a href="/contact/" class="btn-primary" aria-label="Offerte aanvragen">Offerte aanvragen</a>
@@ -202,6 +205,23 @@ const jsonLd = [
     </div>
   </section>
 
+  <!-- Extra SEO-section -->
+  <section class="section">
+    <h2>Website laten maken in Wageningen voor ZZP en MKB</h2>
+    <p class="prose mt-3 text-slate-300">
+      TwinPixel helpt als webdesigner in Wageningen ondernemers met een duidelijke,
+      snelle en goed vindbare website. Je kunt bij ons een volledige website laten maken:
+      ontwerp, techniek, SEO en onderhoud in één pakket.
+    </p>
+    <p class="prose mt-3 text-slate-300">
+      We werken als webbouwer in Wageningen met focus op SEO: schone code, snelle
+      laadtijden en slimme interne links. Daarmee scoor je beter op zoektermen als
+      <strong>website laten maken Wageningen</strong>,
+      <strong>webdesign Wageningen</strong> en
+      <strong>SEO Wageningen</strong>.
+    </p>
+  </section>
+
   <!-- CTA band -->
   <section aria-labelledby="cta-title" class="section">
     <div class="rounded-2xl border" style="border-color: var(--color-border-subtle);">
@@ -222,4 +242,5 @@ const jsonLd = [
       TwinPixel bouwt snelle, vindbare websites in Wageningen voor ZZP en MKB.
     </p>
   </section>
+
 </BaseLayout>

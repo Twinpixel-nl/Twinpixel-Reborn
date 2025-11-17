@@ -34,8 +34,15 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Webdesign, SEO en onderhoud",
-    "provider": { "@type": "LocalBusiness", "name": "TwinPixel", "areaServed": "Wageningen" },
+    "name": "Webdesign en SEO in Wageningen",
+    "serviceType": "Webdesign, SEO, hosting en onderhoud",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "TwinPixel",
+      "areaServed": "Wageningen, Gelderland, Netherlands",
+      "url": `${site}/`
+    },
+    "areaServed": "Wageningen, Gelderland, Netherlands",
     "url": `${site}/diensten/`
   },
   {
@@ -51,30 +58,30 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Diensten | TwinPixel"
-  description="Webdesign, SEO-optimalisatie en hosting & onderhoud. Snel, minimalistisch en gericht op resultaat."
+  title="Webdesign & SEO in Wageningen | Diensten | TwinPixel"
+  description="Webdesign en SEO in Wageningen voor ZZP en MKB. TwinPixel helpt je met een snelle website laten maken, vindbaarheid verbeteren en onderhoud regelen."
   lang="nl"
   canonical="/diensten/"
   alternates={{ nl: `${site}/diensten/`, en: `${site}/en/services/` }}
   jsonLd={jsonLd}
 >
   <section class="section">
-    <h1 class="text-3xl md:text-4xl font-semibold mb-6">Diensten</h1>
+    <h1 class="text-3xl md:text-4xl font-semibold mb-6">Webdesign en SEO in Wageningen</h1>
     <p class="prose text-slate-300">
-      Wij helpen ZZP en MKB in Wageningen met snelle, professionele websites. Duidelijk, onderhoudbaar en zonder ruis.
+      TwinPixel helpt ZZP&apos;ers en MKB-bedrijven met een <a href="/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">website laten maken in Wageningen</a>
+      die snel is, duidelijk communiceert en goed vindbaar is in Google. Als webdesigner en webbouwer in Wageningen combineren we ontwerp, techniek en SEO in één helder pakket.
     </p>
   </section>
 
   <section class="section grid gap-6 lg:grid-cols-3">
     <article class="rounded-lg border border-slate-800/60 p-6">
       <div aria-hidden="true" class="mb-4 text-cyan-400">
-        <!-- inline SVG icon -->
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v12H5l-1 1z"/></svg>
       </div>
       <h2 class="text-xl font-semibold">Webdesign</h2>
       <p class="text-slate-300 mt-2">
-        Moderne, minimalistische websites met focus op duidelijkheid en conversie. We werken mobile-first met royale witruimte en
-        respecteren toegankelijkheid en prestaties. LCP onder 1.5s is onze standaard.
+        Moderne, minimalistische websites met focus op duidelijkheid en conversie. We werken mobile-first met royale witruimte
+        en letten op toegankelijkheid en prestaties. Als webdesigner in Wageningen zorgen we dat je site snel laadt en betrouwbaar werkt.
       </p>
     </article>
 
@@ -84,8 +91,9 @@ const jsonLd = [
       </div>
       <h2 class="text-xl font-semibold">SEO-optimalisatie</h2>
       <p class="text-slate-300 mt-2">
-        Technische SEO (sitemaps, robots, schema) en contentfundamenten (H1–H3, descriptions). Schone URL’s en interne links
-        zorgen dat je beter gevonden wordt en bezoekers sneller doorklikken.
+        Technische SEO (sitemaps, robots, schema) en een sterke contentbasis (H1–H3, descriptions, interne links).
+        We leggen de fundering voor betere vindbaarheid, zodat je lokaal ook op zoektermen als &quot;SEO Wageningen&quot; en
+        &quot;webdesign Wageningen&quot; zichtbaar wordt.
       </p>
     </article>
 
@@ -96,6 +104,7 @@ const jsonLd = [
       <h2 class="text-xl font-semibold">Hosting & onderhoud</h2>
       <p class="text-slate-300 mt-2">
         Veilige hosting met periodieke updates en monitoring. Zo blijft je site snel en betrouwbaar, zonder verrassingen in de kosten.
+        Als vaste webbouwer houd je één aanspreekpunt voor techniek, domein en kleine aanpassingen.
       </p>
     </article>
   </section>
@@ -115,10 +124,15 @@ const jsonLd = [
   </section>
 
   <section class="section">
+    <h2 class="text-xl font-semibold mb-3">Volgende stap</h2>
+    <p class="prose text-slate-300 mb-4">
+      Wil je een nieuwe website laten maken in Wageningen of je huidige site technisch en qua SEO laten verbeteren?
+      Bekijk onze pakketten of plan direct een kennismaking.
+    </p>
     <div class="flex flex-wrap gap-3">
       <a href="/prijzen/" class="btn-primary">Bekijk prijzen</a>
       <a href="/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Bekijk cases</a>
-      <a href="/contact/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Contact</a>
+      <a href="/contact/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Contact met TwinPixel</a>
     </div>
   </section>
 </BaseLayout>

@@ -19,12 +19,14 @@ const navLinks =
         { href: pathFor("nl", "prijzen"), label: "Prijzen" },
         { href: pathFor("nl", "portfolio"), label: "Portfolio" },
         { href: pathFor("nl", "blog"), label: "Blog" },
+        { href: pathFor("nl", "over"), label: "over" },
       ]
     : [
         { href: pathFor("en", "services"), label: "Services" },
         { href: pathFor("en", "pricing"), label: "Pricing" },
         { href: pathFor("en", "portfolio"), label: "Portfolio" },
         { href: pathFor("en", "blog"), label: "Blog" },
+        { href: pathFor("nl", "about"), label: "about" },
       ];
 
 const isActive = (href: string) => pathname.startsWith(href);
