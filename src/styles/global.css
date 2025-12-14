@@ -1,20 +1,31 @@
 :root{
-  --bg0:#050814;
-  --bg1:#071027;
-  --card:#0b1430cc;
-  --card2:#0a1230aa;
-  --stroke:rgba(255,255,255,.10);
-  --stroke2:rgba(96,165,250,.22);
-  --text:#e9eefc;
-  --muted:rgba(233,238,252,.70);
-  --muted2:rgba(233,238,252,.55);
-  --brandA:#60a5fa;
-  --brandB:#22d3ee;
-  --radius:26px;
-  --shadow: 0 20px 70px rgba(0,0,0,.55);
-  --shadow2: 0 14px 40px rgba(0,0,0,.45);
+  /* dark base */
+  --bg0:#02040f;
+  --bg1:#050a1d;
+
+  /* surfaces */
+  --card: rgba(8,12,28,.72);
+  --card2: rgba(6,10,24,.62);
+
+  /* text */
+  --text: rgba(244,247,255,.92);
+  --muted: rgba(244,247,255,.68);
+  --muted2: rgba(244,247,255,.50);
+
+  /* strokes */
+  --stroke: rgba(255,255,255,.08);
+  --stroke2: rgba(47,137,255,.28);
+
+  /* brand */
+  --brand: #2F89FF;     /* jouw logo-kleur */
+  --brand2:#22d3ee;     /* cool secondary (optioneel) */
+  --brand3:#7c3aed;     /* deep purple accent (optioneel) */
+
+  --radius: 22px;
   --container: 1180px;
 }
+
+
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
@@ -22,14 +33,13 @@ body{
   margin:0;
   color:var(--text);
 
-  /* DIEPERE, DONKERDERE BASIS */
   background:
-    radial-gradient(900px 520px at 15% 10%, rgba(96,165,250,.10), transparent 60%),
-    radial-gradient(900px 520px at 85% 20%, rgba(34,211,238,.08), transparent 60%),
-    radial-gradient(1100px 700px at 50% 95%, rgba(99,102,241,.06), transparent 65%),
-    linear-gradient(180deg, #030617 0%, #050a1f 55%, #060c24 100%);
+    radial-gradient(900px 520px at 50% -10%, rgba(47,137,255,.20), transparent 60%),
+    radial-gradient(900px 520px at 85% 25%, rgba(34,211,238,.10), transparent 60%),
+    radial-gradient(1000px 650px at 15% 70%, rgba(124,58,237,.08), transparent 65%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
 
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -100,8 +110,8 @@ img{ max-width:100%; display:block; }
 .glass{
   background: linear-gradient(180deg, var(--card), var(--card2));
   border: 1px solid var(--stroke);
-  box-shadow: var(--shadow2);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 28px 90px rgba(0,0,0,.65);
+  backdrop-filter: blur(14px);
 }
 
 .soft-border{
@@ -119,7 +129,7 @@ img{ max-width:100%; display:block; }
 }
 
 .grad-text{
-  background: linear-gradient(90deg, var(--brandA), var(--brandB));
+  background: linear-gradient(90deg, var(--brand), rgba(34,211,238,.9));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
