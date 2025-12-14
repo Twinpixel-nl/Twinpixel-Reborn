@@ -1,246 +1,65 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import plant from "../assets/Sittingplant.webp";
-
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
-
-// Fetch latest NL posts (2x)
-const posts = (await getCollection("posts", ({ data }) => data.lang === "nl"))
-  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
-  .slice(0, 2);
-
-// Fetch recent NL cases (up to 3x)
-const cases = (await getCollection("cases", ({ data }) => data.lang === "nl"))
-  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
-  .slice(0, 3);
-
-// JSON-LD: LocalBusiness, WebSite, BreadcrumbList
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TwinPixel",
-    "url": `${site}/`,
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${site}/blog/?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    "name": "TwinPixel",
-    "url": `${site}/`,
-    "image": `${site}/favicon.svg`,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Wageningen",
-      "addressRegion": "Gelderland",
-      "addressCountry": "NL"
-    },
-    "areaServed": "Wageningen, Gelderland, Netherlands",
-    "sameAs": [
-      "https://www.linkedin.com/company/twinpixel",
-      "https://github.com/Twinpixel-nl"
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": `${site}/`
-      }
-    ]
-  }
-];
+import Hero from "../components/Hero.astro";
+import Expertise from "../components/Expertise.astro";
 ---
-
 <BaseLayout
-  title="Website laten maken in Wageningen | Webdesign & SEO | TwinPixel"
-  description="Website laten maken in Wageningen? TwinPixel bouwt snelle, professionele en SEO-sterke websites voor ZZP en MKB. Persoonlijk, duidelijk en volledig maatwerk."
-  lang="nl"
-  canonical="/"
-  alternates={{ nl: "/", en: "/en/" }}
-  xDefaultAlternate="/"
-  transparentHeader={true}
-  jsonLd={jsonLd}
+  title="Twinpixel — Digital reality, pixel perfect."
+  description="Premium Astro-based marketing site with a dark futuristic aesthetic."
 >
+  <Hero />
+  <Expertise />
 
-  <!-- Hero -->
-  <section class="relative isolate overflow-hidden">
-    <picture>
-      <img
-        src={plant.src}
-        alt="Website laten maken in Wageningen bij TwinPixel – webdesign en ontwikkeling"
-        width="1920"
-        height="1080"
-        class="w-full h-[60vh] md:h-[70vh] object-cover"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high" />
-    </picture>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-slate-900/10"></div>
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact glass soft-border">
+        <h2 class="h2">get in touch</h2>
+        <p class="p">
+          tell us what you’re building. we’ll respond with next steps and a realistic plan.
+        </p>
 
-    <div class="container relative z-10 py-16 md:py-24">
-      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">
-        Website laten maken in Wageningen.
-      </h1>
-      <p class="prose mt-4 text-slate-200">
-        TwinPixel zorgt voor webdesign in Wageningen dat snel laadt, helder is voor je bezoekers en goed vindbaar is in Google.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/contact/" class="btn-primary" aria-label="Offerte aanvragen">Offerte aanvragen</a>
-        <a href="/portfolio/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400" aria-label="Bekijk portfolio">Bekijk portfolio</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- USP strip -->
-  <section class="py-8 border-y" style="border-color: var(--color-border-subtle);">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-200 text-sm">
-      <div class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Snel online
-      </div>
-      <div class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Zm4 0V5a4 4 0 1 1 8 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        100% maatwerk
-      </div>
-      <div class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12l6 6L21 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        SEO-technisch sterk
-      </div>
-      <div class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20a8 8 0 1 0-8-8 8 8 0 0 0 8 8Z" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 10a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM15.5 10a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM8 14s2 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Persoonlijk & duidelijk
-      </div>
-    </div>
-  </section>
-
-  <!-- Diensten -->
-  <section class="section">
-    <h2>Diensten</h2>
-    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/diensten/" class="card p-5 h-full flex flex-col">
-        <h3>Webdesign</h3>
-        <ul class="mt-3 text-slate-300 list-disc ms-5 space-y-1">
-          <li>Heldere structuur en copy</li>
-          <li>Toegankelijk en mobiel-vriendelijk</li>
-          <li>Core Web Vitals top</li>
-        </ul>
-        <span class="mt-4 text-cyan-400">Meer over Webdesign →</span>
-      </a>
-      <a href="/diensten/" class="card p-5 h-full flex flex-col">
-        <h3>SEO</h3>
-        <ul class="mt-3 text-slate-300 list-disc ms-5 space-y-1">
-          <li>Technische basis op orde</li>
-          <li>Slimme interne links</li>
-          <li>Scherpe metadata</li>
-        </ul>
-        <span class="mt-4 text-cyan-400">Meer over SEO →</span>
-      </a>
-      <a href="/diensten/" class="card p-5 h-full flex flex-col">
-        <h3>Onderhoud & Hosting</h3>
-        <ul class="mt-3 text-slate-300 list-disc ms-5 space-y-1">
-          <li>Veilig en up-to-date</li>
-          <li>Vaste, transparante kosten</li>
-          <li>Regie zonder gedoe</li>
-        </ul>
-        <span class="mt-4 text-cyan-400">Meer over onderhoud →</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Recente cases -->
-  <section class="section">
-    <div class="flex items-end justify-between gap-4">
-      <h2>Recente cases</h2>
-      <a href="/portfolio/" class="text-cyan-400 text-sm hover:text-cyan-300">Alle cases →</a>
-    </div>
-    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {cases.length === 0 && (
-        <p class="text-slate-400">Binnenkort echte projecten. We vullen hier lokale cases aan.</p>
-      )}
-      {cases.map((c) => {
-        const cover = (c.data.cover && !c.data.cover.startsWith('/uploads/')) ? c.data.cover : plant.src;
-        const resultLine = (c.data.results && c.data.results[0]) || c.data.description;
-        return (
-          <a href={`/portfolio/${c.slug}/`} class="card overflow-hidden">
-            <div class="relative" style="aspect-ratio: 16/10;">
-              <img src={cover} alt={`Case: ${c.data.title}`} class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-5">
-              <h3 class="text-lg font-semibold">{c.data.title}</h3>
-              {resultLine && <p class="text-slate-300 mt-2">{resultLine}</p>}
-            </div>
-          </a>
-        );
-      })}
-    </div>
-  </section>
-
-  <!-- Blog -->
-  <section class="section">
-    <div class="flex items-end justify-between gap-4">
-      <h2>Blog</h2>
-      <a href="/blog/" class="text-cyan-400 text-sm hover:text-cyan-300">Alle artikelen →</a>
-    </div>
-    <div class="mt-6 grid gap-6 sm:grid-cols-2">
-      {posts.length === 0 && (
-        <p class="text-slate-400">Binnenkort artikelen over webdesign, SEO en onderhoud.</p>
-      )}
-      {posts.map((post) => (
-        <a href={`/blog/${post.slug}/`} class="card p-5 block">
-          <h3 class="text-lg font-semibold">{post.data.title}</h3>
-          {post.data.description && <p class="text-slate-300 mt-2">{post.data.description}</p>}
-          <p class="text-slate-500 text-sm mt-3">{new Date(post.data.date).toLocaleDateString("nl-NL")}</p>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- Extra SEO-section -->
-  <section class="section">
-    <h2>Website laten maken in Wageningen voor ZZP en MKB</h2>
-    <p class="prose mt-3 text-slate-300">
-      TwinPixel helpt als webdesigner in Wageningen ondernemers met een duidelijke,
-      snelle en goed vindbare website. Je kunt bij ons een volledige website laten maken:
-      ontwerp, techniek, SEO en onderhoud in één pakket.
-    </p>
-    <p class="prose mt-3 text-slate-300">
-      We werken als webbouwer in Wageningen met focus op SEO: schone code, snelle
-      laadtijden en slimme interne links. Daarmee scoor je beter op zoektermen als
-      <strong>website laten maken Wageningen</strong>,
-      <strong>webdesign Wageningen</strong> en
-      <strong>SEO Wageningen</strong>.
-    </p>
-  </section>
-
-  <!-- CTA band -->
-  <section aria-labelledby="cta-title" class="section">
-    <div class="rounded-2xl border" style="border-color: var(--color-border-subtle);">
-      <div class="p-6 sm:p-8 md:p-10">
-        <h2 id="cta-title" class="tracking-tight">Samen werken aan jouw website?</h2>
-        <p class="prose mt-3 text-slate-300">Plan een korte call of vraag direct een offerte aan.</p>
-        <div class="mt-5 flex flex-wrap gap-3">
-          <a href="/contact/" class="btn-primary" aria-label="Offerte aanvragen">Offerte aanvragen</a>
-          <a href="/contact/" class="underline underline-offset-4 decoration-slate-600 hover:text-cyan-400">Contact</a>
+        <div class="actions">
+          <a class="mail" href="mailto:hello@twinpixel.nl">hello@twinpixel.nl</a>
+          <span class="hint">or add a form later (netlify forms / custom backend)</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEO micro line -->
-  <section class="pt-4 pb-10">
-    <p class="text-sm text-slate-500">
-      TwinPixel bouwt snelle, vindbare websites in Wageningen voor ZZP en MKB.
-    </p>
-  </section>
+  <footer class="footer">
+    <div class="container">
+      <p>© {new Date().getFullYear()} Twinpixel. all rights reserved.</p>
+    </div>
+  </footer>
 
+  <style>
+    .contact{
+      border-radius: var(--radius);
+      padding: 34px;
+      text-align:center;
+    }
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      align-items:center;
+    }
+    .mail{
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(10,18,48,.35);
+    }
+    .hint{
+      color: var(--muted2);
+      font-size: 14px;
+    }
+    .footer{
+      padding: 26px 0 40px;
+      color: var(--muted2);
+      text-align:center;
+      font-size: 14px;
+    }
+  </style>
 </BaseLayout>

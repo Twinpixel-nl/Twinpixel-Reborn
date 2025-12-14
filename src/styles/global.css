@@ -1,0 +1,112 @@
+:root{
+  --bg0:#050814;
+  --bg1:#071027;
+  --card:#0b1430cc;
+  --card2:#0a1230aa;
+  --stroke:rgba(255,255,255,.10);
+  --stroke2:rgba(96,165,250,.22);
+  --text:#e9eefc;
+  --muted:rgba(233,238,252,.70);
+  --muted2:rgba(233,238,252,.55);
+  --brandA:#60a5fa;
+  --brandB:#22d3ee;
+  --radius:26px;
+  --shadow: 0 20px 70px rgba(0,0,0,.55);
+  --shadow2: 0 14px 40px rgba(0,0,0,.45);
+  --container: 1180px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 520px at 50% 0%, rgba(96,165,250,.20), transparent 55%),
+    radial-gradient(900px 520px at 80% 35%, rgba(34,211,238,.14), transparent 58%),
+    radial-gradient(1100px 700px at 20% 55%, rgba(99,102,241,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+
+.container{
+  width:min(var(--container), calc(100% - 48px));
+  margin-inline:auto;
+}
+
+.section{
+  padding: 88px 0;
+}
+
+.h-eyebrow{
+  margin: 0 0 12px;
+  color: var(--muted2);
+  font-size: 14px;
+  letter-spacing: .02em;
+}
+
+.h2{
+  margin: 0;
+  font-size: clamp(28px, 3.6vw, 52px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.p{
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 22px;
+}
+
+@media (max-width: 980px){
+  .section{ padding: 72px 0; }
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+.glass{
+  background: linear-gradient(180deg, var(--card), var(--card2));
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow2);
+  backdrop-filter: blur(10px);
+}
+
+.soft-border{
+  position:relative;
+}
+.soft-border::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: inherit;
+  pointer-events:none;
+  background: radial-gradient(500px 240px at 30% 10%, rgba(96,165,250,.22), transparent 60%);
+  opacity:.55;
+  mask: linear-gradient(#000, transparent 70%);
+}
+
+.grad-text{
+  background: linear-gradient(90deg, var(--brandA), var(--brandB));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}

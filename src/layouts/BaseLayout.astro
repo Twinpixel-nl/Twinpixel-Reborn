@@ -1,200 +1,27 @@
 ---
-import "../styles/tailwind.css";
-import Header from "../components/layout/Header.astro";
-import { pathFor } from "../lib/paths";
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 
-type Lang = "nl" | "en";
 
-interface Alternates {
-  nl?: string;
-  en?: string;
-}
-
-interface Props {
-  title: string;
-  description?: string;
-  lang: Lang;
-  canonical?: string; // absolute or path
-  ogImage?: string;   // absolute or /path
-  noindex?: boolean;
-  alternates?: Alternates; // absolute URLs preferred
-  jsonLd?: any[]; // array of JSON-LD objects
-  xDefaultAlternate?: string; // href for x-default hreflang (root gateway)
-  transparentHeader?: boolean; // home: transparent over hero, solid on scroll
-}
- 
 const {
-  title,
-  description,
-  lang = "nl",
-  canonical,
-  ogImage,
-  noindex = false,
-  alternates,
-  jsonLd = [],
-  xDefaultAlternate,
-  transparentHeader = false,
-} = Astro.props as Props;
-
-const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
-const url = new URL(Astro.url);
-const pathname = url.pathname;
-
-const canonicalUrl =
-  canonical?.startsWith("http")
-    ? canonical
-    : canonical
-      ? site + canonical
-      : site + pathname;
-
-const normalizeHref = (href: string | undefined, fallback: string) => {
-  if (!href) return fallback;
-  return href.startsWith("http") ? href : site + href;
-};
-
-const nlHref = normalizeHref(alternates?.nl, `${site}/`);
-const enHref = normalizeHref(alternates?.en, `${site}/en/`);
-
-const defaultHref = xDefaultAlternate
-  ? (xDefaultAlternate.startsWith("http") ? xDefaultAlternate : site + xDefaultAlternate)
-  : `${site}/`;
-
-
-
-const pageTitle = title?.includes("TwinPixel") ? title : `${title} | TwinPixel`;
-const isBlogDetail = /\/blog\/[^/]+\/$/.test(pathname);
-const ogType = isBlogDetail ? "article" : "website";
-
-// NOTE: Supply your GA4 Measurement ID via an env var or replace inline.
-// Keep pageviews-only and IP anonymization.
-const GA4_ID = (import.meta.env?.PUBLIC_GA4_ID as string) || "";
+  title = "Twinpixel — Modern digital agency",
+  description = "Premium web experiences with a dark, futuristic aesthetic."
+} = Astro.props;
 ---
-
-<html lang={lang}>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-
-<title>{pageTitle}</title>
-    {description && <meta name="description" content={description} />}
-
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-
-    <link rel="alternate" hrefLang="nl" href={nlHref} />
-    <link rel="alternate" hrefLang="en" href={enHref} />
-    <link rel="alternate" hrefLang="x-default" href={defaultHref} />
-
-    {/* Open Graph */}
-    <meta property="og:site_name" content="TwinPixel" />
-<meta property="og:title" content={pageTitle} />
-    {description && <meta property="og:description" content={description} />}
-    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-    {ogImage && <meta property="og:image" content={ogImage} />}
-<meta property="og:type" content={ogType} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    {description && <meta name="twitter:description" content={description} />}
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
-
-    {/* Icons */}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-
-    {/* Preload critical resources (fonts/hero) – replace with real files */}
-    <!--
-    <link rel="preload" as="image" href="/images/hero.avif" imagesrcset="/images/hero.avif 1x, /images/hero@2x.avif 2x" fetchpriority="high" />
-    <link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
-    -->
-
-    {/* JSON-LD */}
-    {jsonLd.map((obj) => (
-      <script type="application/ld+json" set:html={JSON.stringify(obj)}></script>
-    ))}
-
-    {/* GA4 gtag (async, anonymize IP, pageviews-only) – disabled in dev / empty ID */}
-    {GA4_ID && (
-      <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA4_ID}', {
-              'anonymize_ip': true,
-              'send_page_view': true
-            });
-          `}
-        </script>
-      </>
-    )}
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
   </head>
-  <body class="bg-slate-900 text-slate-100">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-slate-100 text-slate-900 px-3 py-2 rounded">
-      {lang === "nl" ? "Ga naar inhoud" : "Skip to content"}
-    </a>
+  <body>
+    <Navbar />
 
-<Header transparentHeader={transparentHeader} />
-
-    <main id="main" class="container">
+    <main>
       <slot />
     </main>
-
-    <footer class="border-t border-slate-800/60 mt-16">
-      <div class="container py-10 text-sm text-slate-300 grid gap-8 md:grid-cols-3">
-        <div>
-          <h3 class="font-medium text-slate-200 mb-3">{lang === "nl" ? "Navigatie" : "Navigation"}</h3>
-          <ul class="space-y-2">
-            <li><a class="hover:text-slate-200" href={lang === "nl" ? pathFor('nl', 'diensten') : pathFor('en', 'services')}>{lang === "nl" ? "Diensten" : "Services"}</a></li>
-            <li><a class="hover:text-slate-200" href={lang === "nl" ? pathFor('nl', 'prijzen') : pathFor('en', 'pricing')}>{lang === "nl" ? "Prijzen" : "Pricing"}</a></li>
-            <li><a class="hover:text-slate-200" href={lang === "nl" ? pathFor('nl', 'portfolio') : pathFor('en', 'portfolio')}>Portfolio</a></li>
-            <li><a class="hover:text-slate-200" href={lang === "nl" ? pathFor('nl', 'contact') : pathFor('en', 'contact')}>{lang === "nl" ? "Contact" : "Contact"}</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-medium text-slate-200 mb-3">TwinPixel</h3>
-          <p class="text-slate-400">Wageningen, Nederland</p>
-          <p class="text-slate-400 mt-1"><a href="mailto:info@twinpixel.nl" class="hover:text-slate-200">info@twinpixel.nl</a></p>
-          <p class="text-slate-500 mt-1">{lang === "nl" ? "KvK: —" : "Chamber of Commerce: —"}</p>
-        </div>
-
-        <div>
-          <h3 class="font-medium text-slate-200 mb-3">{lang === "nl" ? "Volg ons" : "Socials"}</h3>
-          <div class="flex gap-4">
-            <a href="https://www.linkedin.com/company/twinpixel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-slate-200">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.6"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
-            </a>
-            <a href="https://github.com/Twinpixel-nl" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-slate-200">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 22v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 19 4.77 5.07 5.07 0 0 0 18.91 1S17.73.65 15 2.48a13.38 13.38 0 0 0-8 0C4.27.65 3.09 1 3.09 1A5.07 5.07 0 0 0 3 4.77 5.44 5.44 0 0 0 1.5 8.52c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 7 18.13V22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="md:col-span-3 text-slate-500 mt-4">
-          <p>© {new Date().getFullYear()} TwinPixel</p>
-        </div>
-      </div>
-    </footer>
-
-    {transparentHeader && (
-      <>
-        <script>
-          {`
-            (function () {
-              var h = document.getElementById('site-header');
-              if (!h) return;
-              function onScroll() {
-                if (window.scrollY > 8) h.classList.add('is-solid');
-                else h.classList.remove('is-solid');
-              }
-              onScroll();
-              window.addEventListener('scroll', onScroll, { passive: true });
-            })();
-          `}
-        </script>
-      </>
-    )}
   </body>
 </html>

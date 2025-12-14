@@ -1,6 +1,0 @@
-# Robots policy for TwinPixel.nl
-User-agent: *
-Disallow: /admin/
-Disallow: /en/
-
-Sitemap: https://www.twinpixel.nl/sitemap-index.xml

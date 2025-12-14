@@ -1,0 +1,47 @@
+---
+import ExpertiseCard from "./ExpertiseCard.astro";
+
+const cards = [
+  {
+    title: "Branding",
+    body: "visual identity, tone, and a design system that stays consistent everywhere your brand shows up.",
+    tags: ["Logo", "Identity", "Strategy"],
+    icon: "◐",
+    variant: "purple"
+  },
+  {
+    title: "Standard Websites",
+    body: "fast marketing sites and landing pages built to convert, easy to maintain, and polished on every device.",
+    tags: ["CMS", "Marketing", "Landing Pages"],
+    icon: "▦",
+    variant: "blue"
+  },
+  {
+    title: "Technical Websites",
+    body: "custom logic, integrations, and complex front-ends that still feel simple and premium to use.",
+    tags: ["Web Apps", "SaaS", "E-Commerce"],
+    icon: "⟨/⟩",
+    variant: "cyan"
+  }
+];
+---
+<section class="section" id="work">
+  <div class="container">
+    <header class="head">
+      <h2 class="h2">our expertise</h2>
+      <p class="p">three core areas, distinct yet connected. pick what you need, or combine them.</p>
+    </header>
+
+    <div class="grid-3">
+      {cards.map((c) => (
+        <ExpertiseCard
+          title={c.title}
+          body={c.body}
+          tags={c.tags}
+          icon={c.icon}
+          variant={c.variant}
+        />
+      ))}
+    </div>
+  </div>
+</section>

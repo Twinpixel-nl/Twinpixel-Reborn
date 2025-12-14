@@ -1,17 +1,13 @@
 {
   "name": "twinpixel-reborn",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
-    "@tailwindcss/vite": "^4.1.16",
-    "astro": "^5.15.2",
-    "tailwindcss": "^4.1.16"
+    "astro": "^5.0.0"
   }
 }

@@ -1,0 +1,73 @@
+---
+import PillBadge from "./PillBadge.astro";
+import Button from "./Button.astro";
+---
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="topline">
+      <PillBadge text="accepting new projects" />
+    </div>
+
+    <h1 class="title">
+      digital reality,<br />
+      <span class="grad-text">pixel perfect.</span>
+    </h1>
+
+    <p class="lead">
+      a modern digital agency blending design taste with engineering precision.
+      we build fast, clean, conversion-focused websites and apps.
+    </p>
+
+    <div class="cta">
+      <Button href="#work" variant="primary" label="View our work" icon={true} />
+      <Button href="#contact" variant="secondary" label="Get in touch" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero{
+    padding: 86px 0 40px;
+    position:relative;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:-80px 0 auto 0;
+    height: 420px;
+    background: radial-gradient(700px 300px at 50% 30%, rgba(34,211,238,.16), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    text-align:center;
+    position:relative;
+    z-index:1;
+  }
+  .topline{ margin-bottom: 22px; }
+  .title{
+    margin:0;
+    font-size: clamp(44px, 6.6vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+  .lead{
+    width: min(820px, 100%);
+    margin: 22px auto 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .cta{
+    margin-top: 36px;
+    display:flex;
+    justify-content:center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 520px){
+    .hero{ padding: 70px 0 34px; }
+    .cta{ flex-direction: column; align-items: stretch; }
+    .cta :global(.btn){ justify-content:center; width: 100%; }
+  }
+</style>

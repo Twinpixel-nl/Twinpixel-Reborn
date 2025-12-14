@@ -1,0 +1,30 @@
+---
+const { text = "Accepting new projects", dot = true } = Astro.props;
+---
+<div class="pill">
+  {dot && <span class="dot" aria-hidden="true"></span>}
+  <span>{text}</span>
+</div>
+
+<style>
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(10,18,48,.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    color: rgba(233,238,252,.85);
+    font-size: 14px;
+    letter-spacing: .01em;
+  }
+  .dot{
+    width:9px;height:9px;
+    border-radius:99px;
+    background: linear-gradient(90deg, var(--brandA), var(--brandB));
+    box-shadow: 0 0 0 4px rgba(34,211,238,.12);
+  }
+</style>

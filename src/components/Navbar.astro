@@ -1,0 +1,96 @@
+---
+import Button from "./Button.astro";
+---
+<header class="nav">
+  <div class="container nav-inner">
+    <!-- left: logo -->
+    <a href="/" class="logo">
+      twin<span>pixel</span>
+    </a>
+
+    <!-- center: navigation -->
+    <nav class="menu">
+      <a href="/" class="active">Home</a>
+      <a href="#work">Expertise</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- right: CTA -->
+    <div class="cta">
+      <Button href="#contact" variant="primary" label="Get in touch" />
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    background: linear-gradient(
+      180deg,
+      rgba(5,8,20,.75),
+      rgba(5,8,20,.55)
+    );
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-inner{
+    height: 72px;
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    align-items:center;
+  }
+
+  /* logo */
+  .logo{
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 20px;
+  }
+  .logo span{
+    background: linear-gradient(90deg, var(--brandA), var(--brandB));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  /* menu */
+  .menu{
+    display:flex;
+    justify-content:center;
+    gap: 28px;
+  }
+  .menu a{
+    color: var(--muted);
+    font-weight: 500;
+    position: relative;
+  }
+  .menu a:hover{
+    color: var(--text);
+  }
+  .menu a.active{
+    color: var(--text);
+  }
+  .menu a.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-10px;
+    height:2px;
+    border-radius:2px;
+    background: linear-gradient(90deg, var(--brandA), var(--brandB));
+  }
+
+  /* right */
+  .cta{
+    display:flex;
+    align-items:center;
+  }
+
+  @media (max-width: 820px){
+    .menu{ display:none; } /* mobiel later */
+  }
+</style>

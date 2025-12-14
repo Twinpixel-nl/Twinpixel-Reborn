@@ -1,0 +1,115 @@
+---
+const {
+  title = "Service",
+  body = "Short service description.",
+  tags = [],
+  icon = "✦",
+  variant = "blue" // purple | blue | cyan
+} = Astro.props;
+---
+<article class={`card ${variant}`}>
+  <div class="icon">{icon}</div>
+
+  <h3 class="h3">{title}</h3>
+  <p class="text">{body}</p>
+
+  <div class="tags">
+    {tags.map((t) => <span class="tag">{t}</span>)}
+  </div>
+</article>
+
+<style>
+  /* base */
+  .card{
+    --accent: var(--brandA);
+
+    position: relative;
+    border-radius: var(--radius);
+    padding: 28px;
+    min-height: 340px;
+
+    background: linear-gradient(180deg, var(--card), var(--card2));
+
+    /* DUIDELIJKE OMLIJNING */
+    border: 2px solid var(--accent);
+
+    /* extra inner outline voor scherpte */
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.12),
+      0 20px 60px rgba(0,0,0,.55);
+
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+
+    transition:
+      transform .2s ease,
+      box-shadow .2s ease,
+      border-color .2s ease;
+  }
+
+  /* kleuren */
+  .purple{ --accent:#a78bfa; }
+  .blue{   --accent:#60a5fa; }
+  .cyan{   --accent:#22d3ee; }
+
+  /* hover = duidelijker */
+  .card:hover{
+    transform: translateY(-6px);
+
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.18),
+      0 28px 90px color-mix(in srgb, var(--accent) 45%, transparent),
+      0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  .icon{
+    width:64px;
+    height:64px;
+    border-radius:18px;
+
+    display:grid;
+    place-items:center;
+    font-size:22px;
+
+    background: rgba(10,18,48,.7);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+
+    margin-bottom: 4px;
+  }
+
+  .h3{
+    margin: 6px 0 0;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+  }
+
+  .text{
+    margin:0;
+    color: var(--muted);
+    line-height:1.7;
+    font-size:16px;
+  }
+
+  .tags{
+    margin-top:auto;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    padding-top:10px;
+  }
+
+  .tag{
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:13px;
+
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    background: rgba(10,18,48,.6);
+  }
+</style>
