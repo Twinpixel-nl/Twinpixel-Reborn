@@ -8,7 +8,7 @@ const {
 } = Astro.props;
 ---
 <article class={`card ${variant}`}>
-  <div class="icon">{icon}</div>
+  <div class="icon" aria-hidden="true">{icon}</div>
 
   <h3 class="h3">{title}</h3>
   <p class="text">{body}</p>
@@ -19,67 +19,111 @@ const {
 </article>
 
 <style>
-  /* base */
   .card{
-    --accent: var(--brandA);
+    --accent: #60a5fa;
 
     position: relative;
     border-radius: var(--radius);
     padding: 28px;
     min-height: 340px;
+    overflow: hidden;
 
     background: linear-gradient(180deg, var(--card), var(--card2));
 
-    /* DUIDELIJKE OMLIJNING */
+    /* clear outline */
     border: 2px solid var(--accent);
 
-    /* extra inner outline voor scherpte */
+    /* clean base shadow */
     box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,.12),
-      0 20px 60px rgba(0,0,0,.55);
+      inset 0 0 0 1px rgba(255,255,255,.10),
+      0 18px 50px rgba(0,0,0,.55);
 
     display:flex;
     flex-direction:column;
     gap: 14px;
 
+    transform: translateY(0) scale(1);
     transition:
-      transform .2s ease,
-      box-shadow .2s ease,
-      border-color .2s ease;
+      transform .22s cubic-bezier(.2,.8,.2,1),
+      box-shadow .22s cubic-bezier(.2,.8,.2,1),
+      border-color .22s ease;
   }
 
-  /* kleuren */
   .purple{ --accent:#a78bfa; }
   .blue{   --accent:#60a5fa; }
   .cyan{   --accent:#22d3ee; }
 
-  /* hover = duidelijker */
-  .card:hover{
-    transform: translateY(-6px);
+  /* glow layer */
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius: inherit;
+    pointer-events:none;
+    opacity:.22;
+    background:
+      radial-gradient(520px 260px at 25% 10%, rgba(255,255,255,.10), transparent 55%),
+      radial-gradient(680px 380px at 40% 0%, color-mix(in srgb, var(--accent) 40%, transparent), transparent 60%);
+    transition: opacity .22s ease;
+  }
 
+  /* animated gradient sweep */
+  .card::after{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    pointer-events:none;
+    opacity:0;
+    background: conic-gradient(
+      from 180deg,
+      transparent 0 40%,
+      color-mix(in srgb, var(--accent) 35%, transparent) 55%,
+      transparent 70% 100%
+    );
+    filter: blur(18px);
+    transform: rotate(0deg);
+    transition: opacity .22s ease;
+  }
+
+  .card:hover{
+    transform: translateY(-8px) scale(1.01);
+    border-color: color-mix(in srgb, var(--accent) 85%, white 15%);
     box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,.18),
-      0 28px 90px color-mix(in srgb, var(--accent) 45%, transparent),
-      0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+      inset 0 0 0 1px rgba(255,255,255,.16),
+      0 28px 90px rgba(0,0,0,.65),
+      0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent),
+      0 18px 70px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+  .card:hover::before{ opacity:.55; }
+  .card:hover::after{
+    opacity:1;
+    animation: sweep 1.8s linear infinite;
+  }
+
+  @keyframes sweep{
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
   }
 
   .icon{
     width:64px;
     height:64px;
     border-radius:18px;
-
     display:grid;
     place-items:center;
     font-size:22px;
 
-    background: rgba(10,18,48,.7);
+    background: rgba(10,18,48,.72);
     border: 2px solid var(--accent);
     color: var(--accent);
 
     box-shadow:
-      0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+      0 0 0 5px color-mix(in srgb, var(--accent) 18%, transparent);
 
-    margin-bottom: 4px;
+    transition: transform .22s cubic-bezier(.2,.8,.2,1);
+  }
+  .card:hover .icon{
+    transform: translateY(-2px) scale(1.03);
   }
 
   .h3{
@@ -107,9 +151,14 @@ const {
     padding:7px 12px;
     border-radius:999px;
     font-size:13px;
-
-    border: 2px solid var(--accent);
+    border: 1px solid rgba(255,255,255,.12);
     color: var(--accent);
-    background: rgba(10,18,48,.6);
+    background: rgba(10,18,48,.62);
+    transition: transform .22s cubic-bezier(.2,.8,.2,1);
   }
+  .card:hover .tag{ transform: translateY(-1px); }
+  .card:hover{
+  border-color: var(--accent);
+}
+
 </style>

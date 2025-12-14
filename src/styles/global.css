@@ -21,15 +21,19 @@ html,body{ height:100%; }
 body{
   margin:0;
   color:var(--text);
+
+  /* DIEPERE, DONKERDERE BASIS */
   background:
-    radial-gradient(1200px 520px at 50% 0%, rgba(96,165,250,.20), transparent 55%),
-    radial-gradient(900px 520px at 80% 35%, rgba(34,211,238,.14), transparent 58%),
-    radial-gradient(1100px 700px at 20% 55%, rgba(99,102,241,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+    radial-gradient(900px 520px at 15% 10%, rgba(96,165,250,.10), transparent 60%),
+    radial-gradient(900px 520px at 85% 20%, rgba(34,211,238,.08), transparent 60%),
+    radial-gradient(1100px 700px at 50% 95%, rgba(99,102,241,.06), transparent 65%),
+    linear-gradient(180deg, #030617 0%, #050a1f 55%, #060c24 100%);
+
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 a{ color:inherit; text-decoration:none; }
 img{ max-width:100%; display:block; }
@@ -40,8 +44,26 @@ img{ max-width:100%; display:block; }
 }
 
 .section{
-  padding: 88px 0;
+  padding: 110px 0;
+  position: relative;
 }
+
+.section::before{
+  content:"";
+  position:absolute;
+  inset:-1px 0;
+  pointer-events:none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(3,6,23,.00),
+    rgba(3,6,23,.45) 45%,
+    rgba(3,6,23,.00)
+  );
+
+  opacity: 1;
+}
+
 
 .h-eyebrow{
   margin: 0 0 12px;
@@ -51,17 +73,17 @@ img{ max-width:100%; display:block; }
 }
 
 .h2{
-  margin: 0;
-  font-size: clamp(28px, 3.6vw, 52px);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.h3{
+  font-weight: 600;
 }
 
 .p{
-  margin: 14px 0 0;
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.6;
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 .grid-3{
