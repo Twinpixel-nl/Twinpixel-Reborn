@@ -4,19 +4,25 @@ import ExpertiseCard from "./ExpertiseCard.astro";
 
 const cards = [
   {
-    title: "Webdesign",
-    body: "Strakke layout, duidelijke hiërarchie en een uitstraling die vertrouwen wekt.",
-    tags: ["UX", "Visual design", "Brand feel"]
+    title: "Branding",
+    body: "Visual identity, tone of voice en een design system dat overal klopt.",
+    tags: ["Logo", "Identity", "Design system"],
+    href: "/expertise",
+    variant: "purple"
   },
   {
-    title: "Astro development",
-    body: "Supersnel, onderhoudbaar en gebouwd voor performance en SEO.",
-    tags: ["Performance", "Clean code", "Static-first"]
+    title: "Standard Websites",
+    body: "Snelle marketing sites en landingspagina’s die vertrouwen wekken en converteren.",
+    tags: ["Landing pages", "CMS", "Conversion"],
+    href: "/expertise",
+    variant: "blue"
   },
   {
-    title: "SEO basis",
-    body: "Structuur, titles, interne links en technische basis zodat je gevonden kunt worden.",
-    tags: ["On-page", "Technical", "Content"]
+    title: "Technical Websites",
+    body: "Custom front-ends, integraties en complexe flows — strak en onderhoudbaar.",
+    tags: ["Integrations", "Web apps", "Performance"],
+    href: "/expertise",
+    variant: "cyan"
   }
 ];
 ---
@@ -24,13 +30,26 @@ const cards = [
   <div class="container">
     <SectionHeader
       title="expertise"
-      subtitle="focus op design, snelheid en een SEO-basis die klopt. geen rommel, wel resultaat."
+      subtitle="drie kerngebieden. klik door voor details, aanpak en voorbeelden."
     />
 
-    <div class="grid-3">
+    <div class="grid-3 big">
       {cards.map((c) => (
-        <ExpertiseCard title={c.title} body={c.body} tags={c.tags} />
+        <ExpertiseCard
+          title={c.title}
+          body={c.body}
+          tags={c.tags}
+          href={c.href}
+          variant={c.variant}
+        />
       ))}
     </div>
   </div>
+
+  <style>
+    /* groter grid gevoel */
+    .big{
+      gap: 22px;
+    }
+  </style>
 </section>

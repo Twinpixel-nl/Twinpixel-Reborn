@@ -1,0 +1,56 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import CaseCard from "./CaseCard.astro";
+import Button from "./Button.astro";
+import { cases } from "../data/cases.js";
+
+const top3 = cases.filter(c => c.featured).slice(0, 3);
+---
+
+<section class="section" id="cases">
+  <div class="container">
+    <div class="head">
+      <SectionHeader
+        title="cases"
+        subtitle="een selectie. strak design, snelle builds en een basis die schaalbaar blijft."
+      />
+      <div class="head-cta">
+        <Button href="/cases" variant="secondary" label="Bekijk alle cases" />
+      </div>
+    </div>
+
+    <div class="grid">
+      {top3.map((c) => (
+        <CaseCard
+          title={c.title}
+          description={c.description}
+          tags={c.tags}
+          image={c.image}
+          href={`/cases#${c.slug}`}
+          accent="#2F89FF"
+        />
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 980px){
+      .head{ align-items:flex-start; flex-direction:column; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</section>

@@ -14,19 +14,28 @@
   --radius: 16px;
   --container: 1160px;
 }
+html{ scroll-behavior: smooth; }
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
   margin:0;
   color: var(--text);
+
+  /* ONE CANVAS BACKGROUND */
   background:
-    radial-gradient(900px 520px at 50% -10%, rgba(47,137,255,.12), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
+    radial-gradient(1200px 700px at 50% -20%, rgba(47,137,255,.16), transparent 60%),
+    radial-gradient(1000px 650px at 15% 35%, rgba(124,58,237,.10), transparent 68%),
+    radial-gradient(1000px 650px at 85% 70%, rgba(34,211,238,.08), transparent 70%),
+    linear-gradient(180deg, #02030a 0%, #030512 45%, #04071a 100%);
+
+  background-attachment: fixed; /* keeps it as one “canvas” */
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 
 a{ color:inherit; text-decoration:none; }
 img{ max-width:100%; display:block; }

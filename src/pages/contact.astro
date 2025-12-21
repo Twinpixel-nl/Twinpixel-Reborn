@@ -1,0 +1,435 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"; // <-- pas dit aan naar jouw layout
+
+const page = {
+  title: "Contact",
+  description:
+    "Stuur ons een bericht. We reageren meestal binnen 1 werkdag.",
+};
+
+// pas dit aan naar jullie gegevens
+const company = {
+  name: "TwinPixel",
+  location: "Wageningen, Nederland",
+  email: "meurstwan@gmail.com",
+  phone: "+31 6 82579179",
+  website: "https://twinpixel.nl",
+  instagram: "https://instagram.com/",
+  linkedin: "https://linkedin.com/",
+};
+---
+
+<BaseLayout title={page.title} description={page.description}>
+  <main class="page">
+    <header class="hero">
+      <p class="kicker">contact</p>
+      <h1 class="h1">{page.title}</h1>
+      <p class="lead">{page.description}</p>
+    </header>
+
+    <section class="grid" aria-label="Contact">
+      <!-- left: info -->
+      <aside class="panel info" aria-label="Contactgegevens">
+        <div class="card">
+          <h2 class="h2">gegevens</h2>
+
+          <dl class="list">
+            <div class="row">
+              <dt>bedrijf</dt>
+              <dd>{company.name}</dd>
+            </div>
+            <div class="row">
+              <dt>locatie</dt>
+              <dd>{company.location}</dd>
+            </div>
+            <div class="row">
+              <dt>mail</dt>
+              <dd>
+                <a class="link" href={`mailto:${company.email}`}>{company.email}</a>
+              </dd>
+            </div>
+            <div class="row">
+              <dt>telefoon</dt>
+              <dd>
+                <a class="link" href={`tel:${company.phone.replaceAll(" ", "")}`}>
+                  {company.phone}
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="actions">
+            <a class="btn" href={`mailto:${company.email}?subject=Contact%20via%20website`}>
+              mailen
+            </a>
+            <a class="btn ghost" href={company.website} target="_blank" rel="noreferrer">
+              website
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="h2">social</h2>
+          <div class="social">
+            <a class="pill" href={company.linkedin} target="_blank" rel="noreferrer">
+              linkedin
+            </a>
+            <a class="pill" href={company.instagram} target="_blank" rel="noreferrer">
+              instagram
+            </a>
+          </div>
+
+          <p class="note">
+            liever direct plannen? zet in je bericht alvast: budget, deadline en wat je nodig hebt
+            (website, redesign, landing page, etc.).
+          </p>
+        </div>
+      </aside>
+
+      <!-- right: form -->
+      <section class="panel form" aria-label="Contactformulier">
+        <div class="card">
+          <h2 class="h2">stuur een bericht</h2>
+          <p class="muted">
+            geen gedoe. gewoon even invullen, dan reageren we snel.
+          </p>
+
+          <!-- Netlify Forms: werkt direct op Netlify -->
+          <form
+            class="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <!-- required hidden fields for netlify -->
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="sr-only">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </p>
+
+            <div class="fields">
+              <label class="field">
+                <span>naam</span>
+                <input
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                  placeholder="je naam"
+                />
+              </label>
+
+              <label class="field">
+                <span>e-mail</span>
+                <input
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  placeholder="naam@bedrijf.nl"
+                />
+              </label>
+
+              <label class="field">
+                <span>onderwerp</span>
+                <input
+                  name="subject"
+                  type="text"
+                  required
+                  placeholder="bijv. nieuwe website voor mijn bedrijf"
+                />
+              </label>
+
+              <label class="field full">
+                <span>bericht</span>
+                <textarea
+                  name="message"
+                  rows="7"
+                  required
+                  placeholder="vertel kort wat je zoekt + eventuele deadline"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="form-footer">
+              <button class="btn" type="submit">versturen</button>
+              <p class="tiny">
+                door te versturen ga je akkoord dat we je bericht mogen gebruiken om contact op te
+                nemen.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div class="card subtle">
+          <h3 class="h3">typische vragen</h3>
+          <ul class="faq">
+            <li><span class="q">wat kost een website?</span><span class="a">hangt af van scope. noem je budget, dan kunnen we meteen meedenken.</span></li>
+            <li><span class="q">hoe snel kunnen jullie leveren?</span><span class="a">als je deadline erbij zet, kunnen we eerlijk zeggen of het past.</span></li>
+            <li><span class="q">doen jullie ook onderhoud/hosting?</span><span class="a">ja, kan. zet erbij wat je nu hebt (provider/domein).</span></li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <style>
+    .page {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3.5rem 0 5rem;
+    }
+
+    .hero {
+      margin-bottom: 2rem;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      opacity: 0.75;
+      margin: 0 0 0.75rem;
+    }
+
+    .h1 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 60ch;
+      opacity: 0.85;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .panel {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 18px;
+      padding: 1.1rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .subtle {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .h2 {
+      margin: 0 0 0.8rem;
+      font-size: 1.05rem;
+      text-transform: lowercase;
+      letter-spacing: 0.02em;
+    }
+
+    .h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+    }
+
+    .muted {
+      margin: 0 0 1rem;
+      opacity: 0.8;
+    }
+
+    .list {
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    dt {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    .link {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .link:hover {
+      border-bottom-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn.ghost {
+      background: transparent;
+    }
+
+    .social {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+
+    .pill {
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .pill:hover {
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .note {
+      margin: 0;
+      opacity: 0.75;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .contact-form {
+      margin-top: 0.25rem;
+    }
+
+    .fields {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field span {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 0.8rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.18);
+      color: inherit;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.24);
+    }
+
+    .form-footer {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .tiny {
+      margin: 0;
+      opacity: 0.65;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .faq {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .faq li {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .q {
+      font-weight: 650;
+    }
+
+    .a {
+      opacity: 0.8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .fields {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>

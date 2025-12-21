@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import { cases } from "../../data/cases.js";
+
+export function getStaticPaths() {
+  return cases.map((c) => ({
+    params: { slug: c.slug },
+    props: { c }
+  }));
+}
+
+const { c } = Astro.props;
+---
+
+<BaseLayout title={`Twinpixel — ${c.title}`} description={c.description}>
+  <section class="hero" style={`--accent:${c.accent || "#2F89FF"};`}>
+    <div class="container inner">
+      <p class="kicker">case</p>
+      <h1 class="h1">{c.title}</h1>
+      <p class="lead">{c.description}</p>
+
+      <div class="cta">
+        <Button href="/cases" variant="secondary" label="← back to cases" />
+        <Button href="/#contact" variant="primary" label="Work with us" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid">
+      <div class="main">
+        <div class="image">
+          {c.image ? <img src={c.image} alt={c.title} loading="lazy" /> : null}
+        </div>
+
+        <h2 class="h2">what we did</h2>
+        <ul class="list">
+          {(c.overview || []).map((b) => <li>{b}</li>)}
+        </ul>
+
+        <h2 class="h2">outcome</h2>
+        <p class="p">
+          Voeg hier straks je echte outcome tekst toe per case (SEO groei, bezoekers, conversie, etc.).
+          Dit kan later ook uit je data komen.
+        </p>
+      </div>
+
+      <aside class="side">
+        <div class="panel">
+          <h3 class="mini">metrics</h3>
+          <div class="stats">
+            {(c.stats || []).map((s) => (
+              <div class="stat">
+                <span class="label">{s.label}</span>
+                <span class="value">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="mini">stack</h3>
+          <p class="small">Astro • HTML/CSS • SEO foundations</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <style>
+    .hero{
+      padding: 140px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-200px -120px;
+      pointer-events:none;
+      background:
+        radial-gradient(1000px 620px at 20% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%),
+        radial-gradient(900px 620px at 80% 70%, rgba(255,255,255,.06), transparent 70%);
+      opacity:.9;
+    }
+    .inner{ position: relative; z-index: 1; max-width: 920px; }
+
+    .kicker{
+      margin: 0 0 14px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.50);
+    }
+
+    .h1{
+      margin: 0;
+      font-size: clamp(40px, 5vw, 70px);
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      font-weight: 650;
+    }
+
+    .lead{
+      margin: 18px 0 0;
+      color: rgba(255,255,255,.68);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 70ch;
+    }
+
+    .cta{
+      margin-top: 22px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 22px;
+      align-items:start;
+    }
+
+    .image{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      margin-bottom: 18px;
+    }
+    img{ width:100%; height:auto; display:block; }
+
+    .list{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.9;
+    }
+
+    .side{ display:flex; flex-direction:column; gap: 18px; }
+
+    .panel{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 18px;
+      position: relative;
+    }
+
+    .mini{
+      margin: 0 0 12px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .stat{
+      border-radius: 14px;
+      background: rgba(0,0,0,.14);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 10px 12px;
+    }
+    .label{
+      display:block;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.50);
+    }
+    .value{
+      display:block;
+      margin-top: 6px;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+    }
+
+    .small{
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255,255,255,.70);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>

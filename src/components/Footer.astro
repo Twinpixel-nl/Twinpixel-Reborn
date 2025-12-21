@@ -1,0 +1,228 @@
+---
+const {
+  brand = "TwinPixel",
+  location = "Wageningen, NL",
+  email = "meurstwan@gmail.com",
+  instagram = "https://instagram.com/",
+  facebook = "https://facebook.com/",
+  linkedin = "https://linkedin.com/",
+} = Astro.props;
+---
+
+<footer class="footer" aria-label="Footer">
+  <div class="inner">
+    <div class="left">
+      <div class="brand">{brand}</div>
+      <div class="meta">
+        <span>{location}</span>
+        <span class="dot">•</span>
+        <a class="link" href={`mailto:${email}`}>{email}</a>
+      </div>
+      <p class="small">websites die er strak uitzien en snel laden.</p>
+    </div>
+
+    <div class="right">
+      <nav class="nav" aria-label="Footer navigation">
+        <a href="/">home</a>
+        <a href="/work">work</a>
+        <a href="/services">services</a>
+        <a href="/contact">contact</a>
+      </nav>
+
+      <div class="social" aria-label="Social links">
+        <a class="icon ig" href={instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
+          <span class="bg"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M17.5 6.7h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <a class="icon fb" href={facebook} target="_blank" rel="noreferrer" aria-label="Facebook">
+          <span class="bg"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 8.5V7a2 2 0 0 1 2-2h2V2h-2.2A5.8 5.8 0 0 0 10 7.8V8.5H7.5V12H10v10h4V12h3.2l.8-3.5H14Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a class="icon in" href={linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <span class="bg"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 9.5V20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M6.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10.5 20v-6.2c0-2.2 1.2-3.5 3.1-3.5 1.8 0 2.9 1.2 2.9 3.4V20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10.5 9.5V20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M4.5 20h15" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <span class="dim">© {new Date().getFullYear()} {brand}</span>
+    <span class="dim">built with astro</span>
+  </div>
+
+  <style>
+    .footer {
+      margin-top: 3.5rem;
+      padding: 2.25rem 0 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.02);
+    }
+    .inner {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .brand {
+      font-weight: 750;
+      letter-spacing: 0.01em;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+    .meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+    .dot { opacity: 0.55; }
+    .link {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+    .link:hover { border-bottom-color: rgba(255,255,255,0.6); }
+    .small {
+      margin: 0.75rem 0 0;
+      opacity: 0.7;
+      line-height: 1.6;
+      max-width: 52ch;
+    }
+
+    .right {
+      display: grid;
+      gap: 1rem;
+      justify-items: end;
+    }
+
+    .nav {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      opacity: 0.85;
+    }
+    .nav a {
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.15rem;
+    }
+    .nav a:hover {
+      border-bottom-color: rgba(255,255,255,0.35);
+    }
+
+    .social {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      transform: translateZ(0);
+    }
+    .icon svg {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      z-index: 2;
+      transition: transform 260ms ease;
+    }
+
+    /* animated background layer */
+    .icon .bg {
+      position: absolute;
+      inset: -40%;
+      border-radius: 999px;
+      transform: translate(-30%, 30%) rotate(12deg);
+      opacity: 0;
+      transition: opacity 200ms ease, transform 520ms cubic-bezier(.2,.9,.2,1);
+      z-index: 1;
+      filter: blur(0.2px);
+    }
+
+    /* per platform vibe */
+    .icon.ig .bg {
+      background: conic-gradient(from 180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.18), rgba(255,255,255,0.0));
+    }
+    .icon.fb .bg {
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0.00) 60%);
+    }
+    .icon.in .bg {
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02));
+    }
+
+    /* hover animation */
+    .icon:hover svg {
+      transform: translateY(-1px) scale(1.06);
+    }
+    .icon:hover .bg {
+      opacity: 1;
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+    .icon:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    /* subtle idle animation */
+    .icon {
+      animation: pulse 6.5s ease-in-out infinite;
+    }
+    .icon:nth-child(2) { animation-delay: 0.6s; }
+    .icon:nth-child(3) { animation-delay: 1.2s; }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(255,255,255,0.0); }
+      50% { box-shadow: 0 0 0 10px rgba(255,255,255,0.02); }
+    }
+
+    .bottom {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 1.5rem auto 0;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .dim {
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .inner { grid-template-columns: 1fr; }
+      .right { justify-items: start; }
+      .nav { justify-content: flex-start; }
+    }
+  </style>
+</footer>

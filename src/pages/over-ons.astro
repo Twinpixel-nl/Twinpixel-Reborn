@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Over ons";
+const description =
+  "Wij zijn twee HBO-ICT studenten met focus op technische websites.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="page">
+    <header class="hero">
+      <p class="kicker">over ons</p>
+      <h1 class="h1">twee studenten, korte lijnen</h1>
+    </header>
+
+    <section class="content">
+      <p>
+        wij zijn twee hbo-ict studenten en bouwen naast onze studie websites
+        voor ondernemers en organisaties. we focussen ons op techniek:
+        snelheid, structuur en onderhoudbaarheid.
+      </p>
+
+      <p>
+        geen templates en geen marketingbureau-praat. je werkt direct
+        met de mensen die je website ontwerpen en bouwen. dat houdt het
+        overzichtelijk en efficiënt.
+      </p>
+
+      <p>
+        we zijn gevestigd in wageningen en werken vooral met klanten
+        die iets degelijks willen neerzetten — nu en op de lange termijn.
+      </p>
+    </section>
+  </main>
+
+  <style>
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 1.2rem 5rem;
+    }
+
+    .hero {
+      margin-bottom: 2rem;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+      margin-bottom: 0.6rem;
+    }
+
+    .h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      line-height: 1.1;
+    }
+
+    .content {
+      max-width: 65ch;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .content p {
+      margin: 0;
+      line-height: 1.7;
+      opacity: 0.88;
+    }
+  </style>
+</BaseLayout>

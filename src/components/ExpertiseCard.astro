@@ -1,46 +1,119 @@
 ---
-const { title, body, tags = [] } = Astro.props;
+const {
+  title,
+  body,
+  tags = [],
+  href = "/expertise",
+  variant = "blue" // blue | cyan | purple
+} = Astro.props;
+
+const accent =
+  variant === "cyan" ? "#22c55e" :
+  variant === "purple" ? "#7c3aed" :
+  "#2F89FF";
 ---
-<article class="card">
-  <h3 class="h3">{title}</h3>
+<a class="card" href={href} style={`--accent:${accent};`} aria-label={title}>
+  <div class="top">
+    <h3 class="h3">{title}</h3>
+    <span class="pill">Bekijk →</span>
+  </div>
+
   <p class="text">{body}</p>
 
   <div class="tags">
     {tags.map((t) => <span class="tag">{t}</span>)}
   </div>
-</article>
+</a>
 
 <style>
   .card{
+    display:block;
     border-radius: var(--radius);
-    background: rgba(255,255,255,.03);
-    border: 1px solid rgba(255,255,255,.10);
-    padding: 18px;
-    transition: transform .14s ease, border-color .14s ease, background-color .14s ease;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.11);
+
+    padding: 22px;
+    min-height: 320px; /* groter */
+    position: relative;
+    overflow: hidden;
+
+    transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+  }
+
+  /* subtiele “ambient sheen” die niet schreeuwt */
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    pointer-events:none;
+    opacity: .0;
+    background:
+      radial-gradient(600px 260px at 20% 0%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 62%),
+      radial-gradient(520px 220px at 80% 20%, rgba(255,255,255,.06), transparent 68%);
+    transition: opacity .18s ease;
+  }
+
+  /* dunne accent rand bij hover (premium) */
+  .card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius: inherit;
+    pointer-events:none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.00);
+    transition: box-shadow .18s ease;
   }
 
   .card:hover{
-    transform: translateY(-2px);
-    border-color: rgba(47,137,255,.45);
-    background-color: rgba(47,137,255,.05);
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 55%, rgba(255,255,255,.16));
+    background-color: rgba(255,255,255,.045);
+  }
+  .card:hover::before{ opacity: 1; }
+  .card:hover::after{
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  .top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 12px;
   }
 
   .h3{
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: -0.02em;
     font-weight: 600;
   }
 
+  .pill{
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.12);
+    color: rgba(255,255,255,.70);
+    transition: border-color .18s ease, color .18s ease;
+    white-space: nowrap;
+  }
+
+  .card:hover .pill{
+    border-color: color-mix(in srgb, var(--accent) 55%, rgba(255,255,255,.18));
+    color: rgba(255,255,255,.88);
+  }
+
   .text{
-    margin: 10px 0 0;
-    color: rgba(255,255,255,.65);
-    line-height: 1.7;
+    margin: 14px 0 0;
+    color: rgba(255,255,255,.66);
+    line-height: 1.75;
     font-size: 15px;
   }
 
   .tags{
-    margin-top: 14px;
+    margin-top: 16px;
     display:flex;
     flex-wrap:wrap;
     gap: 10px;
@@ -51,7 +124,7 @@ const { title, body, tags = [] } = Astro.props;
     padding: 6px 10px;
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,.12);
-    color: rgba(255,255,255,.72);
+    color: rgba(255,255,255,.70);
     background: rgba(0,0,0,.10);
   }
 </style>

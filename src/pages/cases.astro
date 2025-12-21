@@ -1,0 +1,427 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import CaseCard from "../components/CaseCard.astro";
+import FeaturedCaseBlock from "../components/FeaturedCaseBlock.astro";
+import { cases } from "../data/cases.js";
+
+const marked = cases.filter(c => c.featured);
+const featured = (marked.length >= 3 ? marked : cases).slice(0, 3);
+
+const featuredSlugs = new Set(featured.map(c => c.slug));
+const rest = cases.filter(c => !featuredSlugs.has(c.slug));
+
+const f1 = featured[0];
+const f2 = featured[1];
+const f3 = featured[2];
+
+---
+
+<BaseLayout title="Twinpixel — Cases" description="Cases van Twinpixel: design, performance en SEO.">
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="kicker">selected work</p>
+      <h1 class="h1">cases</h1>
+      <p class="lead">
+        10 projecten. strak design, performance-first builds en een SEO-basis die klopt.
+      </p>
+
+      <div class="cta">
+        <Button href="/#contact" variant="primary" label="Plan kennismaking" />
+        <Button href="/expertise" variant="secondary" label="Bekijk expertise" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="featured">
+        {f1 && (
+          <div class="f1">
+            <FeaturedCaseBlock
+              title={f1.title}
+              description={f1.description}
+              tags={f1.tags}
+              stats={f1.stats}
+              overview={f1.overview}
+              image={f1.image}
+              accent={f1.accent || "#2F89FF"}
+              href={`/cases/${f1.slug}`}
+            />
+          </div>
+        )}
+
+        {f2 && (
+          <a
+            class="f2 reverse"
+            href={`/cases/${f2.slug}`}
+            style={`--accent:${f2.accent || "#7c3aed"};`}
+            aria-label={`View case: ${f2.title}`}
+          >
+            <div class="f2-body">
+              <p class="mini">spotlight</p>
+              <h3 class="h3">{f2.title}</h3>
+              <p class="text">{f2.description}</p>
+
+              <div class="f2-stats">
+                {(f2.stats || []).slice(0, 2).map((s) => (
+                  <div class="pill">
+                    <span class="l">{s.label}</span>
+                    <span class="v">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div class="link">view case →</div>
+            </div>
+
+            <div class="f2-media">
+              {f2.image ? <img src={f2.image} alt={f2.title} loading="lazy" /> : <div class="ph"></div>}
+            </div>
+          </a>
+        )}
+
+        {f3 && (
+          <a
+            class="f3"
+            href={`/cases/${f3.slug}`}
+            style={`--accent:${f3.accent || "#14b8a6"};`}
+            aria-label={`View case: ${f3.title}`}
+          >
+            <div class="f3-top">
+              <p class="mini">featured</p>
+              <div class="dot" aria-hidden="true"></div>
+            </div>
+
+            <h3 class="h3">{f3.title}</h3>
+            <p class="text">{f3.description}</p>
+
+            <div class="f3-stats">
+              {(f3.stats || []).slice(0, 3).map((s) => (
+                <div class="stat">
+                  <span class="l">{s.label}</span>
+                  <span class="v">{s.value}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="link">view case →</div>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="subhead">
+        <h2 class="h2">all cases</h2>
+        <p class="p">de volledige selectie. klik door voor de uitgebreide case.</p>
+      </div>
+
+      <div class="grid">
+        {rest.map((c) => (
+          <CaseCard
+            title={c.title}
+            description={c.description}
+            tags={c.tags}
+            image={c.image}
+            accent={c.accent || "#2F89FF"}
+            href={`/cases/${c.slug}`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hero{
+      padding: 140px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-200px -120px;
+      pointer-events:none;
+      background:
+        radial-gradient(1000px 620px at 20% 0%, rgba(47,137,255,.18), transparent 62%),
+        radial-gradient(900px 620px at 85% 35%, rgba(124,58,237,.10), transparent 68%),
+        radial-gradient(900px 620px at 80% 80%, rgba(20,184,166,.07), transparent 70%);
+      opacity:.9;
+    }
+
+    .hero-inner{ position: relative; z-index: 1; max-width: 860px; }
+
+    .kicker{
+      margin: 0 0 14px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.50);
+    }
+
+    .h1{
+      margin: 0;
+      font-size: clamp(44px, 5.2vw, 74px);
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      font-weight: 650;
+    }
+
+    .lead{
+      margin: 18px 0 0;
+      color: rgba(255,255,255,.68);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 70ch;
+    }
+
+    .cta{
+      margin-top: 26px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .featured{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      align-items:start;
+      min-width: 0;
+    }
+/* ensure inner blocks may shrink */
+.f1, .f2, .f3,
+.f2-body, .f2-media{
+  min-width: 0;
+}
+
+    .f1{ grid-column: 1 / 2; }
+
+    .f2{
+      grid-column: 2 / 3;
+      display:grid;
+      grid-template-rows: 190px 1fr; /* image boven, tekst onder */
+      border-radius: calc(var(--radius) + 6px);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      position: relative;
+      transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+      min-height: 420px;
+    }
+
+    .f2::after{
+      content:"";
+      position:absolute;
+      inset:-180px -120px;
+      pointer-events:none;
+      opacity: 0;
+      background: radial-gradient(900px 520px at 30% 10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 65%);
+      transition: opacity .18s ease;
+    }
+
+    .f2:hover{
+      transform: translateY(-3px);
+      border-color: color-mix(in srgb, var(--accent) 45%, rgba(255,255,255,.14));
+      background-color: rgba(255,255,255,.04);
+    }
+    .f2:hover::after{ opacity: 1; }
+
+    .f2-body{
+      padding: 16px 16px 18px;
+      position: relative;
+      z-index: 1;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+.f2-media{
+  background: rgba(0,0,0,.22);
+  overflow:hidden;
+  border-radius: 0; /* omdat de card al rounded is */
+  height: 100%;
+  min-height: 180px;
+}
+
+.f2-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  display:block;
+  transform: scale(1);
+  transition: transform .45s ease;
+}
+
+.f2:hover .f2-media img{
+  transform: scale(1.04);
+}
+    /* reverse: keep content left, image right (already by markup) */
+    .f2.reverse .f2-body{ order: 1; }
+    .f2.reverse .f2-media{ order: 2; }
+
+    .f3{
+      grid-column: 1 / 3;
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+    }
+
+    .f3::after{
+      content:"";
+      position:absolute;
+      inset:-200px -120px;
+      pointer-events:none;
+      opacity: 0;
+      background: radial-gradient(900px 520px at 15% 30%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%);
+      transition: opacity .18s ease;
+    }
+
+    .f3:hover{
+      transform: translateY(-3px);
+      border-color: color-mix(in srgb, var(--accent) 45%, rgba(255,255,255,.14));
+      background-color: rgba(255,255,255,.04);
+    }
+    .f3:hover::after{ opacity: 1; }
+
+    .f3-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
+      opacity:.9;
+    }
+
+    .mini{
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.50);
+    }
+
+    .h3{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+      font-weight: 650;
+      position: relative;
+      z-index: 1;
+    }
+
+    .text{
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.66);
+      line-height: 1.75;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link{
+      margin-top: 14px;
+      color: rgba(255,255,255,.90);
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .f2-stats{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill{
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      padding: 8px 10px;
+      display:flex;
+      gap: 8px;
+      align-items:baseline;
+    }
+    .pill .l{
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.52);
+    }
+    .pill .v{
+      font-size: 12px;
+      color: rgba(255,255,255,.88);
+    }
+
+    .f3-stats{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat{
+      border-radius: 14px;
+      background: rgba(0,0,0,.14);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 10px 12px;
+    }
+
+    .stat .l{
+      display:block;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.50);
+    }
+
+    .stat .v{
+      display:block;
+      margin-top: 6px;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+    }
+
+    .subhead{
+      margin-bottom: 16px;
+      max-width: 760px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 980px){
+      .featured{ grid-template-columns: 1fr; }
+      .f1, .f2, .f3{ grid-column: auto; }
+      .f2{ grid-template-columns: 1fr; }
+      .f3-stats{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .f2-media{ aspect-ratio: 16/9; }
+    }
+  </style>
+</BaseLayout>
