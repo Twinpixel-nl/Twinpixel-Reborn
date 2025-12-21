@@ -1,73 +1,136 @@
 ---
-import PillBadge from "./PillBadge.astro";
 import Button from "./Button.astro";
 ---
 <section class="hero" id="top">
-  <div class="container hero-inner">
-    <div class="topline">
-      <PillBadge text="accepting new projects" />
+  <div class="container wrap">
+    <div class="left">
+      <p class="kicker">webdesign & development — wageningen</p>
+
+      <h1 class="h1">
+        Strakke websites die vertrouwen wekken
+        <span class="dot">.</span>
+      </h1>
+
+      <p class="lead">
+        Twinpixel ontwerpt en bouwt snelle websites met een premium uitstraling.
+        Duidelijke structuur, sterke content en een SEO-basis die klopt.
+      </p>
+
+      <div class="cta">
+        <Button href="/portfolio" variant="primary" label="Bekijk portfolio" />
+        <Button href="#contact" variant="secondary" label="Plan kennismaking" />
+      </div>
+
+      <div class="proof" aria-label="Key points">
+        <span>Performance-first</span>
+        <span class="sep">•</span>
+        <span>SEO-ready</span>
+        <span class="sep">•</span>
+        <span>Clean design</span>
+      </div>
     </div>
 
-    <h1 class="title">
-      digital reality,<br />
-      <span class="grad-text">pixel perfect.</span>
-    </h1>
-
-    <p class="lead">
-      a modern digital agency blending design taste with engineering precision.
-      we build fast, clean, conversion-focused websites and apps.
-    </p>
-
-    <div class="cta">
-      <Button href="#work" variant="primary" label="View our work" icon={true} />
-      <Button href="#contact" variant="secondary" label="Get in touch" />
+    <div class="right">
+      <div class="panel">
+        <div class="row">
+          <span class="label">Focus</span>
+          <span class="value">Design • Snelheid • SEO</span>
+        </div>
+        <div class="row">
+          <span class="label">Stack</span>
+          <span class="value">Astro • Static-first • Clean code</span>
+        </div>
+        <div class="row">
+          <span class="label">Werkgebied</span>
+          <span class="value">Wageningen & omgeving</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .hero{
-    padding: 86px 0 40px;
-    position:relative;
+  .hero{ padding: 140px 0 80px; }
+
+  .wrap{
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 34px;
+    align-items:start;
   }
-  .hero::after{
-    content:"";
-    position:absolute;
-    inset:-80px 0 auto 0;
-    height: 420px;
-    background: radial-gradient(700px 300px at 50% 30%, rgba(34,211,238,.16), transparent 65%);
-    pointer-events:none;
+
+  .kicker{
+    margin: 0 0 14px;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.52);
   }
-  .hero-inner{
-    text-align:center;
-    position:relative;
-    z-index:1;
+
+  .h1{
+    margin: 0;
+    font-size: clamp(40px, 4.8vw, 68px);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+    font-weight: 650;
   }
-  .topline{ margin-bottom: 22px; }
-  .title{
-    margin:0;
-    font-size: clamp(44px, 6.6vw, 92px);
-    line-height: 0.98;
-    letter-spacing: -0.04em;
-  }
+
+  .dot{ color: var(--brand); }
+
   .lead{
-    width: min(820px, 100%);
-    margin: 22px auto 0;
-    color: var(--muted);
+    margin: 18px 0 0;
+    max-width: 58ch;
+    color: rgba(255,255,255,.68);
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
+
   .cta{
-    margin-top: 36px;
+    margin-top: 26px;
     display:flex;
-    justify-content:center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
-  @media (max-width: 520px){
-    .hero{ padding: 70px 0 34px; }
-    .cta{ flex-direction: column; align-items: stretch; }
-    .cta :global(.btn){ justify-content:center; width: 100%; }
+  .proof{
+    margin-top: 26px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: rgba(255,255,255,.52);
+    font-size: 14px;
+  }
+  .sep{ opacity: .35; }
+
+  .panel{
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.10);
+    padding: 18px;
+  }
+
+  .row{
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .row:last-child{ border-bottom: 0; }
+
+  .label{
+    display:block;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.48);
+  }
+  .value{
+    display:block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: rgba(255,255,255,.85);
+  }
+
+  @media (max-width: 980px){
+    .wrap{ grid-template-columns: 1fr; }
+    .hero{ padding: 120px 0 70px; }
   }
 </style>

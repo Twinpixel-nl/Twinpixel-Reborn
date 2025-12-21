@@ -1,47 +1,35 @@
 ---
-import ExpertiseCard from "./ExpertiseCard.astro";
 import SectionHeader from "./SectionHeader.astro";
+import ExpertiseCard from "./ExpertiseCard.astro";
 
 const cards = [
   {
-    title: "Branding",
-    body: "visual identity, tone, and a design system that stays consistent everywhere your brand shows up.",
-    tags: ["Logo", "Identity", "Strategy"],
-    icon: "🎨",
-    variant: "purple"
+    title: "Webdesign",
+    body: "Strakke layout, duidelijke hiërarchie en een uitstraling die vertrouwen wekt.",
+    tags: ["UX", "Visual design", "Brand feel"]
   },
   {
-    title: "Standard Websites",
-    body: "fast marketing sites and landing pages built to convert, easy to maintain, and polished on every device.",
-    tags: ["CMS", "Marketing", "Landing Pages"],
-    icon: "🖥",
-    variant: "blue"
+    title: "Astro development",
+    body: "Supersnel, onderhoudbaar en gebouwd voor performance en SEO.",
+    tags: ["Performance", "Clean code", "Static-first"]
   },
   {
-    title: "Technical Websites",
-    body: "custom logic, integrations, and complex front-ends that still feel simple and premium to use.",
-    tags: ["Web Apps", "SaaS", "E-Commerce"],
-    icon: "⚙",
-    variant: "cyan"
+    title: "SEO basis",
+    body: "Structuur, titles, interne links en technische basis zodat je gevonden kunt worden.",
+    tags: ["On-page", "Technical", "Content"]
   }
 ];
 ---
 <section class="section" id="work">
   <div class="container">
     <SectionHeader
-      title="our expertise"
-      subtitle="three core areas, distinct yet connected. pick what you need, or combine them."
+      title="expertise"
+      subtitle="focus op design, snelheid en een SEO-basis die klopt. geen rommel, wel resultaat."
     />
 
     <div class="grid-3">
       {cards.map((c) => (
-        <ExpertiseCard
-          title={c.title}
-          body={c.body}
-          tags={c.tags}
-          icon={c.icon}
-          variant={c.variant}
-        />
+        <ExpertiseCard title={c.title} body={c.body} tags={c.tags} />
       ))}
     </div>
   </div>

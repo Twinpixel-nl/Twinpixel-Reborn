@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://twinpixel.nl/sitemap-index.xml

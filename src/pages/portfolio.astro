@@ -2,102 +2,60 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import PortfolioCard from "../components/PortfolioCard.astro";
-import Button from "../components/Button.astro";
-import { featured, projects } from "../data/portfolio.js";
+
+const projects = [
+  {
+    title: "SocialMediaManager.nl",
+    description: "Strakke lead-page met duidelijke structuur en premium uitstraling.",
+    tags: ["Design", "SEO", "Landing"],
+    image: "/portfolio/featured.jpg",
+    href: "#"
+  },
+  {
+    title: "Twinpixel.nl",
+    description: "Agency site: donker, minimal en performance-first.",
+    tags: ["Astro", "Performance", "UI"],
+    image: "/portfolio/twinpixel.jpg",
+    href: "#"
+  },
+  {
+    title: "VVD Wageningen",
+    description: "Campagne-site met pagina-structuur en content-focus.",
+    tags: ["Content", "SEO", "Static"],
+    image: "/portfolio/vvd.jpg",
+    href: "#"
+  },
+  {
+    title: "Platform concept",
+    description: "Content-structuur en UX voor een community/cursus platform.",
+    tags: ["UX", "IA", "Design"],
+    image: "/portfolio/platform.jpg",
+    href: "#"
+  }
+];
 ---
-<BaseLayout title="Twinpixel — Portfolio" description="Selected work and case studies.">
+<BaseLayout title="Twinpixel — Portfolio" description="Portfolio en geselecteerde projecten.">
   <section class="section">
     <div class="container">
       <SectionHeader
         title="portfolio"
-        subtitle="a selection of projects. clean, fast, and designed to convert."
+        subtitle="een selectie projecten. strak design, snelle sites, en een basis die schaalbaar blijft."
       />
 
-      <div class="featured">
-        <div class="shot">
-          {featured.image ? <img src={featured.image} alt={featured.title} /> : <div class="ph" />}
-        </div>
-
-        <div class="info">
-          <p class="kicker">featured project</p>
-          <h2 class="big">{featured.title}</h2>
-          <p class="sub">{featured.subtitle}</p>
-          <p class="desc">{featured.description}</p>
-
-          <div class="meta">
-            {featured.highlights?.map((h) => <span class="pill">{h}</span>)}
-          </div>
-
-          <div class="cta">
-            <Button href={featured.links?.case || "#"} variant="primary" label="View case" icon={true} />
-            <Button href={featured.links?.live || "#"} variant="secondary" label="Live site" />
-          </div>
-        </div>
-      </div>
-
       <div class="grid">
-        {projects.map((p) => (
-          <PortfolioCard {...p} />
-        ))}
+        {projects.map((p) => <PortfolioCard {...p} />)}
       </div>
     </div>
   </section>
 
   <style>
-    .featured{
-      display:grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 22px;
-      margin-top: 34px;
-      border-radius: var(--radius);
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      box-shadow: 0 22px 80px rgba(0,0,0,.6);
-    }
-    .shot{
-      aspect-ratio: 16 / 10;
-      background: rgba(10,18,48,.6);
-      overflow:hidden;
-    }
-    .shot img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transform: scale(1);
-      transition: transform .45s cubic-bezier(.2,.8,.2,1);
-    }
-    .featured:hover .shot img{ transform: scale(1.03); }
-
-    .info{ padding: 26px; }
-    .kicker{ margin:0; color: var(--muted2); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-    .big{ margin: 10px 0 0; font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -0.04em; }
-    .sub{ margin: 10px 0 0; color: rgba(233,238,252,.85); }
-    .desc{ margin: 14px 0 0; color: var(--muted); line-height: 1.7; }
-
-    .meta{ margin-top: 16px; display:flex; flex-wrap:wrap; gap: 10px; }
-    .pill{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(96,165,250,.28);
-      background: rgba(10,18,48,.35);
-      color: rgba(233,238,252,.88);
-      font-size: 13px;
-    }
-
-    .cta{ margin-top: 18px; display:flex; gap: 12px; flex-wrap:wrap; }
-
     .grid{
-      margin-top: 22px;
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 18px;
     }
-
     @media (max-width: 980px){
-      .featured{ grid-template-columns: 1fr; }
       .grid{ grid-template-columns: 1fr; }
     }
   </style>
 </BaseLayout>
- 
