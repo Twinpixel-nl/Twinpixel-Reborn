@@ -2,9 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import Button from "../components/Button.astro";
+import { expertiseItems } from "../data/expertise";
 ---
 
-<BaseLayout title="Twinpixel — Expertise" description="Branding, Standard Websites en Technical Websites.">
+<BaseLayout
+  title="Twinpixel — Expertise"
+  description="Drie kerngebieden. Kies je expertise en bekijk de details per pagina."
+>
   <!-- intro -->
   <section class="section intro">
     <div class="container">
@@ -13,199 +17,123 @@ import Button from "../components/Button.astro";
         subtitle="drie kerngebieden. één aanpak: strak design, heldere structuur, performance-first."
       />
 
-      <div class="toc">
-        <a class="chip purple" href="#branding">Branding</a>
-        <a class="chip blue" href="#standard">Standard Websites</a>
-        <a class="chip cyan" href="#technical">Technical Websites</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- branding -->
-  <section class="band purple" id="branding" aria-label="Branding">
-    <div class="container band-inner">
-      <div class="left">
-        <p class="kicker">expertise</p>
-        <h2 class="h2">Branding</h2>
-        <p class="p">
-          Een identiteit die overal consistent is: logo, typografie, kleuren, componenten en tone of voice.
-          Zodat je merk direct professioneel voelt.
+      <div class="lead">
+        <p>
+          we werken meestal in één van deze drie richtingen. kies waar je nu zit — en
+          bekijk de pagina voor details, deliverables en aanpak.
         </p>
+      </div>
 
-        <div class="blocks">
-          <div class="block">
-            <h3 class="sub">Wat je krijgt</h3>
-            <ul class="list">
-              <li>Brand direction + look & feel</li>
-              <li>Design system (buttons, spacing, componenten)</li>
-              <li>Templates voor pagina’s en content</li>
-            </ul>
-          </div>
 
-          <div class="block">
-            <h3 class="sub">Aanpak</h3>
-            <div class="steps">
-              <div class="step">
-                <span class="nr">01</span>
-                <p>Analyse van doel, doelgroep en context</p>
+      <!-- accordion previews -->
+      <div class="accordion" aria-label="Expertise uitleg">
+        {expertiseItems.map((x) => (
+          <details class:list={["acc", x.chipClass]}>
+            <summary>
+              <span class="acc-title">{x.title}</span>
+              <span class="acc-hint">bekijk →</span>
+            </summary>
+
+            <div class="acc-body">
+              <p class="acc-text">{x.intro}</p>
+
+              <div class="acc-cols">
+                <div class="acc-col">
+                  <p class="acc-label">wat je krijgt</p>
+                  <ul class="acc-list">
+                    {x.whatYouGet.slice(0, 3).map((li) => <li>{li}</li>)}
+                  </ul>
+                </div>
+
+                <div class="acc-col">
+                  <p class="acc-label">aanpak</p>
+                  <ol class="acc-steps">
+                    {x.steps.slice(0, 3).map((s) => (
+                      <li>
+                        <span class="nr">{s.nr}</span>
+                        <span>{s.text}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
-              <div class="step">
-                <span class="nr">02</span>
-                <p>Ontwerp & structuur met focus op helderheid</p>
-              </div>
-              <div class="step">
-                <span class="nr">03</span>
-                <p>Uitwerking en iteratie op details</p>
+
+              <div class="acc-actions">
+                <Button href={`/expertise/${x.slug}`} variant="primary" label="Bekijk pagina" />
+                <Button href="/contact" variant="secondary" label="Contact" />
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <Button href="/portfolio" variant="primary" label="Bekijk cases" />
-          <Button href="/#contact" variant="secondary" label="Contact" />
-        </div>
+          </details>
+        ))}
       </div>
 
-      <div class="right">
-        <div class="panel">
-          <p class="label">Deliverables</p>
-          <p class="value">Brand kit • UI kit • Styleguide</p>
-
-          <p class="label">Resultaat</p>
-          <p class="value">Consistentie + trust + sneller bouwen</p>
-
-          <p class="label">Wanneer</p>
-          <p class="value">als je merk “net niet” voelt of inconsistent is</p>
+      <!-- bottom CTA -->
+      <div class="cta">
+        <div class="cta-left">
+          <h2 class="cta-title">twijfel je?</h2>
+          <p class="cta-text">
+            stuur kort je situatie + deadline, dan zeggen we welke richting het beste past.
+          </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- standard -->
-  <section class="band blue" id="standard" aria-label="Standard Websites">
-    <div class="container band-inner">
-      <div class="left">
-        <p class="kicker">expertise</p>
-        <h2 class="h2">Standard Websites</h2>
-        <p class="p">
-          Strakke marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op leads.
-        </p>
-
-        <div class="blocks">
-          <div class="block">
-            <h3 class="sub">Wat je krijgt</h3>
-            <ul class="list">
-              <li>Homepage + diensten + contact (heldere flow)</li>
-              <li>SEO basis: titles, headings, interne links</li>
-              <li>Performance-first build (Astro)</li>
-            </ul>
-          </div>
-
-          <div class="block">
-            <h3 class="sub">Aanpak</h3>
-            <div class="steps">
-              <div class="step">
-                <span class="nr">01</span>
-                <p>Contentstructuur: wat moet waar staan en waarom</p>
-              </div>
-              <div class="step">
-                <span class="nr">02</span>
-                <p>Design uitwerken met focus op hiërarchie en rust</p>
-              </div>
-              <div class="step">
-                <span class="nr">03</span>
-                <p>Build + SEO basis + performance checks</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <Button href="/portfolio" variant="primary" label="Bekijk cases" />
-          <Button href="/#contact" variant="secondary" label="Contact" />
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="panel">
-          <p class="label">Perfect voor</p>
-          <p class="value">MKB • studios • personal brands</p>
-
-          <p class="label">Focus</p>
-          <p class="value">Design • snelheid • conversie</p>
-
-          <p class="label">Wanneer</p>
-          <p class="value">als je site traag, rommelig of weinig overtuigend is</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- technical -->
-  <section class="band cyan" id="technical" aria-label="Technical Websites">
-    <div class="container band-inner">
-      <div class="left">
-        <p class="kicker">expertise</p>
-        <h2 class="h2">Technical Websites</h2>
-        <p class="p">
-          Custom integraties, complexe flows en webapp-achtige ervaringen — strak gebouwd en onderhoudbaar.
-        </p>
-
-        <div class="blocks">
-          <div class="block">
-            <h3 class="sub">Wat je krijgt</h3>
-            <ul class="list">
-              <li>Integraties (CRM, forms, analytics, automatisering)</li>
-              <li>Custom UX flows (filters, portals, dashboards)</li>
-              <li>Schaalbare component-architectuur</li>
-            </ul>
-          </div>
-
-          <div class="block">
-            <h3 class="sub">Aanpak</h3>
-            <div class="steps">
-              <div class="step">
-                <span class="nr">01</span>
-                <p>Inventarisatie van flows, data en afhankelijkheden</p>
-              </div>
-              <div class="step">
-                <span class="nr">02</span>
-                <p>UX voor complexiteit: simpel aanvoelen voor de gebruiker</p>
-              </div>
-              <div class="step">
-                <span class="nr">03</span>
-                <p>Build met onderhoudbare componenten + tests/checks</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <Button href="/portfolio" variant="primary" label="Bekijk cases" />
-          <Button href="/#contact" variant="secondary" label="Contact" />
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="panel">
-          <p class="label">Gebruikscases</p>
-          <p class="value">SaaS • platforms • portals</p>
-
-          <p class="label">Resultaat</p>
-          <p class="value">Schaalbaar zonder rommel</p>
-
-          <p class="label">Wanneer</p>
-          <p class="value">als je meer nodig hebt dan “alleen pagina’s”</p>
+        <div class="cta-right">
+          <Button href="/contact" variant="primary" label="Plan kennismaking" />
+          <Button href="/portfolio" variant="secondary" label="Bekijk cases" />
         </div>
       </div>
     </div>
   </section>
 
   <style>
-    /* chips */
-    .toc{
+    /* accents */
+    .purple{ --accent:#7c3aed; }
+    .blue{ --accent:#2F89FF; }
+    .cyan{ --accent:#22c55e; }
+
+    .intro{
+      padding-bottom: 80px;
+    }
+
+    .lead{
+      margin-top: 14px;
+      max-width: 70ch;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .choose{
       margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    /* dropdown */
+    .jump{
+      display: grid;
+      gap: 8px;
+      max-width: 360px;
+    }
+    .jump-label{
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.48);
+    }
+    .jump-select{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.82);
+      outline: none;
+    }
+    .jump-select:focus{
+      border-color: rgba(255,255,255,.22);
+    }
+
+    /* chips */
+    .chips{
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
@@ -217,219 +145,175 @@ import Button from "../components/Button.astro";
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.03);
       color: rgba(255,255,255,.78);
-      transition: border-color .14s ease, background-color .14s ease;
+      transition: border-color .14s ease, background-color .14s ease, transform .14s ease;
     }
     .chip:hover{
       border-color: rgba(255,255,255,.22);
       background: rgba(255,255,255,.045);
+      transform: translateY(-1px);
     }
 
-    /* accents */
-    .purple{ --accent:#7c3aed; }
-    .blue{ --accent:#2F89FF; }
-    .cyan{ --accent:#22c55e; }
-
-
-    /* intro spacing */
-    .intro{
-      padding-bottom: 60px;
-    }
-
-    /* bands */
-    .band{
-      padding: 140px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* soft glow per expertise (achter content) */
-    .band::after{
-      content:"";
-      position:absolute;
-      inset:-200px -120px;
-      pointer-events:none;
-      background:
-        radial-gradient(
-          900px 520px at 30% 20%,
-          color-mix(in srgb, var(--accent) 22%, transparent),
-          transparent 65%
-        ),
-        radial-gradient(
-          700px 420px at 80% 60%,
-          color-mix(in srgb, var(--accent) 14%, transparent),
-          transparent 70%
-        );
-      opacity: .85;
-    }
-
-.band + .band{
-  margin-top: -92px; /* iets meer overlap */
-  position: relative;
-}
-
-/* zachte overgang “veil” tussen secties */
-.band + .band::before{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  top:-70px;
-  height: 140px;
-  pointer-events:none;
-  background: linear-gradient(
-    180deg,
-    rgba(2,3,10,0) 0%,
-    rgba(2,3,10,.62) 45%,
-    rgba(2,3,10,0) 100%
-  );
-  opacity: .85;
-}
-
-
-    .band-inner{
-      display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 48px;
-      align-items:start;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* subtle accent bar */
-    .band-inner::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:-18px;
-      width: 56px;
-      height: 2px;
-      border-radius: 2px;
-      background: var(--accent);
-      opacity: .9;
-    }
-
-    .kicker{
-      margin:0 0 10px;
-      font-size: 12px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.50);
-    }
-
-    /* bigger headings on this page */
-    .band .h2{
-      font-size: clamp(34px, 4vw, 52px);
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-    }
-
-    .band .p{
-      font-size: 18px;
-      line-height: 1.8;
-      max-width: 70ch;
-    }
-
-    .blocks{
-      margin-top: 28px;
-      display:flex;
-      flex-direction:column;
-      gap: 26px;
-    }
-
-    .sub{
-      margin: 0 0 14px;
-      font-size: 12px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.55);
-    }
-
-    .list{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.70);
-      line-height: 1.9;
-      font-size: 15px;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 18px;
-    }
-
-    .step{
-      padding: 18px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nr{
-      display:block;
-      font-size: 12px;
-      letter-spacing: .12em;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .step p{
-      margin: 0;
-      color: rgba(255,255,255,.72);
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .actions{
-      margin-top: 26px;
-      display:flex;
+    /* accordion */
+    .accordion{
+      margin-top: 22px;
+      display: grid;
       gap: 12px;
-      flex-wrap: wrap;
+      max-width: 980px;
     }
 
-    .panel{
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 28px;
+    .acc{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      overflow: hidden;
       position: relative;
-      transition: border-color .14s ease;
     }
 
-    .panel::before{
+    .acc::before{
       content:"";
       position:absolute;
       inset:-1px;
       border-radius: inherit;
       pointer-events:none;
       box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
-      opacity:.35;
+      opacity:.25;
     }
 
-    .panel:hover{
-      border-color: color-mix(in srgb, var(--accent) 28%, rgba(255,255,255,.10));
+    .acc summary{
+      cursor: pointer;
+      list-style: none;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 16px;
+      color: rgba(255,255,255,.90);
+      font-weight: 650;
+    }
+    .acc summary::-webkit-details-marker{ display:none; }
+
+    .acc-title{
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .acc-hint{
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
     }
 
-    .label{
-      margin: 0;
+    .acc-body{
+      padding: 0 16px 16px;
+    }
+
+    .acc-text{
+      margin: 0 0 12px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+      max-width: 80ch;
+    }
+
+    .acc-cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .acc-col{
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      padding: 14px;
+    }
+
+    .acc-label{
+      margin: 0 0 10px;
       font-size: 11px;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.48);
+      color: rgba(255,255,255,.50);
     }
-    .value{
-      margin: 8px 0 16px;
-      color: rgba(255,255,255,.82);
-      line-height: 1.6;
+
+    .acc-list{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.9;
       font-size: 14px;
     }
-    .value:last-child{ margin-bottom: 0; }
+
+    .acc-steps{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+      font-size: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .acc-steps li{
+      display:flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .nr{
+      color: var(--accent);
+      letter-spacing: .12em;
+      font-size: 12px;
+      min-width: 34px;
+    }
+
+    .acc-actions{
+      margin-top: 14px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* bottom CTA */
+    .cta{
+      margin-top: 34px;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      display:flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      max-width: 980px;
+    }
+
+    .cta-left{
+      max-width: 60ch;
+    }
+
+    .cta-title{
+      margin: 0 0 6px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-text{
+      margin: 0;
+      color: rgba(255,255,255,.70);
+      line-height: 1.7;
+    }
+
+    .cta-right{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
 
     @media (max-width: 980px){
-      .band-inner{ grid-template-columns: 1fr; gap: 26px; }
-      .steps{ grid-template-columns: 1fr; }
-      ..band + .band{ margin-top: -64px; }
-.band + .band::before{ top: -55px; height: 120px; }
-
+      .acc-cols{ grid-template-columns: 1fr; }
+      .cta{ flex-direction: column; align-items: flex-start; }
     }
   </style>
 </BaseLayout>

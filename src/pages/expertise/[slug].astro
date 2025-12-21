@@ -1,0 +1,289 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import { expertiseItems } from "../../data/expertise";
+
+export function getStaticPaths() {
+  return expertiseItems.map((x) => ({ params: { slug: x.slug } }));
+}
+
+const { slug } = Astro.params;
+const item = expertiseItems.find((x) => x.slug === slug);
+if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
+---
+
+<BaseLayout title={`Twinpixel — ${item.title}`} description={item.intro}>
+  <section class:list={["band", item.chipClass]} style={`--accent:${item.accent};`}>
+    <div class="container band-inner">
+      <div class="left">
+        <p class="kicker">expertise</p>
+        <h1 class="h2">{item.title}</h1>
+        <p class="p">{item.intro}</p>
+
+        <div class="blocks">
+          <div class="block">
+            <h2 class="sub">Wat je krijgt</h2>
+            <ul class="list">
+              {item.whatYouGet.map((li) => <li>{li}</li>)}
+            </ul>
+          </div>
+
+          <div class="block">
+            <h2 class="sub">Aanpak</h2>
+            <div class="steps">
+              {item.steps.map((s) => (
+                <div class="step">
+                  <span class="nr">{s.nr}</span>
+                  <p>{s.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <Button href="/portfolio" variant="primary" label="Bekijk cases" />
+          <Button href="/contact" variant="secondary" label="Contact" />
+        </div>
+
+        <div class="back">
+          <a class="backlink" href="/expertise">← terug naar expertise</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="panel">
+          {item.panel.map((p) => (
+            <>
+              <p class="label">{p.label}</p>
+              <p class="value">{p.value}</p>
+            </>
+          ))}
+        </div>
+
+        <div class="sidepanel" aria-label="Andere expertise">
+          <p class="label">Andere expertise</p>
+          <div class="side-links">
+            {expertiseItems
+              .filter((x) => x.slug !== item.slug)
+              .map((x) => (
+                <a class="side-link" href={`/expertise/${x.slug}`}>
+                  {x.title}
+                </a>
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* accents */
+    .purple{ --accent:#7c3aed; }
+    .blue{ --accent:#2F89FF; }
+    .cyan{ --accent:#22c55e; }
+
+    .band{
+      padding: 140px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .band::after{
+      content:"";
+      position:absolute;
+      inset:-200px -120px;
+      pointer-events:none;
+      background:
+        radial-gradient(
+          900px 520px at 30% 20%,
+          color-mix(in srgb, var(--accent) 22%, transparent),
+          transparent 65%
+        ),
+        radial-gradient(
+          700px 420px at 80% 60%,
+          color-mix(in srgb, var(--accent) 14%, transparent),
+          transparent 70%
+        );
+      opacity: .85;
+    }
+
+    .band-inner{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 48px;
+      align-items:start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .band-inner::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:-18px;
+      width: 56px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: .9;
+    }
+
+    .kicker{
+      margin:0 0 10px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.50);
+    }
+
+    .h2{
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .p{
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 70ch;
+      margin-top: 14px;
+      color: rgba(255,255,255,.72);
+    }
+
+    .blocks{
+      margin-top: 28px;
+      display:flex;
+      flex-direction:column;
+      gap: 26px;
+    }
+
+    .sub{
+      margin: 0 0 14px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.70);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .step{
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nr{
+      display:block;
+      font-size: 12px;
+      letter-spacing: .12em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .step p{
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .actions{
+      margin-top: 26px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .panel{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 28px;
+      position: relative;
+      transition: border-color .14s ease;
+    }
+
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius: inherit;
+      pointer-events:none;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+      opacity:.35;
+    }
+
+    .label{
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.48);
+    }
+
+    .value{
+      margin: 8px 0 16px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .value:last-child{ margin-bottom: 0; }
+
+    .sidepanel{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.015);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 18px;
+    }
+    .side-links{
+      margin-top: 10px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .side-link{
+      text-decoration:none;
+      color: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: border-color .14s ease, background-color .14s ease;
+    }
+    .side-link:hover{
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.045);
+    }
+
+    .back{ margin-top: 22px; }
+    .backlink{
+      color: rgba(255,255,255,.62);
+      text-decoration:none;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      padding-bottom: 2px;
+    }
+    .backlink:hover{ color: rgba(255,255,255,.78); border-bottom-color: rgba(255,255,255,.32); }
+
+    @media (max-width: 980px){
+      .band-inner{ grid-template-columns: 1fr; gap: 26px; }
+      .steps{ grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>
