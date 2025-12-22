@@ -10,8 +10,119 @@ import CasesPreview from "../components/CasesPreview.astro";
   description="Premium webdesign en development vanuit Wageningen. Design, performance en SEO in één lijn."
 >
   <Hero />
+    <section class="section value" aria-label="Waarom Twinpixel">
+    <div class="container">
+      <div class="value-grid">
+        <div>
+          <p class="kicker">USP</p>
+          <h2 class="h2">Performance-first met directe lijnen</h2>
+          <p class="lead small">
+            We werken zonder tussenschijven. Je spreekt direct met de makers die design, build,
+            performance en SEO aanpakken. Geen rommel, wel meetbare resultaten.
+          </p>
+        </div>
+        <div class="pillars">
+          <div class="pill">
+            <p class="pill-title">Snel en strak</p>
+            <p class="pill-text">Astro builds, geoptimaliseerde assets en Core Web Vitals-checks.</p>
+          </div>
+          <div class="pill">
+            <p class="pill-title">Heldere structuur</p>
+            <p class="pill-text">Contentflows en CTA’s die logisch lezen en converteren.</p>
+          </div>
+          <div class="pill">
+            <p class="pill-title">Onderhoudbaar</p>
+            <p class="pill-text">Component-gedreven UI, klaar voor iteratie en schaal.</p>
+          </div>
+          <div class="pill">
+            <p class="pill-title">Samenwerken</p>
+            <p class="pill-text">Korte feedbackloops, vaste contactpersoon en duidelijke planning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <Expertise />
   <CasesPreview />
+
+
+
+  <section class="section packages" aria-label="Pakketten">
+    <div class="container">
+      <div class="head">
+        <p class="kicker">Pakketten</p>
+        <h2 class="h2">Kies wat past bij je vraag</h2>
+      </div>
+      <div class="pkg-grid">
+        <div class="pkg">
+          <p class="pkg-name">Branding Sprint</p>
+          <p class="pkg-price">Vanaf €2.500</p>
+          <ul>
+            <li>Merkbasics: logo, kleuren, typografie</li>
+            <li>Mini styleguide + component starters</li>
+            <li>Templates voor social/presentaties</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <p class="pkg-name">Website Launch</p>
+          <p class="pkg-price">Vanaf €3.500</p>
+          <ul>
+            <li>Homepage + diensten + contactflow</li>
+            <li>SEO-basics en performance checks</li>
+            <li>Lead-captures en analytics setup</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <p class="pkg-name">Technical Build</p>
+          <p class="pkg-price">Vanaf €5.500</p>
+          <ul>
+            <li>Integraties (CRM, forms, analytics)</li>
+            <li>Custom flows/filters/dashboards</li>
+            <li>Component-architectuur + QA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq" aria-label="Veelgestelde vragen">
+    <div class="container faq-wrap">
+      <div class="faq-head">
+        <p class="kicker">FAQ</p>
+        <h2 class="h2">Veelgestelde vragen</h2>
+      </div>
+      <div class="faq-accordion">
+        <details>
+          <summary>
+            <span>Wat hebben jullie van mij nodig?</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Doel, doelgroep, gewenste pagina’s en voorbeelden van wat je goed vindt. Content in concept helpt, anders schrijven we mee aan structuur/microcopy.</p>
+        </details>
+        <details>
+          <summary>
+            <span>Hoe snel kunnen jullie opleveren?</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Een standaard site in 3–5 weken, afhankelijk van feedback en content. Technische projecten plannen we samen in fases.</p>
+        </details>
+        <details>
+          <summary>
+            <span>Regelen jullie hosting en onderhoud?</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Ja, we kunnen deployen op Netlify/Vercel en helpen met monitoring/updates. Of we leveren op zodat je eigen team het beheert.</p>
+        </details>
+        <details>
+          <summary>
+            <span>Kunnen jullie SEO meenemen?</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Ja: technische SEO, titles/headings, interne links en performance. Voor content/long-form werken we samen met copywriters.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
   <section class="contact-cta" id="contact" aria-label="Contact call to action">
     <div class="cta">
@@ -126,10 +237,137 @@ import CasesPreview from "../components/CasesPreview.astro";
   </footer>
 
   <style>
+    .section{
+      padding: 70px 0;
+    }
+    .container{
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    .kicker{
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .14em;
+      color: rgba(255,255,255,.55);
+      margin: 0 0 10px;
+    }
+    .h2{
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .lead.small{
+      margin: 10px 0 0;
+      max-width: 70ch;
+      color: rgba(255,255,255,.74);
+      line-height: 1.75;
+    }
+    .value-grid{
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .pillars{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    .pill{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.025);
+      border-radius: 14px;
+      padding: 12px 12px 14px;
+    }
+    .pill-title{
+      margin: 0 0 6px;
+      font-weight: 650;
+      color: rgba(255,255,255,.92);
+    }
+    .pill-text{
+      margin: 0;
+      color: rgba(255,255,255,.70);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .packages .head{
+      margin-bottom: 16px;
+    }
+    .pkg-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .pkg{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.025);
+      border-radius: 14px;
+      padding: 14px;
+      display:grid;
+      gap: 10px;
+    }
+    .pkg-name{ margin:0; font-weight: 650; font-size: 16px; }
+    .pkg-price{ margin:0; color: rgba(255,255,255,.78); }
+    .pkg ul{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+    }
+
+    .faq-wrap{ display:grid; gap: 16px; }
+    .faq-accordion{
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      overflow:hidden;
+    }
+    .faq-accordion details{
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .faq-accordion details:last-of-type{
+      border-bottom: none;
+    }
+    .faq-accordion summary{
+      cursor: pointer;
+      list-style: none;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 14px;
+      color: rgba(255,255,255,.92);
+      font-weight: 650;
+    }
+    .faq-accordion summary::-webkit-details-marker{ display:none; }
+    .faq-accordion summary .chev{ opacity: .6; transform: rotate(0deg); transition: transform .18s ease; }
+    .faq-accordion details[open] summary .chev{ transform: rotate(180deg); }
+    .faq-accordion p{
+      margin: 0;
+      padding: 0 14px 14px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .contact-cta .kicker{ margin-bottom: 0.6rem; }
+
     .footer{
       padding: 26px 0 40px;
       color: rgba(255,255,255,.55);
       font-size: 13px;
+    }
+
+    @media (max-width: 900px){
+      .value-grid{ grid-template-columns: 1fr; }
+      .pillars{ grid-template-columns: 1fr 1fr; }
+      .pkg-grid{ grid-template-columns: 1fr; }
+      .faq-grid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px){
+      .pillars{ grid-template-columns: 1fr; }
     }
   </style>
 </BaseLayout>

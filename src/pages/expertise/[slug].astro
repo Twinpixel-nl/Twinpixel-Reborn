@@ -10,9 +10,77 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const item = expertiseItems.find((x) => x.slug === slug);
 if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
+
+const extras = {
+  branding: {
+    examples: [
+      {
+        title: "Scale-up Rebrand",
+        summary: "Merktaal, design system en webdesign voor een B2B SaaS, inclusief templates voor sales.",
+      },
+      {
+        title: "Agency Merk Kit",
+        summary: "Logo-refresh, UI kit en tone-of-voice gids zodat alle kanalen consistent zijn.",
+      },
+      {
+        title: "Founders Deck + Site",
+        summary: "Look & feel, typografie en componenten die direct toepasbaar zijn in slides en website.",
+      },
+    ],
+    faq: [
+      { q: "Hoe snel kunnen we live?", a: "First draft in 1-2 weken, volledige kit in 3-4 weken afhankelijk van feedback." },
+      { q: "Leveren jullie ook assets?", a: "Ja: logo files, kleur/typografie richtlijnen, UI componenten en social templates." },
+      { q: "Hoe zorgen jullie voor consistentie?", a: "We documenteren keuzes in een mini styleguide en leveren herbruikbare componenten." },
+    ],
+  },
+  "standard-websites": {
+    examples: [
+      {
+        title: "Marketing Site + Landingspagina",
+        summary: "Homepage, diensten en campagnepagina's met heldere flow en SEO-basics.",
+      },
+      {
+        title: "Lead Funnel",
+        summary: "CTA-structuur, formulieren, dankpagina's en interne links voor hogere conversie.",
+      },
+      {
+        title: "SEO Foundations",
+        summary: "Titles, headings, structured content en technische checks voor snelle indexing.",
+      },
+    ],
+    faq: [
+      { q: "Wat is de doorlooptijd?", a: "Ontwerp en build in 3-5 weken, afhankelijk van content die je aanlevert." },
+      { q: "Optimaliseren jullie voor snelheid?", a: "Ja, we bouwen performance-first (Astro), meten Core Web Vitals en optimaliseren assets." },
+      { q: "Regelen jullie ook content?", a: "We helpen met structuur en microcopy; voor grote copy-trajecten werken we met een copywriter." },
+    ],
+  },
+  "technical-websites": {
+    examples: [
+      {
+        title: "Portaal of Dashboard",
+        summary: "Custom flows, filters en dataweergave die intuïtief blijven voor eindgebruikers.",
+      },
+      {
+        title: "Integraties",
+        summary: "CRM, formulieren, analytics en automatisering, met duidelijke foutafhandeling.",
+      },
+      {
+        title: "Component-architectuur",
+        summary: "Schaalbare UI-componenten met tests/checks zodat teams sneller kunnen itereren.",
+      },
+    ],
+    faq: [
+      { q: "Hoe pakken jullie complexiteit aan?", a: "We starten met een flow-inventarisatie, definiëren states en valideren met wireframes." },
+      { q: "Welke stack gebruiken jullie?", a: "Front-end met Astro/React waar nodig, API-koppelingen op basis van bestaande back-ends." },
+      { q: "Doen jullie QA?", a: "Ja, we testen flows, accessibility en performance voordat we opleveren." },
+    ],
+  },
+};
+
+const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
 ---
 
-<BaseLayout title={`Twinpixel — ${item.title}`} description={item.intro}>
+<BaseLayout title={`Twinpixel | ${item.title}`} description={item.intro}>
   <section class:list={["band", item.chipClass]} style={`--accent:${item.accent};`}>
     <div class="container band-inner">
       <div class="left">
@@ -22,7 +90,7 @@ if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
 
         <div class="blocks">
           <div class="block">
-            <h2 class="sub">Wat je krijgt</h2>
+            <h2 class="sub">Wat Je Krijgt</h2>
             <ul class="list">
               {item.whatYouGet.map((li) => <li>{li}</li>)}
             </ul>
@@ -41,13 +109,41 @@ if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
           </div>
         </div>
 
+        {currentExtras.examples.length > 0 && (
+          <div class="examples">
+            <h2 class="sub">Voorbeelden</h2>
+            <div class="example-grid">
+              {currentExtras.examples.map((ex) => (
+                <div class="example-card">
+                  <p class="ex-title">{ex.title}</p>
+                  <p class="ex-text">{ex.summary}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {currentExtras.faq.length > 0 && (
+          <div class="faq">
+            <h2 class="sub">Veelgestelde Vragen</h2>
+            <div class="faq-list">
+              {currentExtras.faq.map((f) => (
+                <div class="faq-item">
+                  <p class="faq-q">{f.q}</p>
+                  <p class="faq-a">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div class="actions">
-          <Button href="/portfolio" variant="primary" label="Bekijk cases" />
-          <Button href="/contact" variant="secondary" label="Contact" />
+          <Button href="/portfolio" variant="primary" label="Bekijk Cases" />
+          <Button href="/contact" variant="secondary" label="Plan Kennismaking" />
         </div>
 
         <div class="back">
-          <a class="backlink" href="/expertise">← terug naar expertise</a>
+          <a class="backlink" href="/expertise">← Terug Naar Expertise</a>
         </div>
       </div>
 
@@ -62,7 +158,7 @@ if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
         </div>
 
         <div class="sidepanel" aria-label="Andere expertise">
-          <p class="label">Andere expertise</p>
+          <p class="label">Andere Expertise</p>
           <div class="side-links">
             {expertiseItems
               .filter((x) => x.slug !== item.slug)
@@ -203,6 +299,59 @@ if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
       font-size: 14px;
     }
 
+    .examples{
+      margin-top: 30px;
+    }
+    .example-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .example-card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      padding: 14px 14px 16px;
+      display:grid;
+      gap: 8px;
+    }
+    .ex-title{
+      margin: 0;
+      font-weight: 650;
+      color: rgba(255,255,255,.90);
+    }
+    .ex-text{
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .faq{
+      margin-top: 30px;
+    }
+    .faq-list{
+      display:grid;
+      gap: 10px;
+    }
+    .faq-item{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      padding: 14px 14px 12px;
+    }
+    .faq-q{
+      margin: 0 0 6px;
+      font-weight: 650;
+      color: rgba(255,255,255,.90);
+    }
+    .faq-a{
+      margin: 0;
+      color: rgba(255,255,255,.70);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
     .actions{
       margin-top: 26px;
       display:flex;
@@ -284,6 +433,7 @@ if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
     @media (max-width: 980px){
       .band-inner{ grid-template-columns: 1fr; gap: 26px; }
       .steps{ grid-template-columns: 1fr; }
+      .example-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </BaseLayout>
