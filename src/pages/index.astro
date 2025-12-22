@@ -230,12 +230,6 @@ import CasesPreview from "../components/CasesPreview.astro";
     </style>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© {new Date().getFullYear()} Twinpixel.</p>
-    </div>
-  </footer>
-
   <style>
     .section{
       padding: 70px 0;
@@ -279,6 +273,7 @@ import CasesPreview from "../components/CasesPreview.astro";
       background: rgba(255,255,255,.025);
       border-radius: 14px;
       padding: 12px 12px 14px;
+      transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
     }
     .pill-title{
       margin: 0 0 6px;
@@ -290,6 +285,11 @@ import CasesPreview from "../components/CasesPreview.astro";
       color: rgba(255,255,255,.70);
       line-height: 1.65;
       font-size: 14px;
+    }
+    .pill:hover{
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.05);
+      transform: translateY(-2px);
     }
 
     .packages .head{
@@ -307,6 +307,7 @@ import CasesPreview from "../components/CasesPreview.astro";
       padding: 14px;
       display:grid;
       gap: 10px;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
     }
     .pkg-name{ margin:0; font-weight: 650; font-size: 16px; }
     .pkg-price{ margin:0; color: rgba(255,255,255,.78); }
@@ -316,6 +317,12 @@ import CasesPreview from "../components/CasesPreview.astro";
       color: rgba(255,255,255,.72);
       line-height: 1.7;
     }
+    .pkg:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 12px 28px rgba(0,0,0,.16);
+    }
 
     .faq-wrap{ display:grid; gap: 16px; }
     .faq-accordion{
@@ -323,9 +330,11 @@ import CasesPreview from "../components/CasesPreview.astro";
       border-radius: 14px;
       background: rgba(255,255,255,.025);
       overflow:hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
     }
     .faq-accordion details{
       border-bottom: 1px solid rgba(255,255,255,.10);
+      transition: background-color .14s ease;
     }
     .faq-accordion details:last-of-type{
       border-bottom: none;
@@ -340,10 +349,18 @@ import CasesPreview from "../components/CasesPreview.astro";
       padding: 14px 14px;
       color: rgba(255,255,255,.92);
       font-weight: 650;
+      transition: background-color .14s ease, color .14s ease;
     }
     .faq-accordion summary::-webkit-details-marker{ display:none; }
     .faq-accordion summary .chev{ opacity: .6; transform: rotate(0deg); transition: transform .18s ease; }
     .faq-accordion details[open] summary .chev{ transform: rotate(180deg); }
+    .faq-accordion summary:hover{
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.96);
+    }
+    .faq-accordion details[open]{
+      background: rgba(255,255,255,.02);
+    }
     .faq-accordion p{
       margin: 0;
       padding: 0 14px 14px;

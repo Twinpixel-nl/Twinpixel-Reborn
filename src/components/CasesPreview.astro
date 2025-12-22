@@ -11,8 +11,8 @@ const top3 = cases.filter(c => c.featured).slice(0, 3);
   <div class="container">
     <div class="head">
       <SectionHeader
-        title="cases"
-        subtitle="een selectie. strak design, snelle builds en een basis die schaalbaar blijft."
+        title="Cases"
+        subtitle="Een selectie. strak design, snelle builds en een basis die schaalbaar blijft."
       />
       <div class="head-cta">
         <Button href="/cases" variant="secondary" label="Bekijk alle cases" />
@@ -34,6 +34,11 @@ const top3 = cases.filter(c => c.featured).slice(0, 3);
   </div>
 
   <style>
+    .container{
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
     .head{
       display:flex;
       align-items:flex-end;
