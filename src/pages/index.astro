@@ -2,124 +2,122 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import Expertise from "../components/Expertise.astro";
-import SectionHeader from "../components/SectionHeader.astro";
 import CasesPreview from "../components/CasesPreview.astro";
-
 ---
+
 <BaseLayout
-  title="Twinpixel — Webdesign Wageningen"
-  description="Strakke websites met blauw accent. Design, performance en SEO."
+  title="Twinpixel | Webdesign Wageningen"
+  description="Premium webdesign en development vanuit Wageningen. Design, performance en SEO in één lijn."
 >
   <Hero />
   <Expertise />
-<CasesPreview />
+  <CasesPreview />
 
-<section class="contact-cta" aria-label="Contact call to action">
-  <div class="cta">
-    <div class="content">
-      <p class="kicker">contact</p>
-      <h2 class="title">
-        een idee bespreken?
-      </h2>
-      <p class="text">
-        vertel kort wat je wilt maken en wanneer je het nodig hebt.
-        dan kijken we of het past.
-      </p>
+  <section class="contact-cta" id="contact" aria-label="Contact call to action">
+    <div class="cta">
+      <div class="content">
+        <p class="kicker">Contact</p>
+        <h2 class="title">Een idee bespreken?</h2>
+        <p class="text">
+          Vertel kort wat je wilt maken, waarom het belangrijk is en wanneer je het nodig hebt.
+          We reageren snel met een voorstel, planning en wat we meenemen op het gebied van design,
+          performance en SEO.
+        </p>
 
-      <div class="actions">
-        <a class="btn primary" href="/contact">contact us</a>
-        <a
-          class="btn secondary"
-          href="mailto:meurstwan@gmail.com?subject=Contact%20via%20website"
-        >
-          mail direct
-        </a>
+        <div class="actions">
+          <a class="btn primary" href="/contact">Plan Kennismaking</a>
+          <a
+            class="btn secondary"
+            href="mailto:meurstwan@gmail.com?subject=Contact%20via%20website"
+          >
+            Mail Direct
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <style>
-    .contact-cta {
-      margin: 3.5rem 0 0;
-    }
-
-    .cta {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.2rem 2.4rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .content {
-      max-width: 640px;
-    }
-
-    .kicker {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      opacity: 0.7;
-      margin-bottom: 0.6rem;
-    }
-
-    .title {
-      margin: 0 0 0.6rem;
-      font-size: clamp(1.6rem, 2.4vw, 2rem);
-      line-height: 1.15;
-    }
-
-    .text {
-      margin: 0 0 1.4rem;
-      opacity: 0.85;
-      line-height: 1.6;
-      max-width: 52ch;
-    }
-
-    .actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.05rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .btn.primary {
-      background: rgba(255,255,255,0.10);
-    }
-
-    .btn.primary:hover {
-      background: rgba(255,255,255,0.14);
-    }
-
-    .btn.secondary {
-      background: transparent;
-      opacity: 0.85;
-    }
-
-    .btn.secondary:hover {
-      opacity: 1;
-      background: rgba(255,255,255,0.06);
-    }
-
-    @media (max-width: 700px) {
-      .cta {
-        padding: 1.8rem 1.6rem;
+    <style>
+      .contact-cta {
+        margin: 3.6rem 0 0;
       }
-    }
-  </style>
-</section>
 
+      .cta {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2.2rem 2.4rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+      }
+
+      .content {
+        max-width: 640px;
+      }
+
+      .kicker {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        opacity: 0.72;
+        margin-bottom: 0.6rem;
+      }
+
+      .title {
+        margin: 0 0 0.6rem;
+        font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+        line-height: 1.15;
+      }
+
+      .text {
+        margin: 0 0 1.4rem;
+        opacity: 0.88;
+        line-height: 1.7;
+        max-width: 54ch;
+      }
+
+      .actions {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.78rem 1.1rem;
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.14);
+      }
+
+      .btn.primary {
+        background: rgba(255,255,255,0.12);
+        color: #0b1321;
+      }
+
+      .btn.primary:hover {
+        background: rgba(255,255,255,0.16);
+      }
+
+      .btn.secondary {
+        background: transparent;
+        opacity: 0.88;
+      }
+
+      .btn.secondary:hover {
+        opacity: 1;
+        background: rgba(255,255,255,0.08);
+      }
+
+      @media (max-width: 700px) {
+        .cta {
+          padding: 1.8rem 1.6rem;
+        }
+      }
+    </style>
+  </section>
 
   <footer class="footer">
     <div class="container">
@@ -128,16 +126,6 @@ import CasesPreview from "../components/CasesPreview.astro";
   </footer>
 
   <style>
-    .contact{ margin-top: 18px; }
-    .box{
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.10);
-      padding: 18px;
-      max-width: 760px;
-    }
-    .line{ margin: 0 0 10px; color: rgba(255,255,255,.72); }
-    .line a{ color: rgba(47,137,255,.95); }
     .footer{
       padding: 26px 0 40px;
       color: rgba(255,255,255,.55);
