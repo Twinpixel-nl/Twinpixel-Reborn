@@ -6,23 +6,23 @@ import { cases } from "../../data/cases.js";
 export function getStaticPaths() {
   return cases.map((c) => ({
     params: { slug: c.slug },
-    props: { c }
+    props: { c },
   }));
 }
 
 const { c } = Astro.props;
 ---
 
-<BaseLayout title={`Twinpixel — ${c.title}`} description={c.description}>
+<BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
   <section class="hero" style={`--accent:${c.accent || "#2F89FF"};`}>
     <div class="container inner">
-      <p class="kicker">case</p>
+      <p class="kicker">Case</p>
       <h1 class="h1">{c.title}</h1>
       <p class="lead">{c.description}</p>
 
       <div class="cta">
-        <Button href="/cases" variant="secondary" label="← back to cases" />
-        <Button href="/#contact" variant="primary" label="Work with us" />
+        <Button href="/cases" variant="secondary" label="← Back To Cases" />
+        <Button href="/#contact" variant="primary" label="Work With Us" />
       </div>
     </div>
   </section>
@@ -34,12 +34,12 @@ const { c } = Astro.props;
           {c.image ? <img src={c.image} alt={c.title} loading="lazy" /> : null}
         </div>
 
-        <h2 class="h2">what we did</h2>
+        <h2 class="h2">What We Did</h2>
         <ul class="list">
           {(c.overview || []).map((b) => <li>{b}</li>)}
         </ul>
 
-        <h2 class="h2">outcome</h2>
+        <h2 class="h2">Outcome</h2>
         <p class="p">
           Voeg hier straks je echte outcome tekst toe per case (SEO groei, bezoekers, conversie, etc.).
           Dit kan later ook uit je data komen.
@@ -48,7 +48,7 @@ const { c } = Astro.props;
 
       <aside class="side">
         <div class="panel">
-          <h3 class="mini">metrics</h3>
+          <h3 class="mini">Metrics</h3>
           <div class="stats">
             {(c.stats || []).map((s) => (
               <div class="stat">
@@ -60,8 +60,8 @@ const { c } = Astro.props;
         </div>
 
         <div class="panel">
-          <h3 class="mini">stack</h3>
-          <p class="small">Astro • HTML/CSS • SEO foundations</p>
+          <h3 class="mini">Stack</h3>
+          <p class="small">Astro · HTML/CSS · SEO Foundations</p>
         </div>
       </aside>
     </div>

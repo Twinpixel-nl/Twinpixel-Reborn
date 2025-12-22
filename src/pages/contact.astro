@@ -1,13 +1,11 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"; // <-- pas dit aan naar jouw layout
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const page = {
   title: "Contact",
-  description:
-    "Stuur ons een bericht. We reageren meestal binnen 1 werkdag.",
+  description: "Stuur ons een bericht. We reageren meestal binnen 1 werkdag.",
 };
 
-// pas dit aan naar jullie gegevens
 const company = {
   name: "TwinPixel",
   location: "Wageningen, Nederland",
@@ -25,25 +23,25 @@ const company = {
       <!-- left: info -->
       <aside class="panel info" aria-label="Contactgegevens">
         <div class="card">
-          <h2 class="h2">gegevens</h2>
+          <h2 class="h2">Gegevens</h2>
 
           <dl class="list">
             <div class="row">
-              <dt>bedrijf</dt>
+              <dt>Bedrijf</dt>
               <dd>{company.name}</dd>
             </div>
             <div class="row">
-              <dt>locatie</dt>
+              <dt>Locatie</dt>
               <dd>{company.location}</dd>
             </div>
             <div class="row">
-              <dt>mail</dt>
+              <dt>Mail</dt>
               <dd>
                 <a class="link" href={`mailto:${company.email}`}>{company.email}</a>
               </dd>
             </div>
             <div class="row">
-              <dt>telefoon</dt>
+              <dt>Telefoon</dt>
               <dd>
                 <a class="link" href={`tel:${company.phone.replaceAll(" ", "")}`}>
                   {company.phone}
@@ -54,28 +52,28 @@ const company = {
 
           <div class="actions">
             <a class="btn" href={`mailto:${company.email}?subject=Contact%20via%20website`}>
-              mailen
+              Mailen
             </a>
             <a class="btn ghost" href={company.website} target="_blank" rel="noreferrer">
-              website
+              Website
             </a>
           </div>
         </div>
 
         <div class="card">
-          <h2 class="h2">social</h2>
+          <h2 class="h2">Social</h2>
           <div class="social">
             <a class="pill" href={company.linkedin} target="_blank" rel="noreferrer">
-              linkedin
+              LinkedIn
             </a>
             <a class="pill" href={company.instagram} target="_blank" rel="noreferrer">
-              instagram
+              Instagram
             </a>
           </div>
 
           <p class="note">
-            liever direct plannen? zet in je bericht alvast: budget, deadline en wat je nodig hebt
-            (website, redesign, landing page, etc.).
+            Liever direct plannen? Zet in je bericht alvast: budget, deadline en wat je nodig hebt
+            (Website, redesign, landing page, etc.).
           </p>
         </div>
       </aside>
@@ -83,12 +81,11 @@ const company = {
       <!-- right: form -->
       <section class="panel form" aria-label="Contactformulier">
         <div class="card">
-          <h2 class="h2">stuur een bericht</h2>
+          <h2 class="h2">Stuur Een Bericht</h2>
           <p class="muted">
-            geen gedoe. gewoon even invullen, dan reageren we snel.
+            Geen gedoe. Gewoon even invullen, dan reageren we snel.
           </p>
 
-          <!-- Netlify Forms: werkt direct op Netlify -->
           <form
             class="contact-form"
             name="contact"
@@ -96,7 +93,6 @@ const company = {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
-            <!-- required hidden fields for netlify -->
             <input type="hidden" name="form-name" value="contact" />
             <p class="sr-only">
               <label>
@@ -106,52 +102,52 @@ const company = {
 
             <div class="fields">
               <label class="field">
-                <span>naam</span>
+                <span>Naam</span>
                 <input
                   name="name"
                   type="text"
                   autocomplete="name"
                   required
-                  placeholder="je naam"
+                  placeholder="Je Naam"
                 />
               </label>
 
               <label class="field">
-                <span>e-mail</span>
+                <span>E-mail</span>
                 <input
                   name="email"
                   type="email"
                   autocomplete="email"
                   required
-                  placeholder="naam@bedrijf.nl"
+                  placeholder="Naam@bedrijf.nl"
                 />
               </label>
 
               <label class="field">
-                <span>onderwerp</span>
+                <span>Onderwerp</span>
                 <input
                   name="subject"
                   type="text"
                   required
-                  placeholder="bijv. nieuwe website voor mijn bedrijf"
+                  placeholder="Bijv. Nieuwe Website Voor Mijn Bedrijf"
                 />
               </label>
 
               <label class="field full">
-                <span>bericht</span>
+                <span>Bericht</span>
                 <textarea
                   name="message"
                   rows="7"
                   required
-                  placeholder="vertel kort wat je zoekt + eventuele deadline"
+                  placeholder="Vertel kort wat je zoekt + eventuele deadline"
                 ></textarea>
               </label>
             </div>
 
             <div class="form-footer">
-              <button class="btn" type="submit">versturen</button>
+              <button class="btn" type="submit">Versturen</button>
               <p class="tiny">
-                door te versturen ga je akkoord dat we je bericht mogen gebruiken om contact op te
+                Door te versturen ga je akkoord dat we je bericht mogen gebruiken om contact op te
                 nemen.
               </p>
             </div>
@@ -159,11 +155,11 @@ const company = {
         </div>
 
         <div class="card subtle">
-          <h3 class="h3">typische vragen</h3>
+          <h3 class="h3">Typische Vragen</h3>
           <ul class="faq">
-            <li><span class="q">wat kost een website?</span><span class="a">hangt af van scope. noem je budget, dan kunnen we meteen meedenken.</span></li>
-            <li><span class="q">hoe snel kunnen jullie leveren?</span><span class="a">als je deadline erbij zet, kunnen we eerlijk zeggen of het past.</span></li>
-            <li><span class="q">doen jullie ook onderhoud/hosting?</span><span class="a">ja, kan. zet erbij wat je nu hebt (provider/domein).</span></li>
+            <li><span class="q">Wat kost een website?</span><span class="a">Hangt af van scope. Noem je budget, dan kunnen we meteen meedenken.</span></li>
+            <li><span class="q">Hoe snel kunnen jullie leveren?</span><span class="a">Als je deadline erbij zet, kunnen we eerlijk zeggen of het past.</span></li>
+            <li><span class="q">Doen jullie ook onderhoud/hosting?</span><span class="a">Ja, kan. Zet erbij wat je nu hebt (provider/domein).</span></li>
           </ul>
         </div>
       </section>
@@ -228,7 +224,6 @@ const company = {
     .h2 {
       margin: 0 0 0.8rem;
       font-size: 1.05rem;
-      text-transform: lowercase;
       letter-spacing: 0.02em;
     }
 

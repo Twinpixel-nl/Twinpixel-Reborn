@@ -15,18 +15,18 @@ const {
       <div class="brand">{brand}</div>
       <div class="meta">
         <span>{location}</span>
-        <span class="dot">•</span>
+        <span class="dot">·</span>
         <a class="link" href={`mailto:${email}`}>{email}</a>
       </div>
-      <p class="small">websites die er strak uitzien en snel laden.</p>
+      <p class="small">Websites die er strak uitzien en snel laden.</p>
     </div>
 
     <div class="right">
       <nav class="nav" aria-label="Footer navigation">
-        <a href="/">home</a>
-        <a href="/work">work</a>
-        <a href="/services">services</a>
-        <a href="/contact">contact</a>
+        <a href="/">Home</a>
+        <a href="/work">Work</a>
+        <a href="/services">Services</a>
+        <a href="/contact">Contact</a>
       </nav>
 
       <div class="social" aria-label="Social links">
@@ -62,7 +62,7 @@ const {
 
   <div class="bottom">
     <span class="dim">© {new Date().getFullYear()} {brand}</span>
-    <span class="dim">built with astro</span>
+    <span class="dim">Built With Astro</span>
   </div>
 
   <style>
@@ -156,7 +156,6 @@ const {
       transition: transform 260ms ease;
     }
 
-    /* animated background layer */
     .icon .bg {
       position: absolute;
       inset: -40%;
@@ -168,37 +167,17 @@ const {
       filter: blur(0.2px);
     }
 
-    /* per platform vibe */
-    .icon.ig .bg {
-      background: conic-gradient(from 180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.18), rgba(255,255,255,0.0));
-    }
-    .icon.fb .bg {
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0.00) 60%);
-    }
-    .icon.in .bg {
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02));
-    }
+    .icon.ig .bg { background: conic-gradient(from 180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.18), rgba(255,255,255,0.0)); }
+    .icon.fb .bg { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0.00) 60%); }
+    .icon.in .bg { background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02)); }
 
-    /* hover animation */
-    .icon:hover svg {
-      transform: translateY(-1px) scale(1.06);
-    }
-    .icon:hover .bg {
-      opacity: 1;
-      transform: translate(0%, 0%) rotate(0deg);
-    }
-    .icon:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.22);
-    }
+    .icon:hover svg { transform: translateY(-1px) scale(1.06); }
+    .icon:hover .bg { opacity: 1; transform: translate(0%, 0%) rotate(0deg); }
+    .icon:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); }
 
-    /* subtle idle animation */
-    .icon {
-      animation: pulse 6.5s ease-in-out infinite;
-    }
+    .icon { animation: pulse 6.5s ease-in-out infinite; }
     .icon:nth-child(2) { animation-delay: 0.6s; }
     .icon:nth-child(3) { animation-delay: 1.2s; }
-
     @keyframes pulse {
       0%, 100% { box-shadow: 0 0 0 rgba(255,255,255,0.0); }
       50% { box-shadow: 0 0 0 10px rgba(255,255,255,0.02); }
