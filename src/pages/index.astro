@@ -96,28 +96,28 @@ import Button from "../components/Button.astro";
         <details>
           <summary>
             <span>Wat hebben jullie van mij nodig?</span>
-            <span class="chev" aria-hidden="true">⌄</span>
+            <span class="chev" aria-hidden="true">▼</span>
           </summary>
           <p>Doel, doelgroep, gewenste pagina’s en voorbeelden van wat je goed vindt. Content in concept helpt, anders schrijven we mee aan structuur/microcopy.</p>
         </details>
         <details>
           <summary>
             <span>Hoe snel kunnen jullie opleveren?</span>
-            <span class="chev" aria-hidden="true">⌄</span>
+            <span class="chev" aria-hidden="true">▼</span>
           </summary>
           <p>Een standaard site in 3–5 weken, afhankelijk van feedback en content. Technische projecten plannen we samen in fases.</p>
         </details>
         <details>
           <summary>
             <span>Regelen jullie hosting en onderhoud?</span>
-            <span class="chev" aria-hidden="true">⌄</span>
+            <span class="chev" aria-hidden="true">▼</span>
           </summary>
           <p>Ja, we kunnen deployen op Netlify/Vercel en helpen met monitoring/updates. Of we leveren op zodat je eigen team het beheert.</p>
         </details>
         <details>
           <summary>
             <span>Kunnen jullie SEO meenemen?</span>
-            <span class="chev" aria-hidden="true">⌄</span>
+            <span class="chev" aria-hidden="true">▼</span>
           </summary>
           <p>Ja: technische SEO, titles/headings, interne links en performance. Voor content/long-form werken we samen met copywriters.</p>
         </details>
@@ -354,8 +354,15 @@ import Button from "../components/Button.astro";
       transition: background-color .14s ease, color .14s ease;
     }
     .faq-accordion summary::-webkit-details-marker{ display:none; }
-    .faq-accordion summary .chev{ opacity: .6; transform: rotate(0deg); transition: transform .18s ease; }
-    .faq-accordion details[open] summary .chev{ transform: rotate(180deg); }
+    .faq-accordion summary .chev{ 
+      opacity: .6; 
+      transform: rotate(0deg) scale(1); 
+      transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity .2s ease; 
+    }
+    .faq-accordion details[open] summary .chev{ 
+      transform: rotate(180deg) scale(1.1); 
+      opacity: 1;
+    }
     .faq-accordion summary:hover{
       background: rgba(255,255,255,.03);
       color: rgba(255,255,255,.96);
