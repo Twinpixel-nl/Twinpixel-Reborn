@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
 
 const title = "Over Ons";
 const description = "Wij zijn twee HBO-ICT studenten met focus op technische websites.";
@@ -99,7 +100,7 @@ const teamImage = "/images/team-sparring.jpg"; // plaats je foto hier
         </p>
       </div>
       <div class="cta-actions">
-        <a class="btn primary" href="/contact">Plan Kennismaking</a>
+        <Button href="/contact" variant="primary" label="Plan Kennismaking" />
         <a class="btn secondary" href="/portfolio">Bekijk Cases</a>
       </div>
     </section>

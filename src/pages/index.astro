@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import Expertise from "../components/Expertise.astro";
 import CasesPreview from "../components/CasesPreview.astro";
+import Button from "../components/Button.astro";
 ---
 
 <BaseLayout
@@ -136,7 +137,7 @@ import CasesPreview from "../components/CasesPreview.astro";
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="/contact">Plan Kennismaking</a>
+          <Button href="/contact" variant="primary" label="Plan Kennismaking" />
           <a
             class="btn secondary"
             href="mailto:meurstwan@gmail.com?subject=Contact%20via%20website"
