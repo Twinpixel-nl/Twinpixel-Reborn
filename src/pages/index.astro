@@ -46,7 +46,139 @@ import Button from "../components/Button.astro";
   <Expertise />
   <CasesPreview />
 
+  <!-- Reviews Section -->
+  <section class="section reviews" aria-label="Klant reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <p class="kicker">Reviews</p>
+        <h2 class="h2">Wat klanten zeggen</h2>
+        <p class="lead">
+          Directe feedback van ondernemers die we hebben geholpen met hun online aanwezigheid.
+        </p>
+      </div>
 
+      <div class="reviews-carousel">
+        <div class="reviews-track">
+          <div class="review-card">
+            <div class="review-stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Professioneel team dat precies begrijpt wat je nodig hebt. De website laadt razendsnel
+              en ziet er strak uit. Direct contact zonder tussenpersonen maakt het werken heel prettig."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Sarah van der Berg</div>
+              <div class="author-company">Eigenaar, Studio Creatief</div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Van idee tot live website in korte tijd. Uitstekende communicatie en het eindresultaat
+              overtrof mijn verwachtingen. Zeker aan te raden voor ondernemers die serieus zijn over hun online presence."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Mark de Vries</div>
+              <div class="author-company">Directeur, TechSolutions B.V.</div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "De technische kennis is duidelijk aanwezig. Ze denken mee over SEO en performance,
+              niet alleen over het design. Een website die echt werkt voor mijn bedrijf."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Lisa Jansen</div>
+              <div class="author-company">Marketing Manager, GreenTech</div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Snelle oplevering, transparante prijzen en een website die perfect aansluit bij mijn huisstijl.
+              Het contact was persoonlijk en professioneel. Top werk!"
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Tom Bakker</div>
+              <div class="author-company">Eigenaar, Bakker & Zn</div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Ze luisteren echt naar je wensen en komen met slimme oplossingen. De website is niet alleen mooi,
+              maar ook nog eens supersnel. Een investering die zichzelf terugverdient."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Anna Smit</div>
+              <div class="author-company">Founder, Anna's Coaching</div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Professioneel van begin tot eind. Duidelijke afspraken, snelle communicatie en een eindresultaat
+              waar ik trots op ben. Zeker voor herhaling vatbaar!"
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Robert van Dijk</div>
+              <div class="author-company">CEO, InnovateIT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-cta">
+        <p class="reviews-note">
+          Deze reviews zijn afkomstig van onze Google Business Profile.
+          <a href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
+            Bekijk alle reviews →
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
 
   <section class="section packages" aria-label="Pakketten">
     <div class="container">
@@ -418,6 +550,241 @@ import Button from "../components/Button.astro";
     }
     @media (max-width: 620px){
       .pillars{ grid-template-columns: 1fr; }
+    }
+
+    /* Reviews Section */
+    .reviews {
+      padding: 5rem 0;
+      background: rgba(255,255,255,0.01);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .reviews-header .kicker {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .reviews-header .h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .reviews-header .lead {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .reviews-carousel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      border-radius: 20px;
+    }
+
+    .reviews-track {
+      display: flex;
+      width: calc(200px * 6); /* 6 reviews */
+      animation: scrollReviews 45s linear infinite;
+    }
+
+    .reviews-track:hover {
+      animation-play-state: paused;
+    }
+
+    .reviews-track .review-card {
+      flex: 0 0 100vw;
+      max-width: 600px;
+      margin: 0 2rem;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .reviews-track .review-card:nth-child(1) {
+      opacity: 1;
+    }
+
+    @keyframes scrollReviews {
+      0% { transform: translateX(0); }
+      16.67% { transform: translateX(-100vw); }
+      33.33% { transform: translateX(-200vw); }
+      50% { transform: translateX(-300vw); }
+      66.67% { transform: translateX(-400vw); }
+      83.33% { transform: translateX(-500vw); }
+      100% { transform: translateX(-600vw); }
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .review-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .star {
+      color: #fbbf24;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .review-text {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 1.5rem 0;
+      font-style: italic;
+      position: relative;
+    }
+
+    .review-text::before {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(47,137,255,0.3);
+      position: absolute;
+      top: -0.5rem;
+      left: -1rem;
+      font-family: serif;
+    }
+
+    .review-author {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1rem;
+    }
+
+    .author-name {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .author-company {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .reviews-cta {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .reviews-note {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .reviews-note a {
+      color: #2F89FF;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .reviews-note a:hover {
+      color: rgba(47,137,255,0.8);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .reviews {
+        padding: 3rem 0;
+      }
+
+      .reviews-header .h2 {
+        font-size: 2rem;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .reviews-carousel {
+        margin-bottom: 2rem;
+      }
+
+      .reviews-track .review-card {
+        flex: 0 0 85vw;
+        margin: 0 1rem;
+      }
+
+      .review-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .reviews {
+        padding: 2rem 0;
+      }
+
+      .reviews-header {
+        margin-bottom: 2rem;
+      }
+
+      .reviews-header .h2 {
+        font-size: 1.75rem;
+      }
+
+      .reviews-header .lead {
+        font-size: 1rem;
+      }
+
+      .reviews-grid {
+        gap: 1rem;
+      }
+
+      .reviews-track .review-card {
+        flex: 0 0 80vw;
+        margin: 0 0.5rem;
+      }
+
+      .review-card {
+        padding: 1.25rem;
+      }
+
+      .review-text::before {
+        font-size: 2rem;
+        top: -0.25rem;
+        left: -0.5rem;
+      }
     }
   </style>
 </BaseLayout>
