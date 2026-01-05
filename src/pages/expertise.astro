@@ -14,8 +14,8 @@ import { expertiseItems } from "../data/expertise";
       <p class="kicker">Onze Expertise</p>
       <h1 class="h1">Drie routes naar succes</h1>
       <p class="lead">
-        We werken vanuit drie kerngebieden. Kies wat je nu nodig hebt en ontdek onze aanpak,
-        deliverables en bewezen resultaten.
+        We bouwen websites die werken. Kies één of combineer meerdere expertises
+        voor een complete digitale oplossing. Branding als fundament, websites als kracht.
       </p>
     </div>
   </section>
@@ -23,6 +23,13 @@ import { expertiseItems } from "../data/expertise";
   <!-- Expertise Cards -->
   <section class="section expertise-section">
     <div class="container">
+      <div class="expertise-intro">
+        <p class="expertise-note">
+          <strong>Kies je expertise:</strong> Start met een website als basis, voeg branding toe voor een complete merkbeleving.
+          Of neem contact op voor advies over de beste combinatie.
+        </p>
+      </div>
+
       <div class="expertise-grid">
         {expertiseItems.map((item) => (
           <a
@@ -92,15 +99,15 @@ import { expertiseItems } from "../data/expertise";
     <div class="container">
       <div class="cta-card">
         <div class="cta-content">
-          <h2 class="cta-title">Twijfel je nog?</h2>
+          <h2 class="cta-title">Meerdere expertises combineren?</h2>
           <p class="cta-description">
-            Stuur kort je situatie en deadline. We adviseren direct welke richting past
-            en wat je kunt verwachten.
+            Websites en branding werken het beste samen. Stuur je projectbeschrijving
+            en we adviseren welke combinatie het meest effectief is voor jouw doel.
           </p>
         </div>
         <div class="cta-actions">
-          <Button href="/contact" variant="primary" label="Plan kennismaking" />
-          <Button href="/cases" variant="secondary" label="Bekijk cases" />
+          <Button href="/contact" variant="primary" label="Plan adviesgesprek" />
+          <Button href="/cases" variant="secondary" label="Bekijk voorbeelden" />
         </div>
       </div>
     </div>
@@ -160,6 +167,26 @@ import { expertiseItems } from "../data/expertise";
     /* Expertise Section */
     .expertise-section {
       padding: 80px 0;
+    }
+
+    .expertise-intro {
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .expertise-note {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.78);
+      margin: 0;
+    }
+
+    .expertise-note strong {
+      color: rgba(255,255,255,.92);
+      font-weight: 600;
     }
 
     .expertise-grid {

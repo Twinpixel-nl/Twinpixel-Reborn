@@ -13,52 +13,6 @@ export type ExpertiseItem = {
 
 export const expertiseItems: ExpertiseItem[] = [
   {
-    slug: "branding",
-    accent: "#7c3aed",
-    chipClass: "purple",
-    title: "Branding",
-    intro:
-      "Een identiteit die overal consistent is: logo, typografie, kleuren, componenten en tone of voice. Zodat je merk direct professioneel voelt.",
-    whatYouGet: [
-      "Brand direction + look & feel",
-      "Design system (buttons, spacing, componenten)",
-      "Templates voor pagina’s en content",
-    ],
-    steps: [
-      { nr: "01", text: "Analyse van doel, doelgroep en context" },
-      { nr: "02", text: "Ontwerp & structuur met focus op helderheid" },
-      { nr: "03", text: "Uitwerking en iteratie op details" },
-    ],
-    panel: [
-      { label: "Deliverables", value: "Brand kit • UI kit • Styleguide" },
-      { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
-      { label: "Wanneer", value: 'als je merk “net niet” voelt of inconsistent is' },
-    ],
-  },
-  {
-    slug: "standard-websites",
-    accent: "#2F89FF",
-    chipClass: "blue",
-    title: "Standard Websites",
-    intro:
-      "Strakke marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op leads.",
-    whatYouGet: [
-      "Homepage + diensten + contact (heldere flow)",
-      "SEO basis: titles, headings, interne links",
-      "Performance-first build (Astro)",
-    ],
-    steps: [
-      { nr: "01", text: "Contentstructuur: wat moet waar staan en waarom" },
-      { nr: "02", text: "Design uitwerken met focus op hiërarchie en rust" },
-      { nr: "03", text: "Build + SEO basis + performance checks" },
-    ],
-    panel: [
-      { label: "Perfect voor", value: "MKB • studios • personal brands" },
-      { label: "Focus", value: "Design • snelheid • conversie" },
-      { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
-    ],
-  },
-  {
     slug: "technical-websites",
     accent: "#22c55e",
     chipClass: "cyan",
@@ -78,7 +32,53 @@ export const expertiseItems: ExpertiseItem[] = [
     panel: [
       { label: "Gebruikscases", value: "SaaS • platforms • portals" },
       { label: "Resultaat", value: "Schaalbaar zonder rommel" },
-      { label: "Wanneer", value: "als je meer nodig hebt dan “alleen pagina’s”" },
+      { label: "Wanneer", value: "als je meer nodig hebt dan \"alleen pagina's\"" },
+    ],
+  },
+  {
+    slug: "standard-websites",
+    accent: "#2F89FF",
+    chipClass: "blue",
+    title: "Standard Websites",
+    intro:
+      "Strakke marketing sites en landingspagina's die snel laden, logisch lezen en gericht zijn op leads.",
+    whatYouGet: [
+      "Homepage + diensten + contact (heldere flow)",
+      "SEO basis: titles, headings, interne links",
+      "Performance-first build (Astro)",
+    ],
+    steps: [
+      { nr: "01", text: "Contentstructuur: wat moet waar staan en waarom" },
+      { nr: "02", text: "Design uitwerken met focus op hiërarchie en rust" },
+      { nr: "03", text: "Build + SEO basis + performance checks" },
+    ],
+    panel: [
+      { label: "Perfect voor", value: "MKB • studios • personal brands" },
+      { label: "Focus", value: "Design • snelheid • conversie" },
+      { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
+    ],
+  },
+  {
+    slug: "branding",
+    accent: "#7c3aed",
+    chipClass: "purple",
+    title: "Branding",
+    intro:
+      "Een identiteit die overal consistent is: logo, typografie, kleuren, componenten en tone of voice. Zodat je merk direct professioneel voelt.",
+    whatYouGet: [
+      "Brand direction + look & feel",
+      "Design system (buttons, spacing, componenten)",
+      "Templates voor pagina's en content",
+    ],
+    steps: [
+      { nr: "01", text: "Analyse van doel, doelgroep en context" },
+      { nr: "02", text: "Ontwerp & structuur met focus op helderheid" },
+      { nr: "03", text: "Uitwerking en iteratie op details" },
+    ],
+    panel: [
+      { label: "Deliverables", value: "Brand kit • UI kit • Styleguide" },
+      { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
+      { label: "Wanneer", value: "als je merk \"net niet\" voelt of inconsistent is" },
     ],
   },
 ];
