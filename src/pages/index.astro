@@ -261,36 +261,60 @@ import Button from "../components/Button.astro";
     .value-grid{
       display: grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 28px;
+      gap: 48px;
       align-items: start;
     }
     .pillars{
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
+      gap: 20px;
     }
     .pill{
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.025);
-      border-radius: 14px;
-      padding: 12px 12px 14px;
-      transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
+      border-radius: 16px;
+      padding: 20px 20px 24px;
+      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .pill::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(47,137,255,.1), transparent);
+      transition: left .5s ease;
     }
     .pill-title{
-      margin: 0 0 6px;
+      margin: 0 0 8px;
       font-weight: 650;
       color: rgba(255,255,255,.92);
+      transition: color .3s ease;
     }
     .pill-text{
       margin: 0;
       color: rgba(255,255,255,.70);
       line-height: 1.65;
       font-size: 14px;
+      transition: color .3s ease;
     }
     .pill:hover{
-      border-color: rgba(255,255,255,.22);
-      background: rgba(255,255,255,.05);
-      transform: translateY(-2px);
+      border-color: rgba(47,137,255,.4);
+      background: rgba(47,137,255,.05);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(47,137,255,.15);
+    }
+    .pill:hover::before{
+      left: 100%;
+    }
+    .pill:hover .pill-title{
+      color: rgba(47,137,255,.95);
+    }
+    .pill:hover .pill-text{
+      color: rgba(255,255,255,.85);
     }
 
     .packages .head{
