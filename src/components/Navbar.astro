@@ -1,13 +1,15 @@
 ---
 import Button from "./Button.astro";
+import Hamburger from "./Hamburger.astro";
 ---
+
 <header class="nav">
   <div class="container inner">
     <a class="logo" href="/" aria-label="Twinpixel home">
       <img src="/logo.png" alt="Twinpixel logo" />
     </a>
 
-    <nav class="menu" aria-label="Main navigation">
+    <nav class="desktop-menu" aria-label="Main navigation">
       <a href="/" class={Astro.url.pathname === '/' ? 'active' : ''}>Home</a>
       <a href="/expertise" class={Astro.url.pathname.startsWith('/expertise') ? 'active' : ''}>Expertise</a>
       <a href="/cases" class={Astro.url.pathname.startsWith('/cases') ? 'active' : ''}>Cases</a>
@@ -17,18 +19,86 @@ import Button from "./Button.astro";
     <div class="cta">
       <Button href="/contact" variant="primary" label="Plan kennismaking" />
     </div>
+
+    <div class="hamburger-wrapper">
+      <Hamburger />
+    </div>
   </div>
 </header>
 
+<nav id="mobile-menu-nav" class="mobile-menu" aria-label="Mobile navigation">
+  <div class="mobile-menu-inner">
+    <a href="/">Home</a>
+    <a href="/expertise">Expertise</a>
+    <a href="/cases">Cases</a>
+    <a href="/over-ons">Over ons</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu-nav");
+
+    if (!hamburger || !mobileMenu) return;
+
+    const setMenu = (open) => {
+      document.body.classList.toggle("menu-open", open);
+      hamburger.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    const closeMenu = () => setMenu(false);
+
+    hamburger.addEventListener("click", () => {
+      const open = !document.body.classList.contains("menu-open");
+      setMenu(open);
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", closeMenu);
+    });
+
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target === mobileMenu) closeMenu();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  });
+</script>
+
 <style>
   .nav{
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(5,6,10,.75);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
+  position: sticky;
+  top: 0;
+  z-index: 500; /* header boven overlay */
+  background: rgba(5,6,10,.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.hamburger-wrapper{
+  display: none;
+  position: relative;
+  z-index: 600; /* boven alles in de header */
+}
+
+.mobile-menu{
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 10, 0.85);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 400; /* onder header, boven pagina */
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 
   .inner{
     height: 72px;
@@ -45,14 +115,14 @@ import Button from "./Button.astro";
   }
   .logo img{ height: 32px; width:auto; }
 
-  .menu{
+  .desktop-menu{
     display:flex;
     gap: 28px;
     justify-content:center;
     flex: 1;
   }
 
-  .menu a{
+  .desktop-menu a{
     color: rgba(255,255,255,.70);
     font-size: 14px;
     letter-spacing: .02em;
@@ -60,10 +130,9 @@ import Button from "./Button.astro";
     position: relative;
     transition: color .14s ease;
   }
-  .menu a:hover{ color: rgba(255,255,255,.92); }
+  .desktop-menu a:hover{ color: rgba(255,255,255,.92); }
 
-  /* ACTIVE: 1px underline, strak op baseline */
-  .menu a::after{
+  .desktop-menu a::after{
     content:"";
     position:absolute;
     left:0; right:0;
@@ -75,13 +144,47 @@ import Button from "./Button.astro";
     transform-origin: left;
     transition: opacity .14s ease, transform .18s ease;
   }
-  .menu a.active{ color: rgba(255,255,255,.95); }
-  .menu a.active::after{
+  .desktop-menu a.active{ color: rgba(255,255,255,.95); }
+  .desktop-menu a.active::after{
     opacity: 1;
     transform: scaleX(1);
   }
 
-  @media (max-width: 820px){
-    .menu{ display:none; }
+  .hamburger-wrapper{
+    display: none;
+    position: relative;
+    z-index: 300; /* altijd boven overlay */
+  }
+
+  body.menu-open .mobile-menu{
+    transform: translateX(0);
+  }
+
+  .mobile-menu-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap: 2rem;
+  }
+
+  .mobile-menu a{
+    color:#fff;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 500;
+    text-decoration:none;
+    transition: color .2s ease, transform .2s ease, text-shadow .2s ease;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu a:focus{
+    color: var(--brand);
+    transform: scale(1.1);
+    text-shadow: 0 0 12px rgba(47, 137, 255, 0.6);
+  }
+
+  @media (max-width: 900px){
+    .desktop-menu, .cta { display:none; }
+    .hamburger-wrapper { display:block; }
   }
 </style>

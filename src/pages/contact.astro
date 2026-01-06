@@ -390,6 +390,7 @@ const company = {
       outline: none;
       transition: all 0.2s ease;
       font-family: inherit;
+      font-size: 1rem;
     }
 
     input:focus,
@@ -457,6 +458,16 @@ const company = {
       }
       .hero {
         padding: 2rem 0 1rem;
+      }
+      .card {
+        padding: 1.25rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
       }
     }
   </style>

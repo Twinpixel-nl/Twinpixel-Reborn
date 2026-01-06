@@ -20,9 +20,8 @@ const {
 
   <body>
     <Navbar />
-    <main>
-      <slot />
-          <Footer
+    <slot />
+    <Footer
       brand="TwinPixel"
       location="Wageningen, NL"
       email="info@twinpixel.nl"
@@ -30,6 +29,5 @@ const {
       facebook="https://facebook.com/"
       linkedin="https://linkedin.com/"
     />
-    </main>
   </body>
 </html>
