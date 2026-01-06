@@ -71,14 +71,18 @@ import Hamburger from "./Hamburger.astro";
 </script>
 
 <style>
-  .nav{
-  position: sticky;
+.nav{
+  position: fixed;      /* <- dit is de fix */
   top: 0;
-  z-index: 500; /* header boven overlay */
+  left: 0;
+  right: 0;
+  z-index: 500;
+
   background: rgba(5,6,10,.75);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
+
 
 .hamburger-wrapper{
   display: none;
