@@ -9,6 +9,11 @@ export type ExpertiseItem = {
   steps: { nr: string; text: string }[];
 
   panel: { label: string; value: string }[];
+  costs: {
+    price: string;
+    description: string;
+    features: string[];
+  };
 };
 
 export const expertiseItems: ExpertiseItem[] = [
@@ -19,6 +24,7 @@ export const expertiseItems: ExpertiseItem[] = [
     title: "Technical Websites",
     intro:
       "Custom integraties, complexe flows en webapp-achtige ervaringen — strak gebouwd en onderhoudbaar.",
+      
     whatYouGet: [
       "Integraties (CRM, forms, analytics, automatisering)",
       "Custom UX flows (filters, portals, dashboards)",
@@ -34,6 +40,12 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Resultaat", value: "Schaalbaar zonder rommel" },
       { label: "Wanneer", value: "als je meer nodig hebt dan \"alleen pagina's\"" },
     ],
+        costs: {
+      price: "€5.500",
+      description: "Voor complexe projecten waarbij techniek en data centraal staan.",
+      features: ["Custom API integraties", "Dashboarding & Portals", "Uitgebreide QA & Testing"]
+    }
+
   },
   {
     slug: "standard-websites",
@@ -57,6 +69,11 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Focus", value: "Design • snelheid • conversie" },
       { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
     ],
+    costs: {
+      price: "€3.500",
+      description: "Een complete, snelle website die klaar is om te converteren.",
+      features: ["Astro Performance Build", "SEO Optimalisatie", "Lead-capture formulieren"]
+    }
   },
   {
     slug: "branding",
@@ -80,5 +97,10 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
       { label: "Wanneer", value: "als je merk \"net niet\" voelt of inconsistent is" },
     ],
+     costs: {
+      price: "€2.500",
+      description: "De visuele fundering voor je bedrijf of product.",
+      features: ["Logo & Visual Identity", "UI Kit / Design System", "Brand Styleguide"]
+    }
   },
 ];

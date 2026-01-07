@@ -107,6 +107,25 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
               ))}
             </div>
           </div>
+
+          <!-- NIEUW: KOSTEN SECTIE -->
+          <div class="block investment">
+            <h2 class="sub">Investering</h2>
+            <div class="cost-card">
+              <div class="cost-content">
+                <p class="cost-price">Vanaf <span class="amount" style={`color: var(--accent)`}>{item.costs.price}</span></p>
+                <p class="cost-desc">{item.costs.description}</p>
+              </div>
+              <ul class="cost-features">
+                {item.costs.features.map(f => (
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {currentExtras.examples.length > 0 && (
@@ -204,6 +223,67 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
       opacity: .85;
     }
 
+    .investment {
+    margin-top: 10px;
+  }
+
+  .cost-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.025);
+    border: 1px solid rgba(255,255,255,.08);
+    align-items: center;
+  }
+
+  .cost-price {
+    margin: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .amount {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 4px;
+  }
+
+  .cost-desc {
+    margin: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.7);
+    max-width: 30ch;
+  }
+
+  .cost-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .cost-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  @media (max-width: 600px) {
+    .cost-card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
     .band-inner{
       display:grid;
       grid-template-columns: 1.3fr .7fr;
