@@ -1,139 +1,161 @@
 export const cases = [
-  // FEATURED (3)
+  // FEATURED (3) - Gebaseerd op Analytics data
   {
-    slug: "socialmediamanager",
-    title: "SocialMediaManager.nl",
-    description: "Lead-focused website met premium design, duidelijke hiërarchie en een SEO-basis die klopt.",
-    tags: ["Design", "SEO", "Landing"],
-    image: "/cases/featured.jpg",
-    featured: true,
-    accent: "#2F89FF",
-    stats: [
-      { label: "SEO score", value: "96" },
-      { label: "Load", value: "0.9s" },
-      { label: "Leads", value: "+38%" }
-    ],
-    overview: [
-      "Nieuwe contentstructuur + conversion flow",
-      "Component-based UI + consistente spacing",
-      "SEO: titles, headings, internal linking + schema"
-    ]
-  },
-  {
-    slug: "twinpixel",
-    title: "Twinpixel.nl",
-    description: "Agency site met dark minimal aesthetic, performance-first build en strakke micro-interactie.",
-    tags: ["Astro", "Performance", "UI"],
-    image: "/cases/twinpixel.jpg",
+    slug: "by-britt-nails",
+    title: "By Britt Nails",
+    description: "Beauty-platform met focus op organische vindbaarheid. De data laat een sterke instroom zien vanuit SEO en social kanalen.",
+    tags: ["SEO", "Organic Search", "Design"],
+    image: "/cases/by-britt-nails.png",
     featured: true,
     accent: "#7c3aed",
     stats: [
-      { label: "Lighthouse", value: "98" },
-      { label: "CLS", value: "0.00" },
-      { label: "Indexing", value: "Clean" }
+      { label: "Actieve Gebr.", value: "161" },
+      { label: "Nieuwe Gebr.", value: "148" },
+      { label: "Groei", value: "+20,1%" }
     ],
     overview: [
-      "Design system: buttons, cards, typography rules",
-      "Smooth gradients + controlled glow",
-      "SEO-ready layout + snelle pagina’s"
-    ]
+      "Dominante instroom via Organic Search (SEO)",
+      "Sterke ondersteuning vanuit Organic Social",
+      "Geoptimaliseerd voor afspraakconversie"
+    ],
+    outcome: "Een sterke online autoriteit in de beauty-sector met een constante stroom aan nieuwe klanten via Google."
+  },
+  {
+    slug: "hettraumavoorbij",
+    title: "Het trauma voorbij",
+    description: "Explosieve groei in bereik. Door de vernieuwde contentstructuur is het aantal sessies en interacties meer dan verdrievoudigd.",
+    tags: ["Growth", "UX", "Performance"],
+    image: "/cases/hettraumavoorbij.png",
+    featured: true,
+    accent: "#2F89FF",
+    stats: [
+      { label: "Sessies", value: "+345%" },
+      { label: "Events", value: "543" },
+      { label: "Nieuwe Gebr.", value: "125" }
+    ],
+    overview: [
+      "Enorme stijging in pageviews (+341%)",
+      "Hoge engagement rate door relevante flow",
+      "Geoptimaliseerd voor mobiel gebruik"
+    ],
+    outcome: "Een verdrievoudiging van het digitale bereik en een platform dat hulpzoekenden sneller de weg wijst."
+  },
+  {
+    slug: "stadspartij-wageningen",
+    title: "Stadspartij Wageningen",
+    description: "Lokaal politiek platform met een verdubbeling in burgerinteractie en een sterke stijging in actieve gebruikers.",
+    tags: ["Politiek", "Community", "Local SEO"],
+    image: "/cases/stadspartijwageningen.png",
+    featured: true,
+    accent: "#14b8a6",
+    stats: [
+      { label: "Groei Gebr.", value: "+115,8%" },
+      { label: "Events", value: "+200%" },
+      { label: "Actieve Gebr.", value: "41" }
+    ],
+    overview: [
+      "Focus op lokale vindbaarheid en thema's",
+      "Duidelijke navigatie voor standpunten",
+      "Snel en toegankelijk voor alle burgers"
+    ],
+    outcome: "Maximale lokale zichtbaarheid en een platform dat burgerparticipatie laagdrempelig en inzichtelijk maakt."
+  },
+
+  // REST (8) - Overige projecten
+  {
+    slug: "social-media-manager",
+    title: "socialmediamanager.nl",
+    description: "Lead-focused website met premium design en een SEO-basis die klopt.",
+    tags: ["Marketing", "SEO", "Design"],
+    image: "/cases/socialmediamanager.png",
+    featured: false,
+    accent: "#2F89FF",
+    stats: [{ label: "Leads", value: "+38%" }],
+    overview: ["Conversion flow optimalisatie", "Component-based UI"],
+    outcome: "Een significante stijging in kwalitatieve aanvragen door een strakke, conversiegerichte funnel."
+  },
+  {
+    slug: "jongerenraad-wageningen",
+    title: "Jongerenraad Wageningen",
+    description: "Interactief platform om jongeren te betrekken bij de lokale politiek.",
+    tags: ["Community", "Social", "UX"],
+    image: "/cases/jongerenraadwageningen.png",
+    featured: false,
+    accent: "#7c3aed",
+    stats: [{ label: "Engagement", value: "High" }],
+    overview: ["Toegankelijk design voor jeugd", "Event-kalender integratie"],
+    outcome: "Een centrale plek waar Wageningse jongeren direct invloed hebben op hun eigen leefomgeving."
+  },
+  {
+    slug: "de-wet-van-staal",
+    title: "De Wet van Staal",
+    description: "Krachtig branding- en webproject voor een resultaatgerichte fitness-omgeving.",
+    tags: ["Branding", "Fitness", "Web"],
+    image: "/cases/dewetvanstaal.png",
+    featured: false,
+    accent: "#14b8a6",
+    stats: [{ label: "Lighthouse", value: "98" }],
+    overview: ["Dark mode aesthetic", "Snel laadbare media"],
+    outcome: "Een krachtig digitaal merk dat professionaliteit uitstraalt en nieuwe leden motiveert."
+  },
+  {
+    slug: "sv-null",
+    title: "SV Null",
+    description: "Community portaal en dashboard voor studenten-vereniging Null.",
+    tags: ["Platform", "Dashboard", "Dev"],
+    image: "/cases/svnull.png",
+    featured: false,
+    accent: "#2F89FF",
+    stats: [{ label: "Uptime", value: "99.9%" }],
+    overview: ["Ledenbeheer module", "Real-time updates"],
+    outcome: "Een gestroomlijnd verenigingsplatform dat administratie minimaliseert en de onderlinge band versterkt."
   },
   {
     slug: "vvd-wageningen",
     title: "VVD Wageningen",
-    description: "Content-driven site met heldere navigatie, themapagina’s en snelle laadtijden.",
-    tags: ["Content", "SEO", "Static"],
-    image: "/cases/vvd.jpg",
-    featured: true,
-    accent: "#14b8a6",
-    stats: [
-      { label: "Visitors", value: "12k/mo" },
-      { label: "Pagespeed", value: "95+" },
-      { label: "Bounce", value: "-18%" }
-    ],
-    overview: [
-      "Informatie-architectuur per thema + doelgroep",
-      "Duidelijke CTA’s en contactflows",
-      "Performance + SEO basis op alle pagina’s"
-    ]
-  },
-
-  // REST (7)
-  {
-    slug: "resetmoment-platform",
-    title: "Resetmoment Platform",
-    description: "Concept voor community + paywall platform met content-structuur en schaalbare basis.",
-    tags: ["Platform", "UX", "Structure"],
-    image: "/cases/platform.jpg",
+    description: "Content-driven politieke site met heldere navigatie en themapagina's.",
+    tags: ["Content", "Static", "SEO"],
+    image: "/cases/vvdwageningen.png",
     featured: false,
-    accent: "#2F89FF",
-    stats: [{ label: "Scope", value: "MVP" }],
-    overview: ["Structuur: ratio / emotie / gevoel", "Toegankelijke UX", "Voorbereid op paywall"]
+    accent: "#14b8a6",
+    stats: [{ label: "Visitors", value: "12k/mo" }],
+    overview: ["Informatie-architectuur per thema", "Snelheid optimalisatie"],
+    outcome: "Hoge bezoekersaantallen en een heldere communicatie van complexe politieke standpunten."
   },
   {
-    slug: "hr-for-one-day",
-    title: "HR for one day",
-    description: "Service concept + marketingstructuur: helder verhaal, aanbod en conversiepunten.",
-    tags: ["Brand", "Copy", "UX"],
-    image: null,
+    slug: "de-bennekamer",
+    title: "De Bennekamer",
+    description: "Lokaal platform voor ontmoeting en informatievoorziening in de wijk.",
+    tags: ["Lokaal", "Informatie", "UX"],
+    image: "/cases/debennekamer.png",
     featured: false,
     accent: "#7c3aed",
-    stats: [{ label: "Conversion", value: "Ready" }],
-    overview: ["Aanbod modulair", "CTA-structuur", "SEO + ads-ready opbouw"]
+    stats: [{ label: "Reach", value: "Local" }],
+    overview: ["Duidelijke agenda", "Eenvoudig CMS beheer"],
+    outcome: "Versterkte wijkcohesie door een gebruiksvriendelijk platform voor alle buurtbewoners."
   },
   {
-    slug: "wur-optaretool",
-    title: "WUR Optaretool",
-    description: "Meertalige rekentool met modulaire opzet en duidelijke uitleg/feedback in UI.",
-    tags: ["Tooling", "i18n", "UI"],
-    image: null,
-    featured: false,
-    accent: "#14b8a6",
-    stats: [{ label: "Users", value: "Internal" }],
-    overview: ["NL/EN zonder reload", "Dropdown tools", "Validatie + output"]
-  },
-  {
-    slug: "everience-bot",
-    title: "Everience Onboarding Bot",
-    description: "Chatbot prototype voor onboarding: informatie sneller vindbaar en consistent.",
-    tags: ["Chatbot", "Onboarding", "Flow"],
-    image: null,
+    slug: "emma-de-heer",
+    title: "emmadeheer.nl",
+    description: "Persoonlijk portfolio met een minimalistisch en esthetisch design.",
+    tags: ["Portfolio", "Branding", "Creative"],
+    image: "/cases/emmadeheer.png",
     featured: false,
     accent: "#2F89FF",
-    stats: [{ label: "Deflection", value: "↑" }],
-    overview: ["Intents + flows", "Handover doc", "Clarity-first antwoorden"]
+    stats: [{ label: "Design", value: "Minimal" }],
+    overview: ["Clean typography", "Responsive showcase"],
+    outcome: "Een professionele showcase die creativiteit en vakkennis vertaalt naar een overtuigend portfolio."
   },
   {
-    slug: "astro-template",
-    title: "Astro Agency Template",
-    description: "High-end Astro template: dark minimal, snelle builds, herbruikbare componenten.",
-    tags: ["Astro", "Template", "Performance"],
-    image: null,
+    slug: "twan-meurs",
+    title: "twanmeurs.nl",
+    description: "High-performance persoonlijke website met focus op snelheid en projecten.",
+    tags: ["Dev", "Portfolio", "Performance"],
+    image: "/cases/twanmeurs.png",
     featured: false,
     accent: "#14b8a6",
-    stats: [{ label: "Pagespeed", value: "Fast" }],
-    overview: ["Component library", "SEO head + schema", "Responsive zonder rommel"]
-  },
-  {
-    slug: "cms-blog-setup",
-    title: "CMS Blog Setup",
-    description: "Blog setup met CMS en dynamische index: snel publiceren zonder handwerk.",
-    tags: ["CMS", "Content", "SEO"],
-    image: null,
-    featured: false,
-    accent: "#7c3aed",
-    stats: [{ label: "Workflow", value: "Smooth" }],
-    overview: ["Auto index.json", "Post templates", "SEO metadata basis"]
-  },
-  {
-    slug: "event-brand-kit",
-    title: "Event Branding Kit",
-    description: "Brand kit: visuele stijl, templates en consistent materiaal voor promotie.",
-    tags: ["Branding", "Design", "Assets"],
-    image: null,
-    featured: false,
-    accent: "#2F89FF",
-    stats: [{ label: "Assets", value: "10+" }],
-    overview: ["Visuele richting", "Social templates", "Consistency over kanalen"]
+    stats: [{ label: "Speed", value: "0.8s" }],
+    overview: ["Astro build", "Edge delivery"],
+    outcome: "Een razendsnelle website die fungeert als technisch visitekaartje en optimale performance bewijst."
   }
 ];

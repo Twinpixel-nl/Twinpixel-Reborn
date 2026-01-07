@@ -14,15 +14,16 @@ const { c } = Astro.props;
 ---
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
+  <!-- De accentkleur wordt hier dynamisch toegepast op de hero -->
   <section class="hero" style={`--accent:${c.accent || "#2F89FF"};`}>
     <div class="container inner">
-      <p class="kicker">Case</p>
+      <p class="kicker">Case Study</p>
       <h1 class="h1">{c.title}</h1>
       <p class="lead">{c.description}</p>
 
       <div class="cta">
-        <Button href="/cases" variant="secondary" label="← Back To Cases" />
-        <Button href="/#contact" variant="primary" label="Work With Us" />
+        <Button href="/cases" variant="secondary" label="← Terug naar cases" />
+        <Button href="/#contact" variant="primary" label="Project starten" />
       </div>
     </div>
   </section>
@@ -34,21 +35,21 @@ const { c } = Astro.props;
           {c.image ? <img src={c.image} alt={c.title} loading="lazy" /> : null}
         </div>
 
-        <h2 class="h2">What We Did</h2>
+        <h2 class="h2">Wat we hebben gedaan</h2>
         <ul class="list">
           {(c.overview || []).map((b) => <li>{b}</li>)}
         </ul>
 
-        <h2 class="h2">Outcome</h2>
-        <p class="p">
-          Voeg hier straks je echte outcome tekst toe per case (SEO groei, bezoekers, conversie, etc.).
-          Dit kan later ook uit je data komen.
+        <h2 class="h2">Het resultaat</h2>
+        <!-- Hier wordt nu de 'outcome' uit je cases.js geladen -->
+        <p class="p outcome-text">
+          {c.outcome}
         </p>
       </div>
 
       <aside class="side">
         <div class="panel">
-          <h3 class="mini">Metrics</h3>
+          <h3 class="mini">Statistieken</h3>
           <div class="stats">
             {(c.stats || []).map((s) => (
               <div class="stat">
@@ -60,14 +61,26 @@ const { c } = Astro.props;
         </div>
 
         <div class="panel">
-          <h3 class="mini">Stack</h3>
-          <p class="small">Astro · HTML/CSS · SEO Foundations</p>
+          <h3 class="mini">Stack & Focus</h3>
+          <!-- Hier worden nu de tags uit je cases.js getoond, gescheiden door een stip -->
+          <p class="small">
+            {(c.tags || []).join(' · ')}
+          </p>
         </div>
       </aside>
     </div>
   </section>
 
   <style>
+    /* ... Je bestaande styles blijven hetzelfde ... */
+    
+    .outcome-text {
+      color: rgba(255,255,255,.8);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 65ch;
+    }
+
     .hero{
       padding: 140px 0 70px;
       position: relative;
@@ -119,7 +132,7 @@ const { c } = Astro.props;
     .grid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
-      gap: 22px;
+      gap: 44px; /* Iets meer ruimte tussen de kolommen */
       align-items:start;
     }
 
@@ -128,9 +141,15 @@ const { c } = Astro.props;
       overflow:hidden;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      margin-bottom: 18px;
+      margin-bottom: 32px;
     }
     img{ width:100%; height:auto; display:block; }
+
+    .h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      margin-top: 32px;
+    }
 
     .list{
       margin: 12px 0 0;
@@ -145,48 +164,49 @@ const { c } = Astro.props;
       border-radius: var(--radius);
       background: rgba(255,255,255,.025);
       border: 1px solid rgba(255,255,255,.08);
-      padding: 18px;
+      padding: 24px;
       position: relative;
     }
 
     .mini{
-      margin: 0 0 12px;
-      font-size: 12px;
+      margin: 0 0 16px;
+      font-size: 11px;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.55);
+      color: rgba(255,255,255,.45);
     }
 
     .stats{
       display:grid;
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 12px;
     }
     .stat{
-      border-radius: 14px;
-      background: rgba(0,0,0,.14);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0,0,0,.2);
+      border: 1px solid rgba(255,255,255,.05);
+      padding: 12px 16px;
     }
     .label{
       display:block;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.50);
+      color: rgba(255,255,255,.4);
     }
     .value{
       display:block;
-      margin-top: 6px;
-      font-size: 14px;
-      color: rgba(255,255,255,.88);
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(255,255,255,.9);
     }
 
     .small{
       margin: 0;
       font-size: 14px;
-      color: rgba(255,255,255,.70);
-      line-height: 1.7;
+      color: rgba(255,255,255,.6);
+      line-height: 1.6;
     }
 
     @media (max-width: 980px){
