@@ -3,19 +3,115 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
+/**
+ * BaseLayout: site-wide SEO defaults.
+ * Tip: zet in astro.config.mjs ook `site: "https://twinpixel.nl"`.
+ */
+
 const {
-  title = "Twinpixel — Webdesign & development",
-  description = "Strakke websites met blauw accent. Design, performance en SEO."
+  // Per page overrides:
+  title = "Webdesign & development",
+  description = "TwinPixel ontwerpt en bouwt snelle, SEO-ready websites voor bedrijven in Wageningen en regio Foodvalley.",
+  noindex = false,
+
+  // Social preview image (zet bestand in /public/og.png):
+  ogImage = "/og.png",
+
+  // Optional: override lang/locale if needed
+  lang = "nl",
+  ogLocale = "nl_NL",
+
+  // Optional: canonical override (meestal niet nodig)
+  canonical = null
 } = Astro.props;
+
+const siteName = "TwinPixel";
+
+// Canonical URL (werkt het best als Astro.site is ingesteld in astro.config.mjs)
+const origin = (Astro.site ?? Astro.url.origin).toString();
+const canonicalURL = canonical
+  ? new URL(canonical, origin).toString()
+  : new URL(Astro.url.pathname, origin).toString();
+
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+
+// URLs
+const ogImageAbs = new URL(ogImage, origin).toString();
+
+// Socials (publieke URLs)
+const socials = {
+  facebook: "https://www.facebook.com/people/Twinpixel/61574036669497/",
+  instagram: "https://www.instagram.com/twinpixel.nl/",
+  linkedin: "https://www.linkedin.com/company/twinpixel/"
+};
+
+// Location
+const geo = { latitude: 51.98110382407697, longitude: 5.681261882070376 };
 ---
+
 <!doctype html>
-<html lang="nl">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" />
-    <title>{title}</title>
+
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
+
+    {/* Favicons (jij hebt ze in /public/favicon/ staan) */}
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#0A2CCA" />
+
+    {/* Open Graph */}
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    {/* Structured data (Local/agency entity) */}
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": `${origin}#organization`,
+        name: "TwinPixel",
+        url: origin,
+        image: ogImageAbs,
+        email: "info@twinpixel.nl",
+        sameAs: [socials.facebook, socials.instagram, socials.linkedin],
+        serviceType: ["Webdesign", "Webdevelopment", "SEO"],
+        areaServed: ["Wageningen", "Ede", "Renkum", "Bennekom", "Foodvalley"],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Wageningen",
+          addressRegion: "Gelderland",
+          addressCountry: "NL"
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: geo.latitude,
+          longitude: geo.longitude
+        }
+      })}
+    </script>
   </head>
 
   <body>
@@ -25,9 +121,9 @@ const {
       brand="TwinPixel"
       location="Wageningen, NL"
       email="info@twinpixel.nl"
-      instagram="https://instagram.com/"
-      facebook="https://facebook.com/"
-      linkedin="https://linkedin.com/"
+      instagram={socials.instagram}
+      facebook={socials.facebook}
+      linkedin={socials.linkedin}
     />
   </body>
 </html>
