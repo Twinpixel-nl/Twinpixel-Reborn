@@ -1,9 +1,10 @@
 ---
 const { title, description, tags = [], image, href = "/cases", accent = "#2F89FF" } = Astro.props;
+import { Image } from "astro:assets";
 ---
 <a class="card" href={href} style={`--accent:${accent};`} aria-label={title}>
   <div class="thumb">
-    {image ? <img src={image} alt={title} loading="lazy" /> : <div class="ph"></div>}
+    {image ? <image src={image} alt={title} loading="lazy" /> : <div class="ph"></div>}
   </div>
 
   <div class="body">

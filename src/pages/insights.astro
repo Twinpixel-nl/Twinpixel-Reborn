@@ -33,9 +33,9 @@ const formatDate = (d) =>
 
   <section class="section">
     <div class="container">
-      <div class="grid" role="list">
+      <div class="grid" >
         {insights.map((post) => (
-          <a class="card" href={`/insights/${post.slug}`} role="listitem">
+          <a class="card" href={`/insights/${post.slug}`} >
             <div class="meta">
               <span class="date">{formatDate(post.data.date)}</span>
               {post.data.category && <span class="pill">{post.data.category}</span>}

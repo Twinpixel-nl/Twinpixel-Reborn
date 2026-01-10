@@ -1,9 +1,10 @@
 ---
 const { title, description, image, tags = [], stats = [], overview = [], href, accent = "#2F89FF" } = Astro.props;
+import { Image } from "astro:assets";
 ---
 <a class="wrap" href={href} style={`--accent:${accent};`} aria-label={`View case: ${title}`}>
   <div class="media">
-    {image ? <img src={image} alt={title} loading="lazy" /> : <div class="ph"></div>}
+    {image ? <imgage src={image} alt={title} loading="lazy" /> : <div class="ph"></div>}
     <div class="media-overlay" aria-hidden="true"></div>
   </div>
 
