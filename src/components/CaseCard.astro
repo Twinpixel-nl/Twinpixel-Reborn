@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 ---
 <a class="card" href={href} style={`--accent:${accent};`} aria-label={title}>
   <div class="thumb">
-    {image ? <image src={image} alt={title} loading="lazy" /> : <div class="ph"></div>}
+    {image ? <im src={image} alt={title} loading="lazy" /> : <div class="ph"></div>}
   </div>
 
   <div class="body">
