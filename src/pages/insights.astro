@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import { getCollection } from "astro:content";
+
+const all = await getCollection("insights", ({ data }) => !data.draft);
+
+const insights = all
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatDate = (d) =>
+  new Intl.DateTimeFormat("nl-NL", { year: "numeric", month: "long", day: "2-digit" }).format(d);
+---
+
+<BaseLayout
+  title="Insights | TwinPixel"
+  description="Inzichten over webdesign, conversie, SEO en techniek — geschreven door TwinPixel."
+>
+  <section class="hero">
+    <div class="container">
+      <p class="kicker">Insights</p>
+      <h1 class="h1">Inzichten over webdesign, SEO en conversie.</h1>
+      <p class="lead">
+        Korte, scherpe artikelen over wat werkt. Geen fluff — wél concrete keuzes, voorbeelden en best practices.
+      </p>
+
+      <div class="actions">
+        <Button href="/contact" variant="primary" label="Plan kennismaking" />
+        <Button href="/cases" variant="secondary" label="Bekijk cases" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid" role="list">
+        {insights.map((post) => (
+          <a class="card" href={`/insights/${post.slug}`} role="listitem">
+            <div class="meta">
+              <span class="date">{formatDate(post.data.date)}</span>
+              {post.data.category && <span class="pill">{post.data.category}</span>}
+              {post.data.readingTime && <span class="pill subtle">{post.data.readingTime}</span>}
+            </div>
+
+            <h2 class="h2">{post.data.title}</h2>
+
+            {post.data.description && (
+              <p class="desc">{post.data.description}</p>
+            )}
+
+            {post.data.tags?.length ? (
+              <div class="tags" aria-label="Tags">
+                {post.data.tags.slice(0, 3).map((t) => (
+                  <span class="tag">#{t}</span>
+                ))}
+              </div>
+            ) : null}
+
+            <div class="more">Lees verder →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hero{
+      padding: 140px 0 60px;
+    }
+    .container{
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    .kicker{
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .14em;
+      color: rgba(255,255,255,.55);
+      margin: 0 0 12px;
+    }
+    .h1{
+      margin: 0;
+      font-size: clamp(36px, 4.6vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 650;
+    }
+    .lead{
+      margin: 18px 0 0;
+      max-width: 65ch;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+      font-size: 18px;
+    }
+    .actions{
+      margin-top: 26px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section{ padding: 70px 0; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .card{
+      display:grid;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 16px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.025);
+      transition: transform .16s ease, border-color .16s ease, background-color .16s ease, box-shadow .16s ease;
+      min-height: 210px;
+    }
+
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 12px 28px rgba(0,0,0,.16);
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,.58);
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+
+    .pill{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
+    }
+    .pill.subtle{
+      opacity: .85;
+    }
+
+    .h2{
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,.94);
+      font-weight: 650;
+    }
+
+    .desc{
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .tags{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+    }
+    .tag{ opacity: .9; }
+
+    .more{
+      margin-top: auto;
+      color: rgba(47,137,255,.95);
+      font-weight: 600;
+      letter-spacing: .01em;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .hero{ padding: 120px 0 50px; }
+    }
+  </style>
+</BaseLayout>

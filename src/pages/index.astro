@@ -4,73 +4,84 @@ import Hero from "../components/Hero.astro";
 import Expertise from "../components/Expertise.astro";
 import CasesPreview from "../components/CasesPreview.astro";
 import Button from "../components/Button.astro";
+const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu";
 ---
-
 <BaseLayout
-  title="Websitebedrijf Wageningen | Twinpixel High-end Webdesign"
-  description="Twinpixel is het websitebedrijf in Wageningen voor premium design, development en SEO. Wij bouwen razendsnelle websites die vertrouwen wekken en leads genereren."
+  title="Webdesign Wageningen | Snelle websites & SEO - TwinPixel"
+  description="TwinPixel ontwerpt en bouwt hoogwaardige websites voor bedrijven in Wageningen. Strak design, sterke structuur en een solide SEO-basis, met direct contact en korte lijnen."
 >
   <Hero />
-  
-  <section class="section value" aria-label="Waarom Twinpixel">
-    <div class="container">
-      <div class="value-grid">
-        <div>
-          <p class="kicker">Expertise</p>
-          <h2 class="h2">Performance-first digitale oplossingen</h2>
-          <p class="lead small">
-            Als websitebedrijf met een studio in Wageningen werken we landelijk zonder tussenschijven. 
-            Je spreekt direct met de makers die design, build, performance en SEO aanpakken voor meetbare resultaten.
-          </p>
-        </div>
-        <div class="pillars">
-          <!-- ... rest van je pillars ... -->
-          <div class="pill">
-            <p class="pill-title">Snel en strak</p>
-            <p class="pill-text">Astro builds, geoptimaliseerde assets en Core Web Vitals-checks.</p>
-          </div>
-          <div class="pill">
-            <p class="pill-title">Heldere structuur</p>
-            <p class="pill-text">Contentflows en CTA’s die logisch lezen en converteren.</p>
-          </div>
-          <div class="pill">
-            <p class="pill-title">Onderhoudbaar</p>
-            <p class="pill-text">Component-gedreven UI, klaar voor iteratie en schaal.</p>
-          </div>
-          <div class="pill">
-            <p class="pill-title">Samenwerken</p>
-            <p class="pill-text">Korte feedbackloops, vaste contactpersoon en duidelijke planning.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <Expertise />
-  <CasesPreview />
 
-  <!-- Reviews Section -->
-  <section class="section reviews" aria-label="Klant reviews">
-    <div class="container">
-      <div class="reviews-header">
-        <p class="kicker">Reviews</p>
-        <h2 class="h2">Wat klanten zeggen</h2>
-        <p class="lead">
-          Directe feedback van ondernemers die we hebben geholpen met hun online aanwezigheid.
+<section class="section value" aria-label="Waarom TwinPixel">
+  <div class="container">
+    <div class="value-grid">
+      <div>
+        <p class="kicker">Expertise</p>
+        <h2 class="h2">Websites die klanten opleveren en professioneel aanvoelen.</h2>
+        <p class="lead small">
+          We bouwen hoogwaardige websites met een duidelijke boodschap, een snelle gebruikerservaring
+          en een structuur die goed scoort in Google.
+          Je werkt direct met ons — korte lijnen, snelle iteraties en heldere keuzes.
         </p>
       </div>
 
-      <div class="reviews-carousel">
-        <div class="reviews-track">
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+      <div class="pillars" aria-label="Kernpunten">
+        <div class="pill">
+          <p class="pill-title">Sterke uitstraling</p>
+          <p class="pill-text">
+            Design dat past bij je merk en vertrouwen uitstraalt vanaf de eerste indruk.
+          </p>
+        </div>
+
+        <div class="pill">
+          <p class="pill-title">Conversiegerichte structuur</p>
+          <p class="pill-text">
+            Een helder verhaal, doordachte CTA’s en een logische route naar contact.
+          </p>
+        </div>
+
+        <div class="pill">
+          <p class="pill-title">Goed vindbaar in Google</p>
+          <p class="pill-text">
+            Technische basis en contentstructuur die goed wordt opgepikt door zoekmachines.
+          </p>
+        </div>
+
+        <div class="pill">
+          <p class="pill-title">Direct met de makers</p>
+          <p class="pill-text">
+            Geen accountlaag. Snel schakelen, eerlijk advies en duidelijke feedbackrondes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <Expertise />
+  <CasesPreview />
+
+<!-- Reviews Section -->
+<section class="section reviews reviews-marquee" aria-label="Klantreviews">
+  <div class="container">
+    <div class="reviews-header">
+      <p class="kicker">Reviews</p>
+      <h2 class="h2">Wat klanten zeggen</h2>
+      <p class="lead">Reviews uit onze Google Business Profile.</p>
+    </div>
+
+    <div class="marquee" aria-label="Reviews carrousel">
+      <div class="marquee-track">
+        <!-- track A -->
+        <div class="track">
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week! 
+              "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week!
               De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
             </blockquote>
             <div class="review-author">
@@ -79,34 +90,26 @@ import Button from "../components/Button.astro";
             </div>
           </a>
 
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast. 
+              "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
               Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
             </blockquote>
             <div class="review-author">
-              <div class="author-name">Otto VLeeming</div>
+              <div class="author-name">Otto Vleeming</div>
               <div class="author-company">Stadspartij Wageningen</div>
             </div>
           </a>
 
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "Professionele hulp bij mijn eerste website. Goede feedback momenten en duidelijke uitleg over keuzes. 
+              "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
               Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
             </blockquote>
             <div class="review-author">
@@ -115,16 +118,12 @@ import Button from "../components/Button.astro";
             </div>
           </a>
 
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "Super fijne samenwerking met Twinpixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak. 
+              "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
               Voor maatwerk ben je hier aan het juiste adres."
             </blockquote>
             <div class="review-author">
@@ -133,16 +132,12 @@ import Button from "../components/Button.astro";
             </div>
           </a>
 
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "Professioneel, betrouwbaar en prettig om mee samen te werken! 
+              "Professioneel, betrouwbaar en prettig om mee samen te werken!
               Ze houden zich aan afspraken en leveren kwaliteit."
             </blockquote>
             <div class="review-author">
@@ -150,17 +145,16 @@ import Button from "../components/Button.astro";
               <div class="author-company">Eigenaar, Dennisweijer.nl</div>
             </div>
           </a>
+        </div>
 
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+        <!-- track B (duplicate) -->
+        <div class="track" aria-hidden="true">
+<a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week! 
+              "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week!
               De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
             </blockquote>
             <div class="review-author">
@@ -169,136 +163,119 @@ import Button from "../components/Button.astro";
             </div>
           </a>
 
-          <a class="review-card" href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            <div class="review-stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
             </div>
             <blockquote class="review-text">
-              "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast. 
+              "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
               Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
             </blockquote>
             <div class="review-author">
-              <div class="author-name">Otto VLeeming</div>
+              <div class="author-name">Otto Vleeming</div>
               <div class="author-company">Stadspartij Wageningen</div>
+            </div>
+          </a>
+
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
+              Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Britt Leander</div>
+              <div class="author-company">Eigenaar, ByBrittNails</div>
+            </div>
+          </a>
+
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
+              Voor maatwerk ben je hier aan het juiste adres."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Julian van Beek</div>
+              <div class="author-company">Eigenaar, Rocket Agency</div>
+            </div>
+          </a>
+
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              "Professioneel, betrouwbaar en prettig om mee samen te werken!
+              Ze houden zich aan afspraken en leveren kwaliteit."
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Dennis Weijer</div>
+              <div class="author-company">Eigenaar, Dennisweijer.nl</div>
             </div>
           </a>
         </div>
       </div>
+    </div>
 
-      <div class="reviews-cta">
-        <p class="reviews-note">
-          Deze reviews zijn afkomstig van onze Google Business Profile.
-          <a href="https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener">
-            Bekijk alle reviews →
-          </a>
-        </p>
+    <div class="reviews-cta">
+      <p class="reviews-note">
+        Deze reviews zijn afkomstig van onze Google Business Profile.
+        <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Bekijk alle reviews →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section packages" aria-label="Pakketten">
+  <div class="container">
+    <div class="head">
+      <p class="kicker">Pakketten</p>
+      <h2 class="h2">Heldere startpunten</h2>
+      <p class="lead small">
+        Geen standaard dozen. Dit zijn richtprijzen die we aanpassen op je vraag, schaal en ambities.
+      </p>
+    </div>
+
+    <div class="pkg-grid">
+      <div class="pkg">
+        <p class="pkg-name">Branding Sprint</p>
+        <p class="pkg-price">Vanaf €2.500</p>
+        <ul>
+          <li>Basis merkidentiteit (logo, kleur, typografie)</li>
+          <li>Kleine styleguide + componentbasis</li>
+          <li>Geschikt als start of herpositionering</li>
+        </ul>
+      </div>
+
+      <div class="pkg">
+        <p class="pkg-name">Website Launch</p>
+        <p class="pkg-price">Vanaf €3.500</p>
+        <ul>
+          <li>Conversiegerichte website (home, diensten, contact)</li>
+          <li>Performance & SEO fundamentals</li>
+          <li>Analytics en leadflows ingericht</li>
+        </ul>
+      </div>
+
+      <div class="pkg">
+        <p class="pkg-name">Technical Build</p>
+        <p class="pkg-price">Vanaf €5.500</p>
+        <ul>
+          <li>Maatwerk frontend of applicatie</li>
+          <li>Integraties met tools & systemen</li>
+          <li>Schaalbaar en onderhoudbaar opgezet</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section packages" aria-label="Pakketten">
-    <div class="container">
-      <div class="head">
-        <p class="kicker">Pakketten</p>
-        <h2 class="h2">Kies wat past bij je vraag</h2>
-      </div>
-      <div class="pkg-grid">
-        <div class="pkg">
-          <p class="pkg-name">Branding Sprint</p>
-          <p class="pkg-price">Vanaf €2.500</p>
-          <ul>
-            <li>Merkbasics: logo, kleuren, typografie</li>
-            <li>Mini styleguide + component starters</li>
-            <li>Templates voor social/presentaties</li>
-          </ul>
-        </div>
-        <div class="pkg">
-          <p class="pkg-name">Website Launch</p>
-          <p class="pkg-price">Vanaf €3.500</p>
-          <ul>
-            <li>Homepage + diensten + contactflow</li>
-            <li>SEO-basics en performance checks</li>
-            <li>Lead-captures en analytics setup</li>
-          </ul>
-        </div>
-        <div class="pkg">
-          <p class="pkg-name">Technical Build</p>
-          <p class="pkg-price">Vanaf €5.500</p>
-          <ul>
-            <li>Integraties (CRM, forms, analytics)</li>
-            <li>Custom flows/filters/dashboards</li>
-            <li>Component-architectuur + QA</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section faq" aria-label="Veelgestelde vragen">
-    <div class="container faq-wrap">
-      <div class="faq-head">
-        <p class="kicker">FAQ</p>
-        <h2 class="h2">Veelgestelde vragen</h2>
-      </div>
-      <div class="faq-accordion">
-        <details>
-          <summary>
-            <span>Wat hebben jullie van mij nodig?</span>
-            <span class="chev" aria-hidden="true">▼</span>
-          </summary>
-          <p>Doel, doelgroep, gewenste pagina’s en voorbeelden van wat je goed vindt. Content in concept helpt, anders schrijven we mee aan structuur/microcopy.</p>
-        </details>
-        <details>
-          <summary>
-            <span>Hoe snel kunnen jullie opleveren?</span>
-            <span class="chev" aria-hidden="true">▼</span>
-          </summary>
-          <p>Een standaard site in 3–5 weken, afhankelijk van feedback en content. Technische projecten plannen we samen in fases.</p>
-        </details>
-        <details>
-          <summary>
-            <span>Regelen jullie hosting en onderhoud?</span>
-            <span class="chev" aria-hidden="true">▼</span>
-          </summary>
-          <p>Ja, we kunnen deployen op Netlify/Vercel en helpen met monitoring/updates. Of we leveren op zodat je eigen team het beheert.</p>
-        </details>
-        <details>
-          <summary>
-            <span>Kunnen jullie SEO meenemen?</span>
-            <span class="chev" aria-hidden="true">▼</span>
-          </summary>
-          <p>Ja: technische SEO, titles/headings, interne links en performance. Voor content/long-form werken we samen met copywriters.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-cta" id="contact" aria-label="Contact call to action">
-    <div class="cta">
-      <div class="content">
-        <p class="kicker">Contact</p>
-        <h2 class="title">Een idee bespreken?</h2>
-        <p class="text">
-          Vertel kort wat je wilt maken, waarom het belangrijk is en wanneer je het nodig hebt.
-          We reageren snel met een voorstel, planning en wat we meenemen op het gebied van design,
-          performance en SEO.
-        </p>
-
-        <div class="actions">
-          <Button href="/contact" variant="primary" label="Plan Kennismaking" />
-          <a
-            class="btn secondary"
-            href="mailto:meurstwan@gmail.com?subject=Contact%20via%20website"
-          >
-            Mail Direct
-          </a>
-        </div>
-      </div>
-    </div>
 
     <style>
       .contact-cta {
@@ -380,10 +357,7 @@ import Button from "../components/Button.astro";
           padding: 1.8rem 1.6rem;
         }
       }
-    </style>
-  </section>
 
-  <style>
     .section{
       padding: 70px 0;
     }
@@ -571,280 +545,208 @@ import Button from "../components/Button.astro";
     @media (max-width: 620px){
       .pillars{ grid-template-columns: 1fr; }
     }
+/* =========================
+   Reviews Section (Marquee)
+   ========================= */
 
-    /* Reviews Section */
-    .reviews {
-      padding: 5rem 0;
-      background: rgba(255,255,255,0.01);
-    }
+.reviews{
+  padding: 5rem 0;
+  background: rgba(255,255,255,0.01);
+}
 
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+.reviews-header{
+  text-align: center;
+  margin-bottom: 3rem;
+}
 
-    .reviews-header .kicker {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
+.reviews-header .lead{
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-    .reviews-header .h2 {
-      color: #fff;
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
+/* wrapper */
+.reviews-marquee .marquee{
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-top: 2rem;
 
-    .reviews-header .lead {
-      color: rgba(255,255,255,0.8);
-      font-size: 1.125rem;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
+/* track: 2 identieke helften naast elkaar */
+.reviews-marquee .marquee-track{
+  display:flex;
+  flex-wrap:nowrap;
+  width:max-content;
+  gap: 0;                 /* belangrijk: geen gap tussen track A en B */
+  animation: reviews-marquee 35s linear infinite;
+  will-change: transform;
+}
 
-    .reviews-carousel {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 3rem;
-      border-radius: 20px;
-    }
+.reviews-marquee .track{
+  --g: 1.25rem;
+  display:flex;
+  flex-wrap:nowrap;
+  gap: var(--g);          /* gap tussen cards */
+}
 
-    .reviews-track {
-      display: flex;
-      width: 600vw; /* 6 reviews (5 unique + 1 duplicate) */
-      animation: scrollReviews 75s linear infinite paused;
-      transform: translateX(-100vw); /* Start showing first unique review */
-    }
+/* dit is de hele truc: trailing gap zodat de naad gelijk is */
+.reviews-marquee .track:first-child{
+  padding-right: var(--g);
+}
 
-    .reviews-track:hover {
-      animation-play-state: paused;
-    }
+/* en dan blijft -50% kloppen */
+@keyframes reviews-marquee{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
 
-    .reviews-track .review-card {
-      flex: 0 0 100vw;
-      max-width: 600px;
-      margin: 0 2rem;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
 
-    .reviews-track .review-card:nth-child(2) {
-      opacity: 1;
-    }
 
-    @keyframes scrollReviews {
-      0% { transform: translateX(-100vw); }
-      16.67% { transform: translateX(-200vw); }
-      33.33% { transform: translateX(-300vw); }
-      50% { transform: translateX(-400vw); }
-      66.67% { transform: translateX(-500vw); }
-      83.33% { transform: translateX(-600vw); }
-      100% { transform: translateX(-100vw); }
-    }
+/* cards */
+.reviews-marquee .review-card{
+  flex: 0 0 auto;
+  width: min(520px, 86vw);
+  display: block;
 
-    .review-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.8rem;
+  text-decoration: none;
 
-    .review-card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.12);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    }
+  transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
+}
 
-    .review-stars {
-      display: flex;
-      gap: 0.25rem;
-      margin-bottom: 1.5rem;
-    }
+.reviews-marquee .review-card:hover{
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
 
-    .star {
-      color: #fbbf24;
-      font-size: 1.25rem;
-      line-height: 1;
-    }
+.review-stars{
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
 
-    .review-text {
-      color: rgba(255,255,255,0.9);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 0 0 1.5rem 0;
-      font-style: italic;
-      position: relative;
-    }
+.star{
+  color: #fbbf24;
+  font-size: 1.25rem;
+  line-height: 1;
+}
 
-    .review-text .read-more {
-      display: inline-block;
-      margin-left: 0.5rem;
-      color: #2F89FF;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      font-style: normal;
-      transition: color 0.3s ease;
-    }
+.review-text{
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+  position: relative;
+}
 
-    .review-text .read-more:hover {
-      color: rgba(47,137,255,0.8);
-      text-decoration: underline;
-    }
+.review-text::before{
+  content: '"';
+  font-size: 3rem;
+  color: rgba(47,137,255,0.3);
+  position: absolute;
+  top: -0.5rem;
+  left: -1rem;
+  font-family: serif;
+}
 
-    .review-text::before {
-      content: '"';
-      font-size: 3rem;
-      color: rgba(47,137,255,0.3);
-      position: absolute;
-      top: -0.5rem;
-      left: -1rem;
-      font-family: serif;
-    }
+.review-author{
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1rem;
+}
 
-    .review-author {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 1rem;
-    }
+.author-name{
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
 
-    .author-name {
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.25rem;
-    }
+.author-company{
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+}
 
-    .author-company {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.7);
-    }
+.reviews-cta{
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
 
-    .reviews-cta {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
+.reviews-note{
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
 
-    .reviews-note {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.95rem;
-      margin: 0;
-      line-height: 1.5;
-    }
+.reviews-note a{
+  color: #2F89FF;
+  text-decoration: none;
+  font-weight: 500;
+}
 
-    .reviews-note a {
-      color: #2F89FF;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
+.reviews-note a:hover{
+  text-decoration: underline;
+}
 
-    .reviews-note a:hover {
-      color: rgba(47,137,255,0.8);
-      text-decoration: underline;
-    }
+@media (prefers-reduced-motion: reduce){
+  .reviews-marquee .marquee-track{
+    animation: none;
+    transform: none;
+  }
+}
 
-    @media (max-width: 768px) {
-      .reviews {
-        padding: 3rem 0;
-      }
+@media (max-width: 768px){
+  .reviews{ padding: 3rem 0; }
+  .reviews-header{ margin-bottom: 2rem; }
+  .reviews-marquee .marquee{ border-radius: 16px; }
+  .reviews-marquee .marquee-track,
+  .reviews-marquee .track{ gap: 0.9rem; }
+  .reviews-marquee .review-card{ padding: 1.4rem; }
+}
+/* wrapper */
+.reviews-marquee .marquee{
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-top: 2rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
 
-      .reviews-header .h2 {
-        font-size: 2rem;
-      }
+/* track */
+.reviews-marquee .marquee-track{
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 0;                 /* GEEN gap hier */
+  padding: .5rem 0;
+  will-change: transform;
+  animation: reviews-marquee 35s linear infinite;
+}
 
-      .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
+.reviews-marquee .marquee:hover .marquee-track{
+  animation-play-state: paused;
+}
 
-      .reviews-carousel {
-        margin-bottom: 2rem;
-      }
+/* halves */
+.reviews-marquee .track{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.25rem;          /* gap alleen hier */
+}
 
-      .reviews-track .review-card {
-        flex: 0 0 85vw;
-        margin: 0 1rem;
-      }
+@keyframes reviews-marquee{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
 
-      .review-card {
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reviews {
-        padding: 2rem 0;
-      }
-
-      .reviews-header {
-        margin-bottom: 2rem;
-      }
-
-      .reviews-header .h2 {
-        font-size: 1.75rem;
-      }
-
-      .reviews-header .lead {
-        font-size: 1rem;
-      }
-
-      .reviews-grid {
-        gap: 1rem;
-      }
-
-      .reviews-track .review-card {
-        flex: 0 0 80vw;
-        margin: 0 0.5rem;
-      }
-
-      .review-card {
-        padding: 1.25rem;
-      }
-
-      .review-text::before {
-        font-size: 2rem;
-        top: -0.25rem;
-        left: -0.5rem;
-      }
-    }
-  </style>
-
-  <script>
-    // Start reviews carousel animation when section comes into view
-    const reviewsSection = document.querySelector('.section.reviews') as HTMLElement;
-    const reviewsTrack = document.querySelector('.reviews-track') as HTMLElement;
-
-    if (reviewsSection && reviewsTrack) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Start the animation when reviews section is visible
-            reviewsTrack.style.animationPlayState = 'running';
-            observer.unobserve(reviewsSection); // Stop observing once started
-          }
-        });
-      }, {
-        threshold: 0.1, // Trigger when 10% of the section is visible
-        rootMargin: '50px' // Start animation 50px before section is fully in view
-      });
-
-      observer.observe(reviewsSection);
-    }
-  </script>
+</style>
 </BaseLayout>

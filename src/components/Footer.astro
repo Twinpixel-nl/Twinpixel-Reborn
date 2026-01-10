@@ -14,9 +14,41 @@ const {
   <div class="footer-inner">
     <div class="footer-main">
       <div class="footer-brand">
-        <img src="/logo.svg" alt="TwinPixel" class="footer-logo" />
+        <img
+          src="/logo.svg"
+          alt="TwinPixel"
+          class="footer-logo"
+          loading="lazy"
+          decoding="async"
+          width="200"
+          height="60"
+        />
         <div class="brand-info">
-          <p class="brand-tagline">Websites die er strak uitzien en snel laden. Performance en SEO goed geregeld.</p>
+          <p class="brand-tagline">
+            Websites die er strak uitzien en snel laden. Performance en SEO goed geregeld.
+          </p>
+
+          <div class="social-links brand-socials" aria-label="Social links">
+            <a class="social-link" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+
+            <a class="social-link" href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
+              </svg>
+            </a>
+
+            <a class="social-link" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 23.2 0h-.975z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -43,36 +75,8 @@ const {
         <div class="footer-section">
           <h4 class="section-title">Contact</h4>
           <div class="contact-info">
-            <span>{location}</span>
-            <a class="contact-link" href={maps} target="_blank" rel="noopener noreferrer">
-              Wageningen · regio Foodvalley
-            </a>
             <a class="contact-link" href={`mailto:${email}`}>{email}</a>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <h4 class="section-title">Volg ons</h4>
-          <div class="social-links" aria-label="Social links">
-            <a class="social-link" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-              </svg>
-            </a>
-
-            <a class="social-link" href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
-              </svg>
-            </a>
-
-            <a class="social-link" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 23.2 0h-.975z" fill="currentColor"/>
-              </svg>
-            </a>
+            <span class="footer-note">{location} · regio Foodvalley</span>
           </div>
         </div>
       </div>
@@ -81,8 +85,6 @@ const {
     <div class="footer-bottom">
       <div class="footer-copyright">
         <span>© {new Date().getFullYear()} {brand}</span>
-        <span class="separator">·</span>
-        <span>Built with Astro</span>
       </div>
     </div>
   </div>
@@ -116,12 +118,10 @@ const {
     min-width: 0;
   }
 
-  /* logo responsive (geen vaste hoogte) */
   .footer-logo {
     width: 200px;
     height: auto;
     max-width: 100%;
-    loading="lazy"
   }
 
   .brand-info { min-width: 0; }
@@ -129,9 +129,20 @@ const {
   .brand-tagline {
     font-size: 0.95rem;
     color: rgba(255,255,255,0.7);
-    margin: 0;
+    margin: 0 0 1rem 0;
     line-height: 1.5;
-    max-width: 320px;
+    max-width: 360px;
+  }
+
+  .brand-socials {
+    margin-top: 0.25rem;
+  }
+
+  .footer-note {
+    margin: 0.65rem 0 0;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
   }
 
   .footer-links {
@@ -168,7 +179,7 @@ const {
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s ease;
-    padding: 0.2rem 0; /* betere tap area */
+    padding: 0.2rem 0;
     width: fit-content;
   }
 
@@ -177,11 +188,10 @@ const {
   .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0rem;
     min-width: 0;
   }
 
-  .contact-info span,
   .contact-link {
     color: rgba(255,255,255,0.8);
     font-size: 0.9rem;
@@ -232,13 +242,9 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
     color: rgba(255,255,255,0.6);
     font-size: 0.85rem;
   }
-
-  .separator { opacity: 0.4; }
 
   @media (max-width: 1024px) {
     .footer-main {
@@ -258,10 +264,9 @@ const {
       padding: 2.5rem 0 1.5rem;
     }
 
-  .footer-inner {
-    width: min(1200px, calc(100% - 2.5rem));
+    .footer-inner {
+      width: min(1200px, calc(100% - 2.5rem));
     }
-
 
     .footer-main {
       gap: 1.75rem;
@@ -271,7 +276,6 @@ const {
     .footer-logo {
       width: 140px;
       height: auto;
-       loading="lazy"
     }
 
     .footer-links {
@@ -279,16 +283,9 @@ const {
       gap: 1.75rem;
     }
 
-    .social-links {
-      justify-content: center;
+    .footer-brand {
+      align-items: flex-start;
     }
-
-    .footer-copyright {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .separator { display: none; }
   }
 
   @media (max-width: 480px) {
@@ -299,7 +296,6 @@ const {
     .footer-logo {
       width: 120px;
       height: auto;
-       loading="lazy"
     }
 
     .section-title { font-size: 0.9rem; }

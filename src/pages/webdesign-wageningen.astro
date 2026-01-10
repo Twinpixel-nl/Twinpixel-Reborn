@@ -1,0 +1,520 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CasesPreview from "../components/CasesPreview.astro";
+import Button from "../components/Button.astro";
+
+const mapsUrl =
+  "https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu";
+
+// Pas aan naar jouw echte gegevens
+const business = {
+  name: "TwinPixel",
+  street: "Wageningen", // als je geen straat/adres publiek wilt tonen, laat dit zo en zet addressCountry etc. wel goed
+  postalCode: "6700",   // optioneel
+  addressLocality: "Wageningen",
+  addressRegion: "Gelderland",
+  addressCountry: "NL",
+  telephone: "",        // optioneel
+  url: "https://twinpixel.nl",
+  area: ["Wageningen", "Ede", "Rhenen", "Veenendaal", "Bennekom"],
+};
+---
+
+<BaseLayout
+  title="Website laten maken in Wageningen | Webdesign bureau - TwinPixel"
+  description="Website laten maken in Wageningen? TwinPixel ontwerpt en bouwt professionele websites die vertrouwen wekken, snel laden en zorgen voor meer aanvragen."
+>
+  <main>
+    <!-- HERO -->
+    <section class="section hero-simple" aria-label="Webdesign Wageningen">
+      <div class="container">
+        <p class="kicker">Webdesign in Wageningen</p>
+
+        <h1 class="h1">Website laten maken in Wageningen</h1>
+
+        <p class="lead">
+          Op zoek naar een professionele website voor je bedrijf in Wageningen?
+          TwinPixel ontwerpt en bouwt websites die vertrouwen wekken, snel laden en
+          gericht zijn op meer aanvragen.
+        </p>
+
+        <div class="cta">
+          <Button href="#contact" variant="primary" label="Plan kennismaking" />
+          <Button href="/portfolio" variant="secondary" label="Bekijk ons werk" />
+        </div>
+
+        <div class="proof" aria-label="Key points">
+          <span>Premium uitstraling</span>
+          <span class="sep">/</span>
+          <span>Logische structuur</span>
+          <span class="sep">/</span>
+          <span>Vindbaar in Google</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section" aria-label="Webdesign bureau Wageningen">
+      <div class="container">
+        <h2 class="h2">Webdesign bureau in Wageningen</h2>
+
+        <p class="lead small">
+          TwinPixel is een webdesign bureau voor bedrijven in Wageningen en omgeving.
+          Wij ontwerpen en bouwen websites die professioneel aanvoelen en praktisch werken.
+        </p>
+
+        <p class="text">
+          Of je nu een nieuwe website nodig hebt of je huidige site wilt verbeteren:
+          we denken mee over uitstraling, structuur en inhoud. Je werkt direct met de makers —
+          zonder accountlagen of ruis.
+        </p>
+
+        <div class="chips" aria-label="Regio">
+          {business.area.map((c) => <span class="chip">{c}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="section" aria-label="Diensten">
+      <div class="container">
+        <h2 class="h2">Wat we doen</h2>
+        <p class="lead small">
+          Alles wat je nodig hebt voor een sterke website: ontwerp, bouw, technische basis en doorontwikkeling.
+        </p>
+
+        <div class="pillars" aria-label="Kernpunten">
+          <div class="pill">
+            <h3 class="pill-title">Website laten maken</h3>
+            <p class="pill-text">
+              Van eerste opzet tot livegang. Een website die past bij je bedrijf en klaar is om klanten te overtuigen.
+            </p>
+          </div>
+
+          <div class="pill">
+            <h3 class="pill-title">Webdesign &amp; structuur</h3>
+            <p class="pill-text">
+              Een helder verhaal, logische pagina-opbouw en een ontwerp dat vertrouwen uitstraalt vanaf de eerste indruk.
+            </p>
+          </div>
+
+          <div class="pill">
+            <h3 class="pill-title">Technische basis &amp; SEO</h3>
+            <p class="pill-text">
+              Snelle laadtijden, goede indexeerbaarheid en een basis die zoekmachines snappen — zonder onzin.
+            </p>
+          </div>
+
+          <div class="pill">
+            <h3 class="pill-title">Onderhoud &amp; doorontwikkeling</h3>
+            <p class="pill-text">
+              Ook na oplevering helpen we met verbeteringen, uitbreidingen en optimalisatie.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" aria-label="Werkwijze">
+      <div class="container">
+        <h2 class="h2">Zo pakken we het aan</h2>
+
+        <div class="steps" aria-label="Stappen">
+          <div class="step">
+            <div class="step-no">1</div>
+            <div>
+              <p class="step-title">Kennismaking</p>
+              <p class="step-text">Doel, doelgroep, voorbeelden en wat je site moet opleveren.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-no">2</div>
+            <div>
+              <p class="step-title">Structuur &amp; design</p>
+              <p class="step-text">Pagina’s, contentflow, CTA’s en een ontwerp dat past bij je merk.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-no">3</div>
+            <div>
+              <p class="step-title">Bouw &amp; livegang</p>
+              <p class="step-text">Snelle implementatie, check op mobiel/desktop, analytics en live.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-no">4</div>
+            <div>
+              <p class="step-title">Verbeteren</p>
+              <p class="step-text">Meten, bijsturen en verder bouwen zodra je nieuwe doelen hebt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section" aria-label="Cases">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">Voorbeelden van werk</h2>
+          <p class="lead small">
+            Een paar projecten om gevoel te krijgen bij stijl, niveau en aanpak.
+          </p>
+        </div>
+      </div>
+      <CasesPreview />
+    </section>
+
+    <!-- REVIEWS (lightweight, not marquee) -->
+    <section class="section reviews" aria-label="Reviews">
+      <div class="container">
+        <div class="section-head center">
+          <p class="kicker">Reviews</p>
+          <h2 class="h2">Wat klanten zeggen</h2>
+          <p class="lead small">Reviews uit onze Google Business Profile.</p>
+        </div>
+
+        <div class="reviews-grid" aria-label="Klantreviews">
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              “Prachtige website opgeleverd binnen een week. Snel, gebruiksvriendelijk en ziet er fantastisch uit.”
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Harvey Meurs</div>
+              <div class="author-company">Wetvanstaal</div>
+            </div>
+          </a>
+
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              “Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!”
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Otto Vleeming</div>
+              <div class="author-company">Stadspartij Wageningen</div>
+            </div>
+          </a>
+
+          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+            <div class="review-stars" aria-label="5 sterren">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <blockquote class="review-text">
+              “Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.”
+            </blockquote>
+            <div class="review-author">
+              <div class="author-name">Julian van Beek</div>
+              <div class="author-company">Rocket Agency</div>
+            </div>
+          </a>
+        </div>
+
+        <p class="reviews-note">
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Bekijk alle reviews →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" aria-label="FAQ">
+      <div class="container">
+        <h2 class="h2">Veelgestelde vragen</h2>
+        <p class="lead small">
+          Kort en duidelijk. En als je wil sparren: plan gewoon even een kennismaking.
+        </p>
+
+        <div class="faq-wrap">
+          <details class="faq-item">
+            <summary>Wat kost een website laten maken in Wageningen?</summary>
+            <p>
+              Dat hangt af van omvang en wensen. We werken met heldere richtprijzen en maken altijd een voorstel op maat.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Hoe lang duurt het bouwen van een website?</summary>
+            <p>
+              Meestal 3 tot 5 weken. De snelheid hangt vooral af van feedbackrondes en content (tekst/beelden).
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kunnen jullie ook helpen met vindbaarheid (SEO)?</summary>
+            <p>
+              Ja. We zorgen voor een sterke technische basis (structuur, headings, indexeerbaarheid, performance)
+              en kunnen helpen met content die beter scoort op lokale zoekwoorden.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Werken jullie alleen in Wageningen?</summary>
+            <p>
+              Nee, maar deze pagina is gericht op Wageningen en omgeving. We werken ook voor bedrijven in de regio
+              en elders in Nederland.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="section contact-cta" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <p class="kicker">Kennismaken</p>
+            <h2 class="h2">Website laten maken in Wageningen?</h2>
+            <p class="lead small">
+              Plan een vrijblijvende kennismaking. Dan kijken we samen wat je nodig hebt en wat het ongeveer kost.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <Button href="#contact" variant="primary" label="Plan kennismaking" />
+            <a class="cta-link" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+              Bekijk TwinPixel op Google Maps →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LocalBusiness JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": business.name,
+    "url": business.url,
+    "areaServed": business.area,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": business.street,
+      "postalCode": business.postalCode,
+      "addressLocality": business.addressLocality,
+      "addressRegion": business.addressRegion,
+      "addressCountry": business.addressCountry
+    },
+    ...(business.telephone ? { "telephone": business.telephone } : {}),
+    "sameAs": [mapsUrl]
+  })} />
+
+  <style>
+    /* Basic layout helpers (keep consistent with your design system) */
+    .section { padding: 70px 0; }
+    .container { width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
+
+    .kicker{
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .14em;
+      color: rgba(255,255,255,.55);
+      margin: 0 0 10px;
+    }
+
+    .h1{
+      margin: 0;
+      font-size: clamp(40px, 4.6vw, 68px);
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+      font-weight: 650;
+    }
+
+    .h2{
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .lead{
+      margin: 18px 0 0;
+      color: rgba(255,255,255,.74);
+      line-height: 1.75;
+      font-size: 18px;
+      max-width: 70ch;
+    }
+    .lead.small{
+      font-size: 16px;
+      margin-top: 10px;
+      max-width: 78ch;
+    }
+
+    .text{
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.68);
+      line-height: 1.8;
+      max-width: 78ch;
+    }
+
+    /* Hero */
+    .hero-simple{ padding-top: 130px; }
+    .cta{ margin-top: 26px; display:flex; gap: 12px; flex-wrap: wrap; }
+    .proof{
+      margin-top: 22px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(255,255,255,.52);
+      font-size: 14px;
+    }
+    .sep{ opacity: .35; }
+
+    /* Chips */
+    .chips{ margin-top: 18px; display:flex; flex-wrap:wrap; gap: 10px; }
+    .chip{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+
+    /* Pillars */
+    .pillars{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .pill{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.025);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .pill-title{
+      margin: 0 0 8px;
+      font-weight: 650;
+      color: rgba(255,255,255,.92);
+      font-size: 16px;
+    }
+    .pill-text{
+      margin: 0;
+      color: rgba(255,255,255,.70);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    /* Steps */
+    .steps{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.025);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .step-no{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(255,255,255,.85);
+      font-weight: 650;
+      flex: 0 0 auto;
+    }
+    .step-title{ margin: 0; font-weight: 650; color: rgba(255,255,255,.92); }
+    .step-text{ margin: 6px 0 0; color: rgba(255,255,255,.70); line-height: 1.65; }
+
+    /* Reviews */
+    .section-head{ margin-bottom: 18px; }
+    .section-head.center{ text-align:center; }
+    .reviews{ background: rgba(255,255,255,0.01); }
+    .reviews-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .review-card{
+      display:block;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .review-stars{ display:flex; gap: 4px; margin-bottom: 12px; }
+    .star{ color:#fbbf24; font-size: 18px; line-height: 1; }
+    .review-text{
+      margin: 0 0 12px;
+      color: rgba(255,255,255,0.86);
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .review-author{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px; }
+    .author-name{ font-weight: 650; color: #fff; }
+    .author-company{ color: rgba(255,255,255,0.70); font-size: 13px; margin-top: 2px; }
+    .reviews-note{ margin: 14px 0 0; text-align:center; }
+    .reviews-note a{ color: #2F89FF; text-decoration: none; }
+    .reviews-note a:hover{ text-decoration: underline; }
+
+    /* FAQ */
+    .faq-wrap{ margin-top: 18px; display:grid; gap: 12px; }
+    .faq-item{
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      padding: 4px 0;
+      overflow:hidden;
+    }
+    .faq-item summary{
+      cursor: pointer;
+      list-style: none;
+      padding: 16px;
+      font-weight: 650;
+      color: rgba(255,255,255,.92);
+    }
+    .faq-item summary::-webkit-details-marker{ display:none; }
+    .faq-item p{
+      margin: 0;
+      padding: 0 16px 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.8;
+    }
+
+    /* Contact CTA */
+    .cta-box{
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+      padding: 22px;
+      display:flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .cta-actions{ display:flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+    .cta-link{ color: rgba(255,255,255,.72); text-decoration: none; }
+    .cta-link:hover{ color: rgba(255,255,255,.9); }
+
+    @media (max-width: 900px){
+      .pillars{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .reviews-grid{ grid-template-columns: 1fr; }
+      .hero-simple{ padding-top: 110px; }
+    }
+  </style>
+</BaseLayout>
