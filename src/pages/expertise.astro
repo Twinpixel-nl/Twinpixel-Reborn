@@ -189,12 +189,14 @@ import { expertiseItems } from "../data/expertise";
       font-weight: 600;
     }
 
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 32px;
-      max-width: 1200px;
-    }
+.expertise-grid {
+  display: grid;
+  /* Veranderd van auto-fit naar 3 kolommen */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 24px; /* Iets kleinere gap voor meer ruimte in de kaarten */
+  max-width: 1300px; /* Iets breder voor 3 kolommen */
+  margin: 0 auto;
+}
 
     .expertise-card {
       display: block;
@@ -274,11 +276,11 @@ import { expertiseItems } from "../data/expertise";
       max-width: 80ch;
     }
 
-    .card-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
+.card-features {
+  display: flex;
+  flex-direction: column; /* Onder elkaar voor een cleaner uiterlijk in 3 kolommen */
+  gap: 20px;
+}
 
     .feature-group {
       display: flex;
