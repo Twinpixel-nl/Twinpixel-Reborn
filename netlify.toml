@@ -32,14 +32,16 @@
   for = "/admin/*"
   [headers.values]
     Content-Security-Policy = """
-      default-src 'self';
-      script-src 'self' 'unsafe-eval' https://unpkg.com https://identity.netlify.com;
-      connect-src 'self' https://api.netlify.com https://identity.netlify.com https://unpkg.com;
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' data: blob:;
-      font-src 'self' data:;
-      frame-src https://identity.netlify.com;
-    """
+  default-src 'self';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com https://identity.netlify.com;
+  connect-src 'self' https://api.netlify.com https://identity.netlify.com https://unpkg.com https://api.github.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: blob:;
+  font-src 'self' data:;
+  frame-src https://identity.netlify.com;
+  worker-src 'self' blob:;
+  child-src blob:;
+"""
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
