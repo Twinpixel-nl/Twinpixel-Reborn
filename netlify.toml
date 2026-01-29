@@ -1,30 +1,43 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npx astro build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--include=dev"
 
+# --- Redirects ---
+
+# www -> non-www
 [[redirects]]
   from = "https://www.twinpixel.nl/*"
   to = "https://twinpixel.nl/:splat"
   status = 301
   force = true
 
+# Decap CMS admin route
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
 
+# (optioneel) ook subpaths onder /admin goed laten werken
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# --- Security headers (prima defaults) ---
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 
+# --- Long cache voor Astro hashed assets ---
 [[headers]]
   for = "/assets/*"
   [headers.values]
