@@ -5,6 +5,7 @@ export const cases = [
     title: "By Britt Nails",
     website: "https://bybrittnails.nl",
     description: "Beauty-platform met focus op organische vindbaarheid.",
+     extra: "Door een luxe visuele identiteit te combineren met een strategisch SEO-fundament, fungeert de website als een krachtige motor voor nieuwe klantacquisitie en online autoriteit in de beauty-sector.",
     challenge: "By Britt Nails was voorheen volledig afhankelijk van Instagram voor boekingen. Dit zorgde voor veel handmatig werk en een gebrek aan vindbaarheid buiten social media. Er was behoefte aan een professioneel platform dat autoriteit uitstraalt en het boekingsproces automatiseert via Google.",
     tags: ["SEO", "Design", "Automation"],
     image: "/cases/by-britt-nails.png",

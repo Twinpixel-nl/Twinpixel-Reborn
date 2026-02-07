@@ -49,6 +49,7 @@ const icons = {
               
               <h3 class="fc-title">{c.title}</h3>
               <p class="fc-text">{c.description}</p>
+              
 
               <div class="fc-stats">
                 {c.stats.slice(0, 2).map(s => (
@@ -58,6 +59,9 @@ const icons = {
                     <span class="fc-lab">{s.label}</span>
                   </div>
                 ))}
+                {c.extra && (
+        <p class="hero-extra">{c.extra}</p>
+      )}
               </div>
             </div>
 
@@ -114,6 +118,13 @@ const icons = {
     grid-template-columns: 1.2fr 0.8fr;
     grid-template-rows: auto auto;
     gap: 20px;
+  }
+  .hero-extra {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5); /* Subtieler grijs */
+    margin: 0;
+    align-self: end; /* Lijn uit met de onderkant van de lead */
   }
   
   .fc {
