@@ -34,31 +34,41 @@ const formatDate = (d) =>
   <section class="section">
     <div class="container">
       <div class="grid" >
-        {insights.map((post) => (
-          <a class="card" href={`/insights/${post.slug}`} >
-            <div class="meta">
-              <span class="date">{formatDate(post.data.date)}</span>
-              {post.data.category && <span class="pill">{post.data.category}</span>}
-              {post.data.readingTime && <span class="pill subtle">{post.data.readingTime}</span>}
-            </div>
+{insights.map((post) => (
+  <a class="card" href={`/insights/${post.slug}`}>
+    {post.data.image?.src ? (
+      <div class="thumb">
+        <img
+          src={post.data.image.src}
+          alt={post.data.image.alt ?? post.data.title}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    ) : null}
 
-            <h2 class="h2">{post.data.title}</h2>
+    <div class="meta">
+      <span class="date">{formatDate(post.data.date)}</span>
+      {post.data.category && <span class="pill">{post.data.category}</span>}
+      {post.data.readingTime && <span class="pill subtle">{post.data.readingTime}</span>}
+    </div>
 
-            {post.data.description && (
-              <p class="desc">{post.data.description}</p>
-            )}
+    <h2 class="h2">{post.data.title}</h2>
 
-            {post.data.tags?.length ? (
-              <div class="tags" aria-label="Tags">
-                {post.data.tags.slice(0, 3).map((t) => (
-                  <span class="tag">#{t}</span>
-                ))}
-              </div>
-            ) : null}
+    {post.data.description && <p class="desc">{post.data.description}</p>}
 
-            <div class="more">Lees verder →</div>
-          </a>
+    {post.data.tags?.length ? (
+      <div class="tags" aria-label="Tags">
+        {post.data.tags.slice(0, 3).map((t) => (
+          <span class="tag">#{t}</span>
         ))}
+      </div>
+    ) : null}
+
+    <div class="more">Lees verder →</div>
+  </a>
+))}
+
       </div>
     </div>
   </section>
@@ -185,5 +195,24 @@ const formatDate = (d) =>
       .grid{ grid-template-columns: 1fr; }
       .hero{ padding: 120px 0 50px; }
     }
+
+.thumb{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  aspect-ratio: 16 / 9;
+  margin-bottom: 6px;
+}
+
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+
   </style>
 </BaseLayout>
