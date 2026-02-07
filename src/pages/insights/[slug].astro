@@ -13,7 +13,6 @@ const { slug } = Astro.params;
 const entry = await getEntryBySlug("insights", slug);
 
 if (!entry) {
-  // bij build: dit voorkomt rare crashes + geeft duidelijke fout
   throw new Error(`Insight not found: ${slug}`);
 }
 
@@ -31,7 +30,7 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
   <article class="article">
     <header class="head">
       <div class="container">
-        <a class="back" href="/insights">← Terug naar insights</a>
+        <a class="back top" href="/insights">← Terug naar insights</a>
 
         <p class="kicker">
           <span>{data.category ? data.category : "Insight"}</span>
@@ -73,23 +72,24 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
     <div class="container body">
       <Content />
 
-      <section class="cta">
-        <p class="ctaText">
-          Herken je dit in je eigen site? Dan is dat geen kritiek, maar een goed startpunt.
-          <br />
-          Wil je daar eens scherp naar laten kijken, zonder verkooppraat? Dan denken we graag met je mee.
-        </p>
+      <section class="cta" aria-label="Call to action">
+        <div class="ctaInner">
+          <p class="ctaText">
+            Herken je dit in je eigen site? Dan is dat geen kritiek, maar een goed startpunt.
+            <br />
+            Wil je daar eens scherp naar laten kijken, zonder verkooppraat? Dan denken we graag met je mee.
+          </p>
 
-        <div class="actions">
-          <Button href="/contact" variant="primary" label="Plan kennismaking" />
-          <Button href="/cases" variant="secondary" label="Bekijk cases" />
+          <div class="ctaActions">
+            <Button href="/contact" variant="primary" label="Plan kennismaking" />
+            <Button href="/cases" variant="secondary" label="Bekijk cases" />
+          </div>
+
+          <a class="back bottom" href="/insights">← Terug naar insights</a>
         </div>
-
-        <a class="back bottom" href="/insights">← Terug naar insights</a>
       </section>
     </div>
   </article>
-
 
   <style>
     .container{
@@ -107,12 +107,15 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
 
     .back{
       display:inline-block;
-      color: rgba(255,255,255,.60);
       text-decoration:none;
       font-size: 14px;
+    }
+
+    .back.top{
+      color: rgba(255,255,255,.60);
       margin-bottom: 14px;
     }
-    .back:hover{ color: rgba(255,255,255,.88); }
+    .back.top:hover{ color: rgba(255,255,255,.88); }
 
     .kicker{
       margin: 0 0 10px;
@@ -122,7 +125,6 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
       color: rgba(255,255,255,.55);
       display:flex;
       flex-wrap: wrap;
-      gap: 0;
       align-items: center;
     }
     .sep{ margin: 0 8px; opacity: .6; }
@@ -157,13 +159,6 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
       background: rgba(255,255,255,.03);
       padding: 6px 10px;
       border-radius: 999px;
-    }
-
-    .actions{
-      margin-top: 20px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
     }
 
     .body{
@@ -225,42 +220,56 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
       .article{ padding-top: 92px; }
     }
 
-.hero{
-  margin-top: 18px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-}
+    .hero{
+      margin-top: 18px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
 
-.hero img{
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
+    .hero img{
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
 
-.cta{
-  margin-top: 46px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
+    /* CTA polish */
+    .cta{
+      margin-top: 54px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
 
-.ctaText{
-  margin: 0 0 16px;
-  color: rgba(255,255,255,.74);
-  line-height: 1.75;
-  font-size: 16px;
-  max-width: 70ch;
-}
+    .ctaInner{
+      padding: 22px 22px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+    }
 
-.actions{
-  margin-top: 0; /* override je oude 20px */
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+    .ctaText{
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.74);
+      line-height: 1.75;
+      font-size: 16px;
+      max-width: 72ch;
+    }
 
+    .ctaActions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .back.bottom{
+      margin-top: 14px;
+      color: rgba(47,137,255,.75);
+      font-size: 13px;
+    }
+    .back.bottom:hover{ color: rgba(47,137,255,.95); }
   </style>
 </BaseLayout>
