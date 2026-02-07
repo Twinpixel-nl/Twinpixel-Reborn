@@ -17,9 +17,10 @@
 
 # Decap CMS admin route
 [[redirects]]
-  from = "/admin"
-  to = "/admin/index.html"
+  from = "/.netlify/*"
+  to = "/.netlify/:splat"
   status = 200
+
 
 # (optioneel) ook subpaths onder /admin goed laten werken
 [[redirects]]
