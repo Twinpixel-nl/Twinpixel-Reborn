@@ -10,7 +10,11 @@ image:
   src: /uploads/1ejajcukhrrbhgqkwpwxqeajyz_chm2qalvyrearkw-pwl8cavrtz3mbdywm36ox8mcb_fvbh4uzp_zrxkddyy_ovqwlcfgwqzvibhb_n_w.jpg
 category: Webdesign
 tags:
-  - focus conversie strategie webdesign seo
+  - focus
+  - conversie
+  - strategie
+  - webdesign
+  - seo
 readingTime: 5 min
 ---
 Veel websites zien er goed uit. Ze zijn snel, modern en technisch prima gebouwd.  
