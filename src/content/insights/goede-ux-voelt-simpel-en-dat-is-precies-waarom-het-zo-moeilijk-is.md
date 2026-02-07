@@ -10,7 +10,11 @@ image:
   alt: Abstracte vormen die de eenvoud en complexiteit van goede UX verbeelden
 category: UX
 tags:
-  - ux gebruiksvriendelijkheid conversie webdesign strategie
+  - ux
+  - gebruiksvriendelijkheid
+  - conversie
+  - webdesign
+  - strategie
 readingTime: 6 min
 ---
 Goede UX voelt vaak vanzelfsprekend.  
