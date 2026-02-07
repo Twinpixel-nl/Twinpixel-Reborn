@@ -95,7 +95,7 @@ De betere vraag is:
 
 > Is het in één oogopslag duidelijk voor wie deze site is en wat ik hier moet doen?
 
-Zo niet, dan is dat geen kritiek — maar een goed startpunt.
+Zo niet, dan is dat geen kritiek, maar een goed startpunt.
 
 ---
 
