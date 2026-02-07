@@ -15,20 +15,19 @@
   status = 301
   force = true
 
-# Decap CMS admin route
+# Let Netlify internal endpoints work (Identity/Git Gateway)
 [[redirects]]
   from = "/.netlify/*"
   to = "/.netlify/:splat"
   status = 200
 
-
-# (optioneel) ook subpaths onder /admin goed laten werken
+# Decap CMS admin (SPA-ish route)
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
 
-# --- Security headers (Decap CMS admin: werkend + redelijk strak) ---
+# --- Security headers (Decap CMS admin) ---
 [[headers]]
   for = "/admin/*"
   [headers.values]
@@ -38,7 +37,7 @@
       style-src 'self' 'unsafe-inline';
       img-src 'self' data: blob:;
       font-src 'self' data:;
-      connect-src 'self'
+      connect-src 'self' blob:
         https://api.netlify.com
         https://identity.netlify.com
         https://unpkg.com
@@ -56,7 +55,6 @@
     X-Content-Type-Options = "nosniff"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-
 
 # --- Long cache voor Astro hashed assets ---
 [[headers]]
