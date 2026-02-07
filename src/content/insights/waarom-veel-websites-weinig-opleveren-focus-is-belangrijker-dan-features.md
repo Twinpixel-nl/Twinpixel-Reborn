@@ -97,7 +97,4 @@ De betere vraag is:
 
 Zo niet, dan is dat geen kritiek, maar een goed startpunt.
 
----
 
-Wil je daar eens scherp naar laten kijken, zonder verkooppraat?  
-Dan denken we bij TwinPixel graag met je mee.
