@@ -65,7 +65,7 @@ Dat is een focusprobleem.
 ### Onze visie bij TwinPixel
 
 Bij TwinPixel zien we SEO en design niet als losse onderdelen.  
-Ze versterken elkaar — of breken elkaar af.
+Ze versterken elkaar, of breken elkaar af.
 
 Goede SEO begint niet bij keywords, maar bij gedrag:
 
@@ -99,7 +99,7 @@ SEO draait niet om méér doen.
 Het draait om beter kiezen.
 
 Websites die durven schrappen, durven sturen en durven focussen,  
-presteren vrijwel altijd beter — in Google én bij bezoekers.
+presteren vrijwel altijd beter, in Google én bij bezoekers.
 
 Herken je dit in je eigen site?  
 Dan is dat geen kritiek, maar een goed startpunt.
