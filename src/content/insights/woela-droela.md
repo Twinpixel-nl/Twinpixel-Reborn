@@ -1,15 +1,22 @@
 ---
-title: woela droela
-description: asd
+title: Waarom SEO zonder scherpe keuzes zelden werkt
+description: Veel websites zijn technisch prima en zien er goed uit, maar
+  leveren te weinig op. Niet door een SEO-tekort, maar door een gebrek aan
+  focus. In deze insight laten we zien waarom scherpe keuzes belangrijker zijn
+  dan optimaliseren.
 date: 2026-02-07
 draft: false
 image:
   alt: Abstract beeld dat focus en richting in webdesign en SEO symboliseert
   src: /assets/uploads/b2329ebf-31f1-4c9a-ae9f-1af50b983e49.png
-category: asd
+category: SEO
 tags:
-  - asd
-readingTime: asd
+  - seo
+  - webdesign
+  - conversie
+  - focus
+  - strategie
+readingTime: 6 min
 ---
 Mooie websites, weinig resultaat
 
@@ -81,7 +88,7 @@ Tot slot
 SEO draait niet om méér doen.
 Het draait om beter kiezen.
 
-Websites die durven schrappen, durven sturen en durven focussen, presteren vrijwel altijd beter — in Google én bij bezoekers.
+Websites die durven schrappen, durven sturen en durven focussen, presteren vrijwel altijd beter, in Google én bij bezoekers.
 
 Herken je dit in je eigen site? Dan is dat geen kritiek, maar een goed startpunt.
 
