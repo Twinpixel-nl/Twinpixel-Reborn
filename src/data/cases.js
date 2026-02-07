@@ -1,3 +1,5 @@
+// src/data/cases.js
+
 export const cases = [
   // FEATURED (3)
   {
@@ -5,14 +7,14 @@ export const cases = [
     title: "By Britt Nails",
     website: "https://bybrittnails.nl",
     description: "Beauty-platform met focus op organische vindbaarheid.",
-     extra: "Door een luxe visuele identiteit te combineren met een strategisch SEO-fundament, fungeert de website als een krachtige motor voor nieuwe klantacquisitie en online autoriteit in de beauty-sector.",
-    challenge: "By Britt Nails was voorheen volledig afhankelijk van Instagram voor boekingen. Dit zorgde voor veel handmatig werk en een gebrek aan vindbaarheid buiten social media. Er was behoefte aan een professioneel platform dat autoriteit uitstraalt en het boekingsproces automatiseert via Google.",
+    extra: "Door een luxe visuele identiteit te combineren met een strategisch SEO-fundament, fungeert de website als een krachtige motor voor nieuwe klantacquisitie en online autoriteit in de beauty-sector.",
+    challenge: "By Britt Nails was voorheen volledig afhankelijk van Instagram DM's voor boekingen. Dit zorgde voor veel handmatig werk en een gebrek aan vindbaarheid buiten social media. Er was behoefte aan een professioneel platform dat autoriteit uitstraalt en het boekingsproces automatiseert via Google.",
     tags: ["SEO", "Design", "Automation"],
     image: "/cases/by-britt-nails.png",
     featured: true,
-    accent: "#7c3aed",
+    accent: "#7c3aed", // Purple
     client: "Britt Nails",
-    year: "2024",
+    year: "2025",
     stats: [
       { label: "Actieve gebruikers", value: "161", icon: "users" },
       { label: "Organische Groei", value: "+20,1%", icon: "chart" },
@@ -28,45 +30,45 @@ export const cases = [
     slug: "hettraumavoorbij",
     title: "Het trauma voorbij",
     website: "https://hettraumavoorbij.nl",
-    description: "Explosieve groei in bereik voor een psychologische praktijk.",
-    challenge: "De oude website slaagde er niet in om de juiste rust en overzicht te bieden aan een kwetsbare doelgroep. Er was een sterke behoefte aan een contentstructuur die hulpzoekenden direct de weg wijst naar de juiste informatie en interactie.",
-    tags: ["Growth", "UX", "Healthcare"],
+    description: "Online leeromgeving en platform voor psychologische zorg.",
+    challenge: "Het hoofddoel was om een veilige plek te creëren waar mensen direct worden binnengehaald en geholpen. De uitdaging lag in het integreren van een complexe online cursusstructuur achter een eenvoudige, kalmerende website.",
+    tags: ["LMS", "Backend", "Healthcare"],
     image: "/cases/hettraumavoorbij.png",
     featured: true,
-    accent: "#2F89FF",
+    accent: "#14b8a6", // Turquoise
     client: "Het trauma voorbij",
-    year: "2023",
+    year: "2025",
     stats: [
       { label: "Sessies", value: "+345%", icon: "chart" },
       { label: "Interacties", value: "543", icon: "plus" },
       { label: "Nieuwe Gebr.", value: "125", icon: "users" }
     ],
     overview: [
-      { title: "Content Architectuur", desc: "Herstructurering van complexe informatie naar een behapbare en rustige flow." },
-      { title: "Engagement Flow", desc: "Optimalisatie van de contactmomenten waardoor interacties vervijfvoudigd zijn." }
+      { title: "LMS Backend", desc: "Een op maat gemaakte online cursusomgeving om trajecten volledig digitaal te volgen." },
+      { title: "Kalmerend Design", desc: "Visuele rust om de drempel voor hulpzoekenden zo laag mogelijk te maken." }
     ],
-    outcome: "Een verdrievoudiging van het digitale bereik en een platform dat rust uitstraalt voor mensen die op zoek zijn naar hulp."
+    outcome: "Een verdrievoudiging van het bereik en een geautomatiseerd platform dat cursisten direct de weg naar herstel wijst."
   },
   {
     slug: "stadspartij-wageningen",
     title: "Stadspartij Wageningen",
     website: "https://stadspartijwageningen.nl",
-    description: "Lokaal politiek platform met focus op burgerparticipatie.",
-    challenge: "In de aanloop naar de verkiezingen moest de lokale politiek toegankelijker worden voor alle burgers. Het doel was om standpunten helder te communiceren en burgerinteractie laagdrempelig te maken in een digitale omgeving.",
-    tags: ["Politiek", "Community", "Local SEO"],
+    description: "Informatief portaal voor lokale politiek en verkiezingen.",
+    challenge: "De oude website was verouderd en onoverzichtelijk. De Stadspartij had een platform nodig dat meebeweegt met de actualiteit, vooral tijdens verkiezingen, waarbij transparantie en snelheid centraal staan.",
+    tags: ["Politiek", "Local SEO", "UX"],
     image: "/cases/stadspartijwageningen.png",
     featured: true,
-    accent: "#14b8a6",
+    accent: "#2F89FF", // Blue
     client: "Stadspartij Wageningen",
-    year: "2022",
+    year: "2025",
     stats: [
       { label: "Groei Gebr.", value: "+115,8%", icon: "chart" },
-      { label: "Interactie", value: "+200%", icon: "plus" },
+      { label: "Events", value: "+200%", icon: "plus" },
       { label: "Actieve Gebr.", value: "41", icon: "users" }
     ],
     overview: [
-      { title: "Lokale SEO", desc: "Optimalisatie voor lokale thema's die spelen in de wijken van Wageningen." },
-      { title: "Transparantie", desc: "Duidelijke navigatiestructuur voor complexe politieke dossiers en standpunten." }
+      { title: "Verkiezingsmodules", desc: "Speciale pagina's ontwikkeld om partijthema's tijdens de verkiezingen uit te lichten." },
+      { title: "Informatie Flow", desc: "Verbeterde navigatie waardoor burgers sneller bij de gewenste informatie komen." }
     ],
     outcome: "Maximale lokale zichtbaarheid en een platform dat burgerparticipatie inzichtelijk en effectief maakt."
   },
@@ -76,176 +78,136 @@ export const cases = [
     slug: "social-media-manager",
     title: "socialmediamanager.nl",
     website: "https://socialmediamanager.nl",
-    description: "Lead-focused website voor marketing professionals.",
-    challenge: "Het genereren van kwalitatieve aanvragen in een verzadigde markt door middel van autoriteit en conversie-gericht design.",
-    tags: ["Marketing", "SEO", "Design"],
+    description: "Aantrekkelijk en conversiegericht platform voor marketeers.",
+    extra: "In deze verzadigde markt draait alles om autoriteit. Deze website is ontworpen om direct op te vallen en als magneet voor nieuwe opdrachten te fungeren.",
+    challenge: "Een platform bouwen dat technisch onberispelijk is (SEO) maar tegelijkertijd een visueel 'wow-effect' creëert om high-end klanten aan te trekken.",
+    tags: ["Design", "SEO", "Marketing"],
     image: "/cases/socialmediamanager.png",
     featured: false,
-    accent: "#2F89FF",
+    accent: "#7c3aed", // Purple
     client: "SMM",
-    year: "2024",
-    stats: [
-      { label: "Leads", value: "+38%", icon: "plus" },
-      { label: "Conversie", value: "High", icon: "chart" }
-    ],
-    overview: [
-      { title: "Funnel Optimalisatie", desc: "Een strakke route van landing naar kwalitatieve aanvraag." },
-      { title: "UI Design", desc: "Premium uitstraling die professionaliteit in de marketing-sector bevestigt." }
-    ],
-    outcome: "Een significante stijging in kwalitatieve leads door een conversiegerichte funnel."
+    year: "2025",
+    stats: [{ label: "Leads", value: "+38%", icon: "plus" }],
+    overview: [{ title: "Premium Branding", desc: "Visuele presentatie die de expertise van social media management onderstreept." }],
+    outcome: "Een krachtige lead-machine met een moderne uitstraling en topnoteringen in Google."
   },
   {
     slug: "jongerenraad-wageningen",
     title: "Jongerenraad Wageningen",
     website: "https://jongerenraadwageningen.nl",
-    description: "Interactief platform voor de lokale jeugd.",
-    challenge: "Jongeren bereiken en betrekken bij lokale politiek vraagt om een omgeving die aansluit bij hun belevingswereld en mobiel gebruik.",
-    tags: ["Community", "Social", "UX"],
+    description: "Modern portaal gericht op jongerenparticipatie.",
+    extra: "Door weg te stappen van de traditionele politieke lay-out, hebben we een omgeving gecreëerd die aansluit bij de belevingswereld van de jeugd.",
+    challenge: "De oude website sloot niet aan bij de doelgroep. Er was een volledige transformatie nodig om politiek begrijpelijk en aantrekkelijk te maken voor jongeren in de gemeente.",
+    tags: ["UX", "Jeugd", "Community"],
     image: "/cases/jongerenraadwageningen.png",
     featured: false,
-    accent: "#7c3aed",
+    accent: "#2F89FF", // Blue
     client: "Gemeente Wageningen",
-    year: "2023",
-    stats: [
-      { label: "Engagement", value: "High", icon: "plus" },
-      { label: "Mobiel", value: "85%", icon: "users" }
-    ],
-    overview: [
-      { title: "Jeugd Focus", desc: "Toegankelijk design met focus op visuele hiërarchie en snelheid." },
-      { title: "Event Kalender", desc: "Directe integratie voor bijeenkomsten en actiepunten." }
-    ],
-    outcome: "Een centrale plek waar Wageningse jongeren direct invloed hebben op hun omgeving."
+    year: "2025",
+    stats: [{ label: "Mobiel Gebruik", value: "85%", icon: "users" }],
+    overview: [{ title: "Focus Jeugd", desc: "Verbeterde navigatie en snellere toegang tot evenementen en actiepunten." }],
+    outcome: "Een aanzienlijke stijging in betrokkenheid en een centraal punt voor jongeren in de stad."
   },
   {
     slug: "de-wet-van-staal",
     title: "De Wet van Staal",
     website: "https://dewetvanstaal.nl",
-    description: "Krachtig branding- en webproject voor fitness coaching.",
-    challenge: "Het creëren van een onverwoestbare online identiteit die zowel kracht als deskundigheid uitstraalt voor high-performance coaching.",
-    tags: ["Branding", "Fitness", "Performance"],
+    description: "High-performance website voor personal coaching.",
+    extra: "Kracht en discipline vertaald naar een digitaal platform. Geen ruis, alleen resultaat.",
+    challenge: "Het creëren van een online identiteit die net zo solide aanvoelt als de fysieke trainingen.",
+    tags: ["Fitness", "Web", "Branding"],
     image: "/cases/dewetvanstaal.png",
     featured: false,
-    accent: "#14b8a6",
+    accent: "#2F89FF", // Blue
     client: "De Wet van Staal",
-    year: "2024",
-    stats: [
-      { label: "Lighthouse", value: "98/100", icon: "chart" },
-      { label: "Aanvragen", value: "Direct", icon: "plus" }
-    ],
-    overview: [
-      { title: "Digital Branding", desc: "Ontwikkeling van een visuele stijl die motivatie en discipline ademt." },
-      { title: "Performance", desc: "Razendsnelle laadtijden voor optimale ervaring op mobiel." }
-    ],
-    outcome: "Een krachtig digitaal merk dat professionaliteit uitstraalt en direct nieuwe leden motiveert."
+    year: "2025",
+    stats: [{ label: "Lighthouse", value: "98/100", icon: "chart" }],
+    overview: [{ title: "Dark-mode aesthetics", desc: "Bold design dat kracht en autoriteit uitstraalt." }],
+    outcome: "Een professionele showcase die nieuwe coaching-leden motiveert en overtuigt."
   },
   {
     slug: "sv-null",
     title: "SV Null",
     website: "https://svnull.nl",
-    description: "Community portaal en dashboard voor studenten.",
-    challenge: "Het automatiseren van verenigings-taken en het creëren van een centraal punt voor ledeninformatie en communicatie.",
-    tags: ["Platform", "Dashboard", "Dev"],
+    description: "Dashboard en portaal voor de studentenvereniging.",
+    extra: "Dit platform digitaliseert de volledige ledenadministratie en biedt een centraal dashboard voor alle interne communicatie.",
+    challenge: "De overstap maken van losse systemen naar één overzichtelijke backend voor de volledige vereniging.",
+    tags: ["Dashboard", "Dev", "Platform"],
     image: "/cases/svnull.png",
     featured: false,
-    accent: "#2F89FF",
+    accent: "#14b8a6", // Turquoise
     client: "SV Null",
-    year: "2023",
-    stats: [
-      { label: "Uptime", value: "99.9%", icon: "chart" },
-      { label: "Leden", value: "Active", icon: "users" }
-    ],
-    overview: [
-      { title: "Dashboarding", desc: "Real-time updates en informatiebeheer voor alle verenigingsleden." },
-      { title: "Automatisering", desc: "Minimaliseren van administratieve lasten door slimme modules." }
-    ],
-    outcome: "Een gestroomlijnd portaal dat de administratie verlaagt en de onderlinge band versterkt."
+    year: "2025",
+    stats: [{ label: "Uptime", value: "99.9%", icon: "chart" }],
+    overview: [{ title: "Automatisering", desc: "Minimaliseren van administratieve lasten door een op maat gemaakt dashboard." }],
+    outcome: "Een gestroomlijnd portaal dat de verenigingsstructuur versterkt."
   },
   {
     slug: "vvd-wageningen",
     title: "VVD Wageningen",
     website: "https://vvdwageningen.nl",
-    description: "Content-driven politieke site met heldere navigatie.",
-    challenge: "Grote hoeveelheden politieke content vindbaar en leesbaar maken voor de lokale kiezer.",
-    tags: ["Content", "Static", "SEO"],
+    description: "Informatieve politieke website voor de lokale fractie.",
+    extra: "Focus op transparantie en een betrouwbaar imago voor de lokale kiezer.",
+    challenge: "Complexe politieke dossiers overzichtelijk presenteren voor de burger.",
+    tags: ["Politiek", "Content", "SEO"],
     image: "/cases/vvdwageningen.png",
     featured: false,
-    accent: "#14b8a6",
+    accent: "#2F89FF", // Blue
     client: "VVD Wageningen",
-    year: "2022",
-    stats: [
-      { label: "Bezoekers", value: "12k/ma", icon: "users" },
-      { label: "SEO Score", value: "95", icon: "chart" }
-    ],
-    overview: [
-      { title: "Informatie Architectuur", desc: "Logische indeling van thema's en lokale standpunten." },
-      { title: "Snelheid", desc: "Gebouwd op een modern technisch fundament voor maximale laadsnelheid." }
-    ],
-    outcome: "Heldere communicatie van complexe politieke standpunten naar de burger."
+    year: "2025",
+    stats: [{ label: "SEO Score", value: "95", icon: "chart" }],
+    overview: [{ title: "Informatie Architectuur", desc: "Logische indeling van thema's en lokale standpunten." }],
+    outcome: "Heldere communicatie van standpunten naar de burger."
   },
   {
     slug: "de-bennekamer",
     title: "De Bennekamer",
     website: "https://debennekamer.nl",
-    description: "Lokaal platform voor ontmoeting en informatie.",
-    challenge: "Een wijkplatform creëren dat voor alle generaties eenvoudig te gebruiken is om sociale cohesie te bevorderen.",
+    description: "Lokaal platform voor wijkactiviteiten en informatie.",
+    extra: "Een warme en uitnodigende omgeving die de sociale verbondenheid in de wijk ondersteunt.",
+    challenge: "Een laagdrempelig platform creëren dat toegankelijk is voor alle generaties in de wijk.",
     tags: ["Lokaal", "Informatie", "UX"],
     image: "/cases/debennekamer.png",
     featured: false,
-    accent: "#7c3aed",
+    accent: "#7c3aed", // Purple
     client: "De Bennekamer",
-    year: "2023",
-    stats: [
-      { label: "Bereik", value: "Lokaal", icon: "users" },
-      { label: "Gebruik", value: "Dagelijks", icon: "plus" }
-    ],
-    overview: [
-      { title: "Wijk Agenda", desc: "Centrale plek voor alle lokale activiteiten en nieuwsberichten." },
-      { title: "Toegankelijkheid", desc: "Minimalistisch design dat gebruiksvriendelijk is voor alle bewoners." }
-    ],
-    outcome: "Versterkte wijkcohesie door een transparant en eenvoudig te gebruiken platform."
+    year: "2025",
+    stats: [{ label: "Bereik", value: "Lokaal", icon: "users" }],
+    overview: [{ title: "Wijkagenda", desc: "Eenvoudig te beheren agenda voor alle activiteiten." }],
+    outcome: "Versterkte wijkcohesie door een transparant portaal."
   },
   {
     slug: "emma-de-heer",
     title: "emmadeheer.nl",
     website: "https://emmadeheer.nl",
-    description: "Persoonlijk portfolio met een minimalistisch design.",
-    challenge: "Het vertalen van een creatieve visie naar een digitaal portfolio dat zowel esthetisch als functioneel overtuigt.",
-    tags: ["Portfolio", "Branding", "Creative"],
+    description: "Minimalistisch portfolio voor creatieve projecten.",
+    extra: "Een digitaal canvas waar het werk voor zich spreekt, ondersteund door vlijmscherpe typografie en witruimte.",
+    challenge: "Het vertalen van een artistieke visie naar een technisch perfect portfolio.",
+    tags: ["Portfolio", "Creative", "Branding"],
     image: "/cases/emmadeheer.png",
     featured: false,
-    accent: "#2F89FF",
+    accent: "#7c3aed", // Purple
     client: "Emma de Heer",
-    year: "2024",
-    stats: [
-      { label: "Aesthetic", value: "Clean", icon: "plus" },
-      { label: "Speed", value: "Ultra", icon: "chart" }
-    ],
-    overview: [
-      { title: "Minimalistisch Design", desc: "Focus op witruimte en typografie om het werk te laten spreken." },
-      { title: "Showcase", desc: "Interactieve presentatie van creatieve projecten." }
-    ],
-    outcome: "Een professionele showcase die creativiteit vertaalt naar een overtuigend digitaal visitekaartje."
+    year: "2025",
+    stats: [{ label: "Design", value: "Minimal", icon: "plus" }],
+    overview: [{ title: "Art-direction", desc: "Focus op visuele rust en een esthetische weergave van projecten." }],
+    outcome: "Een professionele showcase die creativiteit vertaalt naar autoriteit."
   },
   {
     slug: "twan-meurs",
     title: "twanmeurs.nl",
     website: "https://twanmeurs.nl",
-    description: "High-performance persoonlijke website.",
-    challenge: "Het bouwen van een technisch visitekaartje waarbij snelheid en techniek de boventoon voeren.",
+    description: "Technisch portfolio met focus op performance en web-dev.",
+    extra: "Een technisch visitekaartje dat laat zien wat er mogelijk is met moderne webtechnologieën zoals Astro en Edge delivery.",
+    challenge: "Maximale laadsnelheid combineren met een esthetisch hoogstaand portfolio.",
     tags: ["Dev", "Portfolio", "Performance"],
     image: "/cases/twanmeurs.png",
     featured: false,
-    accent: "#14b8a6",
+    accent: "#7c3aed", // Purple (same as Emma as requested)
     client: "Twan Meurs",
-    year: "2024",
-    stats: [
-      { label: "Speed", value: "0.8s", icon: "chart" },
-      { label: "Build", value: "Astro", icon: "plus" }
-    ],
-    overview: [
-      { title: "Technisch Fundament", desc: "Gebouwd met Astro voor optimale edge delivery en snelheid." },
-      { title: "Minimalisme", desc: "Geen ruis, puur gefocust op de projecten en vaardigheden." }
-    ],
-    outcome: "Een razendsnelle website die fungeert als technisch bewijs van vakmanschap."
+    year: "2025",
+    stats: [{ label: "Snelheid", value: "0.8s", icon: "chart" }],
+    overview: [{ title: "Astro Performance", desc: "Gebouwd met de nieuwste technieken voor een bliksemsnelle ervaring." }],
+    outcome: "Een razendsnelle website die fungeert als bewijs van vakmanschap."
   }
 ];
