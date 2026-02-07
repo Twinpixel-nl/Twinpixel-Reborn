@@ -110,7 +110,3 @@ Maar het is wel een signaal.
 
 Een signaal dat er ruimte is om te vereenvoudigen.
 
----
-
-Wil je daar eens scherp naar laten kijken, zonder verkooppraat?  
-Dan denken we bij TwinPixel graag met je mee.
