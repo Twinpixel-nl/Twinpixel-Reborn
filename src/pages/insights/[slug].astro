@@ -45,23 +45,20 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
           ) : null}
         </p>
 
-<h1 class="h1">{data.title}</h1>
-
-{data.description && <p class="lead">{data.description}</p>}
-
-{data.image?.src ? (
-  <figure class="hero">
-    <img
-      src={data.image.src}
-      alt={data.image.alt ?? data.title}
-      loading="eager"
-      decoding="async"
-    />
-  </figure>
-) : null}
-
+        <h1 class="h1">{data.title}</h1>
 
         {data.description && <p class="lead">{data.description}</p>}
+
+        {data.image?.src ? (
+          <figure class="hero">
+            <img
+              src={data.image.src}
+              alt={data.image.alt ?? data.title}
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        ) : null}
 
         {data.tags?.length ? (
           <div class="tags" aria-label="Tags">
@@ -75,12 +72,24 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
 
     <div class="container body">
       <Content />
-    </div>
-      <div class="actions">
+
+      <section class="cta">
+        <p class="ctaText">
+          Herken je dit in je eigen site? Dan is dat geen kritiek, maar een goed startpunt.
+          <br />
+          Wil je daar eens scherp naar laten kijken, zonder verkooppraat? Dan denken we graag met je mee.
+        </p>
+
+        <div class="actions">
           <Button href="/contact" variant="primary" label="Plan kennismaking" />
           <Button href="/cases" variant="secondary" label="Bekijk cases" />
         </div>
+
+        <a class="back bottom" href="/insights">← Terug naar insights</a>
+      </section>
+    </div>
   </article>
+
 
   <style>
     .container{
@@ -232,6 +241,26 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
   object-fit: cover;
 }
 
+.cta{
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.ctaText{
+  margin: 0 0 16px;
+  color: rgba(255,255,255,.74);
+  line-height: 1.75;
+  font-size: 16px;
+  max-width: 70ch;
+}
+
+.actions{
+  margin-top: 0; /* override je oude 20px */
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
   </style>
 </BaseLayout>
