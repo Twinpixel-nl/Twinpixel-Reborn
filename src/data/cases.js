@@ -3,22 +3,25 @@ export const cases = [
   {
     slug: "by-britt-nails",
     title: "By Britt Nails",
-    description: "Beauty-platform met focus op organische vindbaarheid. De data laat een sterke instroom zien vanuit SEO en social kanalen.",
-    tags: ["SEO", "Organic Search", "Design"],
+    website: "https://bybrittnails.nl",
+    description: "Beauty-platform met focus op organische vindbaarheid.",
+    challenge: "By Britt Nails was voorheen volledig afhankelijk van Instagram voor boekingen. Dit zorgde voor veel handmatig werk en een gebrek aan vindbaarheid buiten social media. Er was behoefte aan een professioneel platform dat autoriteit uitstraalt en het boekingsproces automatiseert via Google.",
+    tags: ["SEO", "Design", "Automation"],
     image: "/cases/by-britt-nails.png",
     featured: true,
     accent: "#7c3aed",
+    client: "Britt Nails",
+    year: "2024",
     stats: [
-      { label: "Actieve Gebr.", value: "161" },
-      { label: "Nieuwe Gebr.", value: "148" },
-      { label: "Groei", value: "+20,1%" }
+      { label: "Organische Groei", value: "+20,1%", icon: "chart" },
+      { label: "Nieuwe Gebruikers", value: "148", icon: "plus" },
+      { label: "Actieve gebruikers", value: "161", icon: "users" }
     ],
     overview: [
-      "Dominante instroom via Organic Search (SEO)",
-      "Sterke ondersteuning vanuit Organic Social",
-      "Geoptimaliseerd voor afspraakconversie"
+      { title: "SEO Fundament", desc: "Focus op lokale zoektermen om klanten direct uit de regio aan te trekken." },
+      { title: "UX Design", desc: "Een rustige, luxe interface die aansluit bij de premium beleving van de salon." }
     ],
-    outcome: "Een sterke online autoriteit in de beauty-sector met een constante stroom aan nieuwe klanten via Google."
+    outcome: "Een platform dat niet alleen visueel overtuigt, maar ook meetbaar zorgt voor een constante stroom aan nieuwe boekingen zonder tussenkomst van social media."
   },
   {
     slug: "hettraumavoorbij",

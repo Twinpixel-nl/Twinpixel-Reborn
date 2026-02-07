@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Button from "../../components/Button.astro";
 import { cases } from "../../data/cases.js";
 
 export function getStaticPaths() {
@@ -11,206 +10,192 @@ export function getStaticPaths() {
 }
 
 const { c } = Astro.props;
+
+// Strakke, dunne SVG iconen
+const icons = {
+  plus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
+  users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+  chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
+  external: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
+};
 ---
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
-  <!-- De accentkleur wordt hier dynamisch toegepast op de hero -->
-  <section class="hero" style={`--accent:${c.accent || "#2F89FF"};`}>
-    <div class="container inner">
-      <p class="kicker">Case Study</p>
+  <section class="hero" style={`--accent:${c.accent};`}>
+    <div class="container">
+      <nav class="meta-nav">
+        <a href="/cases">Projecten</a> / <span>{c.title}</span>
+      </nav>
       <h1 class="h1">{c.title}</h1>
       <p class="lead">{c.description}</p>
-
-      <div class="cta">
-        <Button href="/cases" variant="secondary" label="← Terug naar cases" />
-        <Button href="/#contact" variant="primary" label="Project starten" />
-      </div>
+      
+      {c.website && (
+        <a href={c.website} target="_blank" class="live-link">
+          Website bezoeken <span class="icon-arrow" set:html={icons.external} />
+        </a>
+      )}
     </div>
   </section>
 
-  <section class="section">
+  <section class="case-details">
     <div class="container grid">
-      <div class="main">
-        <div class="image">
-          {c.image ? <img src={c.image} alt={c.title} loading="lazy" /> : null}
+      
+      <div class="main-content">
+        <!-- Main Image -->
+        <div class="image-frame">
+          <img src={c.image} alt={c.title} />
         </div>
 
-        <h2 class="h2">Wat we hebben gedaan</h2>
-        <ul class="list">
-          {(c.overview || []).map((b) => <li>{b}</li>)}
-        </ul>
+        <!-- Text Sections -->
+        <div class="content-sections">
+          <div class="text-block">
+            <span class="label">De Uitdaging</span>
+            <h2>Vraagstuk</h2>
+            <p>{c.challenge}</p>
+          </div>
 
-        <h2 class="h2">Het resultaat</h2>
-        <!-- Hier wordt nu de 'outcome' uit je cases.js geladen -->
-        <p class="p outcome-text">
-          {c.outcome}
-        </p>
+          <div class="text-block">
+            <span class="label">De Aanpak</span>
+            <h2>Strategie & Realisatie</h2>
+            <div class="approach-cards">
+              {c.overview.map(item => (
+                <div class="approach-item">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <aside class="side">
-        <div class="panel">
-          <h3 class="mini">Statistieken</h3>
-          <div class="stats">
-            {(c.stats || []).map((s) => (
-              <div class="stat">
-                <span class="label">{s.label}</span>
-                <span class="value">{s.value}</span>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- Stats Card -->
+        <div class="glass-card">
+          <span class="label">Impact</span>
+          <div class="stats-list">
+            {c.stats.map(stat => (
+              <div class="stat-box">
+                <div class="stat-icon" style={`color: ${c.accent}`} set:html={icons[stat.icon]} />
+                <div>
+                  <div class="stat-val">{stat.value}</div>
+                  <div class="stat-lab">{stat.label}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div class="panel">
-          <h3 class="mini">Stack & Focus</h3>
-          <!-- Hier worden nu de tags uit je cases.js getoond, gescheiden door een stip -->
-          <p class="small">
-            {(c.tags || []).join(' · ')}
-          </p>
+        <!-- Outcome Card (Subtiel) -->
+        <div class="glass-card outcome-card" style={`--accent: ${c.accent}`}>
+          <span class="label">Resultaat</span>
+          <p>{c.outcome}</p>
+        </div>
+
+        <!-- Info Card -->
+        <div class="glass-card info-card">
+          <div class="info-row"><span>Klant</span> {c.client}</div>
+          <div class="info-row"><span>Jaar</span> {c.year}</div>
+          <div class="info-row tags-row">
+            {c.tags.map(tag => <span class="mini-tag">{tag}</span>)}
+          </div>
         </div>
       </aside>
+
     </div>
   </section>
-
-  <style>
-    /* ... Je bestaande styles blijven hetzelfde ... */
-    
-    .outcome-text {
-      color: rgba(255,255,255,.8);
-      font-size: 18px;
-      line-height: 1.8;
-      max-width: 65ch;
-    }
-
-    .hero{
-      padding: 140px 0 70px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:-200px -120px;
-      pointer-events:none;
-      background:
-        radial-gradient(1000px 620px at 20% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%),
-        radial-gradient(900px 620px at 80% 70%, rgba(255,255,255,.06), transparent 70%);
-      opacity:.9;
-    }
-    .inner{ position: relative; z-index: 1; max-width: 920px; }
-
-    .kicker{
-      margin: 0 0 14px;
-      font-size: 12px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.50);
-    }
-
-    .h1{
-      margin: 0;
-      font-size: clamp(40px, 5vw, 70px);
-      letter-spacing: -0.05em;
-      line-height: 1.02;
-      font-weight: 650;
-    }
-
-    .lead{
-      margin: 18px 0 0;
-      color: rgba(255,255,255,.68);
-      font-size: 18px;
-      line-height: 1.8;
-      max-width: 70ch;
-    }
-
-    .cta{
-      margin-top: 22px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 44px; /* Iets meer ruimte tussen de kolommen */
-      align-items:start;
-    }
-
-    .image{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      margin-bottom: 32px;
-    }
-    img{ width:100%; height:auto; display:block; }
-
-    .h2 {
-      font-size: 24px;
-      margin-bottom: 16px;
-      margin-top: 32px;
-    }
-
-    .list{
-      margin: 12px 0 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.9;
-    }
-
-    .side{ display:flex; flex-direction:column; gap: 18px; }
-
-    .panel{
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 24px;
-      position: relative;
-    }
-
-    .mini{
-      margin: 0 0 16px;
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .stat{
-      border-radius: 12px;
-      background: rgba(0,0,0,.2);
-      border: 1px solid rgba(255,255,255,.05);
-      padding: 12px 16px;
-    }
-    .label{
-      display:block;
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.4);
-    }
-    .value{
-      display:block;
-      margin-top: 4px;
-      font-size: 16px;
-      font-weight: 500;
-      color: rgba(255,255,255,.9);
-    }
-
-    .small{
-      margin: 0;
-      font-size: 14px;
-      color: rgba(255,255,255,.6);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-  </style>
 </BaseLayout>
+
+<style>
+  /* --- HERO --- */
+  .hero { padding: 120px 0 60px; }
+  .meta-nav { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+  .meta-nav a { color: inherit; text-decoration: none; transition: 0.2s; }
+  .meta-nav a:hover { color: #fff; }
+
+  .h1 { font-size: clamp(40px, 7vw, 64px); font-weight: 700; margin: 0 0 20px; letter-spacing: -0.02em; }
+  .lead { font-size: 20px; color: rgba(255,255,255,0.6); max-width: 600px; line-height: 1.5; margin-bottom: 32px; }
+
+  .live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    transition: 0.3s;
+  }
+  .live-link:hover { border-color: var(--accent); color: var(--accent); }
+  .icon-arrow { width: 14px; height: 14px; }
+
+  /* --- GRID --- */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 80px;
+    padding-bottom: 100px;
+  }
+
+  /* --- MAIN CONTENT --- */
+  .image-frame {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 24px;
+    padding: 10px;
+    margin-bottom: 60px;
+  }
+  .image-frame img { width: 100%; border-radius: 16px; display: block; }
+
+  .content-sections { display: grid; gap: 80px; }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 16px; display: block; }
+  .text-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 20px; }
+  .text-block p { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); }
+
+  .approach-cards { display: grid; gap: 20px; margin-top: 32px; }
+  .approach-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 32px;
+    border-radius: 20px;
+  }
+  .approach-item h3 { font-size: 18px; margin-bottom: 10px; font-weight: 600; }
+  .approach-item p { font-size: 15px; color: rgba(255,255,255,0.5); margin: 0; }
+
+  /* --- SIDEBAR --- */
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  
+  .glass-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 32px;
+  }
+
+  /* Stat box */
+  .stats-list { display: grid; gap: 24px; }
+  .stat-box { display: flex; align-items: center; gap: 16px; }
+  .stat-icon { width: 24px; height: 24px; opacity: 0.8; }
+  .stat-val { font-size: 24px; font-weight: 700; color: #fff; line-height: 1; }
+  .stat-lab { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  /* Outcome Card - De vervanger voor het grote vlak */
+  .outcome-card {
+    border-left: 3px solid var(--accent); /* Alleen een accent-lijn links */
+    background: linear-gradient(to right, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
+  }
+  .outcome-card p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0; }
+
+  /* Info row */
+  .info-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: #fff; }
+  .info-row span { color: rgba(255,255,255,0.4); }
+  .tags-row { border-bottom: none; flex-wrap: wrap; gap: 6px; padding-top: 16px; }
+  .mini-tag { font-size: 10px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.05); }
+
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { order: -1; }
+  }
+</style>
