@@ -70,6 +70,21 @@ img{ max-width:100%; display:block; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
+.body > :global(*) {
+  max-width: 70ch;
+}
+
+.body :global(p){
+  margin-bottom: 18px;
+}
+
+.body :global(h2){
+  margin-top: 56px;
+}
+
+.body :global(h3){
+  margin-top: 36px;
+}
 
 @media (max-width: 980px){
   .section{ padding: 72px 0; }
