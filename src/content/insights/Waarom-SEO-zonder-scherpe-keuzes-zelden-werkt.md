@@ -101,10 +101,4 @@ Het draait om beter kiezen.
 Websites die durven schrappen, durven sturen en durven focussen,  
 presteren vrijwel altijd beter, in Google én bij bezoekers.
 
-Herken je dit in je eigen site?  
-Dan is dat geen kritiek, maar een goed startpunt.
 
----
-
-Wil je daar eens scherp naar laten kijken, zonder verkooppraat?  
-Dan denken we bij TwinPixel graag met je mee.
