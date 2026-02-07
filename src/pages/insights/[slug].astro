@@ -70,17 +70,16 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
             ))}
           </div>
         ) : null}
-
-        <div class="actions">
-          <Button href="/contact" variant="primary" label="Plan kennismaking" />
-          <Button href="/cases" variant="secondary" label="Bekijk cases" />
-        </div>
       </div>
     </header>
 
     <div class="container body">
       <Content />
     </div>
+      <div class="actions">
+          <Button href="/contact" variant="primary" label="Plan kennismaking" />
+          <Button href="/cases" variant="secondary" label="Bekijk cases" />
+        </div>
   </article>
 
   <style>
@@ -216,7 +215,7 @@ const description = data.description ?? "Insight van TwinPixel over webdesign, S
     @media (max-width: 980px){
       .article{ padding-top: 92px; }
     }
-    
+
 .hero{
   margin-top: 18px;
   border-radius: 18px;

@@ -15,7 +15,7 @@
   status = 301
   force = true
 
-# Let Netlify internal endpoints work (Identity/Git Gateway)
+
 
 
 # Decap CMS admin (SPA-ish route)
