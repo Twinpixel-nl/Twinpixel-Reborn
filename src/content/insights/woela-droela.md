@@ -73,13 +73,11 @@ Drie scherpe checks voor je eigen website
 Wil je weten of jouw site zichzelf saboteert? Stel jezelf deze vragen:
 
 1. Is in één oogopslag duidelijk wat de volgende stap is?
-Niet wat je aanbiedt — maar wat je van de bezoeker verwacht.
-
+   Niet wat je aanbiedt, maar wat je van de bezoeker verwacht.
 2. Heeft elke pagina één duidelijke functie?
-Of probeert hij te informeren, overtuigen én converteren tegelijk?
-
+   Of probeert hij te informeren, overtuigen én converteren tegelijk?
 3. Kun je iets weghalen zonder dat de kern verloren gaat?
-Zo niet, dan is de kans groot dat de kern al te vaag is.
+   Zo niet, dan is de kans groot dat de kern al te vaag is.
 
 Als deze vragen ongemakkelijk voelen, zit je waarschijnlijk dichtbij het echte probleem.
 
