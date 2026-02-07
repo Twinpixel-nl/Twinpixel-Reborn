@@ -4,7 +4,7 @@ description: Veel websites zijn technisch prima en zien er goed uit, maar
   leveren te weinig op. Niet door een SEO-tekort, maar door een gebrek aan
   focus. In deze insight laten we zien waarom scherpe keuzes belangrijker zijn
   dan optimaliseren.
-date: 2026-02-07
+date: 2026-01-20
 draft: false
 image:
   alt: Abstract beeld dat focus en richting in webdesign en SEO symboliseert
