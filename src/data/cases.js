@@ -109,6 +109,30 @@ export const cases = [
     outcome: "Een verdrievoudiging van het bereik en een geautomatiseerd platform."
   },
   {
+   slug: "bjornos",
+    title: "Bjornos",
+    website: "https://bjornos.nl",
+    description: "High-performance portfolio voor een elektronische muziekartiest.",
+    extra: "Een DJ-website moet de energie van de muziek reflecteren zonder in te leveren op techniek. Voor Bjornos bouwden we een visueel krachtig platform dat direct streamt vanaf SoundCloud en Spotify.",
+    challenge: "De wens was een 'vette' website die direct indruk maakt, maar tegelijkertijd extreem snel laadt op mobiele apparaten (bijvoorbeeld op festivals). De integratie van externe muziekplayers moest naadloos en gebruiksvriendelijk zijn.",
+    tags: ["Entertainment", "Performance", "Music"],
+    image: "/cases/bjornos.png",
+    featured: false,
+    accent: "#7c3aed",
+    client: "Bjornos",
+    year: "2025",
+    stats: [
+      { label: "Response Time", value: "0.03s", icon: "chart" },
+      { label: "Lighthouse", value: "100/100", icon: "plus" },
+      { label: "Integraties", value: "Spotify & soundcloud", icon: "users" }
+    ],
+    overview: [
+      { title: "Audio Integration", desc: "Directe API-koppelingen met SoundCloud en Spotify voor een naadloze luisterervaring." },
+      { title: "Edge Performance", desc: "Geadviseerd en gebouwd op een architectuur die een responstijd van 0.03 seconden garandeert." }
+    ],
+    outcome: "Een flitsende, moderne showcase die de identiteit van de artiest versterkt en wereldwijd razendsnel toegankelijk is."
+  },
+  {
     slug: "social-media-manager",
     title: "socialmediamanager.nl",
     website: "https://socialmediamanager.nl",
