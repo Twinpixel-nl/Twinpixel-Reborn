@@ -6,107 +6,141 @@ export const cases = [
     slug: "by-britt-nails",
     title: "By Britt Nails",
     website: "https://bybrittnails.nl",
-    description: "Beauty-platform met focus op organische vindbaarheid.",
-    extra: "Door een luxe visuele identiteit te combineren met een strategisch SEO-fundament, fungeert de website als een krachtige motor voor nieuwe klantacquisitie en online autoriteit in de beauty-sector.",
-    challenge: "By Britt Nails was voorheen volledig afhankelijk van Instagram DM's voor boekingen. Dit zorgde voor veel handmatig werk en een gebrek aan vindbaarheid buiten social media. Er was behoefte aan een professioneel platform dat autoriteit uitstraalt en het boekingsproces automatiseert via Google.",
-    tags: ["SEO", "Design", "Automation"],
+    description: "Dominantie in de lokale zoekresultaten door een SEO-gedreven design.",
+    extra: "De strategie was helder: By Britt Nails moest de onbetwiste nummer 1 worden voor iedereen die in Wageningen zoekt naar een nagelstudio. Door een technisch SEO-fundament te combineren met een interface die rust en luxe uitstraalt, hebben we een platform neergezet dat 81% van zijn bezoekers direct uit Google haalt.",
+    challenge: "De hoofdvraag van Britt was: 'Hoe word ik de eerste optie in Google als men lokaal zoekt?' Tegelijkertijd wilde ze de drempel voor klanten verlagen door prijzen en voorbeeldfoto's direct op één plek te tonen, volledig in de stijl van haar paarse logo-identiteit.",
+    tags: ["Lokaal SEO", "Web Design", "Conversion"],
     image: "/cases/by-britt-nails.png",
     featured: true,
-    accent: "#7c3aed", // Purple
+    accent: "#7c3aed", 
     client: "Britt Nails",
     year: "2025",
     stats: [
-      { label: "Actieve gebruikers", value: "161", icon: "users" },
-      { label: "Organische Groei", value: "+20,1%", icon: "chart" },
-      { label: "Nieuwe Gebruikers", value: "148", icon: "plus" }
+      { label: "Actieve gebruikers", value: "1.6k", icon: "users" },
+      { label: "Organic Search", value: "81%", icon: "chart" },
+      { label: "Ranking Wageningen", value: "#2", icon: "plus" },
     ],
     overview: [
-      { title: "SEO Fundament", desc: "Focus op lokale zoektermen om klanten direct uit de regio aan te trekken." },
-      { title: "UX Design", desc: "Een rustige, luxe interface die aansluit bij de premium beleving van de salon." }
+      { title: "Lokaal SEO Plan", desc: "Optimalisatie voor specifieke zoektermen zoals 'Nagelstudio Wageningen', waardoor de studio direct boven de concurrentie verschijnt." },
+      { title: "Visuele Prijslijst", desc: "Realisatie van een 'all-in-one' overzicht waar prijzen en portfolio-foto's samenkomen in de luxe sfeer van het merk." }
     ],
-    outcome: "Een platform dat niet alleen visueel overtuigt, maar ook meetbaar zorgt voor een constante stroom aan nieuwe boekingen zonder tussenkomst van social media."
+    outcome: "Een website die niet alleen prachtig oogt, maar ook echt als acquisitie-kanaal dient. Britt is nu onafhankelijk van social media voor haar instroom van nieuwe klanten."
+  },
+  {
+    slug: "wur-optare",
+    title: "WUR Optare Tool",
+    website: "https://wuroptarerekentool.netlify.app/",
+    description: "Interactieve rekentool voor complexe secundaire arbeidsvoorwaarden.",
+    extra: "Voor medewerkers van Wageningen University & Research was het Optare-systeem vaak een 'black box'. Wij hebben dit vertaald naar een intuïtieve tool die complexe data omzet in direct financieel inzicht.",
+    challenge: "De berekeningen binnen het Optare-voordeelsysteem waren voorheen onduidelijk en tijdrovend. Er was behoefte aan een systeem waar medewerkers met minimale invoer direct konden zien waar zij recht op hebben qua extra vergoedingen.",
+    tags: ["Custom Tooling", "UX Design", "Fintech"],
+    image: "/cases/wur.png",
+    featured: true,
+    accent: "#14b8a6",
+    client: "Wageningen University & Research",
+    year: "2025",
+    stats: [
+      { label: "Interacties", value: "3.8k", icon: "plus" },
+      { label: "Financieel Inzicht", value: "100%", icon: "chart" },
+      { label: "Gebruikers", value: "WUR Personeel", icon: "users" }
+    ],
+    overview: [
+      { title: "Smart Calculation", desc: "Een algoritme dat complexe CAO-regels vertaalt naar een simpel eindbedrag onder de streep." },
+      { title: "UX-Simplify", desc: "Van een vaag proces naar een overzichtelijke 3-staps invoer voor maximaal gebruiksgemak." }
+    ],
+    outcome: "Een transparante oplossing die de administratieve druk bij HR verlaagt en medewerkers direct duidelijkheid biedt over hun financiële voordelen."
+  },
+  {
+    slug: "vvd-wageningen",
+    title: "VVD Wageningen",
+    website: "https://vvdwageningen.nl",
+    description: "Een digitaal fundament voor lokale transparantie en kiezersbereik.",
+    extra: "In de politiek is snelheid en vindbaarheid alles. Voor de VVD Wageningen bouwden we een platform dat standpunten helder communiceert en tijdens verkiezingstijd moeiteloos duizenden kiezers tegelijkertijd bedient.",
+    challenge: "Complexe politieke dossiers moesten begrijpelijk en snel toegankelijk worden gemaakt voor de burger, met een sterke focus op mobiel gebruik en lokale vindbaarheid.",
+    tags: ["Politiek", "Local SEO", "UX"],
+    image: "/cases/vvdwageningen.png",
+    featured: true,
+    accent: "#2F89FF",
+    client: "VVD Wageningen",
+    year: "2025",
+    stats: [
+      { label: "Mobiel Bereik", value: "82%", icon: "chart" },
+      { label: "Laadtijd", value: "< 2s", icon: "plus" },
+      { label: "Toegankelijkheid", value: "100%", icon: "users" }
+    ],
+    overview: [
+      { title: "Informatie Architectuur", desc: "Logische indeling van thema's waardoor kiezers binnen twee klikken bij hun standpunt zijn." },
+      { title: "Performance SEO", desc: "Een razendsnelle technische basis die zorgt voor topnoteringen bij lokale politieke zoekopdrachten." }
+    ],
+    outcome: "Een professioneel en betrouwbaar portaal dat de brug slaat tussen fractie en burger."
+  },
+
+  // REST (9)
+  {
+    slug: "stadspartij-wageningen",
+    title: "Stadspartij Wageningen",
+    website: "https://stadspartijwageningen.nl",
+    description: "Informatief portaal voor lokale politiek en verkiezingen.",
+    challenge: "De oude website was verouderd en onoverzichtelijk. De Stadspartij had een platform nodig dat meebeweegt met de actualiteit.",
+    tags: ["Politiek", "Local SEO", "UX"],
+    image: "/cases/stadspartijwageningen.png",
+    featured: false,
+    accent: "#2F89FF",
+    client: "Stadspartij Wageningen",
+    year: "2025",
+    stats: [{ label: "Groei Gebr.", value: "+115,8%", icon: "chart" }],
+    overview: [{ title: "Verkiezingsmodules", desc: "Speciale pagina's ontwikkeld om partijthema's uit te lichten." }],
+    outcome: "Maximale lokale zichtbaarheid en een platform dat burgerparticipatie inzichtelijk maakt."
   },
   {
     slug: "hettraumavoorbij",
     title: "Het trauma voorbij",
     website: "https://hettraumavoorbij.nl",
     description: "Online leeromgeving en platform voor psychologische zorg.",
-    challenge: "Het hoofddoel was om een veilige plek te creëren waar mensen direct worden binnengehaald en geholpen. De uitdaging lag in het integreren van een complexe online cursusstructuur achter een eenvoudige, kalmerende website.",
+    challenge: "Het hoofddoel was om een veilige plek te creëren waar mensen direct worden binnengehaald en geholpen.",
     tags: ["LMS", "Backend", "Healthcare"],
     image: "/cases/hettraumavoorbij.png",
-    featured: true,
-    accent: "#14b8a6", // Turquoise
+    featured: false,
+    accent: "#14b8a6", 
     client: "Het trauma voorbij",
     year: "2025",
-    stats: [
-      { label: "Sessies", value: "+345%", icon: "chart" },
-      { label: "Interacties", value: "543", icon: "plus" },
-      { label: "Nieuwe Gebr.", value: "125", icon: "users" }
-    ],
-    overview: [
-      { title: "LMS Backend", desc: "Een op maat gemaakte online cursusomgeving om trajecten volledig digitaal te volgen." },
-      { title: "Kalmerend Design", desc: "Visuele rust om de drempel voor hulpzoekenden zo laag mogelijk te maken." }
-    ],
-    outcome: "Een verdrievoudiging van het bereik en een geautomatiseerd platform dat cursisten direct de weg naar herstel wijst."
+    stats: [{ label: "Sessies", value: "+345%", icon: "chart" }],
+    overview: [{ title: "LMS Backend", desc: "Een op maat gemaakte online cursusomgeving om trajecten volledig digitaal te volgen." }],
+    outcome: "Een verdrievoudiging van het bereik en een geautomatiseerd platform."
   },
-  {
-    slug: "stadspartij-wageningen",
-    title: "Stadspartij Wageningen",
-    website: "https://stadspartijwageningen.nl",
-    description: "Informatief portaal voor lokale politiek en verkiezingen.",
-    challenge: "De oude website was verouderd en onoverzichtelijk. De Stadspartij had een platform nodig dat meebeweegt met de actualiteit, vooral tijdens verkiezingen, waarbij transparantie en snelheid centraal staan.",
-    tags: ["Politiek", "Local SEO", "UX"],
-    image: "/cases/stadspartijwageningen.png",
-    featured: true,
-    accent: "#2F89FF", // Blue
-    client: "Stadspartij Wageningen",
-    year: "2025",
-    stats: [
-      { label: "Groei Gebr.", value: "+115,8%", icon: "chart" },
-      { label: "Events", value: "+200%", icon: "plus" },
-      { label: "Actieve Gebr.", value: "41", icon: "users" }
-    ],
-    overview: [
-      { title: "Verkiezingsmodules", desc: "Speciale pagina's ontwikkeld om partijthema's tijdens de verkiezingen uit te lichten." },
-      { title: "Informatie Flow", desc: "Verbeterde navigatie waardoor burgers sneller bij de gewenste informatie komen." }
-    ],
-    outcome: "Maximale lokale zichtbaarheid en een platform dat burgerparticipatie inzichtelijk en effectief maakt."
-  },
-
-  // REST (8)
   {
     slug: "social-media-manager",
     title: "socialmediamanager.nl",
     website: "https://socialmediamanager.nl",
     description: "Aantrekkelijk en conversiegericht platform voor marketeers.",
-    extra: "In deze verzadigde markt draait alles om autoriteit. Deze website is ontworpen om direct op te vallen en als magneet voor nieuwe opdrachten te fungeren.",
-    challenge: "Een platform bouwen dat technisch onberispelijk is (SEO) maar tegelijkertijd een visueel 'wow-effect' creëert om high-end klanten aan te trekken.",
+    extra: "In deze verzadigde markt draait alles om autoriteit. Deze website is ontworpen om direct op te vallen.",
+    challenge: "Een platform bouwen dat technisch onberispelijk is maar tegelijkertijd een visueel 'wow-effect' creëert.",
     tags: ["Design", "SEO", "Marketing"],
     image: "/cases/socialmediamanager.png",
     featured: false,
-    accent: "#7c3aed", // Purple
+    accent: "#7c3aed",
     client: "SMM",
     year: "2025",
     stats: [{ label: "Leads", value: "+38%", icon: "plus" }],
-    overview: [{ title: "Premium Branding", desc: "Visuele presentatie die de expertise van social media management onderstreept." }],
-    outcome: "Een krachtige lead-machine met een moderne uitstraling en topnoteringen in Google."
+    overview: [{ title: "Premium Branding", desc: "Visuele presentatie die de expertise onderstreept." }],
+    outcome: "Een krachtige lead-machine met een moderne uitstraling."
   },
   {
     slug: "jongerenraad-wageningen",
     title: "Jongerenraad Wageningen",
     website: "https://jongerenraadwageningen.nl",
     description: "Modern portaal gericht op jongerenparticipatie.",
-    extra: "Door weg te stappen van de traditionele politieke lay-out, hebben we een omgeving gecreëerd die aansluit bij de belevingswereld van de jeugd.",
-    challenge: "De oude website sloot niet aan bij de doelgroep. Er was een volledige transformatie nodig om politiek begrijpelijk en aantrekkelijk te maken voor jongeren in de gemeente.",
+    extra: "Door weg te stappen van de traditionele politieke lay-out, hebben we een omgeving gecreëerd die aansluit bij de jeugd.",
+    challenge: "De oude website sloot niet aan bij de doelgroep. Er was een volledige transformatie nodig.",
     tags: ["UX", "Jeugd", "Community"],
     image: "/cases/jongerenraadwageningen.png",
     featured: false,
-    accent: "#2F89FF", // Blue
+    accent: "#2F89FF",
     client: "Gemeente Wageningen",
     year: "2025",
     stats: [{ label: "Mobiel Gebruik", value: "85%", icon: "users" }],
-    overview: [{ title: "Focus Jeugd", desc: "Verbeterde navigatie en snellere toegang tot evenementen en actiepunten." }],
-    outcome: "Een aanzienlijke stijging in betrokkenheid en een centraal punt voor jongeren in de stad."
+    overview: [{ title: "Focus Jeugd", desc: "Verbeterde navigatie en snellere toegang tot evenementen." }],
+    outcome: "Een aanzienlijke stijging in betrokkenheid."
   },
   {
     slug: "de-wet-van-staal",
@@ -118,58 +152,41 @@ export const cases = [
     tags: ["Fitness", "Web", "Branding"],
     image: "/cases/dewetvanstaal.png",
     featured: false,
-    accent: "#2F89FF", // Blue
+    accent: "#2F89FF",
     client: "De Wet van Staal",
     year: "2025",
     stats: [{ label: "Lighthouse", value: "98/100", icon: "chart" }],
     overview: [{ title: "Dark-mode aesthetics", desc: "Bold design dat kracht en autoriteit uitstraalt." }],
-    outcome: "Een professionele showcase die nieuwe coaching-leden motiveert en overtuigt."
+    outcome: "Een professionele showcase die nieuwe coaching-leden motiveert."
   },
   {
     slug: "sv-null",
     title: "SV Null",
     website: "https://svnull.nl",
     description: "Dashboard en portaal voor de studentenvereniging.",
-    extra: "Dit platform digitaliseert de volledige ledenadministratie en biedt een centraal dashboard voor alle interne communicatie.",
-    challenge: "De overstap maken van losse systemen naar één overzichtelijke backend voor de volledige vereniging.",
+    extra: "Dit platform digitaliseert de volledige ledenadministratie.",
+    challenge: "De overstap maken van losse systemen naar één overzichtelijke backend.",
     tags: ["Dashboard", "Dev", "Platform"],
     image: "/cases/svnull.png",
     featured: false,
-    accent: "#14b8a6", // Turquoise
+    accent: "#14b8a6",
     client: "SV Null",
     year: "2025",
     stats: [{ label: "Uptime", value: "99.9%", icon: "chart" }],
-    overview: [{ title: "Automatisering", desc: "Minimaliseren van administratieve lasten door een op maat gemaakt dashboard." }],
+    overview: [{ title: "Automatisering", desc: "Minimaliseren van administratieve lasten." }],
     outcome: "Een gestroomlijnd portaal dat de verenigingsstructuur versterkt."
-  },
-  {
-    slug: "vvd-wageningen",
-    title: "VVD Wageningen",
-    website: "https://vvdwageningen.nl",
-    description: "Informatieve politieke website voor de lokale fractie.",
-    extra: "Focus op transparantie en een betrouwbaar imago voor de lokale kiezer.",
-    challenge: "Complexe politieke dossiers overzichtelijk presenteren voor de burger.",
-    tags: ["Politiek", "Content", "SEO"],
-    image: "/cases/vvdwageningen.png",
-    featured: false,
-    accent: "#2F89FF", // Blue
-    client: "VVD Wageningen",
-    year: "2025",
-    stats: [{ label: "SEO Score", value: "95", icon: "chart" }],
-    overview: [{ title: "Informatie Architectuur", desc: "Logische indeling van thema's en lokale standpunten." }],
-    outcome: "Heldere communicatie van standpunten naar de burger."
   },
   {
     slug: "de-bennekamer",
     title: "De Bennekamer",
     website: "https://debennekamer.nl",
     description: "Lokaal platform voor wijkactiviteiten en informatie.",
-    extra: "Een warme en uitnodigende omgeving die de sociale verbondenheid in de wijk ondersteunt.",
-    challenge: "Een laagdrempelig platform creëren dat toegankelijk is voor alle generaties in de wijk.",
+    extra: "Een warme en uitnodigende omgeving die de sociale verbondenheid ondersteunt.",
+    challenge: "Een laagdrempelig platform creëren dat toegankelijk is voor alle generaties.",
     tags: ["Lokaal", "Informatie", "UX"],
     image: "/cases/debennekamer.png",
     featured: false,
-    accent: "#7c3aed", // Purple
+    accent: "#7c3aed",
     client: "De Bennekamer",
     year: "2025",
     stats: [{ label: "Bereik", value: "Lokaal", icon: "users" }],
@@ -181,16 +198,16 @@ export const cases = [
     title: "emmadeheer.nl",
     website: "https://emmadeheer.nl",
     description: "Minimalistisch portfolio voor creatieve projecten.",
-    extra: "Een digitaal canvas waar het werk voor zich spreekt, ondersteund door vlijmscherpe typografie en witruimte.",
+    extra: "Een digitaal canvas waar het werk voor zich spreekt.",
     challenge: "Het vertalen van een artistieke visie naar een technisch perfect portfolio.",
     tags: ["Portfolio", "Creative", "Branding"],
     image: "/cases/emmadeheer.png",
     featured: false,
-    accent: "#7c3aed", // Purple
+    accent: "#7c3aed",
     client: "Emma de Heer",
     year: "2025",
     stats: [{ label: "Design", value: "Minimal", icon: "plus" }],
-    overview: [{ title: "Art-direction", desc: "Focus op visuele rust en een esthetische weergave van projecten." }],
+    overview: [{ title: "Art-direction", desc: "Focus op visuele rust en esthetiek." }],
     outcome: "Een professionele showcase die creativiteit vertaalt naar autoriteit."
   },
   {
@@ -198,16 +215,16 @@ export const cases = [
     title: "twanmeurs.nl",
     website: "https://twanmeurs.nl",
     description: "Technisch portfolio met focus op performance en web-dev.",
-    extra: "Een technisch visitekaartje dat laat zien wat er mogelijk is met moderne webtechnologieën zoals Astro en Edge delivery.",
+    extra: "Een technisch visitekaartje dat laat zien wat er mogelijk is met moderne webtechnologie.",
     challenge: "Maximale laadsnelheid combineren met een esthetisch hoogstaand portfolio.",
     tags: ["Dev", "Portfolio", "Performance"],
     image: "/cases/twanmeurs.png",
     featured: false,
-    accent: "#7c3aed", // Purple (same as Emma as requested)
+    accent: "#7c3aed",
     client: "Twan Meurs",
     year: "2025",
     stats: [{ label: "Snelheid", value: "0.8s", icon: "chart" }],
-    overview: [{ title: "Astro Performance", desc: "Gebouwd met de nieuwste technieken voor een bliksemsnelle ervaring." }],
+    overview: [{ title: "Astro Performance", desc: "Gebouwd met de nieuwste technieken." }],
     outcome: "Een razendsnelle website die fungeert als bewijs van vakmanschap."
   }
 ];
