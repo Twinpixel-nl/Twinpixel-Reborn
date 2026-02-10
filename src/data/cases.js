@@ -42,7 +42,7 @@ export const cases = [
     year: "2025",
     stats: [
       { label: "Interacties", value: "3.8k+", icon: "plus" },
-      { label: "Financieel Inzicht", value: "Direct", icon: "plus" },
+      { label: "Financieel Inzicht", value: "Direct", icon: "chart" },
       { label: "Gebruikers", value: "WUR Personeel", icon: "users" }
     ],
     overview: [
@@ -61,9 +61,9 @@ export const cases = [
     slug: "vvd-wageningen",
     title: "VVD Wageningen",
     website: "https://vvdwageningen.nl",
-    description: "Een digitaal fundament voor lokale transparantie en kiezersbereik.",
-    extra: "In de politiek is snelheid en vindbaarheid alles. Voor de VVD Wageningen bouwden we een platform dat standpunten helder communiceert en tijdens verkiezingstijd moeiteloos duizenden kiezers tegelijkertijd bedient.",
-    challenge: "Complexe politieke dossiers moesten begrijpelijk en snel toegankelijk worden gemaakt voor de burger, met een sterke focus op mobiel gebruik en lokale vindbaarheid.",
+    description: "De digitale koploper in de lokale politiek: autoriteit door techniek.",
+    extra: "Online aanwezigheid is voor een politieke partij geen luxe, maar een noodzaak. Voor de VVD Wageningen hebben we een platform gebouwd dat technisch zo superieur is, dat Google het direct herkent als de meest relevante bron voor lokale politiek. Zoek je in Wageningen op de term 'partij Wageningen'? Dan staat de VVD op nummer 1. Dit is geen toeval, maar het resultaat van een strategie waarbij we een razendsnel fundament (Astro) hebben gecombineerd met een messcherpe content-structuur. Hierdoor is de partij niet alleen vindbaar, maar ook de onbetwiste digitale autoriteit in de regio.",
+    challenge: "Politieke partijen hebben vaak te maken met een enorme hoeveelheid 'zware' documenten en complexe standpunten. De uitdaging was om al deze data zo te structureren dat zoekmachines de relevantie direct begrijpen, terwijl de burger op een telefoon binnen drie seconden het antwoord op zijn vraag vindt. Het moest een platform worden dat autoriteit uitstraalt, maar tegelijkertijd laagdrempelig en extreem snel is.",
     tags: ["Politiek", "Local SEO", "UX"],
     image: "/cases/vvdwageningen.png",
     featured: true,
@@ -75,11 +75,17 @@ export const cases = [
       { label: "Mobiel Bereik", value: "82%", icon: "chart" },
       { label: "Laadsnelheid", value: "Instant", icon: "users" }
     ],
-    overview: [
-      { title: "Informatie Architectuur", desc: "Logische indeling van thema's waardoor kiezers binnen twee klikken bij hun standpunt zijn." },
-      { title: "Performance SEO", desc: "Een razendsnelle technische basis die zorgt voor topnoteringen bij lokale politieke zoekopdrachten." }
+   overview: [
+      { 
+        title: "SEO-Architectuur", 
+        desc: "Door gebruik te maken van semantische code en een 'zero-JS' benadering, begrijpt Google de hiërarchie van de site beter dan die van de concurrentie. Dit heeft geresulteerd in de nummer 1 positie op de meest relevante lokale zoekterm." 
+      },
+      { 
+        title: "Kiezer-Centraal Design", 
+        desc: "De interface is volledig geoptimaliseerd voor de 'snelle kiezer'. Standpunten zijn gecategoriseerd op thema, waardoor informatie niet alleen vindbaar is voor Google, maar ook direct bruikbaar voor de burger." 
+      }
     ],
-    outcome: "Een professioneel en betrouwbaar portaal dat de brug slaat tussen fractie en burger."
+    outcome: "Een digitaal hoofdkwartier dat de VVD Wageningen direct bovenaan de zoekresultaten heeft geplaatst. De partij is nu de meest zichtbare politieke kracht in de stad, met een website die sneller laadt dan die van elke andere lokale fractie."
   },
 
   // REST (9)
