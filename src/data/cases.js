@@ -109,21 +109,35 @@ export const cases = [
     slug: "hettraumavoorbij",
     title: "Het trauma voorbij",
     website: "https://hettraumavoorbij.nl",
-    description: "Online leeromgeving en platform voor psychologische zorg.",
-    challenge: "Het hoofddoel was om een veilige plek te creëren waar mensen direct worden binnengehaald en geholpen.",
-    tags: ["LMS", "Backend", "Healthcare"],
+    description: "Een schaalbaar platform om specialistische kennis te delen met grote groepen.",
+    extra: "Als psycholoog liep de eigenaresse van 'Het trauma voorbij' tegen een fysieke grens aan: er zaten simpelweg niet genoeg uren in haar dag om iedereen 1-op-1 te helpen. Wij hebben dit opgelost door een academy-omgeving te creëren waar zij haar expertise kan delen met grote groepen tegelijk. Sinds de lancering hebben al meer dan 370 unieke gebruikers hun weg naar het platform gevonden, wat resulteerde in ruim 1.800 actieve interacties. Zij kan nu eenvoudig zelf nieuwe cursussen en video's toevoegen om haar bereik te vergroten, terwijl wij op de achtergrond fungeren als haar vaste technische partner voor support en onderhoud.",
+    challenge: "De hoofdvraag was: 'Hoe kan ik mijn kennis delen met een groter publiek zonder dat mijn agenda overloopt?' Er was behoefte aan een professionele omgeving waar grote groepen cliënten zelfstandig aan de slag kunnen, gecombineerd met de zekerheid dat de techniek altijd blijft draaien.",
+    tags: ["Online Academy", "Video Platform", "Zorg"],
     image: "/cases/hettraumavoorbij.png",
-    featured: false,
+    featured: true,
     accent: "#14b8a6", 
     client: "Het trauma voorbij",
     year: "2025",
-    stats: [{ label: "Sessies", value: "+345%", icon: "chart" }],
-    overview: [{ title: "LMS Backend", desc: "Een op maat gemaakte online cursusomgeving om trajecten volledig digitaal te volgen." }],
-    outcome: "Een verdrievoudiging van het bereik en een geautomatiseerd platform."
+    stats: [
+      { label: "Unieke gebruikers", value: "370+", icon: "users" }, // Uit je screenshot
+      { label: "Interacties", value: "1.8k+", icon: "chart" }, // Totaal acties uit screenshot
+      { label: "Support", value: "Technisch vangnet", icon: "plus" } // Jouw rol
+    ],
+    overview: [
+      { 
+        title: "Video-Academy voor Groepen", 
+        desc: "Een overzichtelijke cursusomgeving waar cliënten op hun eigen tempo modules kunnen volgen, waardoor de psycholoog honderden mensen tegelijk kan bedienen." 
+      },
+      { 
+        title: "Zelfstandig Contentbeheer", 
+        desc: "De omgeving is zo ingericht dat de klant zonder technische kennis zelfstandig nieuwe lessen en video's kan uploaden, waardoor het platform met haar praktijk meegroeit." 
+      }
+    ],
+    outcome: "Door de focus te verleggen van uurtje-factuurtje naar een schaalbaar online model, helpt zij nu grotere groepen mensen met minder tijdsdruk. Wij zorgen dat zij zich volledig kan focussen op haar cliënten, terwijl wij de techniek bewaken."
   },
   {
    slug: "bjornos",
-    title: "Bjornos",
+    title: "DJ Bjornos",
     website: "https://bjornos.nl",
     description: "High-performance portfolio voor een elektronische muziekartiest.",
     extra: "Een DJ-website moet de energie van de muziek reflecteren zonder in te leveren op techniek. Voor Bjornos bouwden we een visueel krachtig platform dat direct streamt vanaf SoundCloud en Spotify.",
@@ -147,20 +161,32 @@ export const cases = [
   },
   {
     slug: "social-media-manager",
-    title: "socialmediamanager.nl",
+    title: "Socialmediamanager.nl",
     website: "https://socialmediamanager.nl",
-    description: "Aantrekkelijk en conversiegericht platform voor marketeers.",
-    extra: "In deze verzadigde markt draait alles om autoriteit. Deze website is ontworpen om direct op te vallen.",
-    challenge: "Een platform bouwen dat technisch onberispelijk is maar tegelijkertijd een visueel 'wow-effect' creëert.",
-    tags: ["Design", "SEO", "Marketing"],
+    description: "Van losse gedachte naar een high-end autoriteitsmerk in de marketingwereld.",
+    extra: "In een verzadigde markt als social media marketing is je visuele identiteit je belangrijkste visitekaartje. Voor socialmediamanager.nl hebben we niet alleen een website gebouwd, we hebben een volledig merk neergezet. Van het allereerste logo-ontwerp tot een compleet brandbook met kleurcodes, typografie en visuele richtlijnen: alles is tot in de puntjes op elkaar afgestemd. Het resultaat is een platform dat onmiddellijk autoriteit en professionaliteit uitstraalt, waardoor de klant met vol vertrouwen de grootste opdrachten kan binnenhalen.",
+    challenge: "De opdracht was om een identiteit te creëren die zowel creativiteit als zakelijke stabiliteit uitstraalt. In een wereld waar iedereen zich 'expert' noemt, moest socialmediamanager.nl visueel boven het maaiveld uitsteken. De uitdaging was om een balans te vinden tussen een flitsend modern design en een technisch fundament dat razendsnel laadt.",
+    tags: ["Full Branding", "Brandbook", "Web Design"],
     image: "/cases/socialmediamanager.png",
     featured: false,
     accent: "#7c3aed",
-    client: "SMM",
+    client: "SMM Platform",
     year: "2025",
-    stats: [{ label: "Leads", value: "+38%", icon: "plus" }],
-    overview: [{ title: "Premium Branding", desc: "Visuele presentatie die de expertise onderstreept." }],
-    outcome: "Een krachtige lead-machine met een moderne uitstraling."
+    stats: [
+      { label: "Huisstijl", value: "100% Uniek", icon: "chart" }, // Focus op kwaliteit
+      { label: "Identiteit", value: "Full Brandbook", icon: "chart" }, // Jouw extra werk benadrukken
+    ],
+    overview: [
+      { 
+        title: "Complete Merk-Identiteit", 
+        desc: "Ontwikkeling van een volledig brandbook. Hierin hebben we de visuele koers bepaald die in alle uitingen van het bedrijf terugkomt, wat zorgt voor een ijzersterke herkenbaarheid." 
+      },
+      { 
+        title: "High-End UI Design", 
+        desc: "Een pixel-perfect ontwerp waarbij elk detail is afgestemd op de nieuwe huisstijl. De focus lag hier op het creëren van een 'wow-effect' bij de eerste kennismaking." 
+      }
+    ],
+    outcome: "Een compleet nieuwe merkbeleving die de klant positioneert als een top-speler in zijn vakgebied. De website is nu niet alleen een informatiebron, maar een krachtig bewijs van de design-standaarden van het bedrijf."
   },
   {
     slug: "jongerenraad-wageningen",
