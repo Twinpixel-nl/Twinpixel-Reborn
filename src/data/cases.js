@@ -28,28 +28,34 @@ export const cases = [
     outcome: "Een website die niet alleen prachtig oogt, maar ook echt als acquisitie-kanaal dient. Britt is nu onafhankelijk van social media voor haar instroom van nieuwe klanten."
   },
   {
-    slug: "wur-optare",
-    title: "Wageningen University & Research Tool",
+        slug: "wur-optare",
+    title: "Wageningen University & Research Optare Tool",
     website: "https://wuroptarerekentool.netlify.app/",
-    description: "Interactieve rekentool voor complexe secundaire arbeidsvoorwaarden.",
-    extra: "Voor medewerkers van Wageningen University & Research was het Optare-systeem vaak een 'black box'. Wij hebben dit vertaald naar een intuïtieve tool die complexe data omzet in direct financieel inzicht.",
-    challenge: "De berekeningen binnen het Optare-voordeelsysteem waren voorheen onduidelijk en tijdrovend. Er was behoefte aan een systeem waar medewerkers met minimale invoer direct konden zien waar zij recht op hebben qua extra vergoedingen.",
-    tags: ["Custom Tooling", "UX Design", "Fintech"],
+    description: "Een high-end interactieve simulatietool voor complexe secundaire arbeidsvoorwaarden.",
+    extra: "Binnen een grote organisatie als Wageningen University & Research (WUR) is het Optare-systeem een essentieel onderdeel van het arbeidscontract, maar door de honderden CAO-regels was het voor medewerkers vaak een 'black box'. Wij kregen de opdracht om dit complexe proces te digitaliseren. Het resultaat is een interactieve web-app die duizenden medewerkers helpt om met een paar klikken hun financiële keuzes te simuleren. Of het nu gaat om het uitruilen van vakantiedagen of het berekenen van reiskostenvergoedingen: de tool maakt de impact op het salarisstrookje direct visueel en begrijpelijk.",
+    challenge: "De grootste uitdaging was de achterliggende logica. We moesten een enorme hoeveelheid variabelen en rekenregels uit de CAO vertalen naar een foutloos algoritme. Tegelijkertijd mocht de gebruiker niets merken van deze complexiteit. De interface moest aanvoelen als een moderne 'fintech' app: snel, overzichtelijk en betrouwbaar, zodat medewerkers zelfverzekerd hun keuzes kunnen maken zonder de HR-afdeling te hoeven raadplegen.",
+    tags: ["Custom Tooling", "Fintech Design", "Digital Transformation"],
     image: "/cases/wur.png",
     featured: true,
     accent: "#14b8a6",
-    client: "Wageningen University & Research",
+    client: "WUR (HR-Afdeling)",
     year: "2025",
     stats: [
-      { label: "Interacties", value: "3.8k", icon: "plus" },
+      { label: "Interacties", value: "3.8k+", icon: "plus" },
       { label: "Financieel Inzicht", value: "Direct", icon: "plus" },
       { label: "Gebruikers", value: "WUR Personeel", icon: "users" }
     ],
     overview: [
-      { title: "Smart Calculation", desc: "Een algoritme dat complexe CAO-regels vertaalt naar een simpel eindbedrag onder de streep." },
-      { title: "UX-Simplify", desc: "Van een vaag proces naar een overzichtelijke 3-staps invoer voor maximaal gebruiksgemak." }
+      { 
+        title: "Van CAO naar Code", 
+        desc: "We hebben de papieren bureaucratie omgezet in een slim rekenmodel. Door gebruik te maken van moderne webtechnieken worden duizenden combinaties aan keuzes binnen milliseconden berekend, waardoor de medewerker direct resultaat ziet." 
+      },
+      { 
+        title: "Interactief Dashboard", 
+        desc: "In plaats van statische formulieren hebben we gekozen voor sliders en visuele feedback. Medewerkers kunnen 'spelen' met hun arbeidsvoorwaarden en direct de impact op hun netto-inkomen zien, wat de betrokkenheid enorm heeft verhoogd." 
+      }
     ],
-    outcome: "Een transparante oplossing die de administratieve druk bij HR verlaagt en medewerkers direct duidelijkheid biedt over hun financiële voordelen."
+    outcome: "Een professionele tool die de kloof tussen complexe HR-regels en de medewerker heeft gedicht. Het heeft niet alleen de medewerkerservaring verbeterd, maar ook de administratieve druk op de HR-afdeling aanzienlijk verlaagd."
   },
   {
     slug: "vvd-wageningen",

@@ -22,6 +22,32 @@ const icons = {
 ---
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
+  
+  <!-- DYNAMISCHE CLEAN SCROLLBAR -->
+  <style is:global define:vars={{ projectAccent: c.accent }}>
+    /* Breedte van de scrollbar (lekker smal) */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Achtergrond van de scrollbar (onzichtbaar/matcht bg) */
+    ::-webkit-scrollbar-track {
+      background: #05060a;
+    }
+
+    /* De 'thumb' (het bewegende deel) */
+    ::-webkit-scrollbar-thumb {
+      background: var(--projectAccent);
+      border-radius: 20px;
+    }
+
+    /* Voor Firefox */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--projectAccent) #05060a;
+    }
+  </style>
+
   <!-- Hero Section -->
   <section class="hero" style={`--accent:${c.accent};`}>
     <div class="container">
@@ -51,7 +77,7 @@ const icons = {
 
         <div class="content-sections">
           
-          <!-- EXTRA VERHAAL (Conditioneel) -->
+          <!-- HET VERHAAL (Conditioneel) -->
           {c.extra && (
             <div class="text-block highlight-block">
               <span class="label">Het verhaal</span>
@@ -122,7 +148,7 @@ const icons = {
 </BaseLayout>
 
 <style>
-  /* --- ALGEMEEN --- */
+  /* --- HERO SECTIE --- */
   .hero { padding: 120px 0 60px; }
   .meta-nav { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
   .meta-nav a { color: inherit; text-decoration: none; transition: 0.2s; }
@@ -168,11 +194,11 @@ const icons = {
   .text-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 24px; }
   .text-block p { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); }
 
-  /* --- HET VERHAAL (AANGEPAST) --- */
+  /* --- HET VERHAAL --- */
   .extra-text-card {
     padding: 32px;
-    border-radius: 24px; /* Rondom afgerond */
-    border-left: 3px solid var(--accent); /* De gekleurde lijn */
+    border-radius: 24px;
+    border-left: 3px solid var(--accent);
     background: linear-gradient(to right, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
   }
   .extra-text-card p {
@@ -210,14 +236,14 @@ const icons = {
   .stat-val { font-size: 26px; font-weight: 700; color: #fff; line-height: 1; }
   .stat-lab { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
 
-  /* Eindresultaat Kaart (Nu identiek aan Het Verhaal lijn) */
+  /* Eindresultaat Kaart */
   .outcome-card {
     border-left: 3px solid var(--accent);
     background: linear-gradient(to right, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
   }
   .outcome-card p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); margin: 0; }
 
-  /* Info */
+  /* Info Meta */
   .info-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: #fff; }
   .info-row:last-of-type { border-bottom: none; }
   .info-row span { color: rgba(255,255,255,0.4); }
