@@ -50,9 +50,9 @@ const icons = {
               <h3 class="fc-title">{c.title}</h3>
               <p class="fc-text">{c.description}</p>
               
-
+              <!-- Stats Sectie -->
               <div class="fc-stats">
-                {c.stats?.slice(0, 2).map(s => (
+                {c.stats?.slice(0, c.slug === 'by-britt-nails' ? 3 : 2).map(s => (
                   <div class="fc-pill">
                     <span class="fc-icon" set:html={icons[s.icon]} />
                     <span class="fc-val">{s.value}</span>
@@ -60,8 +60,16 @@ const icons = {
                   </div>
                 ))}
               </div>
+
+              <!-- Extra uitleg (Alleen bij Britt, onder de stats, minder fel) -->
+              {c.slug === 'by-britt-nails' && c.extra && (
+                <div class="fc-extra-box">
+                  <p class="fc-extra-text">{c.extra}</p>
+                </div>
+              )}
             </div>
 
+            <!-- Afbeelding (niet op de 3e card om ruimte te besparen) -->
             {i !== 2 && c.image && (
               <div class="fc-image-wrap">
                 <img src={c.image} alt={c.title} class="fc-img" />
@@ -100,33 +108,11 @@ const icons = {
 
 <style>
   /* --- Hero & Algemeen --- */
-  .hero {
-    padding: 160px 0 60px;
-  }
-  .kicker { 
-    font-size: 12px; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    color: var(--muted2); 
-    margin-bottom: 16px; 
-    font-weight: 600;
-  }
-      .h1 {
-      margin: 0;
-      font-size: clamp(44px, 5.2vw, 74px);
-      letter-spacing: -0.05em;
-      line-height: 1.02;
-      font-weight: 650;
-    }
-  .lead { 
-    font-size: 19px; 
-    color: var(--muted); 
-    margin-top: 24px; 
-    max-width: 600px; 
-    line-height: 1.6; 
-  }
+  .hero { padding: 160px 0 60px; }
+  .kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted2); margin-bottom: 16px; font-weight: 600; }
+  .h1 { margin: 0; font-size: clamp(44px, 5.2vw, 74px); letter-spacing: -0.05em; line-height: 1.02; font-weight: 650; }
+  .lead { font-size: 19px; color: var(--muted); margin-top: 24px; max-width: 600px; line-height: 1.6; }
   .cta { display: flex; gap: 16px; margin-top: 40px; }
-
   .pt-0 { padding-top: 0; }
 
   /* --- Featured Grid --- */
@@ -150,47 +136,51 @@ const icons = {
     transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   }
 
-  .fc:hover { 
-    border-color: var(--accent); 
-    background: rgba(255,255,255,0.05); 
-    transform: translateY(-4px);
-  }
-
+  .fc:hover { border-color: var(--accent); background: rgba(255,255,255,0.05); transform: translateY(-4px); }
   .fc-large { grid-row: span 2; min-height: 520px; }
   
   .fc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
   .fc-badge { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted2); font-weight: 600; }
   .fc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 15px var(--accent); }
   
-  .fc-title { 
-    font-size: 28px; 
-    font-weight: 700; 
-    color: var(--text); 
-    margin: 0 0 12px; 
-    letter-spacing: -0.02em;
-  }
-  .fc-text { 
-    font-size: 16px; 
-    color: var(--muted); 
-    line-height: 1.6; 
-    max-width: 440px; 
-    margin: 0;
-  }
+  .fc-title { font-size: 28px; font-weight: 700; color: var(--text); margin: 0 0 12px; letter-spacing: -0.02em; }
+  .fc-text { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 440px; margin: 0; }
 
-  .fc-stats { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  /* Stats */
+  .fc-stats { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
   .fc-pill { 
-    background: var(--card); 
-    padding: 8px 14px; 
+    background: rgba(255,255,255,0.03); 
+    padding: 6px 12px; 
     border-radius: 100px; 
     display: flex; 
     align-items: center; 
     gap: 8px;
     border: 1px solid var(--stroke);
   }
-  .fc-icon { width: 14px; height: 14px; color: var(--accent); display: flex; }
-  .fc-val { font-weight: 700; color: var(--text); font-size: 14px; }
+  .fc-icon { width: 14px; height: 14px; color: var(--accent); display: flex; opacity: 0.8; }
+  .fc-val { font-weight: 700; color: var(--text); font-size: 13px; }
   .fc-lab { font-size: 11px; color: var(--muted2); }
 
+  /* Extra Uitleg Box (Nieuw & Rustig) */
+  .fc-extra-box {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .fc-extra-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.4); /* Subtiel grijs */
+    margin: 0;
+    max-width: 500px;
+    /* Kap af na 5 regels om de kaart niet té lang te maken */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Image styling */
   .fc-image-wrap { margin-top: auto; padding-top: 40px; }
   .fc-img { 
     width: 100%; 
@@ -198,32 +188,19 @@ const icons = {
     object-fit: cover; 
     aspect-ratio: 16/10; 
     border: 1px solid var(--stroke);
+    opacity: 0.9;
   }
 
-  .fc-footer { 
-    margin-top: 24px; 
-    font-weight: 600; 
-    color: var(--text); 
-    font-size: 14px; 
-    opacity: 0; 
-    transition: 0.3s; 
-    transform: translateY(10px); 
-  }
+  .fc-footer { margin-top: 24px; font-weight: 600; color: var(--text); font-size: 14px; opacity: 0; transition: 0.3s; transform: translateY(10px); }
   .fc:hover .fc-footer { opacity: 1; transform: translateY(0); }
 
-  /* --- Main Grid (Alle Projecten) --- */
+  /* Rest van de grid */
   .subhead { margin: 40px 0 40px; display: flex; align-items: center; gap: 24px; }
   .line { height: 1px; flex: 1; background: var(--stroke); }
-  
-  .main-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
+  .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
   @media (max-width: 1024px) {
     .featured-grid, .main-grid { grid-template-columns: 1fr; }
     .fc-large { grid-row: auto; min-height: unset; }
-    .hero { padding: 120px 0 40px; }
   }
 </style>

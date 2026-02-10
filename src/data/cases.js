@@ -7,7 +7,8 @@ export const cases = [
     title: "By Britt Nails",
     website: "https://bybrittnails.nl",
     description: "Dominantie in de lokale zoekresultaten door een SEO-gedreven design.",
-    extra: "De strategie was helder: By Britt Nails moest de onbetwiste nummer 1 worden voor iedereen die in Wageningen zoekt naar een nagelstudio. Door een technisch SEO-fundament te combineren met een interface die rust en luxe uitstraalt, hebben we een platform neergezet dat 81% van zijn bezoekers direct uit Google haalt.",
+    extra: "Het succes van By Britt Nails laat zien wat er gebeurt als techniek en uitstraling perfect samenkomen. Maar liefst 81% van haar bezoekers komt binnen via 'Organic Search'. In begrijpelijke taal betekent dit dat het overgrote deel van haar klanten haar vindt door simpelweg in Google te zoeken op termen als 'nagelstudio Wageningen'. Ze hoeft hiervoor niet te betalen voor dure advertenties en ze is niet afhankelijk van de grillen van social media algoritmes. De website doet het werk voor haar: dag en nacht trekt het nieuwe klanten aan die actief op zoek zijn naar haar diensten.",
+    challenge: "Britt wilde de onbetwiste nummer 1 worden in Wageningen. Haar hoofdvraag was: 'Hoe zorg ik dat ik direct bovenaan sta als iemand een nagelstudio zoekt?' Tegelijkertijd zocht ze een digitale plek die de rust en luxe van haar studio uitstraalt, waar klanten in één oogopslag de prijzen kunnen zien en haar werk kunnen bewonderen zonder te hoeven zoeken op verschillende platformen.",
     challenge: "De hoofdvraag van Britt was: 'Hoe word ik de eerste optie in Google als men lokaal zoekt?' Tegelijkertijd wilde ze de drempel voor klanten verlagen door prijzen en voorbeeldfoto's direct op één plek te tonen, volledig in de stijl van haar paarse logo-identiteit.",
     tags: ["Lokaal SEO", "Web Design", "Conversion"],
     image: "/cases/by-britt-nails.png",
@@ -16,7 +17,7 @@ export const cases = [
     client: "Britt Nails",
     year: "2025",
     stats: [
-      { label: "Actieve gebruikers", value: "1.6k", icon: "users" },
+      { label: "Actieve gebruikers", value: "1.6k+", icon: "users" },
       { label: "Organic Search", value: "81%", icon: "chart" },
       { label: "Ranking Wageningen", value: "#2", icon: "plus" },
     ],
@@ -28,7 +29,7 @@ export const cases = [
   },
   {
     slug: "wur-optare",
-    title: "WUR Optare Tool",
+    title: "Wageningen University & Research Tool",
     website: "https://wuroptarerekentool.netlify.app/",
     description: "Interactieve rekentool voor complexe secundaire arbeidsvoorwaarden.",
     extra: "Voor medewerkers van Wageningen University & Research was het Optare-systeem vaak een 'black box'. Wij hebben dit vertaald naar een intuïtieve tool die complexe data omzet in direct financieel inzicht.",
@@ -41,7 +42,7 @@ export const cases = [
     year: "2025",
     stats: [
       { label: "Interacties", value: "3.8k", icon: "plus" },
-      { label: "Financieel Inzicht", value: "100%", icon: "chart" },
+      { label: "Financieel Inzicht", value: "Direct", icon: "plus" },
       { label: "Gebruikers", value: "WUR Personeel", icon: "users" }
     ],
     overview: [
@@ -64,9 +65,9 @@ export const cases = [
     client: "VVD Wageningen",
     year: "2025",
     stats: [
+      { label: "Google Ranking", value: "#1", icon: "plus" },
       { label: "Mobiel Bereik", value: "82%", icon: "chart" },
-      { label: "Laadtijd", value: "< 2s", icon: "plus" },
-      { label: "Toegankelijkheid", value: "100%", icon: "users" }
+      { label: "Laadsnelheid", value: "Instant", icon: "users" }
     ],
     overview: [
       { title: "Informatie Architectuur", desc: "Logische indeling van thema's waardoor kiezers binnen twee klikken bij hun standpunt zijn." },

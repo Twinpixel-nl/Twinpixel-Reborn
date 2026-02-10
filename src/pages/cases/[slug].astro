@@ -1,4 +1,5 @@
 ---
+// src/pages/cases/[slug].astro
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { cases } from "../../data/cases.js";
 
@@ -21,6 +22,7 @@ const icons = {
 ---
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
+  <!-- Hero Section -->
   <section class="hero" style={`--accent:${c.accent};`}>
     <div class="container">
       <nav class="meta-nav">
@@ -31,13 +33,14 @@ const icons = {
       
       {c.website && (
         <a href={c.website} target="_blank" class="live-link">
-          Website bezoeken <span class="icon-arrow" set:html={icons.external} />
+          Bekijk de website <span class="icon-arrow" set:html={icons.external} />
         </a>
       )}
     </div>
   </section>
 
-  <section class="case-details">
+  <!-- Content & Sidebar Section -->
+  <section class="case-details" style={`--accent:${c.accent};`}>
     <div class="container grid">
       
       <div class="main-content">
@@ -46,8 +49,19 @@ const icons = {
           <img src={c.image} alt={c.title} />
         </div>
 
-        <!-- Text Sections -->
         <div class="content-sections">
+          
+          <!-- EXTRA VERHAAL (Conditioneel) -->
+          {c.extra && (
+            <div class="text-block highlight-block">
+              <span class="label">Het verhaal</span>
+              <h2>Achter de schermen</h2>
+              <div class="extra-text-card">
+                <p>{c.extra}</p>
+              </div>
+            </div>
+          )}
+
           <div class="text-block">
             <span class="label">De Uitdaging</span>
             <h2>Vraagstuk</h2>
@@ -71,7 +85,7 @@ const icons = {
 
       <!-- Sidebar -->
       <aside class="sidebar">
-        <!-- Stats Card -->
+        <!-- Impact Stats -->
         <div class="glass-card">
           <span class="label">Impact</span>
           <div class="stats-list">
@@ -87,13 +101,13 @@ const icons = {
           </div>
         </div>
 
-        <!-- Outcome Card (Subtiel) -->
-        <div class="glass-card outcome-card" style={`--accent: ${c.accent}`}>
-          <span class="label">Resultaat</span>
+        <!-- Resultaat Kaart -->
+        <div class="glass-card outcome-card">
+          <span class="label">Eindresultaat</span>
           <p>{c.outcome}</p>
         </div>
 
-        <!-- Info Card -->
+        <!-- Meta Info -->
         <div class="glass-card info-card">
           <div class="info-row"><span>Klant</span> {c.client}</div>
           <div class="info-row"><span>Jaar</span> {c.year}</div>
@@ -108,11 +122,11 @@ const icons = {
 </BaseLayout>
 
 <style>
-  /* --- HERO --- */
+  /* --- ALGEMEEN --- */
   .hero { padding: 120px 0 60px; }
   .meta-nav { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
   .meta-nav a { color: inherit; text-decoration: none; transition: 0.2s; }
-  .meta-nav a:hover { color: #fff; }
+  .meta-nav a:hover { color: var(--accent); }
 
   .h1 { font-size: clamp(40px, 7vw, 64px); font-weight: 700; margin: 0 0 20px; letter-spacing: -0.02em; }
   .lead { font-size: 20px; color: rgba(255,255,255,0.6); max-width: 600px; line-height: 1.5; margin-bottom: 32px; }
@@ -125,7 +139,7 @@ const icons = {
     text-decoration: none;
     font-weight: 500;
     padding-bottom: 4px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     transition: 0.3s;
   }
   .live-link:hover { border-color: var(--accent); color: var(--accent); }
@@ -151,9 +165,24 @@ const icons = {
 
   .content-sections { display: grid; gap: 80px; }
   .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 16px; display: block; }
-  .text-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 20px; }
+  .text-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 24px; }
   .text-block p { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); }
 
+  /* --- HET VERHAAL (AANGEPAST) --- */
+  .extra-text-card {
+    padding: 32px;
+    border-radius: 24px; /* Rondom afgerond */
+    border-left: 3px solid var(--accent); /* De gekleurde lijn */
+    background: linear-gradient(to right, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
+  }
+  .extra-text-card p {
+    font-size: 20px;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* --- AANPAK CARDS --- */
   .approach-cards { display: grid; gap: 20px; margin-top: 32px; }
   .approach-item {
     background: rgba(255,255,255,0.02);
@@ -161,11 +190,11 @@ const icons = {
     padding: 32px;
     border-radius: 20px;
   }
-  .approach-item h3 { font-size: 18px; margin-bottom: 10px; font-weight: 600; }
-  .approach-item p { font-size: 15px; color: rgba(255,255,255,0.5); margin: 0; }
+  .approach-item h3 { font-size: 18px; margin-bottom: 10px; font-weight: 600; color: #fff; }
+  .approach-item p { font-size: 15px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.6; }
 
   /* --- SIDEBAR --- */
-  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .sidebar { display: flex; flex-direction: column; gap: 24px; }
   
   .glass-card {
     background: rgba(255,255,255,0.02);
@@ -174,28 +203,31 @@ const icons = {
     padding: 32px;
   }
 
-  /* Stat box */
-  .stats-list { display: grid; gap: 24px; }
-  .stat-box { display: flex; align-items: center; gap: 16px; }
-  .stat-icon { width: 24px; height: 24px; opacity: 0.8; }
-  .stat-val { font-size: 24px; font-weight: 700; color: #fff; line-height: 1; }
-  .stat-lab { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+  /* Stats */
+  .stats-list { display: grid; gap: 28px; }
+  .stat-box { display: flex; align-items: center; gap: 20px; }
+  .stat-icon { width: 28px; height: 28px; }
+  .stat-val { font-size: 26px; font-weight: 700; color: #fff; line-height: 1; }
+  .stat-lab { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
 
-  /* Outcome Card - De vervanger voor het grote vlak */
+  /* Eindresultaat Kaart (Nu identiek aan Het Verhaal lijn) */
   .outcome-card {
-    border-left: 3px solid var(--accent); /* Alleen een accent-lijn links */
-    background: linear-gradient(to right, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
+    border-left: 3px solid var(--accent);
+    background: linear-gradient(to right, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
   }
-  .outcome-card p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0; }
+  .outcome-card p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); margin: 0; }
 
-  /* Info row */
-  .info-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: #fff; }
+  /* Info */
+  .info-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: #fff; }
+  .info-row:last-of-type { border-bottom: none; }
   .info-row span { color: rgba(255,255,255,0.4); }
-  .tags-row { border-bottom: none; flex-wrap: wrap; gap: 6px; padding-top: 16px; }
-  .mini-tag { font-size: 10px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.05); }
+  .tags-row { flex-wrap: wrap; gap: 8px; padding-top: 16px; }
+  .mini-tag { font-size: 11px; background: rgba(255,255,255,0.04); padding: 6px 12px; border-radius: 6px; color: rgba(255,255,255,0.6); }
 
+  /* Mobiel */
   @media (max-width: 1024px) {
-    .grid { grid-template-columns: 1fr; gap: 40px; }
+    .grid { grid-template-columns: 1fr; gap: 60px; }
     .sidebar { order: -1; }
+    .hero { padding: 80px 0 40px; }
   }
 </style>
