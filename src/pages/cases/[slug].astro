@@ -12,7 +12,6 @@ export function getStaticPaths() {
 
 const { c } = Astro.props;
 
-// Strakke, dunne SVG iconen
 const icons: { [key: string]: string } = {
   plus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
   users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
@@ -23,32 +22,13 @@ const icons: { [key: string]: string } = {
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
   
-  <!-- DYNAMISCHE CLEAN SCROLLBAR -->
   <style is:global define:vars={{ projectAccent: c.accent }}>
-    /* Breedte van de scrollbar (lekker smal) */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    /* Achtergrond van de scrollbar (onzichtbaar/matcht bg) */
-    ::-webkit-scrollbar-track {
-      background: #05060a;
-    }
-
-    /* De 'thumb' (het bewegende deel) */
-    ::-webkit-scrollbar-thumb {
-      background: var(--projectAccent);
-      border-radius: 20px;
-    }
-
-    /* Voor Firefox */
-    html {
-      scrollbar-width: thin;
-      scrollbar-color: var(--projectAccent) #05060a;
-    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #05060a; }
+    ::-webkit-scrollbar-thumb { background: var(--projectAccent); border-radius: 20px; }
+    html { scrollbar-width: thin; scrollbar-color: var(--projectAccent) #05060a; }
   </style>
 
-  <!-- Hero Section -->
   <section class="hero" style={`--accent:${c.accent};`}>
     <div class="container">
       <nav class="meta-nav">
@@ -65,38 +45,35 @@ const icons: { [key: string]: string } = {
     </div>
   </section>
 
-  <!-- Content & Sidebar Section -->
   <section class="case-details" style={`--accent:${c.accent};`}>
     <div class="container grid">
       
       <div class="main-content">
-        <!-- Main Image -->
         <div class="image-frame">
           <img src={c.image} alt={c.title} />
         </div>
 
         <div class="content-sections">
           
-          <!-- HET VERHAAL (Conditioneel) -->
+          <!-- HET VERHAAL (Met meebuigende lijn) -->
           {c.extra && (
-            <div class="text-block highlight-block">
+            <div class="text-block">
               <span class="label">Het verhaal</span>
-              <h2>Achter de schermen</h2>
-              <div class="extra-text-card">
-                <p>{c.extra}</p>
+              <div class="story-card">
+                <p class="story-text">{c.extra}</p>
               </div>
             </div>
           )}
 
           <div class="text-block">
             <span class="label">De Uitdaging</span>
-            <h2>Vraagstuk</h2>
-            <p>{c.challenge}</p>
+            <h2 class="section-title">Vraagstuk</h2>
+            <p class="body-text">{c.challenge}</p>
           </div>
 
           <div class="text-block">
             <span class="label">De Aanpak</span>
-            <h2>Strategie & Realisatie</h2>
+            <h2 class="section-title">Strategie & Realisatie</h2>
             <div class="approach-cards">
               {c.overview.map(item => (
                 <div class="approach-item">
@@ -111,7 +88,6 @@ const icons: { [key: string]: string } = {
 
       <!-- Sidebar -->
       <aside class="sidebar">
-        <!-- Impact Stats -->
         <div class="glass-card">
           <span class="label">Impact</span>
           <div class="stats-list">
@@ -127,13 +103,12 @@ const icons: { [key: string]: string } = {
           </div>
         </div>
 
-        <!-- Resultaat Kaart -->
+        <!-- Resultaat Kaart (Met meebuigende lijn) -->
         <div class="glass-card outcome-card">
-          <span class="label">Eindresultaat</span>
+          <span class="label">Resultaat</span>
           <p>{c.outcome}</p>
         </div>
 
-        <!-- Meta Info -->
         <div class="glass-card info-card">
           <div class="info-row"><span>Klant</span> {c.client}</div>
           <div class="info-row"><span>Jaar</span> {c.year}</div>
@@ -148,109 +123,86 @@ const icons: { [key: string]: string } = {
 </BaseLayout>
 
 <style>
-  /* --- HERO SECTIE --- */
+  /* --- HERO --- */
   .hero { padding: 120px 0 60px; }
-  .meta-nav { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+  .meta-nav { font-size: 13px; color: rgba(255,255,255,0.2); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
   .meta-nav a { color: inherit; text-decoration: none; transition: 0.2s; }
   .meta-nav a:hover { color: var(--accent); }
 
   .h1 { font-size: clamp(40px, 7vw, 64px); font-weight: 700; margin: 0 0 20px; letter-spacing: -0.02em; }
-  .lead { font-size: 20px; color: rgba(255,255,255,0.6); max-width: 600px; line-height: 1.5; margin-bottom: 32px; }
+  .lead { font-size: 20px; color: rgba(255,255,255,0.45); max-width: 600px; line-height: 1.5; margin-bottom: 32px; }
 
   .live-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    padding-bottom: 4px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+    display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 500; padding-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
   }
   .live-link:hover { border-color: var(--accent); color: var(--accent); }
   .icon-arrow { width: 14px; height: 14px; }
 
   /* --- GRID --- */
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 80px;
-    padding-bottom: 100px;
-  }
+  .grid { display: grid; grid-template-columns: 1fr 340px; gap: 80px; padding-bottom: 100px; }
 
   /* --- MAIN CONTENT --- */
   .image-frame {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 24px;
-    padding: 10px;
-    margin-bottom: 60px;
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 10px; margin-bottom: 60px;
   }
   .image-frame img { width: 100%; border-radius: 16px; display: block; }
 
-  .content-sections { display: grid; gap: 80px; }
-  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.3); font-weight: 600; margin-bottom: 16px; display: block; }
-  .text-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 24px; }
-  .text-block p { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); }
+  .content-sections { display: grid; gap: 60px; }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 16px; display: block; }
+  .section-title { font-size: 26px; font-weight: 600; margin-bottom: 24px; }
+  .body-text { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.55); }
 
-  /* --- HET VERHAAL --- */
-  .extra-text-card {
+  /* --- THE STORY (CURVED ACCENT LINE) --- */
+  .story-card {
     padding: 32px;
     border-radius: 24px;
     border-left: 3px solid var(--accent);
     background: linear-gradient(to right, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
-  }
-  .extra-text-card p {
-    font-size: 20px;
-    color: #fff;
-    line-height: 1.6;
-    margin: 0;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    border-right: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
   }
 
-  /* --- AANPAK CARDS --- */
-  .approach-cards { display: grid; gap: 20px; margin-top: 32px; }
-  .approach-item {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    padding: 32px;
-    border-radius: 20px;
+  .story-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6); /* Clean grijs-wit */
+    margin: 0;
+    max-width: 680px;
+    font-weight: 400;
   }
-  .approach-item h3 { font-size: 18px; margin-bottom: 10px; font-weight: 600; color: #fff; }
-  .approach-item p { font-size: 15px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.6; }
+
+  /* --- APPROACH --- */
+  .approach-cards { display: grid; gap: 16px; margin-top: 32px; }
+  .approach-item {
+    background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.04); padding: 32px; border-radius: 20px;
+  }
+  .approach-item h3 { font-size: 18px; margin-bottom: 10px; font-weight: 600; color: rgba(255,255,255,0.9); }
+  .approach-item p { font-size: 15px; color: rgba(255,255,255,0.35); margin: 0; line-height: 1.6; }
 
   /* --- SIDEBAR --- */
   .sidebar { display: flex; flex-direction: column; gap: 24px; }
-  
-  .glass-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 24px;
-    padding: 32px;
-  }
+  .glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 32px; }
 
-  /* Stats */
   .stats-list { display: grid; gap: 28px; }
   .stat-box { display: flex; align-items: center; gap: 20px; }
-  .stat-icon { width: 28px; height: 28px; }
-  .stat-val { font-size: 26px; font-weight: 700; color: #fff; line-height: 1; }
-  .stat-lab { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+  .stat-val { font-size: 26px; font-weight: 700; color: #fff; }
+  .stat-lab { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
 
-  /* Eindresultaat Kaart */
+  /* --- OUTCOME (CURVED ACCENT LINE) --- */
   .outcome-card {
-    border-left: 3px solid var(--accent);
     background: linear-gradient(to right, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-left: 4px solid var(--accent); /* Buigt mee door border-radius van glass-card */
   }
-  .outcome-card p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); margin: 0; }
 
-  /* Info Meta */
-  .info-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: #fff; }
-  .info-row:last-of-type { border-bottom: none; }
-  .info-row span { color: rgba(255,255,255,0.4); }
-  .tags-row { flex-wrap: wrap; gap: 8px; padding-top: 16px; }
-  .mini-tag { font-size: 11px; background: rgba(255,255,255,0.04); padding: 6px 12px; border-radius: 6px; color: rgba(255,255,255,0.6); }
+  .outcome-card p { font-size: 16px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6; }
 
-  /* Mobiel */
+  .info-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+  .info-row span { color: rgba(255,255,255,0.25); }
+  .tags-row { flex-wrap: wrap; gap: 8px; padding-top: 16px; border-bottom: none; }
+  .mini-tag { font-size: 11px; background: rgba(255,255,255,0.04); padding: 6px 12px; border-radius: 6px; color: rgba(255,255,255,0.45); }
+
   @media (max-width: 1024px) {
     .grid { grid-template-columns: 1fr; gap: 60px; }
     .sidebar { order: -1; }

@@ -48,7 +48,7 @@ export const cases = [
     overview: [
       { 
         title: "Van CAO naar Code", 
-        desc: "We hebben de papieren bureaucratie omgezet in een slim rekenmodel. Door gebruik te maken van moderne webtechnieken worden duizenden combinaties aan keuzes binnen milliseconden berekend, waardoor de medewerker direct resultaat ziet." 
+        desc: "We hebben de papieren bureaucratie omgezet in een slim rekenmodel. Door gebruik te maken van moderne webtechnieken worden vele combinaties aan keuzes binnen milliseconden berekend, waardoor de medewerker direct resultaat ziet." 
       },
       { 
         title: "Interactief Dashboard", 
