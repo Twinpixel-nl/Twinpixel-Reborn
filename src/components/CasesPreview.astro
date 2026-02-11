@@ -26,8 +26,8 @@ const top3 = cases.filter(c => c.featured).slice(0, 3);
           description={c.description}
           tags={c.tags}
           img={c.image}
-          href={`/cases#${c.slug}`}
-          accent="#2F89FF"
+          image={c.image}   
+          accent={c.accent} 
         />
       ))}
     </div>
