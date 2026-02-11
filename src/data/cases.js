@@ -189,105 +189,121 @@ export const cases = [
     outcome: "Een compleet nieuwe merkbeleving die de klant positioneert als een top-speler in zijn vakgebied. De website is nu niet alleen een informatiebron, maar een krachtig bewijs van de design-standaarden van het bedrijf."
   },
   {
-    slug: "jongerenraad-wageningen",
+     slug: "jongerenraad-wageningen",
     title: "Jongerenraad Wageningen",
     website: "https://jongerenraadwageningen.nl",
-    description: "Modern portaal gericht op jongerenparticipatie.",
-    extra: "Door weg te stappen van de traditionele politieke lay-out, hebben we een omgeving gecreëerd die aansluit bij de jeugd.",
-    challenge: "De oude website sloot niet aan bij de doelgroep. Er was een volledige transformatie nodig.",
-    tags: ["UX", "Jeugd", "Community"],
+    description: "Van een standaard WordPress-site naar een krachtig en herkenbaar jongerenmerk.",
+    extra: "De Jongerenraad Wageningen werkte voorheen met een simpele WordPress-website die weinig eigen identiteit uitstraalde. Wij hebben dit volledig getransformeerd door eerst terug te gaan naar de tekentafel voor een complete branding. Van een nieuw logo tot een energiek kleurenpalet en een moderne beeldtaal: we hebben een merk neergezet dat spreekt naar de jeugd van Wageningen. Dit hebben we vertaald naar een razendsnel platform dat niet meer aanvoelt als een stoffig politiek orgaan, maar als een dynamisch centrum voor jongerenparticipatie.",
+    challenge: "De grootste uitdaging was om politiek toegankelijk en aantrekkelijk te maken voor jongeren. De oude website was statisch en mobiel onvriendelijk. Er was behoefte aan een omgeving die energie uitstraalt, waarbij informatie over evenementen en standpunten binnen één klik vindbaar is op een smartphone.",
+    tags: ["Full Branding", "Youth Engagement", "Web Design"],
     image: "/cases/jongerenraadwageningen.png",
-    featured: false,
+    featured: false, // Je kunt deze op true zetten als je hem in de top 3 wilt
     accent: "#2F89FF",
-    client: "Gemeente Wageningen",
+    client: "Jongerenraad Wageningen",
     year: "2025",
-    stats: [{ label: "Mobiel Gebruik", value: "85%", icon: "users" }],
-    overview: [{ title: "Focus Jeugd", desc: "Verbeterde navigatie en snellere toegang tot evenementen." }],
-    outcome: "Een aanzienlijke stijging in betrokkenheid."
+    stats: [
+      { label: "Mobiel gebruik", value: "85%", icon: "chart" },
+      { label: "Identiteit", value: "100% Custom", icon: "plus" },
+      { label: "Platform", value: "Modern Web", icon: "users" }
+    ],
+    overview: [
+      { 
+        title: "Complete Branding Sprint", 
+        desc: "Ontwikkeling van een nieuwe visuele identiteit (logo, typografie, kleuren) die serieus genoeg is voor de gemeente, maar fris genoeg voor de doelgroep." 
+      },
+      { 
+        title: "UX voor de Jeugd", 
+        desc: "Een mobile-first interface die breekt met de traditionele politieke lay-out, met focus op snelle interactie en heldere call-to-actions." 
+      }
+    ],
+    outcome: "De Jongerenraad heeft nu een professionele uitstraling die de betrokkenheid onder jongeren aanzienlijk heeft vergroot. Het platform fungeert nu als een volwaardig communicatiekanaal tussen de jeugd en de lokale overheid."
   },
   {
     slug: "de-wet-van-staal",
     title: "De Wet van Staal",
     website: "https://dewetvanstaal.nl",
-    description: "High-performance website voor personal coaching.",
-    extra: "Kracht en discipline vertaald naar een digitaal platform. Geen ruis, alleen resultaat.",
-    challenge: "Het creëren van een online identiteit die net zo solide aanvoelt als de fysieke trainingen.",
-    tags: ["Fitness", "Web", "Branding"],
+    description: "Een robuust digitaal portfolio voor industrieel vakmanschap en lastechniek.",
+    extra: "De Wet van Staal is het merk van Harvey Meurs, een vakman die letterlijk met vuur en staal werkt. Harvey had een platform nodig dat net zo onverwoestbaar en strak aanvoelt als zijn eigen werk. Geen standaard website, maar een visueel krachtig portfolio om zijn laswerk en zijn expertise als professional te verkopen. Wij hebben een omgeving gecreëerd waar de details van zijn vakmanschap — van de perfecte lasnaad tot het eindproduct — de hoofdrol spelen, waardoor hij direct indruk maakt op high-end zakelijke klanten.",
+    challenge: "Hoe vertaal je een rauw, fysiek ambacht naar een verfijnde digitale ervaring? De uitdaging was om Harvey niet alleen als 'iemand die last' te positioneren, maar als een betrouwbare partner in metaalbewerking. De site moest stoer en industrieel zijn, maar tegelijkertijd de precisie en professionaliteit uitstralen die nodig is voor grote opdrachten.",
+    tags: ["Industrieel Design", "Portfolio", "Personal Branding"],
     image: "/cases/dewetvanstaal.png",
     featured: false,
-    accent: "#2F89FF",
-    client: "De Wet van Staal",
+    accent: "#2F89FF", // Een krachtig, industrieel blauw
+    client: "Harvey Meurs",
     year: "2025",
-    stats: [{ label: "Lighthouse", value: "98/100", icon: "chart" }],
-    overview: [{ title: "Dark-mode aesthetics", desc: "Bold design dat kracht en autoriteit uitstraalt." }],
-    outcome: "Een professionele showcase die nieuwe coaching-leden motiveert."
+    stats: [
+      { label: "Design", value: "Industrieel", icon: "chart" },
+      { label: "Focus", value: "Portfolio & Expertise", icon: "plus" },
+    ],
+    overview: [
+      { 
+        title: "Visuele Showcase", 
+        desc: "Focus op high-quality fotografie van projecten, waardoor potentiële klanten direct de kwaliteit van het laswerk kunnen beoordelen." 
+      },
+      { 
+        title: "Personal Brand Building", 
+        desc: "Positionering van Harvey als hét gezicht achter de kwaliteit, wat zorgt voor vertrouwen en een kortere weg naar een offerte-aanvraag." 
+      }
+    ],
+    outcome: "Een technisch visitekaartje dat staat als een huis. Harvey heeft nu een professionele showcase waarmee hij zijn werk en zichzelf als expert in de markt zet, wat de drempel voor zakelijke aanvragen aanzienlijk heeft verlaagd."
   },
   {
     slug: "sv-null",
-    title: "SV Null",
+    title: "SV Null Platform",
     website: "https://svnull.nl",
-    description: "Dashboard en portaal voor de studentenvereniging.",
-    extra: "Dit platform digitaliseert de volledige ledenadministratie.",
-    challenge: "De overstap maken van losse systemen naar één overzichtelijke backend.",
-    tags: ["Dashboard", "Dev", "Platform"],
+    description: "Het digitale zenuwcentrum voor de modernste studentenvereniging van Ede.",
+    extra: "Voor SV Null was de uitdaging helder: stop de versnippering van informatie. Van losse Excel-lijsten en losse formulieren zijn we overgestapt naar één centraal dashboard. Dit platform digitaliseert de volledige ledenadministratie, evenementenregistratie en interne communicatie. Het resultaat is een omgeving die niet alleen technisch onberispelijk is voor de IT-studenten die het gebruiken, maar ook een bestuur dat 60% minder tijd kwijt is aan handmatige administratie.",
+    challenge: "Hoe beheer je een groeiende vereniging van honderden studenten zonder de menselijke maat te verliezen? De oude systemen waren traag en foutgevoelig. Er was behoefte aan een robuust portaal dat veilig omgaat met persoonsgegevens, razendsnel laadt en een moderne UI biedt die aansluit bij de tech-identiteit van de vereniging.",
+    tags: ["Dashboard", "Ledenbeheer", "Automatisering"],
     image: "/cases/svnull.png",
     featured: false,
     accent: "#14b8a6",
-    client: "SV Null",
+    client: "SV Null Bestuur",
     year: "2025",
-    stats: [{ label: "Uptime", value: "99.9%", icon: "chart" }],
-    overview: [{ title: "Automatisering", desc: "Minimaliseren van administratieve lasten." }],
-    outcome: "Een gestroomlijnd portaal dat de verenigingsstructuur versterkt."
+    stats: [
+      { label: "Admin-tijd", value: "-60%", icon: "chart" }, // De grootste winst voor het bestuur
+      { label: "Uptime", value: "99.9%", icon: "plus" }, // Belangrijk voor IT-studenten
+      { label: "Ledeninteractie", value: "Direct", icon: "users" }
+    ],
+    overview: [
+      { 
+        title: "Gecentraliseerd Dashboard", 
+        desc: "Alle vitale informatie — van inschrijvingen tot evenementen — op één plek, toegankelijk voor zowel het bestuur als de leden met specifieke rechten." 
+      },
+      { 
+        title: "Automatiseringstools", 
+        desc: "Slimme koppelingen die handmatige taken zoals mailings en data-verwerking automatiseren, waardoor er meer tijd overblijft voor de verenigingsactiviteiten." 
+      }
+    ],
+    outcome: "SV Null beschikt nu over een schaalbaar platform dat meegroeit met de vereniging. De overstap naar een professionele digitale structuur heeft gezorgd voor meer overzicht, een hogere betrokkenheid van leden en een enorme efficiëntieslag voor het bestuur."
   },
-  {
+    {
     slug: "de-bennekamer",
     title: "De Bennekamer",
     website: "https://debennekamer.nl",
-    description: "Lokaal platform voor wijkactiviteiten en informatie.",
-    extra: "Een warme en uitnodigende omgeving die de sociale verbondenheid ondersteunt.",
-    challenge: "Een laagdrempelig platform creëren dat toegankelijk is voor alle generaties.",
-    tags: ["Lokaal", "Informatie", "UX"],
+    description: "Een gastvrij digitaal portaal voor de buurt: sneller, netter en toegankelijker.",
+    extra: "De Bennekamer is het kloppend hart van de wijk, maar de oude website vormde een drempel in plaats van een brug. Het platform was traag en informatie over activiteiten was moeilijk te vinden. Wij hebben de volledige site herzien met één hoofddoel: rust en snelheid. Door de chaos te vervangen voor een strak design en een eenvoudig, betrouwbaar contactformulier toe te voegen, is de drempel voor buurtbewoners om contact op te nemen nu lager dan ooit. Het is nu een plek waar iedere generatie direct de weg vindt naar wijkactiviteiten en informatie.",
+    challenge: "De vraag was helder: 'Maak het netter en sneller'. De oude omgeving was verouderd en onoverzichtelijk, waardoor belangrijke informatie over zaalhuur en wijkagenda's niet overkwam. Er was behoefte aan een technisch solide basis die op elk apparaat, van tablet tot smartphone,  direct een professionele en warme indruk achterlaat.",
+    tags: ["Lokaal Platform", "UX Design", "Toegankelijkheid"],
     image: "/cases/debennekamer.png",
     featured: false,
     accent: "#7c3aed",
-    client: "De Bennekamer",
-    year: "2025",
-    stats: [{ label: "Bereik", value: "Lokaal", icon: "users" }],
-    overview: [{ title: "Wijkagenda", desc: "Eenvoudig te beheren agenda voor alle activiteiten." }],
-    outcome: "Versterkte wijkcohesie door een transparant portaal."
+    client: "Stichting De Bennekamer",
+    year: "2026",
+    stats: [
+      { label: "Snelheid", value: "Instant", icon: "plus" },
+      { label: "Gebruiksgemak", value: "Hoog", icon: "users" },
+    ],
+    overview: [
+      { 
+        title: "Gebruiksvriendelijke Structuur", 
+        desc: "Een logische indeling van de wijkagenda en faciliteiten, zodat bezoekers binnen twee klikken de gewenste informatie of de juiste contactpersoon vinden." 
+      },
+      { 
+        title: "Interactief Contactformulier", 
+        desc: "Realisatie van een modern en veilig formulier voor zaalverhuur en algemene vragen, wat de administratieve verwerking voor de vrijwilligers enorm vergemakkelijkt." 
+      }
+    ],
+    outcome: "De Bennekamer beschikt nu over een digitaal visitekaartje dat de professionaliteit van de stichting onderstreept. De site laadt flitsendsnel, ziet er netjes uit en nodigt buurtbewoners uit om actief deel te nemen aan het wijkleven."
   },
-  {
-    slug: "emma-de-heer",
-    title: "emmadeheer.nl",
-    website: "https://emmadeheer.nl",
-    description: "Minimalistisch portfolio voor creatieve projecten.",
-    extra: "Een digitaal canvas waar het werk voor zich spreekt.",
-    challenge: "Het vertalen van een artistieke visie naar een technisch perfect portfolio.",
-    tags: ["Portfolio", "Creative", "Branding"],
-    image: "/cases/emmadeheer.png",
-    featured: false,
-    accent: "#7c3aed",
-    client: "Emma de Heer",
-    year: "2025",
-    stats: [{ label: "Design", value: "Minimal", icon: "plus" }],
-    overview: [{ title: "Art-direction", desc: "Focus op visuele rust en esthetiek." }],
-    outcome: "Een professionele showcase die creativiteit vertaalt naar autoriteit."
-  },
-  {
-    slug: "twan-meurs",
-    title: "twanmeurs.nl",
-    website: "https://twanmeurs.nl",
-    description: "Technisch portfolio met focus op performance en web-dev.",
-    extra: "Een technisch visitekaartje dat laat zien wat er mogelijk is met moderne webtechnologie.",
-    challenge: "Maximale laadsnelheid combineren met een esthetisch hoogstaand portfolio.",
-    tags: ["Dev", "Portfolio", "Performance"],
-    image: "/cases/twanmeurs.png",
-    featured: false,
-    accent: "#7c3aed",
-    client: "Twan Meurs",
-    year: "2025",
-    stats: [{ label: "Snelheid", value: "0.8s", icon: "chart" }],
-    overview: [{ title: "Astro Performance", desc: "Gebouwd met de nieuwste technieken." }],
-    outcome: "Een razendsnelle website die fungeert als bewijs van vakmanschap."
-  }
 ];
