@@ -4,47 +4,59 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import { getCollection, render } from "astro:content";
 
-// 1. Haal alle posts op en maak de paden aan
 export async function getStaticPaths() {
-  const posts = await getCollection("insights");
+  const posts = await getCollection("insights", ({ data }) => !data.draft);
   return posts.map((p) => ({
     params: { slug: p.slug },
-    props: { entry: p }, // Geef de hele entry door als prop
+    props: { post: p },
   }));
 }
 
-// 2. Pak de entry uit de props
-const { entry } = Astro.props;
-const { Content } = await render(entry);
-const { data } = entry;
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { data } = post;
 
-// 3. Type de datum parameter om de 'any' error te fixen
+// Datum format zoals op je index pagina
 const formatDate = (d: Date) =>
   new Intl.DateTimeFormat("nl-NL", { 
     year: "numeric", 
     month: "long", 
     day: "2-digit" 
   }).format(d);
+
+// Leestijd berekenen (indien niet handmatig ingevuld in frontmatter)
+const calcReadingTime = () => {
+  if (data.readingTime) return data.readingTime;
+  const wordsPerMinute = 200;
+  const words = post.body ? post.body.split(/\s/g).length : 0;
+  return `${Math.ceil(words / wordsPerMinute)} min leestijd`;
+};
+
+const readingTime = calcReadingTime();
 ---
 
 <BaseLayout title={`${data.title} | Insights`} description={data.description}>
+  <!-- Progress bar bovenin de pagina -->
   <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
   </div>
 
   <main class="insight-article">
     <header class="container narrow article-header">
+      <!-- Terugknop -->
       <div class="header-nav">
         <a href="/insights" class="back-pill">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-          Insights
+          Insights Overzicht
         </a>
       </div>
       
-      <div class="meta-info">
-        <span class="cat-badge">{data.category || "Insight"}</span>
-        <span class="sep-dot"></span>
-        <time class="date-tag">{formatDate(data.date)}</time>
+      <!-- Meta info: Categorie, Datum & Leestijd -->
+      <div class="meta-row">
+        {data.category && <span class="cat-pill">{data.category}</span>}
+        <time class="meta-item">{formatDate(data.date)}</time>
+        <span class="sep"></span>
+        <span class="meta-item">{readingTime}</span>
       </div>
 
       <h1 class="h1">{data.title}</h1>
@@ -56,6 +68,7 @@ const formatDate = (d: Date) =>
 
     <div class="container narrow">
       <article class="reading-shell">
+        <!-- Hoofdafbeelding -->
         {data.image?.src && (
           <div class="main-image">
             <img src={data.image.src} alt={data.image.alt || data.title} />
@@ -66,17 +79,24 @@ const formatDate = (d: Date) =>
           <Content />
         </div>
 
+        <!-- Footer binnen de shell -->
         <footer class="article-footer">
           <div class="cta-card">
-            <p class="kicker">TwinPixel Insights</p>
-            <h3>Dit vertalen naar jouw website?</h3>
-            <p>We helpen je graag om deze principes toe te passen op jouw specifieke situatie.</p>
+            <div class="cta-kicker">TwinPixel Strategy</div>
+            <h3>Resultaatgericht webdesign?</h3>
+            <p>Laten we samen kijken hoe we deze inzichten kunnen vertalen naar groei voor jouw bedrijf.</p>
             <div class="cta-actions">
               <Button href="/contact" variant="primary" label="Project starten" />
+              <Button href="/cases" variant="secondary" label="Bekijk cases" />
             </div>
           </div>
         </footer>
       </article>
+
+      <!-- Subtiele link onderaan -->
+      <div class="bottom-nav">
+        <a href="/insights" class="subtle-back">← Terug naar alle artikelen</a>
+      </div>
     </div>
   </main>
 </BaseLayout>
@@ -93,40 +113,45 @@ const formatDate = (d: Date) =>
 
 <style>
   .insight-article { padding: 140px 0 100px; }
-  .container.narrow { max-width: 820px; margin: 0 auto; width: calc(100% - 3rem); }
+  .container.narrow { max-width: 840px; margin: 0 auto; width: calc(100% - 3rem); }
 
+  /* Progress Bar */
   .progress-container { position: fixed; top: 72px; left: 0; z-index: 100; width: 100%; height: 2px; background: transparent; }
   .progress-bar { height: 2px; background: var(--brand); width: 0%; transition: width 0.1s ease-out; }
 
-  .article-header { text-align: left; margin-bottom: 56px; }
+  /* Header */
+  .article-header { margin-bottom: 56px; }
   .header-nav { margin-bottom: 32px; }
   
   .back-pill {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 8px 18px 8px 14px; border-radius: 100px;
+    padding: 8px 20px 8px 14px; border-radius: 100px;
     background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08);
     color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; transition: 0.3s;
   }
   .back-pill:hover { border-color: var(--brand); color: #fff; background: rgba(47, 137, 255, 0.05); transform: translateX(-4px); }
 
-  .meta-info { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .cat-badge { 
+  .meta-row { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+  .cat-pill { 
     font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-    color: var(--brand); background: rgba(47, 137, 255, 0.1); padding: 4px 10px; border-radius: 4px;
+    color: var(--brand); background: rgba(47, 137, 255, 0.1); padding: 4px 12px; border-radius: 4px;
   }
-  .sep-dot { width: 4px; height: 4px; background: var(--muted2); border-radius: 50%; opacity: 0.4; }
-  .date-tag { font-size: 14px; color: var(--muted2); font-weight: 500; }
+  .sep { width: 4px; height: 4px; background: var(--muted2); border-radius: 50%; opacity: 0.3; }
+  .meta-item { font-size: 14px; color: var(--muted2); font-weight: 500; }
 
   .h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 800; line-height: 1.1; color: #fff; letter-spacing: -0.04em; margin-bottom: 24px; }
   .article-lead { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 65ch; margin: 0; }
 
+  /* Reading Shell */
   .reading-shell {
     background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 32px; overflow: hidden; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);
   }
 
   .main-image img { width: 100%; aspect-ratio: 16/8; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-  .prose { padding: 60px 80px; font-size: 18px; line-height: 1.9; color: rgba(255, 255, 255, 0.75); }
+
+  /* Content Typography */
+  .prose { padding: 60px 80px; font-size: 18px; line-height: 1.9; color: rgba(255, 255, 255, 0.72); }
 
   .prose :global(h2) {
     font-size: 28px; font-weight: 700; color: #fff;
@@ -136,6 +161,7 @@ const formatDate = (d: Date) =>
   }
   .prose :global(h2:first-of-type) { border-top: none; padding-top: 0; margin-top: 10px; }
 
+  /* Vraag labels (Blue dot look) */
   .prose :global(h3) {
     display: inline-flex; align-items: center; gap: 12px;
     font-size: 18px; font-weight: 600; color: #fff;
@@ -144,7 +170,7 @@ const formatDate = (d: Date) =>
     border-radius: 12px;
   }
 
-  .prose :global(p) { margin-bottom: 24px; }
+  .prose :global(p) { margin-bottom: 28px; }
 
   .prose :global(ul) { 
     margin: 32px 0; padding: 28px; background: rgba(255, 255, 255, 0.015); 
@@ -153,19 +179,26 @@ const formatDate = (d: Date) =>
   .prose :global(li) { margin-bottom: 14px; list-style: none; position: relative; padding-left: 24px; color: var(--muted); }
   .prose :global(li::before) { content: '→'; position: absolute; left: 0; color: var(--brand); font-weight: bold; }
 
+  /* Footer */
   .article-footer { padding: 0 80px 60px; }
   .cta-card {
     background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px; border-radius: 20px; text-align: center;
+    padding: 48px; border-radius: 24px; text-align: center;
   }
-  .kicker { font-size: 11px; text-transform: uppercase; color: var(--brand); font-weight: 700; margin-bottom: 12px; }
+  .cta-kicker { font-size: 11px; text-transform: uppercase; color: var(--brand); font-weight: 700; margin-bottom: 12px; }
   .cta-card h3 { color: #fff; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
-  .cta-card p { font-size: 16px; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+  .cta-card p { font-size: 16px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; }
+
+  .bottom-nav { margin-top: 48px; text-align: center; }
+  .subtle-back { color: var(--muted2); text-decoration: none; font-size: 14px; transition: 0.2s; }
+  .subtle-back:hover { color: var(--brand); }
 
   @media (max-width: 768px) {
     .prose { padding: 40px 24px; font-size: 17px; }
-    .article-footer { padding: 0 20px 40px; }
-    .prose :global(h2) { font-size: 24px; margin: 48px 0 20px; }
-    .prose :global(h3) { font-size: 16px; }
+    .article-footer { padding: 0 24px 40px; }
+    .cta-actions { flex-direction: column; }
+    .article-header { text-align: center; }
+    .meta-row { justify-content: center; }
   }
 </style>
