@@ -235,47 +235,59 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
 <section class="section packages" aria-label="Pakketten">
   <div class="container">
     <div class="head">
-      <p class="kicker">Pakketten</p>
+      <p class="kicker">Investering</p>
       <h2 class="h2">Heldere startpunten</h2>
       <p class="lead small">
-        Geen standaard dozen. Dit zijn richtprijzen die we aanpassen op je vraag, schaal en ambities.
+        Geen standaard oplossingen. Elk project is maatwerk, afgestemd op jouw ambities en groeifase.
       </p>
     </div>
 
     <div class="pkg-grid">
+      <!-- Pakket 1 -->
       <div class="pkg">
-        <p class="pkg-name">Branding Sprint</p>
-        <p class="pkg-price">Vanaf €2.500</p>
-        <ul>
-          <li>Basis merkidentiteit (logo, kleur, typografie)</li>
-          <li>Kleine styleguide + componentbasis</li>
-          <li>Geschikt als start of herpositionering</li>
-        </ul>
+        <div class="pkg-content">
+          <p class="pkg-name">Branding Sprint</p>
+          <p class="pkg-price">Vanaf €500</p>
+          <div class="pkg-line"></div>
+          <ul>
+            <li>Logo & Visuele identiteit</li>
+            <li>Brandbook (kleur & font)</li>
+            <li>Styleguide voor web</li>
+          </ul>
+        </div>
       </div>
 
+      <!-- Pakket 2 -->
       <div class="pkg">
-        <p class="pkg-name">Website Launch</p>
-        <p class="pkg-price">Vanaf €3.500</p>
-        <ul>
-          <li>Conversiegerichte website (home, diensten, contact)</li>
-          <li>Performance & SEO fundamentals</li>
-          <li>Analytics en leadflows ingericht</li>
-        </ul>
+        <div class="pkg-content">
+          <p class="pkg-name">Website Launch</p>
+          <p class="pkg-price">Vanaf €1000</p>
+          <div class="pkg-line"></div>
+          <ul>
+            <li>Design & Ontwikkeling</li>
+            <li>SEO & Performance basis</li>
+            <li>Leadflow optimalisatie</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="pkg">
-        <p class="pkg-name">Technical Build</p>
-        <p class="pkg-price">Vanaf €5.500</p>
-        <ul>
-          <li>Maatwerk frontend of applicatie</li>
-          <li>Integraties met tools & systemen</li>
-          <li>Schaalbaar en onderhoudbaar opgezet</li>
-        </ul>
+      <!-- Pakket 3 (FEATURED) -->
+      <div class="pkg is-featured">
+        <div class="pkg-badge">Meest gekozen</div>
+        <div class="pkg-content">
+          <p class="pkg-name">Technical Build</p>
+          <p class="pkg-price">Vanaf €2.500</p>
+          <div class="pkg-line"></div>
+          <ul>
+            <li>Maatwerk applicatie/frontend</li>
+            <li>API & Systeem koppelingen</li>
+            <li>Full support & Onderhoud</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 
     <style>
       .contact-cta {
@@ -446,35 +458,130 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
     .packages .head{
       margin-bottom: 16px;
     }
-    .pkg-grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-    }
-    .pkg{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.025);
-      border-radius: 14px;
-      padding: 14px;
-      display:grid;
-      gap: 10px;
-      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
-    }
-    .pkg-name{ margin:0; font-weight: 650; font-size: 16px; }
-    .pkg-price{ margin:0; color: rgba(255,255,255,.78); }
-    .pkg ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.7;
-    }
-    .pkg:hover{
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,.22);
-      background: rgba(255,255,255,.04);
-      box-shadow: 0 12px 28px rgba(0,0,0,.16);
-    }
+    .packages .head {
+    margin-bottom: 48px;
+  }
 
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .pkg {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* De "Technical Build" Featured look */
+  .pkg.is-featured {
+    background: rgba(47, 137, 255, 0.03);
+    border: 1px solid rgba(47, 137, 255, 0.3);
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .pkg.is-featured::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(47, 137, 255, 0.2), transparent);
+    z-index: -1;
+  }
+
+  .pkg-badge {
+    position: absolute;
+    top: -12px;
+    left: 40px;
+    background: #2F89FF;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pkg-name {
+    margin: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+  }
+
+  .pkg-price {
+    margin: 12px 0 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .pkg-line {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 24px 0;
+  }
+
+  .pkg ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+
+  .pkg ul li {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Custom vinkje voor een clean look */
+  .pkg ul li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--accent, #2F89FF);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Hover effecten */
+  .pkg:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-5px);
+  }
+
+  .pkg.is-featured:hover {
+    border-color: rgba(47, 137, 255, 0.6);
+    background: rgba(47, 137, 255, 0.06);
+  }
+
+  @media (max-width: 1024px) {
+    .pkg-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .pkg.is-featured {
+      transform: none;
+      order: -1; /* Zet het belangrijkste pakket bovenaan op mobiel */
+    }
+  }
     .faq-wrap{ display:grid; gap: 16px; }
     .faq-accordion{
       border: 1px solid rgba(255,255,255,.12);

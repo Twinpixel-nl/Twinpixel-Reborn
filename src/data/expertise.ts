@@ -41,7 +41,7 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Wanneer", value: "als je meer nodig hebt dan \"alleen pagina's\"" },
     ],
         costs: {
-      price: "€5.500",
+      price: "€2.500",
       description: "Voor complexe projecten waarbij techniek en data centraal staan.",
       features: ["Custom API integraties", "Dashboarding & Portals", "Uitgebreide QA & Testing"]
     }
@@ -70,7 +70,7 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
     ],
     costs: {
-      price: "€3.500",
+      price: "€1.000",
       description: "Een complete, snelle website die klaar is om te converteren.",
       features: ["Astro Performance Build", "SEO Optimalisatie", "Lead-capture formulieren"]
     }
@@ -98,7 +98,7 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Wanneer", value: "als je merk \"net niet\" voelt of inconsistent is" },
     ],
      costs: {
-      price: "€2.500",
+      price: "€500",
       description: "De visuele fundering voor je bedrijf of product.",
       features: ["Logo & Visual Identity", "UI Kit / Design System", "Brand Styleguide"]
     }
