@@ -9,339 +9,141 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-
 const entry = await getEntryBySlug("insights", slug);
-
-if (!entry) {
-  throw new Error(`Insight not found: ${slug}`);
-}
+if (!entry) throw new Error(`Insight niet gevonden`);
 
 const { Content } = await render(entry);
 const { data } = entry;
 
 const formatDate = (d) =>
   new Intl.DateTimeFormat("nl-NL", { year: "numeric", month: "long", day: "2-digit" }).format(d);
-
-const title = `${data.title} | Insights — TwinPixel`;
-const description = data.description ?? "Insight van TwinPixel over webdesign, SEO en conversie.";
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="article">
-    <header class="head">
-      <div class="container">
-        <a class="back top" href="/insights">← Terug naar insights</a>
-
-        <p class="kicker">
-          <span>{data.category ? data.category : "Insight"}</span>
-          <span class="sep">•</span>
-          <time datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
-          {data.readingTime ? (
-            <>
-              <span class="sep">•</span>
-              <span>{data.readingTime}</span>
-            </>
-          ) : null}
-        </p>
-
-        <h1 class="h1">{data.title}</h1>
-
-        {data.description && <p class="lead">{data.description}</p>}
-
-        {data.image?.src ? (
-          <figure class="hero">
-            <img
-              src={data.image.src}
-              alt={data.image.alt ?? data.title}
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-        ) : null}
-
-        {data.tags?.length ? (
-          <div class="tags" aria-label="Tags">
-            {data.tags.map((t) => (
-              <span class="tag">{t}</span>
-            ))}
-          </div>
-        ) : null}
-      </div>
-    </header>
-
-<div class="container body">
-  <div class="content">
-    <Content />
+<BaseLayout title={`${data.title} | Insights`} description={data.description}>
+  <!-- PROGRESS BAR (UX GOUD) -->
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
   </div>
 
-  <section class="cta" aria-label="Call to action">
+  <main class="insight-article">
+    <header class="container narrow article-header">
+      <a href="/insights" class="back-link">← Alle insights</a>
+      <div class="meta-info">
+        <span class="cat-badge">{data.category || "Insight"}</span>
+        <time>{formatDate(data.date)}</time>
+      </div>
+      <h1 class="h1">{data.title}</h1>
+    </header>
 
-        <div class="ctaInner">
-<p class="ctaText">
-  Herken je dit in je eigen site? Dan is dat geen kritiek, maar een goed startpunt.
-</p>
-<p class="ctaText">
-  Wil je daar eens scherp naar laten kijken, zonder verkooppraat? Dan denken we graag met je mee.
-</p>
-
-
-          <div class="ctaActions">
-            <Button href="/contact" variant="primary" label="Plan kennismaking" />
-            <Button href="/cases" variant="secondary" label="Bekijk cases" />
+    <div class="container narrow">
+      <article class="reading-shell">
+        {data.image?.src && (
+          <div class="main-image">
+            <img src={data.image.src} alt={data.image.alt || data.title} />
           </div>
+        )}
 
-          <a class="back bottom" href="/insights">← Terug naar insights</a>
+        <div class="prose">
+          <!-- De Content wordt hier ingeladen -->
+          <Content />
         </div>
-      </section>
+
+        <footer class="article-footer">
+          <div class="cta-card">
+            <p class="kicker">TwinPixel Insights</p>
+            <h3>Dit vertalen naar jouw website?</h3>
+            <p>We helpen je graag om deze principes toe te passen op jouw specifieke situatie.</p>
+            <div class="cta-actions">
+              <Button href="/contact" variant="primary" label="Project starten" />
+            </div>
+          </div>
+        </footer>
+      </article>
     </div>
-  </article>
-
-  <style>
- .container{
-  width: min(900px, calc(100% - 2rem));
-  margin: 0 auto;
-}
-
-.article{ padding-top: 110px; }
-
-.head{
-  padding: 40px 0 22px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.01);
-}
-
-/* links */
-.back{
-  display:inline-block;
-  text-decoration:none;
-  font-size: 14px;
-  transition: color .15s ease, opacity .15s ease;
-}
-
-.back.top{
-  color: rgba(255,255,255,.60);
-  margin-bottom: 14px;
-}
-.back.top:hover{ color: rgba(255,255,255,.88); }
-
-.back.bottom{
-  margin-top: 14px;
-  color: rgba(47,137,255,.75);
-  font-size: 13px;
-}
-.back.bottom:hover{ color: rgba(47,137,255,.95); }
-
-/* meta */
-.kicker{
-  margin: 0 0 10px;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: .14em;
-  color: rgba(255,255,255,.55);
-  display:flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.sep{ margin: 0 8px; opacity: .6; }
-
-.h1{
-  margin: 0;
-  font-size: clamp(34px, 4.4vw, 54px);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  font-weight: 650;
-  color: rgba(255,255,255,.96);
-}
-
-.lead{
-  margin: 16px 0 0;
-  color: rgba(255,255,255,.72);
-  line-height: 1.75;
-  font-size: 18px;
-  max-width: 70ch;
-}
-
-/* tags */
-.tags{
-  margin-top: 14px;
-  display:flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.tag{
-  font-size: 12px;
-  color: rgba(255,255,255,.70);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  padding: 6px 10px;
-  border-radius: 999px;
-}
-
-/* hero */
-.hero{
-  margin-top: 18px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-}
-.hero img{
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-/* body container */
-.body{
-  padding: 28px 0 70px;
-  color: rgba(255,255,255,.82);
-  line-height: 1.9;
-  font-size: 16px;
-}
-
-/* --- CONTENT CARD (tegen het “zweven”) --- */
-.contentWrap{
-  margin-top: 18px;
-}
-
-.contentCard{
-  max-width: 72ch;
-  padding: 28px 26px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.02);
-  box-shadow: 0 18px 40px rgba(0,0,0,.22);
-}
-
-/* markdown polish */
-.body :global(p){
-  margin: 0 0 16px;
-}
-
-.body :global(h2){
-  margin: 42px 0 14px;
-  font-size: 26px;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: rgba(255,255,255,.95);
-}
-
-.body :global(h3){
-  margin: 30px 0 12px;
-  font-size: 18px;
-  color: rgba(255,255,255,.92);
-  letter-spacing: -0.01em;
-
-  /* “blokje/label” look */
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-}
-
-.body :global(h3)::before{
-  content:"";
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(47,137,255,.85);
-  box-shadow: 0 0 0 4px rgba(47,137,255,.12);
-}
-
-.body :global(h3) + p{
-  margin-top: 14px;
-}
-
-.body :global(a){
-  color: rgba(47,137,255,.95);
-  text-decoration: none;
-}
-.body :global(a:hover){ text-decoration: underline; }
-
-/* lists als panel */
-.body :global(ul),
-.body :global(ol){
-  margin: 0 0 18px;
-  padding: 14px 16px 14px 36px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.02);
-  color: rgba(255,255,255,.78);
-}
-
-.body :global(li){
-  margin: 0 0 6px;
-}
-
-/* quote */
-.body :global(blockquote){
-  margin: 22px 0;
-  padding: 16px 18px;
-  border-left: 2px solid rgba(47,137,255,.7);
-  background: rgba(47,137,255,.06);
-  border-radius: 14px;
-  color: rgba(255,255,255,.82);
-}
-.body :global(blockquote p){ margin: 0; }
-
-/* code */
-.body :global(code){
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
-  padding: 2px 6px;
-  border-radius: 8px;
-  font-size: 0.95em;
-}
-
-.body :global(pre){
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.10);
-  padding: 14px;
-  border-radius: 14px;
-  overflow:auto;
-  margin: 20px 0;
-}
-
-/* CTA */
-.cta{
-  margin-top: 56px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-
-.ctaInner{
-  padding: 20px 20px 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.02);
-}
-
-.ctaText{
-  margin: 0 0 10px;
-  color: rgba(255,255,255,.74);
-  line-height: 1.7;
-  font-size: 16px;
-  max-width: 72ch;
-}
-.ctaText:last-of-type{ margin-bottom: 14px; }
-
-.ctaActions{
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 0;
-}
-
-/* responsive */
-@media (max-width: 980px){
-  .article{ padding-top: 92px; }
-  .contentCard{ padding: 22px 18px; }
-}
-
-  </style>
+  </main>
 </BaseLayout>
+
+<script>
+  // Script voor de lees-progressie balk
+  window.onscroll = function() { myFunction() };
+  function myFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
+</script>
+
+<style>
+  .insight-article { padding: 140px 0 100px; }
+  .container.narrow { max-width: 800px; margin: 0 auto; width: calc(100% - 3rem); }
+
+  /* --- PROGRESS BAR --- */
+  .progress-container {
+    position: fixed; top: 72px; /* Hoogte van je navbar */
+    left: 0; z-index: 100; width: 100%; height: 2px; background: transparent;
+  }
+  .progress-bar { height: 2px; background: var(--brand); width: 0%; }
+
+  /* --- HEADER --- */
+  .article-header { text-align: left; margin-bottom: 40px; }
+  .back-link { font-size: 13px; color: var(--muted2); text-decoration: none; margin-bottom: 24px; display: inline-block; }
+  .meta-info { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .cat-badge { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--brand); letter-spacing: 1px; }
+  time { font-size: 13px; color: var(--muted2); }
+  .h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; line-height: 1.1; color: #fff; letter-spacing: -0.04em; }
+
+  /* --- READING SHELL --- */
+  .reading-shell {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .main-image img { width: 100%; aspect-ratio: 16/8; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+  .prose { padding: 60px 60px; font-size: 18px; line-height: 1.85; color: rgba(255, 255, 255, 0.7); }
+
+  /* --- DE LIJNEN (DE OVERZICHTELIJKHEID) --- */
+  
+  /* Een subtiele lijn boven elke H2 (hoofdstukken) */
+  .prose :global(h2) {
+    font-size: 28px; font-weight: 700; color: #fff;
+    margin: 64px 0 24px; padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06); /* De scheidingslijn */
+    letter-spacing: -0.02em;
+  }
+
+  /* De eerste H2 heeft geen lijn nodig */
+  .prose :global(h2:first-of-type) { border-top: none; padding-top: 0; margin-top: 24px; }
+
+  .prose :global(h3) { font-size: 20px; font-weight: 600; color: #fff; margin: 32px 0 16px; }
+  .prose :global(p) { margin-bottom: 24px; }
+
+  /* Subtiele scheiding voor lijsten */
+  .prose :global(ul) { 
+    margin: 32px 0; padding: 24px; 
+    background: rgba(255, 255, 255, 0.015); 
+    border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+  .prose :global(li) { margin-bottom: 12px; list-style-type: none; position: relative; padding-left: 20px; }
+  .prose :global(li::before) { content: '→'; position: absolute; left: 0; color: var(--brand); font-weight: bold; }
+
+  /* --- FOOTER --- */
+  .article-footer { padding: 0 60px 60px; }
+  .cta-card {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px; border-radius: 20px; text-align: center;
+  }
+  .kicker { font-size: 11px; text-transform: uppercase; color: var(--brand); font-weight: 700; margin-bottom: 12px; }
+  .cta-card h3 { color: #fff; font-size: 22px; margin-bottom: 12px; }
+  .cta-card p { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+
+  /* Mobiel */
+  @media (max-width: 768px) {
+    .prose { padding: 40px 20px; font-size: 17px; }
+    .article-footer { padding: 0 20px 40px; }
+    .prose :global(h2) { font-size: 24px; margin: 48px 0 20px; }
+  }
+</style>
