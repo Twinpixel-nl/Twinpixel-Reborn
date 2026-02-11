@@ -120,6 +120,14 @@ const icons: { [key: string]: string } = {
 
     </div>
   </section>
+  <script>
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+    document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+  });
+</script>
 </BaseLayout>
 
 <style>
@@ -146,6 +154,8 @@ const icons: { [key: string]: string } = {
     background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 10px; margin-bottom: 60px;
   }
   .image-frame img { width: 100%; border-radius: 16px; display: block; }
+
+  .image-frame :hover img { transform: translateY(-4px); }
 
   .content-sections { display: grid; gap: 60px; }
   .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 16px; display: block; }
