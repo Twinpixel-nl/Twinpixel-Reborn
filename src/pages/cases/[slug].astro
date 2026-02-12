@@ -12,33 +12,50 @@ export function getStaticPaths() {
 
 const { c } = Astro.props;
 
-const icons: { [key: string]: string } = {
-  plus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
-  users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
-  chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
+// Alle iconen die je in cases.js gebruikt MOETEN hier staan
+const icons: Record<string, string> = {
+  plus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
+  users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+  chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
   external: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
+  // Nieuwe icons van de overzichtspagina (voor het geval je ze hier ook gebruikt)
+  google: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>`,
+  target: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>`,
+  speed: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/></svg>`
 };
 ---
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
   
+  <!-- DYNAMISCHE CLEAN SCROLLBAR -->
   <style is:global define:vars={{ projectAccent: c.accent }}>
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #05060a; }
     ::-webkit-scrollbar-thumb { background: var(--projectAccent); border-radius: 20px; }
     html { scrollbar-width: thin; scrollbar-color: var(--projectAccent) #05060a; }
+
+    /* Muis-glow achtergrond effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), color-mix(in srgb, var(--projectAccent) 8%, transparent) 0%, transparent 60%);
+      z-index: -1;
+      pointer-events: none;
+    }
   </style>
 
   <section class="hero" style={`--accent:${c.accent};`}>
     <div class="container">
       <nav class="meta-nav">
-        <a href="/cases">Projecten</a> / <span>{c.title}</span>
+        <a href="/cases" class="mag">Projecten</a> / <span>{c.title}</span>
       </nav>
       <h1 class="h1">{c.title}</h1>
       <p class="lead">{c.description}</p>
       
       {c.website && (
-        <a href={c.website} target="_blank" class="live-link">
+        <a href={c.website} target="_blank" class="live-link mag">
           Bekijk de website <span class="icon-arrow" set:html={icons.external} />
         </a>
       )}
@@ -93,7 +110,8 @@ const icons: { [key: string]: string } = {
           <div class="stats-list">
             {c.stats.map(stat => (
               <div class="stat-box">
-                <div class="stat-icon" style={`color: ${c.accent}`} set:html={icons[stat.icon]} />
+                <!-- Fix: We checken of het icoon bestaat in ons object -->
+                <div class="stat-icon" style={`color: ${c.accent}`} set:html={icons[stat.icon] || icons.plus} />
                 <div>
                   <div class="stat-val">{stat.value}</div>
                   <div class="stat-lab">{stat.label}</div>
@@ -103,7 +121,7 @@ const icons: { [key: string]: string } = {
           </div>
         </div>
 
-        <!-- Resultaat Kaart (Met meebuigende lijn) -->
+        <!-- Resultaat Kaart -->
         <div class="glass-card outcome-card">
           <span class="label">Resultaat</span>
           <p>{c.outcome}</p>
@@ -120,21 +138,37 @@ const icons: { [key: string]: string } = {
 
     </div>
   </section>
+
   <script>
-  window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth) * 100;
-    const y = (e.clientY / window.innerHeight) * 100;
-    document.documentElement.style.setProperty('--mouse-x', `${x}%`);
-    document.documentElement.style.setProperty('--mouse-y', `${y}%`);
-  });
-</script>
+    // Mouse tracking voor Glow en Magnetic effect
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+    });
+
+    // Magnetic buttons
+    const mags = document.querySelectorAll('.mag');
+    mags.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        (el as HTMLElement).style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        (el as HTMLElement).style.transform = `translate(0px, 0px)`;
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
   /* --- HERO --- */
   .hero { padding: 120px 0 60px; }
   .meta-nav { font-size: 13px; color: rgba(255,255,255,0.2); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-  .meta-nav a { color: inherit; text-decoration: none; transition: 0.2s; }
+  .meta-nav a { color: inherit; text-decoration: none; transition: 0.2s; display: inline-block; }
   .meta-nav a:hover { color: var(--accent); }
 
   .h1 { font-size: clamp(40px, 7vw, 64px); font-weight: 700; margin: 0 0 20px; letter-spacing: -0.02em; }
@@ -144,7 +178,7 @@ const icons: { [key: string]: string } = {
     display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 500; padding-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
   }
   .live-link:hover { border-color: var(--accent); color: var(--accent); }
-  .icon-arrow { width: 14px; height: 14px; }
+  .icon-arrow { width: 14px; height: 14px; display: flex; }
 
   /* --- GRID --- */
   .grid { display: grid; grid-template-columns: 1fr 340px; gap: 80px; padding-bottom: 100px; }
@@ -152,10 +186,10 @@ const icons: { [key: string]: string } = {
   /* --- MAIN CONTENT --- */
   .image-frame {
     background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 10px; margin-bottom: 60px;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .image-frame img { width: 100%; border-radius: 16px; display: block; }
-
-  .image-frame :hover img { transform: translateY(-4px); }
+  .image-frame img { width: 100%; border-radius: 16px; display: block; transition: 0.4s; }
+  .image-frame:hover img { transform: scale(1.01); }
 
   .content-sections { display: grid; gap: 60px; }
   .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 16px; display: block; }
@@ -166,21 +200,11 @@ const icons: { [key: string]: string } = {
   .story-card {
     padding: 32px;
     border-radius: 24px;
-    border-left: 3px solid var(--accent);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-left: 4px solid var(--accent); 
     background: linear-gradient(to right, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
-    border-top: 1px solid rgba(255,255,255,0.03);
-    border-right: 1px solid rgba(255,255,255,0.03);
-    border-bottom: 1px solid rgba(255,255,255,0.03);
   }
-
-  .story-text {
-    font-size: 17px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.6); /* Clean grijs-wit */
-    margin: 0;
-    max-width: 680px;
-    font-weight: 400;
-  }
+  .story-text { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0; max-width: 680px; }
 
   /* --- APPROACH --- */
   .approach-cards { display: grid; gap: 16px; margin-top: 32px; }
@@ -193,25 +217,25 @@ const icons: { [key: string]: string } = {
   /* --- SIDEBAR --- */
   .sidebar { display: flex; flex-direction: column; gap: 24px; }
   .glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 32px; }
-
   .stats-list { display: grid; gap: 28px; }
   .stat-box { display: flex; align-items: center; gap: 20px; }
-  .stat-val { font-size: 26px; font-weight: 700; color: #fff; }
+  .stat-icon { width: 24px; height: 24px; display: flex; }
+  .stat-val { font-size: 26px; font-weight: 700; color: #fff; line-height: 1; }
   .stat-lab { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; }
 
-  /* --- OUTCOME (CURVED ACCENT LINE) --- */
   .outcome-card {
     background: linear-gradient(to right, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
     border: 1px solid rgba(255,255,255,0.05);
-    border-left: 4px solid var(--accent); /* Buigt mee door border-radius van glass-card */
+    border-left: 4px solid var(--accent);
   }
-
   .outcome-card p { font-size: 16px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6; }
 
   .info-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
   .info-row span { color: rgba(255,255,255,0.25); }
   .tags-row { flex-wrap: wrap; gap: 8px; padding-top: 16px; border-bottom: none; }
   .mini-tag { font-size: 11px; background: rgba(255,255,255,0.04); padding: 6px 12px; border-radius: 6px; color: rgba(255,255,255,0.45); }
+
+  .mag { transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1); }
 
   @media (max-width: 1024px) {
     .grid { grid-template-columns: 1fr; gap: 60px; }

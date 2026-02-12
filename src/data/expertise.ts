@@ -23,7 +23,7 @@ export const expertiseItems: ExpertiseItem[] = [
     chipClass: "cyan",
     title: "Technical Websites",
     intro:
-      "Custom integraties, complexe flows en webapp-achtige ervaringen — strak gebouwd en onderhoudbaar.",
+      "Custom integraties, complexe flows en webapp-achtige ervaringen, strak gebouwd en onderhoudbaar.",
       
     whatYouGet: [
       "Integraties (CRM, forms, analytics, automatisering)",
