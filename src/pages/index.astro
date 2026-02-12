@@ -288,7 +288,31 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
     </div>
   </div>
 </section>
+<section class="section clients" aria-label="Onze Partners">
+  <div class="container">
+    <div class="clients-header">
+      <p class="kicker">Portfolio</p>
+      <h2 class="h2">Impact maken voor <span class="text-gradient">marktleiders</span>.</h2>
+    </div>
 
+    <div class="logo-row">
+      <!-- WUR -->
+      <div class="logo-item" title="Wageningen University & Research">
+        <img src="/logos/wur-logo.png" alt="WUR Logo" class="client-logo" />
+      </div>
+      
+      <!-- VVD -->
+      <div class="logo-item" title="VVD Wageningen">
+        <img src="/logos/vvd-logo.png" alt="VVD Logo" class="client-logo" />
+      </div>
+
+      <!-- SMM -->
+      <div class="logo-item" title="Socialmediamanager.nl">
+        <img src="/logos/sc-logo.png" alt="Socialmediamanager Logo" class="client-logo" />
+      </div>
+    </div>
+  </div>
+</section>
     <style>
       .contact-cta {
         margin: 3.6rem 0 0;
@@ -652,6 +676,58 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
     @media (max-width: 620px){
       .pillars{ grid-template-columns: 1fr; }
     }
+.clients {
+  padding: 120px 0;
+  border-top: 1px solid var(--stroke);
+  /* Subtiele glow achter de sectie */
+  background: radial-gradient(circle at 50% 0%, rgba(47,137,255,0.03), transparent 70%);
+}
+
+.clients-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px; /* Enorme gap voor de luxe uitstraling */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.logo-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  filter: grayscale(1) brightness(1.5);
+  opacity: 0.5;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.client-logo {
+  width: 100%;
+  max-width: 180px; /* Logo's mogen nu iets groter zijn omdat het er maar 3 zijn */
+  height: 50px;
+  object-fit: contain;
+}
+
+.logo-item:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+@media (max-width: 900px) {
+  .logo-row {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .client-logo {
+    max-width: 140px;
+  }
+}
 /* =========================
    Reviews Section (Marquee)
    ========================= */
