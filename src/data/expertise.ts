@@ -31,10 +31,10 @@ export type ExpertiseItem = {
 
 export const expertiseItems: ExpertiseItem[] = [
   {
-    slug: "maatwerk-websites",
+    slug: "technical-build",
     accent: "#22c55e",
     chipClass: "cyan",
-    title: "Maatwerk Websites",
+    title: "Technical Build",
     intro: "Koppelingen, portalen en complexe flows. Gebouwd zodat het simpel voelt voor de gebruiker en onderhoudbaar blijft.",
 
     whatYouGet: [
@@ -70,9 +70,9 @@ export const expertiseItems: ExpertiseItem[] = [
     ],
 
     costs: {
-      price: "€2.500",
-      isStartingAt: true,
-      description: "Voor projecten waar techniek en data leidend zijn.",
+      price: "€4.900 – €12.000",
+      isStartingAt: false,
+      description: "Voor projecten waar techniek, data en flows leidend zijn.",
       features: ["Custom API integraties", "Portals & dashboards", "Uitgebreide QA / testing"],
     },
 
@@ -80,10 +80,10 @@ export const expertiseItems: ExpertiseItem[] = [
   },
 
   {
-    slug: "websites",
+    slug: "website-launch",
     accent: "#2F89FF",
     chipClass: "blue",
-    title: "Websites",
+    title: "Website Launch",
     intro: "Marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op aanvragen.",
 
     whatYouGet: [
@@ -118,21 +118,21 @@ export const expertiseItems: ExpertiseItem[] = [
     ],
 
     costs: {
-      price: "€1.000",
-      isStartingAt: true,
+      price: "€2.450 – €3.750",
+      isStartingAt: false,
       description: "Complete, snelle site die klaar is om te converteren.",
-      features: ["Astro performance build", "SEO basis", "Lead-capture formulieren"],
+      features: ["Astro performance build", "SEO basis", "Leadflow & formulieren"],
     },
 
     cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
   },
 
   {
-    slug: "branding",
+    slug: "brand-basis",
     accent: "#7c3aed",
     chipClass: "purple",
-    title: "Branding",
-    intro: "Een consistente basis: logo polish, typografie, kleuren en componenten. Zodat je merk direct professioneel voelt.",
+    title: "Brand Basis",
+    intro: "Een consistente visuele basis: logo, typografie, kleuren en richtlijnen. Zodat je merk direct professioneel voelt.",
 
     whatYouGet: [
       "Brand direction + look & feel",
@@ -166,10 +166,10 @@ export const expertiseItems: ExpertiseItem[] = [
     ],
 
     costs: {
-      price: "€500",
-      isStartingAt: true,
-      description: "De visuele fundering om consistent door te trekken in web en content.",
-      features: ["Brand basics", "UI kit", "Mini styleguide + assets"],
+      price: "€950 – €1.450",
+      isStartingAt: false,
+      description: "De visuele fundering die je overal consistent kunt doorvoeren.",
+      features: ["Logo & merkstijl", "Basis UI kit", "Mini styleguide + exports"],
     },
 
     cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
