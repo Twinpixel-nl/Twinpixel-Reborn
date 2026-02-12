@@ -308,7 +308,7 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
 
       <!-- SMM -->
       <div class="logo-item" title="Socialmediamanager.nl">
-        <img src="/logos/sc-logo.png" alt="Socialmediamanager Logo" class="client-logo" />
+        <img src="/logos/sc-logo.png" alt="Socialmediamanager Logo" class="client-logo smm-logo" />
       </div>
     </div>
   </div>
@@ -789,7 +789,23 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
   to   { transform: translate3d(-50%,0,0); }
 }
 
+/* Specifieke aanpassing voor Socialmediamanager */
+.smm-logo {
+  max-width: 240px !important; /* Groter dan de standaard 180px */
+  max-height: 75px !important; /* Iets hoger voor betere leesbaarheid */
+  transform: scale(1.15); /* Een extra 'boost' van 15% */
+}
 
+
+/* Ter herinnering, de algemene stijl die je al had (check of deze waarden kloppen): */
+.client-logo {
+  width: auto;
+  height: auto;
+  max-width: 180px;
+  max-height: 50px;
+  object-fit: contain;
+  transition: all 0.4s ease;
+}
 
 /* cards */
 .reviews-marquee .review-card{
