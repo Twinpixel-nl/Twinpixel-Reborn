@@ -17,7 +17,7 @@ import Button from "./Button.astro";
     <div class="left">
       <p class="kicker">Webdesign bureau Wageningen</p>
 
-      <h1 class="h1">
+      <h1 class="h1 pop">
         High-end webdesign in Wageningen
         <span class="dot">.</span>
       </h1>
@@ -44,6 +44,51 @@ import Button from "./Button.astro";
 </section>
 
 <style>
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes popScale {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    70% {
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0.24;
+    }
+    50% {
+      opacity: 0.32;
+    }
+  }
+
   .hero{
     position: relative;
     overflow: hidden;
@@ -87,21 +132,24 @@ import Button from "./Button.astro";
     width: 560px;
     height: 560px;
     border-radius: 999px;
-    filter: blur(44px);
-    opacity: .18;
+    filter: blur(54px);
+    opacity: .28;
     transform: translate3d(0,0,0);
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 60%);
+    background: radial-gradient(circle at 30% 30%, rgba(47,137,255,.28), transparent 60%);
+    animation: glowPulse 4s ease-in-out infinite;
   }
 
   .g1{
     left:-220px;
     top:-260px;
-    animation: float1 8s ease-in-out infinite;
+    background: radial-gradient(circle at 30% 30%, rgba(47,137,255,.32), transparent 60%);
+    animation: float1 8s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
   }
   .g2{
     right:-260px;
     bottom:-300px;
-    animation: float2 10s ease-in-out infinite;
+    background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.24), transparent 60%);
+    animation: float2 10s ease-in-out infinite, glowPulse 4.5s ease-in-out infinite;
   }
 
   @keyframes float1{
@@ -163,6 +211,31 @@ import Button from "./Button.astro";
     align-items:start;
   }
 
+  .left > * {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .left .kicker {
+    animation-delay: 0.1s;
+  }
+
+  .left .h1 {
+    animation: popScale 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.25s;
+  }
+
+  .left .lead {
+    animation-delay: 0.4s;
+  }
+
+  .left .cta {
+    animation-delay: 0.5s;
+  }
+
+  .left .proof {
+    animation-delay: 0.6s;
+  }
+
   .kicker{
     margin: 0 0 14px;
     font-size: 12px;
@@ -179,7 +252,10 @@ import Button from "./Button.astro";
     font-weight: 650;
   }
 
-  .dot{ color: var(--brand); }
+  .dot{ 
+    color: var(--brand);
+    text-shadow: 0 0 20px rgba(47,137,255,.6), 0 0 40px rgba(47,137,255,.3);
+  }
 
   .lead{
     margin: 24px 0 0;
@@ -234,7 +310,7 @@ import Button from "./Button.astro";
   }
 
   @media (prefers-reduced-motion: reduce){
-    .grid, .g1, .g2, .r1, .r2{ animation: none !important; }
+    .grid, .g1, .g2, .r1, .r2, .left > * { animation: none !important; }
   }
 
   @media (max-width: 980px){
