@@ -16,6 +16,50 @@
 }
 html{ scroll-behavior: smooth; }
 
+/* --- GLOBALE HERO FADE-IN ANIMATIE --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-hero {
+  overflow: hidden;
+}
+
+.fade-item {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* --- GLOBALE HERO REVEAL ANIMATIE --- */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-item {
+  opacity: 0;
+  animation: heroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Vertragingen voor een vloeiend effect */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
 @keyframes slideInLeft {
   from {
     opacity: 0;

@@ -18,10 +18,10 @@ const company = {
 
 <BaseLayout title={page.title} description={page.description}>
   <main class="page">
-    <section class="hero">
+    <section class="hero fade-in-hero">
       <div class="container">
-        <h1 class="h1">Contact</h1>
-        <p class="lead">Stuur ons een bericht. We reageren meestal binnen 1 werkdag.</p>
+        <h1 class="h1 fade-item" style="animation-delay: 0.1s">Contact</h1>
+        <p class="lead fade-item" style="animation-delay: 0.2s">Stuur ons een bericht. We reageren meestal binnen 1 werkdag.</p>
       </div>
     </section>
 
@@ -195,14 +195,28 @@ const company = {
       line-height: 1.1;
       margin: 0 0 0.75rem;
       color: var(--text);
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     .lead {
       margin: 0;
       max-width: 60ch;
-      opacity: 0.85;
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       color: var(--muted);
       margin: 0 auto;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .grid {

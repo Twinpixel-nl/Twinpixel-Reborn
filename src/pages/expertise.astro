@@ -11,9 +11,9 @@ import { expertiseItems } from "../data/expertise";
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-inner">
-      <p class="kicker">Onze Expertise</p>
-      <h1 class="h1">Drie routes naar succes</h1>
-      <p class="lead">
+      <p class="kicker fade-item" style="animation-delay: 0.1s">Onze Expertise</p>
+      <h1 class="h1 fade-item" style="animation-delay: 0.2s">Drie routes naar succes</h1>
+      <p class="lead fade-item" style="animation-delay: 0.3s">
         We bouwen websites die werken. Kies één of combineer meerdere expertises
         voor een complete digitale oplossing. Branding als fundament, websites als kracht.
       </p>
@@ -114,6 +114,22 @@ import { expertiseItems } from "../data/expertise";
   </section>
 
   <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-item {
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
     /* Hero Section */
     .hero {
       padding: 140px 0 80px;

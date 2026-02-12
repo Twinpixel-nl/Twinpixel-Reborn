@@ -18,9 +18,9 @@ const formatDate = (d) =>
 >
   <section class="hero">
     <div class="container">
-      <p class="kicker">Insights</p>
-      <h1 class="h1">Inzichten over webdesign, SEO en conversie.</h1>
-      <p class="lead">
+      <p class="kicker fade-item" style="animation-delay: 0.1s">Insights</p>
+      <h1 class="h1 fade-item" style="animation-delay: 0.2s">Inzichten over webdesign, SEO en conversie.</h1>
+      <p class="lead fade-item" style="animation-delay: 0.3s">
        We schrijven over keuzes die sites beter laten presteren. Conversie, SEO, design-altijd praktisch en onderbouwd.
       </p>
 
@@ -74,6 +74,22 @@ const formatDate = (d) =>
   </section>
 
   <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-item {
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
     .hero{
       padding: 140px 0 60px;
     }
@@ -107,6 +123,9 @@ const formatDate = (d) =>
       display:flex;
       gap: 12px;
       flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: 0.4s;
     }
 
     .section{ padding: 70px 0; }

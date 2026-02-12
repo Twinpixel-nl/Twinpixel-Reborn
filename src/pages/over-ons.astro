@@ -10,12 +10,12 @@ const teamImage = "/images/team-sparring.jpg"; // plaats je foto hier
 <BaseLayout title={title} description={description}>
   <main class="page">
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section fade-in-hero">
       <div class="hero-content">
         <div class="hero-text">
-          <p class="kicker">Wie Wij Zijn</p>
-          <h1 class="hero-title">Samen bouwen aan duidelijke, snelle websites</h1>
-          <p class="hero-description">
+          <p class="kicker fade-item" style="animation-delay: 0.1s">Wie Wij Zijn</p>
+          <h1 class="hero-title fade-item" style="animation-delay: 0.2s">Samen bouwen aan duidelijke, snelle websites</h1>
+          <p class="hero-description fade-item" style="animation-delay: 0.3s">
             Twee HBO-ICT studenten met een focus op techniek. We combineren design, performance
             en onderhoudbaarheid zodat je site er strak uitziet én snel blijft.
           </p>
@@ -122,6 +122,22 @@ const teamImage = "/images/team-sparring.jpg"; // plaats je foto hier
   </main>
 
   <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-item {
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
     .page {
       max-width: 1200px;
       margin: 0 auto;
