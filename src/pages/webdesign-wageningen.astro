@@ -3,39 +3,135 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CasesPreview from "../components/CasesPreview.astro";
 import Button from "../components/Button.astro";
 
-const mapsUrl =
-  "https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu";
+// Consistent met je footer-link en makkelijk te vervangen als nodig
+const mapsUrl = "https://maps.app.goo.gl/XJkGA7g8TkB1aJTA6";
 
-// Pas aan naar jouw echte gegevens
+const page = {
+  title: "Website laten maken in Wageningen | Webdesign bureau - TwinPixel",
+  description:
+    "Website laten maken in Wageningen? TwinPixel ontwerpt en bouwt professionele websites die vertrouwen wekken, snel laden en zorgen voor meer aanvragen.",
+  h1: "Website laten maken in Wageningen",
+};
+
 const business = {
   name: "TwinPixel",
-  street: "Wageningen", // als je geen straat/adres publiek wilt tonen, laat dit zo en zet addressCountry etc. wel goed
-  postalCode: "6700",   // optioneel
+  email: "info@twinpixel.nl",
+  phone: "+31 6 82579179",
   addressLocality: "Wageningen",
   addressRegion: "Gelderland",
   addressCountry: "NL",
-  telephone: "",        // optioneel
-  url: "https://twinpixel.nl",
-  area: ["Wageningen", "Ede", "Rhenen", "Veenendaal", "Bennekom"],
+  area: ["Wageningen", "Ede", "Bennekom", "Rhenen", "Veenendaal"],
 };
+
+// Reviews: houd het klein, echt en klikbaar (naar Maps)
+const reviews = [
+  {
+    author: "Harvey Meurs",
+    company: "Wetvanstaal",
+    text:
+      "Prachtige website opgeleverd binnen een week. Snel, gebruiksvriendelijk en ziet er fantastisch uit.",
+  },
+  {
+    author: "Otto Vleeming",
+    company: "Stadspartij Wageningen",
+    text: "Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!",
+  },
+  {
+    author: "Julian van Beek",
+    company: "Rocket Agency",
+    text: "Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Wat kost een website laten maken in Wageningen?",
+    a: "Dat hangt af van omvang en wensen. We werken met heldere richtprijzen en maken altijd een voorstel op maat.",
+  },
+  {
+    q: "Hoe lang duurt het bouwen van een website?",
+    a: "Meestal 3 tot 5 weken. De snelheid hangt vooral af van feedbackrondes en content (tekst/beelden).",
+  },
+  {
+    q: "Kunnen jullie ook helpen met vindbaarheid (SEO)?",
+    a: "Ja. We zorgen voor een sterke technische basis (structuur, headings, indexeerbaarheid, performance) en kunnen helpen met content die beter scoort op lokale zoekwoorden.",
+  },
+  {
+    q: "Kunnen we ook in Wageningen afspreken?",
+    a: "Ja. We zitten in Wageningen, dus even sparren op locatie kan (op afspraak). Liever online? Kan ook.",
+  },
+  {
+    q: "Werken jullie alleen in Wageningen?",
+    a: "Nee. Deze pagina is gericht op Wageningen en omgeving, maar we werken ook voor bedrijven elders in Nederland.",
+  },
+];
+
+// URL’s voor schema (pakken Astro.site als je die netjes hebt ingesteld)
+const origin = (Astro.site ?? Astro.url.origin).toString();
+const canonicalURL = new URL(Astro.url.pathname, origin).toString();
+const orgId = `${origin}#organization`;
+
+const areaServed = business.area.map((name) => ({ "@type": "City", name }));
+
+// Page-level JSON-LD: géén dubbele/risicovolle LocalBusiness markup.
+// Wel: WebPage + Service + Breadcrumb + FAQ (FAQ rich results zijn tegenwoordig beperkt; markup kan alsnog helpen voor context.)
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: origin },
+      { "@type": "ListItem", position: 2, name: "Webdesign Wageningen", item: canonicalURL },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalURL}#webpage`,
+    url: canonicalURL,
+    name: page.h1,
+    description: page.description,
+    inLanguage: "nl-NL",
+    about: { "@id": orgId },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${canonicalURL}#service`,
+    name: "Webdesign in Wageningen",
+    serviceType: ["Webdesign", "Webdevelopment", "SEO"],
+    provider: { "@id": orgId },
+    areaServed,
+    url: canonicalURL,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a,
+      },
+    })),
+  },
+];
 ---
 
-<BaseLayout
-  title="Website laten maken in Wageningen | Webdesign bureau - TwinPixel"
-  description="Website laten maken in Wageningen? TwinPixel ontwerpt en bouwt professionele websites die vertrouwen wekken, snel laden en zorgen voor meer aanvragen."
->
+<BaseLayout title={page.title} description={page.description}>
   <main>
     <!-- HERO -->
     <section class="section hero-simple" aria-label="Webdesign Wageningen">
       <div class="container">
         <p class="kicker">Webdesign in Wageningen</p>
 
-        <h1 class="h1">Website laten maken in Wageningen</h1>
+        <h1 class="h1">{page.h1}</h1>
 
         <p class="lead">
           Op zoek naar een professionele website voor je bedrijf in Wageningen?
-          TwinPixel ontwerpt en bouwt websites die vertrouwen wekken, snel laden en
-          gericht zijn op meer aanvragen.
+          <strong> {business.name}</strong> ontwerpt en bouwt websites die vertrouwen wekken, snel laden
+          en gericht zijn op meer aanvragen, voor ondernemers in Wageningen en de regio.
         </p>
 
         <div class="cta">
@@ -59,8 +155,8 @@ const business = {
         <h2 class="h2">Webdesign bureau in Wageningen</h2>
 
         <p class="lead small">
-          TwinPixel is een webdesign bureau voor bedrijven in Wageningen en omgeving.
-          Wij ontwerpen en bouwen websites die professioneel aanvoelen en praktisch werken.
+          {business.name} is een webdesign bureau voor bedrijven in Wageningen en omgeving.
+          Wij bouwen websites die professioneel aanvoelen, praktisch werken en klaar zijn om conversie te pakken.
         </p>
 
         <p class="text">
@@ -69,14 +165,63 @@ const business = {
           zonder accountlagen of ruis.
         </p>
 
+        <p class="text">
+          <a class="inline-link" href="/contact">Contact opnemen</a> werkt het snelst. Liever eerst wat context?
+          <a class="inline-link" href="/over-ons">Lees wie we zijn</a>.
+        </p>
+
         <div class="chips" aria-label="Regio">
           {business.area.map((c) => <span class="chip">{c}</span>)}
         </div>
       </div>
     </section>
 
+    <!-- LOCAL SEO -->
+    <section class="section" aria-label="Lokale SEO Wageningen" id="lokale-seo">
+      <div class="container">
+        <h2 class="h2">Lokale SEO in Wageningen</h2>
+
+        <p class="lead small">
+          Een mooie site is leuk, maar je wil vooral: <strong>gevonden worden door mensen uit Wageningen</strong>.
+          Daarom bouwen we niet alleen “een design”, maar een pagina-structuur die zoekmachines snappen
+          en bezoekers logisch naar contact stuurt.
+        </p>
+
+        <div class="pillars pillars-3" aria-label="Lokale SEO onderdelen">
+          <div class="pill">
+            <h3 class="pill-title">Zoekwoorden &amp; structuur</h3>
+            <p class="pill-text">
+              We koppelen lokale zoekintentie aan je pagina’s (diensten, cases, FAQ) en zorgen dat je site
+              één helder verhaal vertelt.
+            </p>
+          </div>
+
+          <div class="pill">
+            <h3 class="pill-title">Techniek die Google snapt</h3>
+            <p class="pill-text">
+              Snelle laadtijden, nette headings, indexeerbaarheid en een basis die klaar is voor groei.
+              Geen “SEO trucjes”, gewoon goed gebouwd.
+            </p>
+          </div>
+
+          <div class="pill">
+            <h3 class="pill-title">Google Maps &amp; vertrouwen</h3>
+            <p class="pill-text">
+              We helpen met lokale signalen: duidelijke contactinfo, link naar Google Maps en content die laat zien
+              dat je echt in/voor de regio werkt.
+            </p>
+          </div>
+        </div>
+
+        <p class="text">
+          Tip: als je ook actief bent in meerdere plaatsen, maak dan pagina’s die echt verschillen in inhoud
+          (geen knip-plak met alleen de plaatsnaam). Dat is beter voor bezoekers én SEO.
+        </p>
+      </div>
+    </section>
+
     <!-- WHAT YOU GET -->
-    <section class="section" aria-label="Diensten">
+    <section class="section" aria-label="Diensten" id="diensten">
       <div class="container">
         <h2 class="h2">Wat we doen</h2>
         <p class="lead small">
@@ -101,7 +246,7 @@ const business = {
           <div class="pill">
             <h3 class="pill-title">Technische basis &amp; SEO</h3>
             <p class="pill-text">
-              Snelle laadtijden, goede indexeerbaarheid en een basis die zoekmachines snappen — zonder onzin.
+              Snelle laadtijden, goede indexeerbaarheid en een basis die zoekmachines snappen, zonder onzin.
             </p>
           </div>
 
@@ -116,7 +261,7 @@ const business = {
     </section>
 
     <!-- PROCESS -->
-    <section class="section" aria-label="Werkwijze">
+    <section class="section" aria-label="Werkwijze" id="werkwijze">
       <div class="container">
         <h2 class="h2">Zo pakken we het aan</h2>
 
@@ -157,7 +302,7 @@ const business = {
     </section>
 
     <!-- CASES -->
-    <section class="section" aria-label="Cases">
+    <section class="section" aria-label="Cases" id="cases">
       <div class="container">
         <div class="section-head">
           <h2 class="h2">Voorbeelden van werk</h2>
@@ -169,54 +314,28 @@ const business = {
       <CasesPreview />
     </section>
 
-    <!-- REVIEWS (lightweight, not marquee) -->
-    <section class="section reviews" aria-label="Reviews">
+    <!-- REVIEWS -->
+    <section class="section reviews" aria-label="Reviews" id="reviews">
       <div class="container">
         <div class="section-head center">
           <p class="kicker">Reviews</p>
           <h2 class="h2">Wat klanten zeggen</h2>
-          <p class="lead small">Reviews uit onze Google Business Profile.</p>
+          <p class="lead small">Geselecteerde reviews. Bekijk alles op Google Maps.</p>
         </div>
 
         <div class="reviews-grid" aria-label="Klantreviews">
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              “Prachtige website opgeleverd binnen een week. Snel, gebruiksvriendelijk en ziet er fantastisch uit.”
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Harvey Meurs</div>
-              <div class="author-company">Wetvanstaal</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              “Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!”
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Otto Vleeming</div>
-              <div class="author-company">Stadspartij Wageningen</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              “Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.”
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Julian van Beek</div>
-              <div class="author-company">Rocket Agency</div>
-            </div>
-          </a>
+          {reviews.map((r) => (
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">“{r.text}”</blockquote>
+              <div class="review-author">
+                <div class="author-name">{r.author}</div>
+                <div class="author-company">{r.company}</div>
+              </div>
+            </a>
+          ))}
         </div>
 
         <p class="reviews-note">
@@ -226,7 +345,7 @@ const business = {
     </section>
 
     <!-- FAQ -->
-    <section class="section faq" aria-label="FAQ">
+    <section class="section faq" aria-label="FAQ" id="faq">
       <div class="container">
         <h2 class="h2">Veelgestelde vragen</h2>
         <p class="lead small">
@@ -234,35 +353,12 @@ const business = {
         </p>
 
         <div class="faq-wrap">
-          <details class="faq-item">
-            <summary>Wat kost een website laten maken in Wageningen?</summary>
-            <p>
-              Dat hangt af van omvang en wensen. We werken met heldere richtprijzen en maken altijd een voorstel op maat.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Hoe lang duurt het bouwen van een website?</summary>
-            <p>
-              Meestal 3 tot 5 weken. De snelheid hangt vooral af van feedbackrondes en content (tekst/beelden).
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Kunnen jullie ook helpen met vindbaarheid (SEO)?</summary>
-            <p>
-              Ja. We zorgen voor een sterke technische basis (structuur, headings, indexeerbaarheid, performance)
-              en kunnen helpen met content die beter scoort op lokale zoekwoorden.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Werken jullie alleen in Wageningen?</summary>
-            <p>
-              Nee, maar deze pagina is gericht op Wageningen en omgeving. We werken ook voor bedrijven in de regio
-              en elders in Nederland.
-            </p>
-          </details>
+          {faqs.map((f) => (
+            <details class="faq-item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
@@ -277,6 +373,13 @@ const business = {
             <p class="lead small">
               Plan een vrijblijvende kennismaking. Dan kijken we samen wat je nodig hebt en wat het ongeveer kost.
             </p>
+
+            <p class="text contact-mini">
+              <strong>{business.name}</strong> · {business.addressLocality}, {business.addressCountry}<br />
+              <a class="inline-link" href={`mailto:${business.email}`}>{business.email}</a>
+              <span class="sep-dot">·</span>
+              <a class="inline-link" href={`tel:${business.phone.replaceAll(" ", "")}`}>{business.phone}</a>
+            </p>
           </div>
 
           <div class="cta-actions">
@@ -290,24 +393,8 @@ const business = {
     </section>
   </main>
 
-  <!-- LocalBusiness JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": business.name,
-    "url": business.url,
-    "areaServed": business.area,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": business.street,
-      "postalCode": business.postalCode,
-      "addressLocality": business.addressLocality,
-      "addressRegion": business.addressRegion,
-      "addressCountry": business.addressCountry
-    },
-    ...(business.telephone ? { "telephone": business.telephone } : {}),
-    "sameAs": [mapsUrl]
-  })} />
+  <!-- Page-level structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <style>
     /* Basic layout helpers (keep consistent with your design system) */
@@ -342,20 +429,30 @@ const business = {
       color: rgba(255,255,255,.74);
       line-height: 1.75;
       font-size: 18px;
-      max-width: 70ch;
+      max-width: 72ch;
     }
     .lead.small{
       font-size: 16px;
       margin-top: 10px;
-      max-width: 78ch;
+      max-width: 80ch;
     }
 
     .text{
       margin: 14px 0 0;
       color: rgba(255,255,255,.68);
       line-height: 1.8;
-      max-width: 78ch;
+      max-width: 80ch;
     }
+
+    .inline-link{
+      color: rgba(47,137,255,.95);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(47,137,255,.35);
+    }
+    .inline-link:hover{
+      border-bottom-color: rgba(47,137,255,.9);
+    }
+    .sep-dot{ opacity: .5; margin: 0 8px; }
 
     /* Hero */
     .hero-simple{ padding-top: 130px; }
@@ -387,6 +484,9 @@ const business = {
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
+    }
+    .pillars.pillars-3{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .pill{
       border: 1px solid rgba(255,255,255,.12);
@@ -509,9 +609,11 @@ const business = {
     .cta-actions{ display:flex; flex-direction: column; gap: 10px; align-items: flex-start; }
     .cta-link{ color: rgba(255,255,255,.72); text-decoration: none; }
     .cta-link:hover{ color: rgba(255,255,255,.9); }
+    .contact-mini{ max-width: 55ch; }
 
     @media (max-width: 900px){
       .pillars{ grid-template-columns: 1fr; }
+      .pillars.pillars-3{ grid-template-columns: 1fr; }
       .steps{ grid-template-columns: 1fr; }
       .reviews-grid{ grid-template-columns: 1fr; }
       .hero-simple{ padding-top: 110px; }
