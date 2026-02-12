@@ -2,6 +2,8 @@ export type ExpertiseItem = {
   slug: string;
   accent: string;
   chipClass: "purple" | "blue" | "cyan";
+
+  // content
   title: string;
   intro: string;
 
@@ -9,51 +11,81 @@ export type ExpertiseItem = {
   steps: { nr: string; text: string }[];
 
   panel: { label: string; value: string }[];
+
+  // NEW: decision info
+  timeline: string;          // bv "3–5 weken"
+  idealFor: string[];        // herkenning
+  includes: string[];        // wat zit er in
+  notIncluded: string[];     // wat niet (kort, eerlijk)
+
   costs: {
-    price: string;
+    price: string;           // "€1.000"
+    isStartingAt?: boolean;  // default true
     description: string;
     features: string[];
   };
+
+  // optional: CTA per item
+  cta?: { primaryLabel?: string; primaryHref?: string; secondaryLabel?: string; secondaryHref?: string };
 };
 
 export const expertiseItems: ExpertiseItem[] = [
   {
-    slug: "technical-websites",
+    slug: "maatwerk-websites",
     accent: "#22c55e",
     chipClass: "cyan",
-    title: "Technical Websites",
-    intro:
-      "Custom integraties, complexe flows en webapp-achtige ervaringen, strak gebouwd en onderhoudbaar.",
-      
+    title: "Maatwerk Websites",
+    intro: "Koppelingen, portalen en complexe flows. Gebouwd zodat het simpel voelt voor de gebruiker en onderhoudbaar blijft.",
+
     whatYouGet: [
-      "Integraties (CRM, forms, analytics, automatisering)",
-      "Custom UX flows (filters, portals, dashboards)",
+      "Koppelingen (CRM, formulieren, analytics, automatisering)",
+      "Maatwerk flows (filters, portals, dashboards)",
       "Schaalbare component-architectuur",
     ],
     steps: [
       { nr: "01", text: "Inventarisatie van flows, data en afhankelijkheden" },
       { nr: "02", text: "UX voor complexiteit: simpel aanvoelen voor de gebruiker" },
-      { nr: "03", text: "Build met onderhoudbare componenten + tests/checks" },
+      { nr: "03", text: "Build met onderhoudbare componenten + QA checks" },
     ],
     panel: [
       { label: "Gebruikscases", value: "SaaS • platforms • portals" },
       { label: "Resultaat", value: "Schaalbaar zonder rommel" },
-      { label: "Wanneer", value: "als je meer nodig hebt dan \"alleen pagina's\"" },
+      { label: "Wanneer", value: "als je meer nodig hebt dan een standaard marketing site" },
     ],
-        costs: {
-      price: "€2.500",
-      description: "Voor complexe projecten waarbij techniek en data centraal staan.",
-      features: ["Custom API integraties", "Dashboarding & Portals", "Uitgebreide QA & Testing"]
-    }
 
+    timeline: "4–8 weken (afhankelijk van scope)",
+    idealFor: ["Portalen en dashboards", "Koppelingen met bestaande systemen", "Webapp-achtige flows"],
+    includes: [
+      "Flow + datainventarisatie",
+      "Wireframes voor kritieke schermen",
+      "Build + integraties + foutafhandeling",
+      "Performance & accessibility checks",
+      "Korte overdracht (beheer/updates)",
+    ],
+    notIncluded: [
+      "Copywriting (volledig traject)",
+      "Fotografie/video",
+      "Doorlopende support/onderhoud (kan wél)",
+      "Licenties van externe tools",
+    ],
+
+    costs: {
+      price: "€2.500",
+      isStartingAt: true,
+      description: "Voor projecten waar techniek en data leidend zijn.",
+      features: ["Custom API integraties", "Portals & dashboards", "Uitgebreide QA / testing"],
+    },
+
+    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
   },
+
   {
-    slug: "standard-websites",
+    slug: "websites",
     accent: "#2F89FF",
     chipClass: "blue",
-    title: "Standard Websites",
-    intro:
-      "Strakke marketing sites en landingspagina's die snel laden, logisch lezen en gericht zijn op leads.",
+    title: "Websites",
+    intro: "Marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op aanvragen.",
+
     whatYouGet: [
       "Homepage + diensten + contact (heldere flow)",
       "SEO basis: titles, headings, interne links",
@@ -69,38 +101,77 @@ export const expertiseItems: ExpertiseItem[] = [
       { label: "Focus", value: "Design • snelheid • conversie" },
       { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
     ],
+
+    timeline: "3–5 weken (content bepaalt tempo)",
+    idealFor: ["Nieuwe website", "Herbouw van rommelige site", "Landingspagina’s voor campagnes"],
+    includes: [
+      "Structuur + wireframe op hoofdlijnen",
+      "Design (1–2 iteraties per pagina)",
+      "Build (Astro) + basis SEO",
+      "Formulier + leadflow (incl. dankpagina)",
+      "Performance check (Core Web Vitals)",
+    ],
+    notIncluded: [
+      "Grote copy-trajecten (kan via copywriter)",
+      "Fotografie/video",
+      "Hosting/onderhoud (los of abonnement)",
+    ],
+
     costs: {
       price: "€1.000",
-      description: "Een complete, snelle website die klaar is om te converteren.",
-      features: ["Astro Performance Build", "SEO Optimalisatie", "Lead-capture formulieren"]
-    }
+      isStartingAt: true,
+      description: "Complete, snelle site die klaar is om te converteren.",
+      features: ["Astro performance build", "SEO basis", "Lead-capture formulieren"],
+    },
+
+    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
   },
+
   {
     slug: "branding",
     accent: "#7c3aed",
     chipClass: "purple",
     title: "Branding",
-    intro:
-      "Een identiteit die overal consistent is: logo, typografie, kleuren, componenten en tone of voice. Zodat je merk direct professioneel voelt.",
+    intro: "Een consistente basis: logo polish, typografie, kleuren en componenten. Zodat je merk direct professioneel voelt.",
+
     whatYouGet: [
       "Brand direction + look & feel",
-      "Design system (buttons, spacing, componenten)",
-      "Templates voor pagina's en content",
+      "Mini design system (buttons, spacing, componenten)",
+      "Templates voor pagina’s en content",
     ],
     steps: [
       { nr: "01", text: "Analyse van doel, doelgroep en context" },
-      { nr: "02", text: "Ontwerp & structuur met focus op helderheid" },
-      { nr: "03", text: "Uitwerking en iteratie op details" },
+      { nr: "02", text: "Richtingen uitwerken (2–3 routes) en kiezen" },
+      { nr: "03", text: "Uitwerking + styleguide + assets opleveren" },
     ],
     panel: [
       { label: "Deliverables", value: "Brand kit • UI kit • Styleguide" },
       { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
-      { label: "Wanneer", value: "als je merk \"net niet\" voelt of inconsistent is" },
+      { label: "Wanneer", value: "als je merk net niet klopt of inconsistent is" },
     ],
-     costs: {
+
+    timeline: "2–4 weken",
+    idealFor: ["Nieuwe identiteit", "Logo/stijl opschonen", "Consistentie over kanalen"],
+    includes: [
+      "Kleuren + typografie + usage rules",
+      "Logo (polish of light refresh) + exports",
+      "UI kit (basis componenten)",
+      "Mini styleguide (PDF of Notion)",
+      "2–3 templates (bv. hero/sectie/CTA)",
+    ],
+    notIncluded: [
+      "Volledige rebrand met uitgebreid traject",
+      "Illustraties op maat (veel)",
+      "Printwerk/drukwerkbegeleiding",
+    ],
+
+    costs: {
       price: "€500",
-      description: "De visuele fundering voor je bedrijf of product.",
-      features: ["Logo & Visual Identity", "UI Kit / Design System", "Brand Styleguide"]
-    }
+      isStartingAt: true,
+      description: "De visuele fundering om consistent door te trekken in web en content.",
+      features: ["Brand basics", "UI kit", "Mini styleguide + assets"],
+    },
+
+    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
   },
 ];
