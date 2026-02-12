@@ -2,508 +2,599 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 
-const title = "Over Ons";
-const description = "Wij zijn twee HBO-ICT studenten met focus op technische websites.";
-const teamImage = "/images/team-sparring.jpg"; // plaats je foto hier
+const title = "Over ons | TwinPixel - technisch webbureau uit Wageningen";
+const description =
+  "TwinPixel is een technisch webbureau uit Wageningen. We bouwen snelle, onderhoudbare websites en webapps met focus op performance, structuur en SEO.";
+
+const heroImageSrc = "/zelfverzekerd.webp";
+const heroImageAlt = "Twan en Emma van TwinPixel in Wageningen";
+
+const siteUrl = "https://twinpixel.nl";
 ---
 
 <BaseLayout title={title} description={description}>
+  <!-- Verwijzing naar hoofd-entity uit BaseLayout -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      mainEntity: {
+        "@id": `${siteUrl}#organization`,
+      },
+    })}
+  ></script>
+
   <main class="page">
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- HERO -->
+    <header class="hero-section">
       <div class="hero-content">
         <div class="hero-text">
-          <p class="kicker">Wie Wij Zijn</p>
-          <h1 class="hero-title">Samen bouwen aan duidelijke, snelle websites</h1>
+          <p class="kicker">Over TwinPixel</p>
+
+          <h1 class="hero-title">Technisch webbureau uit Wageningen</h1>
+
           <p class="hero-description">
-            Twee HBO-ICT studenten met een focus op techniek. We combineren design, performance
-            en onderhoudbaarheid zodat je site er strak uitziet én snel blijft.
+            Wij bouwen websites en webapps die snel laden, logisch zijn opgebouwd en makkelijk te onderhouden blijven.
+            Je werkt direct met ons, geen accountmanager ertussen. Vaak voor mkb en organisaties die een nieuwe site nodig hebben,
+            of een bestaande website technisch strak willen trekken.
+          </p>
+
+          <div class="hero-bullets" aria-label="Kernpunten">
+            <div class="bullet"><span class="dot" aria-hidden="true"></span> Core Web Vitals & performance als basis</div>
+            <div class="bullet"><span class="dot" aria-hidden="true"></span> Structuur, UX en duidelijke flows</div>
+            <div class="bullet"><span class="dot" aria-hidden="true"></span> Technische SEO: titles, schema en indexatie</div>
+          </div>
+        </div>
+
+        <figure class="hero-image">
+          <img
+            src={heroImageSrc}
+            alt={heroImageAlt}
+            width="1200"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption class="image-caption">
+            Wij combineren strategie, design en techniek tot websites die werken.
+          </figcaption>
+        </figure>
+      </div>
+    </header>
+
+ <!-- WIE WIJ ZIJN -->
+<section class="about-section" aria-label="Wie wij zijn">
+  <div class="about-grid">
+
+    <!-- LINKER KOLOM -->
+    <div class="about-text">
+      <p>
+        TwinPixel is een technisch webbureau uit Wageningen. We werken voor mkb en organisaties
+        die een website willen die niet alleen “mooi is”, maar ook snel, logisch en onderhoudbaar blijft.
+      </p>
+
+      <p>
+        We ontwerpen én bouwen zelf. Daardoor zijn keuzes sneller gemaakt, blijft de scope scherp
+        en leveren we iets op waar je later niet opnieuw aan hoeft te sleutelen.
+      </p>
+
+      <p class="subtle">
+        We zitten in Wageningen (Foodvalley), maar werken net zo makkelijk remote.
+        Als het eindresultaat maar klopt.
+      </p>
+
+      <p class="links">
+        <a href="/webdesign-wageningen">Webdesign Wageningen</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/expertise">Expertise</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/cases">Cases</a>
+      </p>
+    </div>
+
+    <!-- RECHTER KOLOM -->
+    <div class="team-mini" aria-label="Team">
+      <article class="team-person">
+        <img class="team-avatar" src="/twan.webp" alt="Twan van TwinPixel" width="100" height="100" loading="lazy" />
+        <div class="team-meta">
+          <h2 class="team-name">Twan</h2>
+          <p class="team-role">Techniek, performance & integraties</p>
+          <p class="team-note">
+            Snelheid, structuur en onderhoudbaarheid. Alles wat je later geld bespaart.
           </p>
         </div>
+      </article>
 
-        <div class="hero-image">
-          <img src="/zelfverzekerd.webp" alt="Twee teamleden van TwinPixel" loading="lazy" />
-          <p class="image-caption">Wij combineren strategie, design en techniek tot websites die werken.</p>
+      <article class="team-person">
+        <img class="team-avatar" src="/emma.webp" alt="Emma van TwinPixel" width="100" height="100" loading="lazy" />
+        <div class="team-meta">
+          <h2 class="team-name">Emma</h2>
+          <p class="team-role">Design, UX & contentstructuur</p>
+          <p class="team-note">
+            Heldere flows en een strak ontwerp dat je doelgroep snapt.
+          </p>
         </div>
-      </div>
-    </section>
+      </article>
+    </div>
 
-    <!-- About Content -->
-    <section class="about-section">
-      <div class="about-content">
-        <p>
-          Wij zijn twee HBO-ICT studenten en bouwen naast onze studie websites
-          voor ondernemers en organisaties. We focussen ons op techniek:
-          snelheid, structuur en onderhoudbaarheid.
-        </p>
+  </div>
+</section>
 
-        <p>
-          Geen templates en geen marketingbureau-praat. Je werkt direct
-          met de mensen die je website ontwerpen en bouwen. Dat houdt het
-          overzichtelijk en efficiënt.
-        </p>
 
-        <p>
-          We zijn gevestigd in Wageningen en werken vooral met klanten
-          die iets degelijks willen neerzetten, nu en op de lange termijn.
-        </p>
-      </div>
-    </section>
 
-    <!-- Values & Process -->
-    <section class="values-section">
+    <!-- WERKWIJZE -->
+    <section class="values-section" aria-label="Werkwijze">
       <div class="values-grid">
         <div class="value-card">
-          <h2 class="value-title">Waar We In Geloven</h2>
+          <h2 class="value-title">Waar we op letten</h2>
           <ul class="value-list">
-            <li><strong>Helder design:</strong> elke pagina krijgt een duidelijke hiërarchie en CTA.</li>
-            <li><strong>Performance-first:</strong> Astro, geoptimaliseerde assets en focus op Core Web Vitals.</li>
-            <li><strong>Onderhoudbaar:</strong> component-gedreven UI zodat uitbreiden geen breekwerk wordt.</li>
-            <li><strong>Transparant samenwerken:</strong> korte lijntjes, vaste contactpersonen, duidelijke planning.</li>
+            <li><strong>Helder ontwerp:</strong> één duidelijke hoofdactie per pagina.</li>
+            <li><strong>Snelheid:</strong> geoptimaliseerde assets en minimale overhead.</li>
+            <li><strong>Onderhoudbaar:</strong> uitbreiden zonder breekwerk.</li>
+            <li><strong>Duidelijkheid:</strong> vaste contactpersonen en korte lijnen.</li>
           </ul>
         </div>
 
         <div class="value-card">
-          <h2 class="value-title">Hoe We Werken</h2>
+          <h2 class="value-title">Hoe we werken</h2>
           <ol class="process-list">
-            <li><span class="step-number">01</span> <strong>Inventarisatie:</strong> doelen, doelgroep, content en bestaande techniek.</li>
-            <li><span class="step-number">02</span> <strong>Structuur & UX:</strong> flow, wireframes en contentindeling zodat keuzes helder zijn.</li>
-            <li><span class="step-number">03</span> <strong>Design:</strong> look & feel, componenten en states uitgewerkt voor desktop en mobiel.</li>
-            <li><span class="step-number">04</span> <strong>Build & checks:</strong> snelle build, SEO-basics, performance- en accessibility checks.</li>
+            <li><span class="step-number">01</span> Inventarisatie</li>
+            <li><span class="step-number">02</span> Structuur & UX</li>
+            <li><span class="step-number">03</span> Design</li>
+            <li><span class="step-number">04</span> Build & performance checks</li>
           </ol>
         </div>
       </div>
     </section>
 
-    <!-- Info Cards -->
-    <section class="info-section">
-      <div class="info-grid">
-        <div class="info-card">
-          <h3>Klanttypes</h3>
-          <p>
-            B2B-services, agencies, SaaS/portals en mkb die een professionele, snelle site nodig hebben
-            of complexe flows willen vereenvoudigen.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Wat Klanten Waarderen</h3>
-          <p>
-            Heldere communicatie, snelle iteraties, meedenken over content/SEO en een oplevering die echt
-            snel laadt.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Tooling</h3>
-          <p>
-            Astro, Tailwind/vanilla CSS, Figma, Netlify/Vercel, integraties met CRM/analytics en automatisering
-            waar het zinvol is.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Call to action">
       <div class="cta-content">
         <p class="cta-kicker">Samenwerken?</p>
         <h2 class="cta-title">Stuur je idee en we maken een concreet plan</h2>
         <p class="cta-description">
-          Zet je doel, scope en gewenste opleverdatum erbij. We reageren snel met voorstel, planning en
-          wat we meenemen qua design, performance en SEO.
+          Deel je doel, planning en context. Dan reageren we met een voorstel en een heldere aanpak.
         </p>
+
         <div class="cta-actions">
-          <Button href="/contact" variant="primary" label="Plan Kennismaking" />
-          <a class="cta-link" href="/cases">Bekijk Cases</a>
+          <Button href="/contact" variant="primary" label="Plan kennismaking" />
+          <a class="cta-link" href="/cases">Bekijk cases</a>
         </div>
       </div>
     </section>
   </main>
 
   <style>
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem 6rem;
-      display: grid;
-      gap: 4rem;
-    }
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+  display: grid;
+  gap: 4rem;
+}
 
-    /* Hero Section */
-    .hero-section {
-      padding: 2rem 0;
-    }
+/* Hero */
+.hero-section {
+  padding: 2rem 0;
+}
 
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 4rem;
+  align-items: start; /* belangrijk: matcht beter met about */
+}
 
-    .hero-text {
-      display: grid;
-      gap: 1.5rem;
-    }
+.hero-text {
+  display: grid;
+  gap: 1.25rem;
+}
 
-    .kicker {
-      text-transform: uppercase;
-      font-size: 0.875rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.7);
-      font-weight: 500;
-      margin: 0;
-    }
+.kicker {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  margin: 0;
+}
 
-    .hero-title {
-      font-size: clamp(2.5rem, 4vw, 3.5rem);
-      line-height: 1.1;
-      font-weight: 700;
-      color: #fff;
-      margin: 0;
-      letter-spacing: -0.02em;
-    }
+.hero-title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
 
-    .hero-description {
-      font-size: 1.125rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.9);
-      margin: 0;
-      max-width: 60ch;
-    }
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  max-width: 62ch;
+}
 
-    .hero-image {
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-    }
+.hero-bullets {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 62ch;
+}
 
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 4/3;
-    }
+.bullet {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  font-size: 0.98rem;
+}
 
-    .image-caption {
-      margin: 0;
-      padding: 1rem 1.25rem;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.5;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2f89ff;
+  box-shadow: 0 0 0 3px rgba(47, 137, 255, 0.18);
+  flex: 0 0 auto;
+}
 
-    /* About Section */
-    .about-section {
-      padding: 2rem 0;
-    }
+.hero-image {
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
 
-    .about-content {
-      max-width: 70ch;
-      display: grid;
-      gap: 1.5rem;
-    }
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
 
-    .about-content p {
-      margin: 0;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.85);
-    }
+.image-caption {
+  margin: 0;
+  padding: 0.95rem 1.2rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.15);
+}
 
-    /* Values Section */
-    .values-section {
-      padding: 2rem 0;
-    }
+/* Shared */
+.subtle {
+  color: rgba(255, 255, 255, 0.75);
+}
 
-    .values-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
+.links a {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
 
-    .value-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-    }
+.links a:hover {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.55);
+}
 
-    .value-card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.12);
-      transform: translateY(-2px);
-    }
+/* About: exact dezelfde middenlijn als hero */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr; /* exact match met hero */
+  gap: 4rem;
+  align-items: start;
+}
 
-    .value-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #fff;
-      margin: 0 0 1.5rem 0;
-      letter-spacing: -0.01em;
-    }
+/* Jij gebruikt .about-text in je HTML */
+.about-text {
+  max-width: 65ch;
+  display: grid;
+  gap: 1.25rem;
+}
 
-    .value-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 1rem;
-    }
+.about-text p {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.86);
+}
 
-    .value-list li {
-      color: rgba(255,255,255,0.8);
-      line-height: 1.6;
-      padding-left: 1.5rem;
-      position: relative;
-    }
+/* Team mini: rechts in lijn met andere cards */
+.team-mini {
+  justify-self: end;
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
 
-    .value-list li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: #2F89FF;
-      font-weight: bold;
-    }
+.team-person {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
 
-    .process-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 1.25rem;
-    }
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
 
-    .process-list li {
-      color: rgba(255,255,255,0.8);
-      line-height: 1.6;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
+.team-meta {
+  display: grid;
+  gap: 0.35rem;
+}
 
-    .step-number {
-      background: linear-gradient(135deg, #2F89FF, rgba(47,137,255,0.8));
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.25rem 0.5rem;
-      border-radius: 12px;
-      min-width: 24px;
-      text-align: center;
-      flex-shrink: 0;
-      margin-top: 0.125rem;
-    }
+.team-name {
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
 
-    /* Info Section */
-    .info-section {
-      padding: 2rem 0;
-    }
+.team-role {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 1rem;
+}
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+.team-note {
+  margin: 0.25rem 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
 
-    .info-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-    }
+/* Values */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
 
-    .info-card:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.1);
-    }
+.value-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
 
-    .info-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin: 0 0 1rem 0;
-      letter-spacing: -0.01em;
-    }
+.value-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
 
-    .info-card p {
-      margin: 0;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.6;
-    }
+.value-title {
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: #fff;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
 
-    /* CTA Section */
-    .cta-section {
-      padding: 3rem 0;
-      margin-top: 2rem;
-    }
+.value-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.95rem;
+}
 
-    .cta-content {
-      background: linear-gradient(135deg, rgba(47,137,255,0.1), rgba(47,137,255,0.05));
-      border: 1px solid rgba(47,137,255,0.2);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+.value-list li {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  padding-left: 1.5rem;
+  position: relative;
+}
 
-    .cta-kicker {
-      text-transform: uppercase;
-      font-size: 0.875rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.7);
-      font-weight: 500;
-      margin: 0 0 1rem 0;
-    }
+.value-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #2f89ff;
+  font-weight: 800;
+}
 
-    .cta-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #fff;
-      margin: 0 0 1.5rem 0;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-    }
+.process-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.05rem;
+}
 
-    .cta-description {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.85);
-      margin: 0 0 2rem 0;
-      line-height: 1.6;
-      max-width: 50ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.process-list li {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
 
-    .cta-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.step-number {
+  background: linear-gradient(135deg, #2f89ff, rgba(47, 137, 255, 0.8));
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  min-width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
 
-    .cta-link {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.875rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      color: rgba(255,255,255,0.9);
-      transition: all 0.3s ease;
-    }
+/* CTA */
+.cta-section {
+  margin-top: 0.5rem;
+}
 
-    .cta-link:hover {
-      border-color: rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-    }
+.cta-content {
+  background: linear-gradient(135deg, rgba(47, 137, 255, 0.1), rgba(47, 137, 255, 0.05));
+  border: 1px solid rgba(47, 137, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
 
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .page {
-        gap: 3rem;
-        padding: 3rem 1.5rem 4rem;
-      }
+.cta-kicker {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}
 
-      .hero-content {
-        gap: 3rem;
-      }
+.cta-title {
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
 
-      .values-grid {
-        gap: 1.5rem;
-      }
-    }
+.cta-description {
+  font-size: 1.08rem;
+  color: rgba(255, 255, 255, 0.86);
+  margin: 0 0 2rem 0;
+  line-height: 1.65;
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-    @media (max-width: 768px) {
-      .page {
-        gap: 2.5rem;
-        padding: 2.5rem 1rem 3rem;
-      }
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: center;
-      }
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
 
-      .hero-title {
-        font-size: 2.5rem;
-      }
+.cta-link:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
 
-      .hero-description {
-        font-size: 1rem;
-      }
+/* Responsive */
+@media (max-width: 1024px) {
+  .page {
+    gap: 3rem;
+    padding: 3rem 1.5rem 4.5rem;
+  }
 
-      .values-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 
-      .value-card {
-        padding: 1.5rem;
-      }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
+  .team-mini {
+    justify-self: start;
+    max-width: 720px;
+  }
 
-      .info-card {
-        padding: 1.5rem;
-      }
+  .about-text {
+    max-width: 72ch;
+  }
+}
 
-      .cta-content {
-        padding: 2rem 1.5rem;
-      }
+@media (max-width: 768px) {
+  .page {
+    gap: 2.5rem;
+    padding: 2.5rem 1rem 3.25rem;
+  }
 
-      .cta-title {
-        font-size: 1.5rem;
-      }
+  .hero-content {
+    text-align: center;
+  }
 
-      .cta-description {
-        font-size: 1rem;
-      }
-    }
+  .hero-description,
+  .hero-bullets {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    @media (max-width: 480px) {
-      .page {
-        padding: 2rem 1rem 2.5rem;
-        gap: 2rem;
-      }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .hero-section,
-      .about-section,
-      .values-section,
-      .info-section {
-        padding: 1rem 0;
-      }
+  .team-mini {
+    grid-template-columns: 1fr;
+  }
 
-      .hero-title {
-        font-size: 2rem;
-      }
+  .value-card {
+    padding: 1.5rem;
+  }
 
-      .value-card,
-      .info-card {
-        padding: 1.25rem;
-      }
+  .cta-content {
+    padding: 2rem 1.5rem;
+  }
 
-      .cta-content {
-        padding: 1.5rem 1rem;
-      }
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-      .cta-actions {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+@media (max-width: 480px) {
+  .page {
+    padding: 2rem 1rem 2.75rem;
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .cta-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
   </style>
 </BaseLayout>
