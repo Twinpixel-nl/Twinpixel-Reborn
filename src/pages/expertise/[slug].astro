@@ -113,7 +113,10 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
             <h2 class="sub">Investering</h2>
             <div class="cost-card">
               <div class="cost-content">
-                <p class="cost-price">Vanaf <span class="amount" style={`color: var(--accent)`}>{item.costs.price}</span></p>
+                <p class="cost-price">
+  {item.costs.isStartingAt !== false ? "Vanaf " : ""}
+  <span class="amount" style={`color: var(--accent)`}>{item.costs.price}</span>
+</p>
                 <p class="cost-desc">{item.costs.description}</p>
               </div>
               <ul class="cost-features">
@@ -127,6 +130,39 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
             </div>
           </div>
         </div>
+<div class="block">
+  <h2 class="sub">Praktisch</h2>
+
+  <div class="practical">
+    <div class="practical-card highlight">
+      <p class="practical-title">Doorlooptijd</p>
+      <p class="practical-text">{item.timeline}</p>
+    </div>
+
+    <div class="practical-card">
+      <p class="practical-title">Ideaal voor</p>
+      <ul class="practical-list">
+        {item.idealFor.map((x) => <li>{x}</li>)}
+      </ul>
+    </div>
+
+    <div class="practical-card">
+      <p class="practical-title">Inbegrepen</p>
+      <ul class="practical-list">
+        {item.includes.map((x) => <li>{x}</li>)}
+      </ul>
+    </div>
+
+    <div class="practical-card">
+      <p class="practical-title">Niet inbegrepen</p>
+      <ul class="practical-list">
+        {item.notIncluded.map((x) => <li>{x}</li>)}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 
         {currentExtras.examples.length > 0 && (
           <div class="examples">
@@ -292,6 +328,119 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
       position: relative;
       z-index: 1;
     }
+.practical{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.practical-card{
+  position: relative;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.035),
+    rgba(255,255,255,.015)
+  );
+  padding: 20px 20px 18px;
+  transition: border-color .18s ease, transform .18s ease, background .18s ease;
+}
+
+.practical-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  border-radius: 3px 0 0 3px;
+  background: var(--accent);
+  opacity:.85;
+}
+
+.practical-card:hover{
+  border-color: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.02)
+  );
+}
+
+.practical-card.highlight{
+  background: radial-gradient(
+      420px 220px at 0% 0%,
+      color-mix(in srgb, var(--accent) 18%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.015)
+    );
+    
+  border-color: color-mix(in srgb, var(--accent) 22%, rgba(255,255,255,.10));
+}
+
+.practical-card.highlight:hover{
+  border-color: color-mix(in srgb, var(--accent) 30%, rgba(255,255,255,.18));
+}
+
+.practical-title{
+  margin: 0 0 12px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+
+.practical-text{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  color: rgba(255,255,255,.92);
+  line-height: 1.35;
+}
+
+.practical-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.practical-list li{
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,.75);
+  padding-left: 16px;
+  position: relative;
+}
+
+.practical-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:9px;
+  width:6px;
+  height:6px;
+    border-radius: 24px;
+  background: var(--accent);
+  opacity:.9;
+    border-radius: 24px;
+
+}
+
+@media (max-width: 980px){
+  .practical{
+    grid-template-columns: 1fr;
+  }
+}
+
 
     .band-inner::before{
       content:"";
