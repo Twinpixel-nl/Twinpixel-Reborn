@@ -85,39 +85,39 @@ const geo = { latitude: 51.98092707836006, longitude: 5.681296752501538 };
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageAbs} />
+{/* Structured data */}
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": ["ProfessionalService", "WebDesignService"],
+    "@id": `${origin}#organization`,
+    name: "TwinPixel",
+    url: origin,
+    image: ogImageAbs,
+    email: "info@twinpixel.nl",
+    sameAs: [socials.facebook, socials.instagram, socials.linkedin],
+    serviceType: ["Webdesign", "Webdevelopment", "SEO"],
+    areaServed: [
+      { "@type": "City", name: "Wageningen" },
+      { "@type": "City", name: "Ede" },
+      { "@type": "City", name: "Renkum" },
+      { "@type": "City", name: "Bennekom" }
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Wageningen",
+      addressRegion: "Gelderland",
+      addressCountry: "NL"
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: geo.latitude,
+      longitude: geo.longitude
+    }
+  })}
+/></script>
 
-  {/* Structured data */}
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": ["ProfessionalService", "WebDesignService"],
-      "@id": `${origin}#organization`,
-      name: "TwinPixel",
-      url: origin,
-      image: ogImageAbs,
-      email: "info@twinpixel.nl",
-      sameAs: [socials.facebook, socials.instagram, socials.linkedin],
-      serviceType: ["Webdesign", "Webdevelopment", "SEO"],
-      areaServed: [
-        { "@type": "City", name: "Wageningen" },
-        { "@type": "City", name: "Ede" },
-        { "@type": "City", name: "Renkum" },
-        { "@type": "City", name: "Bennekom" }
-      ],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Wageningen",
-        addressRegion: "Gelderland",
-        addressCountry: "NL"
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: geo.latitude,
-        longitude: geo.longitude
-      }
-    })}
-  />
 </head>
 
 
