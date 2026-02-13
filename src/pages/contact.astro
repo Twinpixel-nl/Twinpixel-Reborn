@@ -12,7 +12,7 @@ const company = {
   email: "info@twinpixel.nl",
   phone: "+31 6 82579179",
   instagram: "https://www.instagram.com/twinpixel.nl/",
-  linkedin: "https://www.linkedin.com/company/106384999/admin/dashboard/",
+  linkedin: "https://www.linkedin.com/company/twinpixel",
 };
 ---
 
@@ -88,14 +88,19 @@ const company = {
           <p class="muted">
             Geen gedoe. Gewoon even invullen, dan reageren we snel.
           </p>
+{Astro.url.searchParams.get("success") === "1" && (
+  <p class="success" role="status">TDank voor je bericht. We reageren meestal binnen 1 werkdag.</p>
+)}
 
-          <form
-            class="contact-form"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
+           <form
+    class="contact-form"
+    name="contact"
+   method="POST"
+   action="/contact?success=1"
+   data-netlify="true"
+   data-netlify-honeypot="bot-field"
+>
+
             <input type="hidden" name="form-name" value="contact" />
             <p class="sr-only">
               <label>
@@ -484,5 +489,23 @@ const company = {
         gap: 0.25rem;
       }
     }
+    .btn:focus-visible,
+.pill:focus-visible,
+.link:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .h1, .lead { animation: none !important; opacity: 1 !important; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
   </style>
 </BaseLayout>
