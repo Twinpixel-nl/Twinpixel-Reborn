@@ -85,6 +85,7 @@ const geo = { latitude: 51.98092707836006, longitude: 5.681296752501538 };
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageAbs} />
+
 {/* Structured data */}
 <script
   type="application/ld+json"
@@ -117,6 +118,17 @@ const geo = { latitude: 51.98092707836006, longitude: 5.681296752501538 };
     }
   })}
 /></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0TE68DKL1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y0TE68DKL1');
+</script>
 
 </head>
 
