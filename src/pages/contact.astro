@@ -2,8 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const page = {
-  title: "Contact",
-  description: "Stuur ons een bericht. We reageren meestal binnen 1 werkdag.",
+  title: "Contact | TwinPixel",
+  description:
+    "Plan een kennismakingsgesprek of dien een projectaanvraag in. TwinPixel helpt MKB in Wageningen met high-end webdesign, SEO-structuur en performance.",
 };
 
 const company = {
@@ -14,482 +15,372 @@ const company = {
   instagram: "https://www.instagram.com/twinpixel.nl/",
   linkedin: "https://www.linkedin.com/company/twinpixel",
 };
+
+const calendlyUrl =
+  "https://calendly.com/twinpixel-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111827&text_color=ffffff&primary_color=2f89ff";
 ---
 
 <BaseLayout title={page.title} description={page.description}>
   <main class="page">
-    <section class="hero fade-in-hero">
-      <div class="container">
-        <h1 class="h1 fade-item" style="animation-delay: 0.1s">Contact</h1>
-        <p class="lead fade-item" style="animation-delay: 0.2s">Stuur ons een bericht. We reageren meestal binnen 1 werkdag.</p>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Contact">
+      <div class="container hero-inner">
+        <p class="kicker">Contact</p>
+        <h1 class="h1">Plan een kennismakingsgesprek.</h1>
+        <p class="lead">
+          In 30 minuten brengen we doelen, scope en planning scherp in beeld. Je krijgt eerlijk advies en
+          je weet na afloop precies wat de beste volgende stap is.
+        </p>
+        <p class="meta">30 minuten · di/do 09:00–16:00 · vr 09:00–12:00 · Online</p>
       </div>
     </section>
 
-    <section class="grid" aria-label="Contact">
-      <!-- left: info -->
-      <aside class="panel info" aria-label="Contactgegevens">
-        <div class="card">
-          <h2 class="h2">Gegevens</h2>
-
-          <dl class="list">
-            <div class="row">
-              <dt>🏢 Bedrijf</dt>
-              <dd>{company.name}</dd>
-            </div>
-            <div class="row">
-              <dt>📍 Locatie</dt>
-              <dd>{company.location}</dd>
-            </div>
-            <div class="row">
-              <dt>📧 Mail</dt>
-              <dd>
-                <a class="link" href={`mailto:${company.email}`}>{company.email}</a>
-              </dd>
-            </div>
-            <div class="row">
-              <dt>📞 Telefoon</dt>
-              <dd>
-                <a class="link" href={`tel:${company.phone.replaceAll(" ", "")}`}>
-                  {company.phone}
-                </a>
-              </dd>
-            </div>
-          </dl>
-
-          <div class="actions">
-            <a class="btn" href={`mailto:${company.email}?subject=Contact%20via%20website`}>
-              ✉️ Mailen
-            </a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2 class="h2">Social</h2>
-          <div class="social">
-            <a class="pill" href={company.linkedin} target="_blank" rel="noreferrer">
-              🔗 LinkedIn
-            </a>
-            <a class="pill" href={company.instagram} target="_blank" rel="noreferrer">
-              📸 Instagram
-            </a>
-          </div>
-
-          <p class="note">
-            Liever direct plannen? Zet in je bericht alvast: budget, deadline en wat je nodig hebt
-            (Website, redesign, landing page, etc.).
-          </p>
-        </div>
-      </aside>
-
-      <!-- right: form -->
-      <section class="panel form" aria-label="Contactformulier">
-        <div class="card">
-          <h2 class="h2">Stuur Een Bericht</h2>
-          <p class="muted">
-            Geen gedoe. Gewoon even invullen, dan reageren we snel.
-          </p>
-{Astro.url.searchParams.get("success") === "1" && (
-  <p class="success" role="status">TDank voor je bericht. We reageren meestal binnen 1 werkdag.</p>
-)}
-
-           <form
-    class="contact-form"
-    name="contact"
-   method="POST"
-   action="/contact?success=1"
-   data-netlify="true"
-   data-netlify-honeypot="bot-field"
->
-
-            <input type="hidden" name="form-name" value="contact" />
-            <p class="sr-only">
-              <label>
-                Don’t fill this out if you’re human: <input name="bot-field" />
-              </label>
-            </p>
-
-            <div class="fields">
-              <label class="field">
-                <span>Naam</span>
-                <input
-                  name="name"
-                  type="text"
-                  autocomplete="name"
-                  required
-                  placeholder="Je Naam"
-                />
-              </label>
-
-              <label class="field">
-                <span>E-mail</span>
-                <input
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  required
-                  placeholder="Naam@bedrijf.nl"
-                />
-              </label>
-
-              <label class="field">
-                <span>Onderwerp</span>
-                <input
-                  name="subject"
-                  type="text"
-                  required
-                  placeholder="Bijv. Nieuwe Website Voor Mijn Bedrijf"
-                />
-              </label>
-
-              <label class="field full">
-                <span>Bericht</span>
-                <textarea
-                  name="message"
-                  rows="7"
-                  required
-                  placeholder="Vertel kort wat je zoekt + eventuele deadline"
-                ></textarea>
-              </label>
-            </div>
-
-            <div class="form-footer">
-              <button class="btn" type="submit">Versturen</button>
-              <p class="tiny">
-                Door te versturen ga je akkoord dat we je bericht mogen gebruiken om contact op te
-                nemen.
+    <!-- Main split -->
+    <section class="section" aria-label="Plan of projectaanvraag">
+      <div class="container wide">
+        <div class="split">
+          <!-- Planner -->
+          <div id="plan" class="card planner-card">
+            <div class="card-head">
+              <h2 class="h2">Kennismakingsgesprek</h2>
+              <p class="muted">
+                Kies direct een tijdstip dat schikt. We bespreken je doelen en context.
               </p>
             </div>
-          </form>
-        </div>
 
-       
-      </section>
+            <div class="calendly-inline-widget" 
+            data-url={calendlyUrl} 
+            style="min-width:320px;height:560px;"></div>
+            <script
+              type="text/javascript"
+              src="https://assets.calendly.com/assets/external/widget.js"
+              async
+            ></script>
+          </div>
+
+          <!-- Projectaanvraag -->
+          <div id="aanvraag" class="card form-card">
+            <div class="card-head">
+              <h2 class="h2">Projectaanvraag</h2>
+              <p class="muted">
+                Deel de contouren van je project. We reageren meestal binnen één werkdag.
+              </p>
+
+              {Astro.url.searchParams.get("success") === "1" && (
+                <div class="success-box" role="status">
+                  <p>Bericht ontvangen. We nemen snel contact met je op.</p>
+                </div>
+              )}
+            </div>
+
+            <form
+              name="contact"
+              method="POST"
+              action="/contact?success=1#aanvraag"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              class="contact-form"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="sr-only">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <div class="fields">
+                <label class="field">
+                  <span>Naam</span>
+                  <input name="name" type="text" placeholder="Naam" required />
+                </label>
+
+                <label class="field">
+                  <span>E-mail</span>
+                  <input name="email" type="email" placeholder="E-mail" required />
+                </label>
+
+                <label class="field full">
+                  <span>Projecttype</span>
+                  <select name="projectType" required>
+                    <option value="" disabled selected hidden>Maak een keuze</option>
+                    <option>Nieuwe website</option>
+                    <option>Website redesign</option>
+                    <option>Maatwerk applicatie</option>
+                    <option>Brand Identity</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Budgetindicatie</span>
+                  <select name="budget" required>
+                    <option value="" disabled selected>Kies een range</option>
+                    <option>€2.500–€5.000</option>
+                    <option>€5.000–€10.000</option>
+                    <option>€10.000+</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Deadline</span>
+                  <input name="deadline" placeholder="Bijv. Q2 2026" />
+                </label>
+
+                <label class="field full">
+                  <span>Korte toelichting</span>
+                  <textarea
+                    name="message"
+                    rows="4" 
+                    required
+                    placeholder="Wat wil je bereiken?"
+                  ></textarea>
+                </label>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn primary fullwidth">Verstuur Aanvraag</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Verbeterde Direct Contact & Social Section -->
+    <section class="section info-section">
+      <div class="container wide">
+        <div class="info-grid">
+          
+          <!-- Direct Contact Card -->
+          <div class="card info-card">
+            <div class="info-content">
+              <h3 class="h3">Direct contact</h3>
+              <p class="muted small-gap">Vragen of liever direct overleg? Gebruik onderstaande kanalen.</p>
+              
+              <div class="contact-links">
+                <a href={`mailto:${company.email}`} class="contact-item">
+                  <span class="label">Mail ons op</span>
+                  <span class="value">{company.email}</span>
+                </a>
+                <a href={`tel:${company.phone.replace(/\s/g, "")}`} class="contact-item">
+                  <span class="label">Bel of WhatsApp</span>
+                  <span class="value">{company.phone}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Card -->
+          <div class="card info-card">
+            <div class="info-content">
+              <h3 class="h3">Social Media</h3>
+              <p class="muted small-gap">Volg onze projecten en updates in Wageningen en daarbuiten.</p>
+              
+              <div class="social-actions">
+                <a href={company.linkedin} target="_blank" class="btn ghost social-btn">
+                  <span>LinkedIn</span>
+                </a>
+                <a href={company.instagram} target="_blank" class="btn ghost social-btn">
+                  <span>Instagram</span>
+                </a>
+              </div>
+              <p class="tiny muted">Meestal binnen 24u antwoord via DM.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <style>
-    .page {
-      width: min(var(--container), calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 0 0 5rem;
-    }
+ <style>
+  /* Layout */
+  .page { padding-bottom: 3rem; max-width: var(--container); margin: 0 auto; }
+  .container{ width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
+  .container.wide{ width: min(1200px, calc(100% - 2rem)); }
+  .section{ padding: 30px 0; }
 
-    .hero {
-      padding: 3.5rem 0 2rem;
-      text-align: center;
-    }
+  /* Hero */
+  .hero { padding: 80px 0 30px; text-align: center; }
+  .kicker { text-transform: uppercase; font-size: 11px; letter-spacing: .12em; color: var(--muted); opacity: 0.7; }
+  .h1 { font-size: clamp(32px, 5vw, 56px); margin: 12px 0; letter-spacing: -0.03em; }
+  .lead { max-width: 60ch; margin: 0 auto 12px; color: var(--muted); font-size: 17px; line-height: 1.6; }
+  .meta { font-size: 13px; color: var(--muted2); opacity: 0.8; }
 
-    .h1 {
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      line-height: 1.1;
-      margin: 0 0 0.75rem;
-      color: var(--text);
-      opacity: 0;
-      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    .lead {
-      margin: 0;
-      max-width: 60ch;
-      opacity: 0;
-      animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      color: var(--muted);
-      margin: 0 auto;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    .panel {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .card {
-      border: 1px solid var(--stroke);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .subtle {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .h2 {
-      margin: 0 0 1rem;
-      font-size: 1.2rem;
-      letter-spacing: 0.02em;
-      color: var(--text);
-    }
-
-    .h3 {
-      margin: 0 0 0.75rem;
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-
-    .muted {
-      margin: 0 0 1rem;
-      color: var(--muted);
-    }
-
-    .list {
-      margin: 0;
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 0.75rem;
-      align-items: baseline;
-    }
-
-    dt {
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    dd {
-      margin: 0;
-      color: var(--text);
-    }
-
-    .link {
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      transition: border-color 0.2s ease;
-    }
-
-    .link:hover {
-      border-bottom-color: var(--brand);
-    }
-
-    .actions {
-      display: flex;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: var(--card);
-      text-decoration: none;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text);
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      background: var(--brand);
-      border-color: var(--brand);
-      color: white;
-    }
-
-    .btn.ghost {
-      background: transparent;
-    }
-
-    .btn.ghost:hover {
-      background: var(--card);
-    }
-
-    .social {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-
-    .pill {
-      padding: 0.6rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      text-decoration: none;
-      background: var(--card);
-      color: var(--text);
-      transition: all 0.2s ease;
-    }
-
-    .pill:hover {
-      background: var(--brand);
-      border-color: var(--brand);
-      color: white;
-    }
-
-    .note {
-      margin: 0;
-      color: var(--muted2);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .contact-form {
-      margin-top: 0.25rem;
-    }
-
-    .fields {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .field {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    .field span {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.8rem 0.9rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      background: rgba(0, 0, 0, 0.2);
-      color: var(--text);
-      outline: none;
-      transition: all 0.2s ease;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: var(--brand);
-      background: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 0 3px rgba(47, 137, 255, 0.1);
-    }
-
-    .form-footer {
-      display: grid;
-      gap: 0.7rem;
-      margin-top: 1.5rem;
-    }
-
-    .tiny {
-      margin: 0;
-      color: var(--muted2);
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-
-    .faq {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .faq li {
-      display: grid;
-      gap: 0.25rem;
-    }
-
-    .q {
-      font-weight: 650;
-      color: var(--text);
-    }
-
-    .a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      .fields {
-        grid-template-columns: 1fr;
-      }
-      .hero {
-        padding: 2rem 0 1rem;
-      }
-      .card {
-        padding: 1.25rem;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .row {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-      }
-    }
-    .btn:focus-visible,
-.pill:focus-visible,
-.link:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 3px;
-  border-radius: 999px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .h1, .lead { animation: none !important; opacity: 1 !important; }
-}
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.06);
+  /* Split */
+  .split{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 20px;
+    align-items: stretch;
   }
-}
 
-  </style>
+  /* Cards General */
+  .card {
+    background: rgba(255,255,255,.02);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 24px;
+    height: 100%;
+  }
+
+  .h2{ margin: 0 0 6px; font-size: 22px; letter-spacing: -0.02em; }
+  .h3{ margin: 0 0 10px; font-size: 19px; letter-spacing: -0.01em; }
+  .muted{ color: var(--muted); line-height: 1.6; font-size: 14px; }
+  .muted.small-gap { margin-bottom: 20px; }
+
+  /* Left Card Fixes */
+  .planner-card { background-color: #111827 !important; overflow: hidden; }
+  .calendly-inline-widget {
+    filter: contrast(1.05) brightness(1.05);
+    background-color: #111827;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 560px !important;
+  }
+
+  /* Right Card Form */
+  .form-card { display: flex; flex-direction: column; }
+  .fields { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-bottom: 18px; }
+  .field.full { grid-column: 1 / -1; }
+  .field span { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 6px; display: block; }
+
+/* Algemene styling voor alle invoervelden */
+  input, select, textarea {
+    width: 100%;
+    padding: 11px 16px;
+    background: rgba(255, 255, 255, 0.03); /* Subtiele transparante achtergrond */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    outline: none;
+  }
+
+  /* Specifieke styling voor de Dropdown (Select) */
+  select {
+    appearance: none; /* Verwijdert de standaard browser pijl */
+    cursor: pointer;
+    
+    /* Voeg een eigen custom pijl toe (SVG chevron) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 40px; /* Ruimte voor de pijl */
+  }
+
+  /* Styling voor de opties binnen de dropdown (alleen effectief in sommige browsers) */
+  select option {
+    background: #111827; /* Donkere achtergrond voor de lijst */
+    color: #fff;
+  }
+
+  /* Hover & Focus states */
+  input:hover, select:hover, textarea:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #2f89ff; /* TwinPixel Blauw */
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 4px rgba(47, 137, 255, 0.1); /* Zachte blauwe gloed */
+  }
+
+  textarea { min-height: 100px; resize: none; }
+
+  /* NIEUWE INFO GRID STYLING */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .info-card {
+    background: rgba(255,255,255,0.015);
+    transition: border-color 0.2s ease;
+  }
+  .info-card:hover { border-color: rgba(255,255,255,0.15); }
+
+  .contact-links {
+    display: grid;
+    gap: 12px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .contact-item:hover {
+    background: rgba(47,137,255,0.05);
+    border-color: rgba(47,137,255,0.2);
+  }
+
+  .contact-item .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2px;
+  }
+
+  .contact-item .value {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .social-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .social-btn {
+    padding: 14px !important;
+    font-size: 13px !important;
+    background: rgba(255,255,255,0.03) !important;
+  }
+
+  .tiny { font-size: 11px; opacity: 0.6; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .btn.primary { background: #2f89ff; color: #fff; border: none; }
+  .btn.primary:hover { transform: translateY(-1px); filter: brightness(1.1); }
+  .btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+  .btn.ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+  .btn.fullwidth { width: 100%; }
+
+  @media (max-width: 900px){
+    .split, .info-grid, .social-actions { grid-template-columns: 1fr; }
+    .hero { padding: 60px 0 20px; }
+  }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+</style>
+
 </BaseLayout>
