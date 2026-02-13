@@ -13,12 +13,12 @@ const icon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
       /* 2. Gebruik <Image /> in plaats van <img> */
       /* Width/height zijn nodig voor de verhouding, Astro maakt de rest in orde */
       <Image 
-        src={image} 
-        alt={title} 
-        width={800} 
-        height={500} 
-        class="case-img"
-      />
+  src={image} 
+  alt={title} 
+  widths={[400, 800]} 
+  sizes="(max-width: 768px) 100vw, 400px"
+  class="case-img"
+/>
     ) : (
       <div class="ph"></div>
     )}
