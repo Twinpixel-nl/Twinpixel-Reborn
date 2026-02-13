@@ -2,6 +2,8 @@
 // src/pages/cases/[slug].astro
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { cases } from "../../data/cases.js";
+// 1. IMPORT de Image component
+import { Image } from "astro:assets";
 
 export function getStaticPaths() {
   return cases.map((c) => ({
@@ -12,13 +14,11 @@ export function getStaticPaths() {
 
 const { c } = Astro.props;
 
-// Alle iconen die je in cases.js gebruikt MOETEN hier staan
 const icons: Record<string, string> = {
   plus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
   users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
   chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
   external: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
-  // Nieuwe icons van de overzichtspagina (voor het geval je ze hier ook gebruikt)
   google: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>`,
   target: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>`,
   speed: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/></svg>`
@@ -27,14 +27,12 @@ const icons: Record<string, string> = {
 
 <BaseLayout title={`Twinpixel | ${c.title}`} description={c.description}>
   
-  <!-- DYNAMISCHE CLEAN SCROLLBAR -->
   <style is:global define:vars={{ projectAccent: c.accent }}>
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #05060a; }
     ::-webkit-scrollbar-thumb { background: var(--projectAccent); border-radius: 20px; }
     html { scrollbar-width: thin; scrollbar-color: var(--projectAccent) #05060a; }
 
-    /* Muis-glow achtergrond effect */
     body::before {
       content: "";
       position: fixed;
@@ -67,12 +65,18 @@ const icons: Record<string, string> = {
       
       <div class="main-content">
         <div class="image-frame">
-          <img src={c.image} alt={c.title} />
+          <!-- 2. GEBRUIK HIER DE IMAGE COMPONENT -->
+          <Image 
+            src={c.image} 
+            alt={c.title} 
+            width={1200} 
+            height={750} 
+            class="detail-img"
+            loading="eager" 
+          />
         </div>
 
         <div class="content-sections">
-          
-          <!-- HET VERHAAL (Met meebuigende lijn) -->
           {c.extra && (
             <div class="text-block">
               <span class="label">Het verhaal</span>
@@ -103,14 +107,12 @@ const icons: Record<string, string> = {
         </div>
       </div>
 
-      <!-- Sidebar -->
       <aside class="sidebar">
         <div class="glass-card">
           <span class="label">Impact</span>
           <div class="stats-list">
             {c.stats.map(stat => (
               <div class="stat-box">
-                <!-- Fix: We checken of het icoon bestaat in ons object -->
                 <div class="stat-icon" style={`color: ${c.accent}`} set:html={icons[stat.icon] || icons.plus} />
                 <div>
                   <div class="stat-val">{stat.value}</div>
@@ -121,7 +123,6 @@ const icons: Record<string, string> = {
           </div>
         </div>
 
-        <!-- Resultaat Kaart -->
         <div class="glass-card outcome-card">
           <span class="label">Resultaat</span>
           <p>{c.outcome}</p>
@@ -140,7 +141,6 @@ const icons: Record<string, string> = {
   </section>
 
   <script>
-    // Mouse tracking voor Glow en Magnetic effect
     window.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
@@ -148,7 +148,6 @@ const icons: Record<string, string> = {
       document.documentElement.style.setProperty('--mouse-y', `${y}%`);
     });
 
-    // Magnetic buttons
     const mags = document.querySelectorAll('.mag');
     mags.forEach(el => {
       el.addEventListener('mousemove', (e) => {
@@ -188,15 +187,16 @@ const icons: Record<string, string> = {
     background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 10px; margin-bottom: 60px;
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .image-frame img { width: 100%; border-radius: 16px; display: block; transition: 0.4s; }
-  .image-frame:hover img { transform: scale(1.01); }
+  
+  /* Update de style voor de Image component */
+  .detail-img { width: 100%; height: auto; border-radius: 16px; display: block; transition: 0.4s; }
+  .image-frame:hover .detail-img { transform: scale(1.01); }
 
   .content-sections { display: grid; gap: 60px; }
   .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 16px; display: block; }
   .section-title { font-size: 26px; font-weight: 600; margin-bottom: 24px; }
   .body-text { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.55); }
 
-  /* --- THE STORY (CURVED ACCENT LINE) --- */
   .story-card {
     padding: 32px;
     border-radius: 24px;
@@ -206,7 +206,6 @@ const icons: Record<string, string> = {
   }
   .story-text { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0; max-width: 680px; }
 
-  /* --- APPROACH --- */
   .approach-cards { display: grid; gap: 16px; margin-top: 32px; }
   .approach-item {
     background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.04); padding: 32px; border-radius: 20px;

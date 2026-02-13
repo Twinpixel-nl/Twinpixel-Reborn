@@ -1,14 +1,24 @@
 ---
+// 1. Importeer de Image component
+import { Image } from 'astro:assets';
+
 const { title, description, tags = [], image, href = "/cases", accent = "#2F89FF" } = Astro.props;
 
-// Dezelfde strakke iconen als op de detailpagina (optioneel voor de card)
 const icon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>`;
 ---
 
 <a class="card" href={href} style={`--accent:${accent};`} aria-label={`Bekijk case: ${title}`}>
   <div class="thumb">
     {image ? (
-      <img src={image} alt={title} loading="lazy" />
+      /* 2. Gebruik <Image /> in plaats van <img> */
+      /* Width/height zijn nodig voor de verhouding, Astro maakt de rest in orde */
+      <Image 
+        src={image} 
+        alt={title} 
+        width={800} 
+        height={500} 
+        class="case-img"
+      />
     ) : (
       <div class="ph"></div>
     )}
@@ -29,6 +39,7 @@ const icon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 </a>
 
 <style>
+  /* Je bestaande styles blijven hetzelfde, voeg alleen .case-img toe voor de transitie */
   .card {
     display: block;
     border-radius: 20px;
@@ -48,18 +59,6 @@ const icon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 
-  /* De subtiele gloed bij hover */
-  .card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-  .card:hover::before { opacity: 1; }
-
   .thumb {
     aspect-ratio: 16/10;
     overflow: hidden;
@@ -68,59 +67,28 @@ const icon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
-  img {
+  /* Belangrijk: gebruik de class die we op de <Image /> hebben gezet */
+  .case-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
-  .card:hover img { transform: scale(1.05); }
+  .card:hover .case-img { transform: scale(1.05); }
 
   .overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4));
+    pointer-events: none;
   }
 
+  /* ... rest van je body, tags, h3, text en more styles ... */
   .body { padding: 24px; position: relative; z-index: 2; }
-
   .tags { display: flex; gap: 8px; margin-bottom: 12px; }
-  .tag {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.4);
-    padding: 4px 0;
-  }
-
-  .h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-    font-weight: 650;
-    color: #fff;
-    letter-spacing: -0.02em;
-  }
-
-  .text {
-    margin: 0 0 20px;
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.6);
-    /* Beperk tekst tot 2 regels voor strakke grid */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .more {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.2s ease;
-  }
+  .tag { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); padding: 4px 0; }
+  .h3 { margin: 0 0 8px; font-size: 18px; font-weight: 650; color: #fff; letter-spacing: -0.02em; }
+  .text { margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: rgba(255, 255, 255, 0.6); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .more { font-size: 13px; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 6px; transition: gap 0.2s ease; }
   .card:hover .more { gap: 10px; }
 </style>

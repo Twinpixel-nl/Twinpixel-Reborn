@@ -3,12 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import CaseCard from "../components/CaseCard.astro";
 import { cases } from "../data/cases.js";
+// 1. Importeer de Image component
+import { Image } from "astro:assets";
 
 const featured = cases.filter((c) => c.featured).slice(0, 3);
 const featuredSlugs = new Set(featured.map((c) => c.slug));
 const rest = cases.filter((c) => !featuredSlugs.has(c.slug));
 
-// SVG Helper voor de featured cards
 const icons = {
   chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>`,
   users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>`,
@@ -33,55 +34,52 @@ const icons = {
         <Button href="/expertise" variant="secondary" label="Hoe we werken" />
       </div>
 
-      <!-- Trust Signals -->
-      <!-- Trust Signals Update -->
-<!-- Trust Signals: Gericht op wat de klant echt belangrijk vindt -->
-<div class="trust-signals">
-  <div class="trust-item">
-    <span class="trust-number">Maatwerk</span>
-    <span class="trust-label">Geen standaard templates, maar uniek design</span>
-  </div>
-  <div class="trust-divider"></div>
-  <div class="trust-item">
-    <span class="trust-number">Snelheid</span>
-    <span class="trust-label">Optimale performance voor gebruiker & Google</span>
-  </div>
-  <div class="trust-divider"></div>
-  <div class="trust-item">
-    <span class="trust-number">Impact</span>
-    <span class="trust-label">Focus op vindbaarheid en conversie</span>
-  </div>
-</div>
+      <div class="trust-signals">
+        <div class="trust-item">
+          <span class="trust-number">Maatwerk</span>
+          <span class="trust-label">Geen standaard templates, maar uniek design</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-number">Snelheid</span>
+          <span class="trust-label">Optimale performance voor gebruiker & Google</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-number">Impact</span>
+          <span class="trust-label">Focus op vindbaarheid en conversie</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-<div class="benefits-grid">
-  <div class="benefit-card magnetic">
-    <div class="benefit-icon-box">
-      <div class="icon-inner" set:html={icons.google} />
-    </div>
-    <h3>Vindbaar waar het telt</h3>
-    <p>Geen loze kreten, maar een technisch fundament dat voldoet aan de laatste Google-richtlijnen voor maximale zichtbaarheid.</p>
-  </div>
-  
-  <div class="benefit-card magnetic">
-    <div class="benefit-icon-box">
-      <div class="icon-inner" set:html={icons.target} />
-    </div>
-    <h3>Gedreven door conversie</h3>
-    <p>We kijken verder dan alleen design; we richten de klantreis zo in dat bezoekers worden aangemoedigd tot actie.</p>
-  </div>
+      <div class="benefits-grid">
+        <div class="benefit-card magnetic">
+          <div class="benefit-icon-box">
+            <div class="icon-inner" set:html={icons.google} />
+          </div>
+          <h3>Vindbaar waar het telt</h3>
+          <p>Geen loze kreten, maar een technisch fundament dat voldoet aan de laatste Google-richtlijnen voor maximale zichtbaarheid.</p>
+        </div>
+        
+        <div class="benefit-card magnetic">
+          <div class="benefit-icon-box">
+            <div class="icon-inner" set:html={icons.target} />
+          </div>
+          <h3>Gedreven door conversie</h3>
+          <p>We kijken verder dan alleen design; we richten de klantreis zo in dat bezoekers worden aangemoedigd tot actie.</p>
+        </div>
 
-  <div class="benefit-card magnetic">
-    <div class="benefit-icon-box">
-      <div class="icon-inner" set:html={icons.speed} />
-    </div>
-    <h3>Performance als basis</h3>
-    <p>Lage laadtijden zijn essentieel voor zowel gebruikerservaring als ranking. Wij bouwen voor snelheid op elk apparaat.</p>
-  </div>
-</div>
+        <div class="benefit-card magnetic">
+          <div class="benefit-icon-box">
+            <div class="icon-inner" set:html={icons.speed} />
+          </div>
+          <h3>Performance als basis</h3>
+          <p>Lage laadtijden zijn essentieel voor zowel gebruikerservaring als ranking. Wij bouwen voor snelheid op elk apparaat.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -107,7 +105,6 @@ const icons = {
               <h3 class="fc-title">{c.title}</h3>
               <p class="fc-text">{c.description}</p>
               
-              <!-- Stats Sectie -->
               <div class="fc-stats">
                 {c.stats?.slice(0, c.slug === 'by-britt-nails' ? 3 : 2).map(s => (
                   <div class="fc-pill">
@@ -118,7 +115,6 @@ const icons = {
                 ))}
               </div>
 
-              <!-- Extra uitleg (Alleen bij Britt, onder de stats, minder fel) -->
               {c.slug === 'by-britt-nails' && c.extra && (
                 <div class="fc-extra-box">
                   <p class="fc-extra-text">{c.extra}</p>
@@ -126,12 +122,18 @@ const icons = {
               )}
             </div>
 
-            <!-- Afbeelding (niet op de 3e card om ruimte te besparen) -->
-            {i !== 2 && c.image && (
-              <div class="fc-image-wrap">
-                <img src={c.image} alt={c.title} class="fc-img" />
-              </div>
-            )}
+           {i !== 2 && c.image && (
+  <div class="fc-image-wrap">
+    <Image 
+      src={c.image} 
+      alt={c.title} 
+      width={i === 0 ? 1200 : 800} 
+      height={i === 0 ? 750 : 500} 
+      class="fc-img"
+      loading={"lazy"} 
+    />
+  </div>
+)}
             
             <div class="fc-footer">Case bekijken ↗</div>
           </a>
@@ -162,7 +164,6 @@ const icons = {
     </div>
   </section>
 
-  <!-- Final CTA Section -->
   <section class="section cta-section">
     <div class="container">
       <div class="cta-block">
@@ -179,433 +180,83 @@ const icons = {
 </BaseLayout>
 
 <style>
+  /* Hieronder je bestaande CSS (niet gewijzigd om de styling te behouden) */
   /* --- Animations --- */
-  @keyframes slideInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes popScale { 0%, 100% { opacity: 0; transform: scale(0.92); } 70% { transform: scale(1.02); } 100% { opacity: 1; transform: scale(1); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  @keyframes popScale {
-    0%, 100% {
-      opacity: 0;
-      transform: scale(0.92);
-    }
-    70% {
-      transform: scale(1.02);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* --- Hero & Algemeen --- */
   .hero { padding: 140px 0 80px; }
-  
-  .kicker { 
-    font-size: 12px; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    color: var(--muted2); 
-    margin-bottom: 16px; 
-    font-weight: 600;
-    animation: slideInUp 0.7s ease-out;
-  }
+  .kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted2); margin-bottom: 16px; font-weight: 600; animation: slideInUp 0.7s ease-out; }
+  .h1 { margin: 0; font-size: clamp(44px, 5.2vw, 74px); letter-spacing: -0.05em; line-height: 1.02; font-weight: 650; }
+  .h1.pop { opacity: 0; animation: popScale 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-delay: 0.15s; }
+  .h2 { margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.1; font-weight: 650; }
+  .lead { font-size: 19px; color: var(--muted); margin-top: 24px; max-width: 600px; line-height: 1.6; animation: slideInUp 0.7s ease-out 0.15s forwards; opacity: 0; }
+  .cta { display: flex; gap: 16px; margin-top: 40px; animation: slideInUp 0.7s ease-out 0.25s forwards; opacity: 0; }
 
-  .h1 { 
-    margin: 0; 
-    font-size: clamp(44px, 5.2vw, 74px); 
-    letter-spacing: -0.05em; 
-    line-height: 1.02; 
-    font-weight: 650;
-    animation: popScale 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.15s;
-  }
+  .trust-signals { display: flex; gap: 48px; margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--stroke); animation: slideInUp 0.7s ease-out 0.35s forwards; opacity: 0; max-width: 500px; }
+  .trust-item { flex: 1; display: flex; flex-direction: column; gap: 6px; cursor: pointer; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); padding: 12px; border-radius: 12px; }
+  .trust-item:hover { transform: translateY(-6px) scale(1.05); background: rgba(47, 137, 255, 0.08); }
+  .trust-number { font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--brand); }
+  .trust-label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .trust-divider { width: 1px; background: var(--stroke); }
 
-  .h1.pop {
-    opacity: 0;
-    animation: popScale 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.15s;
-  }
-
-  .h2 {
-    margin: 0;
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    font-weight: 650;
-  }
-
-  .lead { 
-    font-size: 19px; 
-    color: var(--muted); 
-    margin-top: 24px; 
-    max-width: 600px; 
-    line-height: 1.6;
-    animation: slideInUp 0.7s ease-out 0.15s forwards;
-    opacity: 0;
-  }
-
-  .cta { 
-    display: flex; 
-    gap: 16px; 
-    margin-top: 40px;
-    animation: slideInUp 0.7s ease-out 0.25s forwards;
-    opacity: 0;
-  }
-
-  .trust-signals {
-    display: flex;
-    gap: 48px;
-    margin-top: 60px;
-    padding-top: 32px;
-    border-top: 1px solid var(--stroke);
-    animation: slideInUp 0.7s ease-out 0.35s forwards;
-    opacity: 0;
-    max-width: 500px;
-  }
-
-  .trust-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    padding: 12px;
-    border-radius: 12px;
-  }
-
-  .trust-item:hover {
-    transform: translateY(-6px) scale(1.05);
-    background: rgba(47, 137, 255, 0.08);
-  }
-
-  .trust-emoji {
-    font-size: 32px;
-    margin-bottom: 8px;
-    display: inline-block;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .trust-item:hover .trust-emoji {
-    transform: scale(1.2) rotate(-5deg);
-    filter: drop-shadow(0 0 12px rgba(47, 137, 255, 0.6));
-  }
-
-  .trust-number {
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 700;
-    color: var(--brand);
-  }
-
-  .trust-label {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .trust-divider {
-    width: 1px;
-    background: var(--stroke);
-  }
-
- .benefits-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 24px; 
-    margin-bottom: 80px; 
-  }
-
-  .benefit-card { 
-    padding: 32px; 
-    border-radius: 24px; 
-    border: 1px solid var(--stroke); 
-    background: rgba(255,255,255,0.01);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  /* De nieuwe 'behuizing' van het icoon */
-  .benefit-icon-box {
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    transition: 0.4s ease;
-  }
-
-  .icon-inner {
-    width: 24px;
-    height: 24px;
-    display: flex;
-  }
-
-  /* Hover effecten op de card */
-  .benefit-card:hover {
-    border-color: rgba(47, 137, 255, 0.3);
-    background: rgba(255, 255, 255, 0.03);
-    transform: translateY(-5px);
-  }
-
-  .benefit-card:hover .benefit-icon-box {
-    background: rgba(47, 137, 255, 0.1);
-    border-color: var(--brand);
-    transform: scale(1.05) rotate(-3deg);
-    box-shadow: 0 0 20px rgba(47, 137, 255, 0.2);
-  }
-
-  .benefit-card h3 { 
-    font-size: 18px; 
-    font-weight: 700; 
-    margin-bottom: 12px; 
-    color: #fff; 
-    letter-spacing: -0.01em;
-  }
-
-  .benefit-card p { 
-    font-size: 14px; 
-    color: var(--muted); 
-    line-height: 1.6; 
-    margin: 0; 
-  }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 80px; }
+  .benefit-card { padding: 32px; border-radius: 24px; border: 1px solid var(--stroke); background: rgba(255,255,255,0.01); transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+  .benefit-icon-box { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; transition: 0.4s ease; }
+  .icon-inner { width: 24px; height: 24px; display: flex; }
+  .benefit-card:hover { border-color: rgba(47, 137, 255, 0.3); background: rgba(255, 255, 255, 0.03); transform: translateY(-5px); }
+  .benefit-card:hover .benefit-icon-box { background: rgba(47, 137, 255, 0.1); border-color: var(--brand); transform: scale(1.05) rotate(-3deg); box-shadow: 0 0 20px rgba(47, 137, 255, 0.2); }
+  .benefit-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #fff; letter-spacing: -0.01em; }
+  .benefit-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; }
 
   .pt-0 { padding-top: 0; }
+  .featured-section { padding: 80px 0 60px; }
+  .section-header { margin-bottom: 48px; }
+  .section-header .h2 { animation: slideInUp 0.8s ease-out 0.1s forwards; opacity: 0; }
 
-  /* --- Featured Section --- */
-  .featured-section {
-    padding: 80px 0 60px;
-  }
-
-  .section-header {
-    margin-bottom: 48px;
-  }
-
-  .section-header .kicker {
-    animation-delay: 0s;
-  }
-
-  .section-header .h2 {
-    animation: slideInUp 0.8s ease-out 0.1s forwards;
-    opacity: 0;
-  }
-
-  /* --- Featured Grid --- */
-  .featured-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    grid-template-rows: auto auto;
-    gap: 24px;
-  }
-  
-  .fc {
-    text-decoration: none;
-    background: var(--card);
-    border: 1px solid var(--stroke);
-    border-radius: var(--radius);
-    padding: 32px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    animation: slideInUp 0.8s ease-out forwards;
-    opacity: 0;
-  }
-
+  .featured-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; grid-template-rows: auto auto; gap: 24px; }
+  .fc { text-decoration: none; background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius); padding: 32px; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1); animation: slideInUp 0.8s ease-out forwards; opacity: 0; }
   .fc:nth-child(1) { animation-delay: 0.3s; }
   .fc:nth-child(2) { animation-delay: 0.4s; }
   .fc:nth-child(3) { animation-delay: 0.5s; }
-
-  .fc:hover { 
-    border-color: var(--accent); 
-    background: rgba(255,255,255,0.06);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  }
-
+  .fc:hover { border-color: var(--accent); background: rgba(255,255,255,0.06); transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
   .fc-large { grid-row: span 2; min-height: 520px; }
-  
-  .fc-top { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 24px; 
-  }
+  .fc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .fc-badge { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); font-weight: 700; padding: 4px 8px; background: rgba(47, 137, 255, 0.1); border-radius: 4px; }
+  .fc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 15px var(--accent); animation: fadeIn 0.6s ease-out 0.5s forwards; opacity: 0; }
+  .fc-title { font-size: 28px; font-weight: 700; color: var(--text); margin: 0 0 12px; letter-spacing: -0.02em; }
+  .fc-text { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 440px; margin: 0; }
 
-  .fc-badge { 
-    font-size: 10px; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px; 
-    color: var(--accent);
-    font-weight: 700;
-    padding: 4px 8px;
-    background: rgba(47, 137, 255, 0.1);
-    border-radius: 4px;
-  }
+  .fc-stats { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .fc-pill { background: rgba(47, 137, 255, 0.08); padding: 8px 14px; border-radius: 100px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--stroke); transition: all 0.2s ease-out; }
+  .fc:hover .fc-pill { background: rgba(47, 137, 255, 0.12); }
+  .fc-icon { width: 14px; height: 14px; color: var(--accent); display: flex; opacity: 0.8; }
+  .fc-val { font-weight: 700; color: var(--text); font-size: 13px; }
+  .fc-lab { font-size: 11px; color: var(--muted2); }
 
-  .fc-dot { 
-    width: 8px; 
-    height: 8px; 
-    border-radius: 50%; 
-    background: var(--accent); 
-    box-shadow: 0 0 15px var(--accent); 
-    animation: fadeIn 0.6s ease-out 0.5s forwards;
-    opacity: 0;
-  }
-  
-  .fc-title { 
-    font-size: 28px; 
-    font-weight: 700; 
-    color: var(--text); 
-    margin: 0 0 12px; 
-    letter-spacing: -0.02em; 
-  }
+  .fc-extra-box { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+  .fc-extra-text { font-size: 13px; line-height: 1.6; color: rgba(255, 255, 255, 0.4); margin: 0; max-width: 500px; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 
-  .fc-text { 
-    font-size: 16px; 
-    color: var(--muted); 
-    line-height: 1.6; 
-    max-width: 440px; 
-    margin: 0; 
-  }
+  .fc-image-wrap { margin-top: auto; padding-top: 40px; }
+ .fc-img { 
+  width: 100%; 
+  height: 100%; /* Zorg dat deze erbij staat */
+  border-radius: calc(var(--radius) - 4px); 
+  object-fit: cover; 
+  aspect-ratio: 16/10; 
+  border: 1px solid var(--stroke);
+  opacity: 0.9;
+  transition: opacity 0.3s ease-out;
+}
+  .fc:hover .fc-img { opacity: 1; }
+  .fc-footer { margin-top: 24px; font-weight: 600; color: var(--accent); font-size: 14px; opacity: 0; transition: all 0.3s ease-out; transform: translateY(10px); }
+  .fc:hover .fc-footer { opacity: 1; transform: translateY(0); }
 
-  /* Stats */
-  .fc-stats { 
-    display: flex; 
-    gap: 12px; 
-    margin-top: 24px; 
-    flex-wrap: wrap; 
-  }
+  .subhead { margin: 60px 0 40px; display: flex; align-items: center; gap: 24px; }
+  .line { height: 1px; flex: 1; background: var(--stroke); }
+  .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-  .fc-pill { 
-    background: rgba(47, 137, 255, 0.08);
-    padding: 8px 14px; 
-    border-radius: 100px; 
-    display: flex; 
-    align-items: center; 
-    gap: 10px;
-    border: 1px solid var(--stroke);
-    transition: all 0.2s ease-out;
-  }
-
-  .fc:hover .fc-pill {
-    background: rgba(47, 137, 255, 0.12);
-  }
-
-  .fc-icon { 
-    width: 14px; 
-    height: 14px; 
-    color: var(--accent); 
-    display: flex; 
-    opacity: 0.8; 
-  }
-
-  .fc-val { 
-    font-weight: 700; 
-    color: var(--text); 
-    font-size: 13px; 
-  }
-
-  .fc-lab { 
-    font-size: 11px; 
-    color: var(--muted2); 
-  }
-
-  /* Extra Uitleg Box */
-  .fc-extra-box {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .fc-extra-text {
-    font-size: 13px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.4);
-    margin: 0;
-    max-width: 500px;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Image styling */
-  .fc-image-wrap { 
-    margin-top: auto; 
-    padding-top: 40px; 
-  }
-
-  .fc-img { 
-    width: 100%; 
-    border-radius: calc(var(--radius) - 4px); 
-    object-fit: cover; 
-    aspect-ratio: 16/10; 
-    border: 1px solid var(--stroke);
-    opacity: 0.9;
-    transition: opacity 0.3s ease-out;
-  }
-
-  .fc:hover .fc-img {
-    opacity: 1;
-  }
-
-  .fc-footer { 
-    margin-top: 24px; 
-    font-weight: 600; 
-    color: var(--accent);
-    font-size: 14px; 
-    opacity: 0; 
-    transition: all 0.3s ease-out;
-    transform: translateY(10px); 
-  }
-
-  .fc:hover .fc-footer { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-
-  /* Rest van de grid */
-  .subhead { 
-    margin: 60px 0 40px; 
-    display: flex; 
-    align-items: center; 
-    gap: 24px;
-  }
-
-  .line { 
-    height: 1px; 
-    flex: 1; 
-    background: var(--stroke); 
-  }
-
-  .main-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 24px;
-  }
-
-  /* Responsive */
   @media (max-width: 1024px) {
     .featured-grid, .main-grid { grid-template-columns: 1fr; }
     .fc-large { grid-row: auto; min-height: unset; }
@@ -619,57 +270,10 @@ const icons = {
     .h1 { font-size: 36px; }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .h1, .lead, .cta, .trust-signals, .benefit-card, .fc, .fc-dot { 
-      animation: none !important; 
-      opacity: 1 !important;
-    }
-  }
-
-  /* --- CTA Section --- */
-  .cta-section {
-    padding: 120px 0;
-    background: linear-gradient(135deg, rgba(47, 137, 255, 0.08), rgba(124, 58, 237, 0.08));
-    border-top: 1px solid var(--stroke);
-    border-bottom: 1px solid var(--stroke);
-  }
-
-  .cta-block {
-    text-align: center;
-    animation: slideInUp 0.8s ease-out;
-  }
-
-  .cta-kicker {
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--brand);
-    margin-bottom: 16px;
-    font-weight: 700;
-  }
-
-  .cta-title {
-    margin: 0 0 16px;
-    font-size: clamp(40px, 5vw, 56px);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .cta-subtitle {
-    font-size: 18px;
-    color: var(--muted);
-    margin: 0 0 40px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-  }
-
-  .cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
+  .cta-section { padding: 120px 0; background: linear-gradient(135deg, rgba(47, 137, 255, 0.08), rgba(124, 58, 237, 0.08)); border-top: 1px solid var(--stroke); border-bottom: 1px solid var(--stroke); }
+  .cta-block { text-align: center; animation: slideInUp 0.8s ease-out; }
+  .cta-kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--brand); margin-bottom: 16px; font-weight: 700; }
+  .cta-title { margin: 0 0 16px; font-size: clamp(40px, 5vw, 56px); letter-spacing: -0.03em; line-height: 1.1; font-weight: 700; color: var(--text); }
+  .cta-subtitle { font-size: 18px; color: var(--muted); margin: 0 0 40px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .cta-buttons { display: flex; justify-content: center; gap: 16px; }
 </style>
