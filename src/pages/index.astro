@@ -325,6 +325,53 @@ const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.678729
 </div>
   </div>
 </section>
+<script>
+  // 1. Glow effect optimalisatie
+  let tick = false;
+  window.addEventListener('mousemove', (e) => {
+    if (!tick) {
+      // Gebruik requestAnimationFrame voor soepele 60fps/120fps updates
+      window.requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+        document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+        tick = false;
+      });
+      tick = true;
+    }
+  });
+
+  // 2. Magnetic buttons optimalisatie
+  const mags = document.querySelectorAll('.mag');
+  
+  mags.forEach(el => {
+    let rect = el.getBoundingClientRect(); // Cache de positie
+    
+    // Update de cache als het raam wordt aangepast
+    window.addEventListener('resize', () => { rect = el.getBoundingClientRect(); });
+
+    el.addEventListener('mousemove', (e) => {
+      window.requestAnimationFrame(() => {
+        // We gebruiken de gecachte 'rect' in plaats van hem hier opnieuw op te vragen
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        (el as HTMLElement).style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+    });
+
+    el.addEventListener('mouseleave', () => {
+      window.requestAnimationFrame(() => {
+        (el as HTMLElement).style.transform = `translate(0px, 0px)`;
+      });
+    });
+    
+    // Ververs de positie op het moment dat je de knop nadert
+    el.addEventListener('mouseenter', () => {
+      rect = el.getBoundingClientRect();
+    });
+  });
+</script>
     <style>
       .contact-cta {
         margin: 3.6rem 0 0;
