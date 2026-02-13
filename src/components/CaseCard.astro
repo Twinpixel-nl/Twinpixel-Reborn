@@ -27,7 +27,7 @@ const icon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 
   <div class="body">
     <div class="tags">
-      {tags.slice(0, 2).map((t) => <span class="tag">{t}</span>)}
+      {tags.slice(0, 2).map((t: string) => <span class="tag">{t}</span>)}
     </div>
     <h3 class="h3">{title}</h3>
     <p class="text">{description}</p>
