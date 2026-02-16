@@ -202,7 +202,7 @@ export const cases = [
   {
      slug: "jongerenraad-wageningen",
     title: "Jongerenraad Wageningen",
-    website: "https://jongerenraadwageningen.nl",
+    website: "https://jrwageningen.nl",
     description: "Van een standaard WordPress-site naar een krachtig en herkenbaar jongerenmerk.",
     extra: "De Jongerenraad Wageningen werkte voorheen met een simpele WordPress-website die weinig eigen identiteit uitstraalde. Wij hebben dit volledig getransformeerd door eerst terug te gaan naar de tekentafel voor een complete branding. Van een nieuw logo tot een energiek kleurenpalet en een moderne beeldtaal: we hebben een merk neergezet dat spreekt naar de jeugd van Wageningen. Dit hebben we vertaald naar een razendsnel platform dat niet meer aanvoelt als een stoffig politiek orgaan, maar als een dynamisch centrum voor jongerenparticipatie.",
     challenge: "De grootste uitdaging was om politiek toegankelijk en aantrekkelijk te maken voor jongeren. De oude website was statisch en mobiel onvriendelijk. Er was behoefte aan een omgeving die energie uitstraalt, waarbij informatie over evenementen en standpunten binnen één klik vindbaar is op een smartphone.",
