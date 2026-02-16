@@ -1,21 +1,27 @@
 ---
-title: Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)
-description: Levert je website weinig aanvragen op? Ontdek waarom veel websites
-  in Wageningen niet converteren, en wat er nodig is voor resultaatgericht
-  webdesign en lokale vindbaarheid.
+title: "Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)"
+description: "Levert je website weinig aanvragen op? Ontdek waarom veel websites in Wageningen niet converteren en wat er nodig is voor strategisch webdesign, lokale SEO en meer klanten."
+
 date: 2026-02-16
+updated: 2026-02-16
 draft: false
+
 image:
-  src: /uploads/chatgpt-image-16-feb-2026-20_16_59.png
-  alt: Voorbeeld van gefocuste homepage voor webdesign in Wageningen
-category: Webdesign, SEO
+  src: "/uploads/chatgpt-image-16-feb-2026-20_16_59.png"
+  alt: "Gefocuste homepage met duidelijke structuur voor webdesign in Wageningen"
+
+ogImage: "/uploads/og/website-wageningen-geen-klanten.png"
+
+category: "Webdesign"
+
 tags:
-  - webdesign Wageningen
-  - website laten maken Wageningen
-  - lokale SEO
-  - conversie
-  - positionering
-readingTime: 6-8 min
+  - "webdesign Wageningen"
+  - "website laten maken Wageningen"
+  - "SEO Wageningen"
+  - "lokale vindbaarheid"
+  - "conversie optimalisatie"
+
+readingTime: "6-8 min"
 ---
 # Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)
 
