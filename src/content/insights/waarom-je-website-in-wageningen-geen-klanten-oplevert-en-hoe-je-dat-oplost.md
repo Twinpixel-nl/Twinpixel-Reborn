@@ -1,27 +1,23 @@
 ---
-title: "Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)"
-description: "Levert je website weinig aanvragen op? Ontdek waarom veel websites in Wageningen niet converteren en wat er nodig is voor strategisch webdesign, lokale SEO en meer klanten."
-
+title: Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)
+description: Levert je website weinig aanvragen op? Ontdek waarom veel websites
+  in Wageningen niet converteren en wat er nodig is voor strategisch webdesign,
+  lokale SEO en meer klanten.
 date: 2026-02-16
 updated: 2026-02-16
 draft: false
-
 image:
-  src: "/uploads/chatgpt-image-16-feb-2026-20_16_59.png"
-  alt: "Gefocuste homepage met duidelijke structuur voor webdesign in Wageningen"
-
-ogImage: "/uploads/og/website-wageningen-geen-klanten.png"
-
-category: "Webdesign"
-
+  src: /uploads/chatgpt-image-16-feb-2026-20_16_59.png
+  alt: Gefocuste homepage met duidelijke structuur voor webdesign in Wageningen
+ogImage: /uploads/og/website-wageningen-geen-klanten.png
+category: Webdesign
 tags:
-  - "webdesign Wageningen"
-  - "website laten maken Wageningen"
-  - "SEO Wageningen"
-  - "lokale vindbaarheid"
-  - "conversie optimalisatie"
-
-readingTime: "6-8 min"
+  - webdesign Wageningen
+  - website laten maken Wageningen
+  - SEO Wageningen
+  - lokale vindbaarheid
+  - conversie optimalisatie
+readingTime: 6-8 min
 ---
 # Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)
 
@@ -42,7 +38,6 @@ Dat voelt frustrerend. Zeker als je hebt geïnvesteerd in webdesign en SEO.
 De oorzaak ligt zelden in één knop of een ontbrekende meta-tag.  
 Het probleem zit bijna altijd in iets fundamentelers: focus.
 
----
 
 ## Waarom veel websites in Wageningen niet converteren
 
@@ -64,7 +59,6 @@ Binnen vijf seconden moet duidelijk zijn:
 
 Als dat niet helder is, haakt men af.
 
----
 
 ## Het probleem is zelden techniek, maar gebrek aan focus
 
@@ -81,7 +75,6 @@ Een sterke website heeft:
 Meer functies voelen soms veilig.  
 Maar in de praktijk zorgen ze vaak voor minder conversie.
 
----
 
 ## Wat resultaatgericht webdesign in Wageningen wél anders doet
 
@@ -98,7 +91,6 @@ Pas daarna volgen design en techniek.
 Een website laten maken in Wageningen zou geen designproject moeten zijn.  
 Het is een strategisch project.
 
----
 
 ## Waarom lokale SEO alleen werkt met duidelijke positionering
 
@@ -113,7 +105,6 @@ Google moet begrijpen:
 SEO is geen trucje.  
 Het is het gevolg van duidelijke keuzes.
 
----
 
 ## 5 signalen dat je website kansen laat liggen
 
@@ -123,7 +114,6 @@ Het is het gevolg van duidelijke keuzes.
 - Is je homepage gefocust op één kernonderwerp?  
 - Rank je op je eigen dienst + locatie?  
 
----
 
 ## Twijfel je over je huidige website?
 
