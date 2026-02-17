@@ -7,6 +7,7 @@ import { Image } from "astro:assets";
 // 2. Importeer de foto als een object (let op de hoofdletters in het pad!)
 // Als dit bestand in src/components staat, is het pad naar assets: ../assets/...
 import BureauFoto from "../assets/person/BureauKijken.webp"; 
+import { lazy } from "astro:schema";
 ---
 
 <section class="hero" id="top">
@@ -56,6 +57,7 @@ import BureauFoto from "../assets/person/BureauKijken.webp";
             src={BureauFoto} 
             alt="Team Twinpixel Wageningen" 
             class="hero-img" 
+            fetchpriority="high"
           />
           <!-- Overlay die de foto laat 'faden' naar de achtergrondkleur -->
           <div class="img-gradient"></div>
