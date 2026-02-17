@@ -2,7 +2,12 @@
 import Button from "./Button.astro";
 
 // Zorg dat de foto in de map 'public' staat
-const heroImage = "/BureauKijken.webp"; 
+import { Image } from "astro:assets";
+
+// 2. Importeer de foto als een object (let op de hoofdletters in het pad!)
+// Als dit bestand in src/components staat, is het pad naar assets: ../assets/...
+import BureauFoto from "../assets/person/BureauKijken.webp"; 
+import { lazy } from "astro:schema";
 ---
 
 <section class="hero" id="top">
@@ -48,8 +53,13 @@ const heroImage = "/BureauKijken.webp";
       <div class="image-wrapper">
         <div class="image-container">
           <!-- De foto -->
-          <img src={heroImage} alt="Team Twinpixel Wageningen" class="hero-img" />
-          
+                    <Image 
+            src={BureauFoto} 
+            alt="Team Twinpixel Wageningen" 
+            class="hero-img" 
+            loading="eager"
+            fetchpriority="high"
+          />
           <!-- Overlay die de foto laat 'faden' naar de achtergrondkleur -->
           <div class="img-gradient"></div>
           
@@ -150,12 +160,12 @@ const heroImage = "/BureauKijken.webp";
                 0 0 40px rgba(47, 137, 255, 0.1);
   }
 
-  .hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.9) saturate(1.05);
-  }
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Belangrijk: dit voorkomt dat de foto wordt uitgerekt */
+  image-rendering: -webkit-optimize-contrast; /* Extra scherpte-boost voor browsers */
+}
 
   /* De 'High-end' fade: zorgt dat de foto overgaat in de site */
   .img-gradient {
