@@ -7,7 +7,9 @@ const {
   instagram = "https://www.instagram.com/twinpixel.nl/",
   facebook = "https://www.facebook.com/people/Twinpixel/61574036669497/",
   linkedin = "https://www.linkedin.com/company/twinpixel/",
-  maps = "https://maps.app.goo.gl/XJkGA7g8TkB1aJTA6"
+  maps = "https://maps.app.goo.gl/XJkGA7g8TkB1aJTA6",
+  kvk = "96555645",
+  btw = "NL867659397B01"
 } = Astro.props;
 ---
 
@@ -83,13 +85,17 @@ const {
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <div class="footer-copyright">
-        <span>© {new Date().getFullYear()} {brand}</span>
+<div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-copyright">
+          <span>© {new Date().getFullYear()} {brand}</span>
+          <span class="footer-sep">•</span>
+          <span class="legal-tiny">KvK {kvk}</span>
+          <span class="footer-sep">•</span>
+          <span class="legal-tiny">BTW {btw}</span>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
 
 <style>
   .footer {
@@ -233,10 +239,42 @@ const {
 
   .social-link svg { width: 20px; height: 20px; }
 
-  .footer-bottom {
+.footer-bottom {
+    margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05); /* Hele zachte lijn */
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-copyright {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.25); /* Erg donker maken zodat het wegvalt */
+    font-size: 11px; /* Extra klein */
+    letter-spacing: 0.02em;
+    font-weight: 400;
+  }
+
+  .footer-sep {
+    opacity: 0.3;
+  }
+
+  .legal-tiny {
+    /* Geen blauwe kleur, geen bold. Gewoon platte tekst die versmelt met de achtergrond */
+    color: rgba(255,255,255,0.25);
+  }
+
+  @media (max-width: 768px) {
+    .footer-copyright {
+      gap: 4px 12px;
+    }
   }
 
   .footer-copyright {
