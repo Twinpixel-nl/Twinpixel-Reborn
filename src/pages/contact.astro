@@ -400,6 +400,33 @@ const calendlyUrl =
   text-transform: none;
   opacity: .55;
 }
+/* Zorg dat grids/flex items echt mogen krimpen (voorkomt overflow) */
+.split > .card { min-width: 0; }
+.calendly-wrapper { min-width: 0; }
 
+/* Calendly: forceer responsive gedrag, ook als inline styles raar doen */
+.calendly-inline-widget {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Pills mogen wrappen op mobiel */
+.meta-pills {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+/* Form: op smalle schermen 1 kolom */
+@media (max-width: 640px) {
+  .card { padding: 22px; border-radius: 22px; }
+  .contact-form .fields { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .lead { font-size: 17px; }
+}
+
+/* Extra kleine devices: iets minder container padding */
+@media (max-width: 380px) {
+  .container { width: min(1200px, calc(100% - 2rem)); }
+}
 </style>
 </BaseLayout>
