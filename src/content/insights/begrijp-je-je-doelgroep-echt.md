@@ -39,9 +39,9 @@ Doelgroepen worden vaak te oppervlakkig gedefinieerd:
 * Leeftijd
 * Functietitel
 
-  Dat zegt iets over wie iemand is.
+Dat zegt iets over wie iemand is.
 
-  Maar niets over waarom iemand beslist.
+Maar niets over waarom iemand beslist.
 
 ## Wat dit betekent voor jouw website
 
