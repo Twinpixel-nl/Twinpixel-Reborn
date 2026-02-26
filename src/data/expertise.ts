@@ -30,11 +30,105 @@ export type ExpertiseItem = {
 };
 
 export const expertiseItems: ExpertiseItem[] = [
+
   {
-    slug: "maatwerk-websites",
+    slug: "brand-basis",
+    accent: "#7c3aed",
+    chipClass: "purple",
+    title: "Brand Basis",
+    intro: "Een consistente visuele basis: logo, typografie, kleuren en richtlijnen. Zodat je merk direct professioneel voelt.",
+
+    whatYouGet: [
+      "Brand direction + look & feel",
+      "Mini design system (buttons, spacing, componenten)",
+      "Templates voor pagina’s en content",
+    ],
+    steps: [
+      { nr: "01", text: "Analyse van doel, doelgroep en context" },
+      { nr: "02", text: "Richtingen uitwerken (2–3 routes) en kiezen" },
+      { nr: "03", text: "Uitwerking + styleguide + assets opleveren" },
+    ],
+    panel: [
+      { label: "Deliverables", value: "Brand kit • UI kit • Styleguide" },
+      { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
+      { label: "Wanneer", value: "als je merk net niet klopt of inconsistent is" },
+    ],
+
+    timeline: "2–4 weken",
+    idealFor: ["Nieuwe identiteit", "Logo/stijl opschonen", "Consistentie over kanalen"],
+    includes: [
+      "Kleuren + typografie + usage rules",
+      "Logo (polish of light refresh) + exports",
+      "UI kit (basis componenten)",
+      "Mini styleguide (PDF of Notion)",
+      "2–3 templates (bv. hero/sectie/CTA)",
+    ],
+    notIncluded: [
+      "Volledige rebrand met uitgebreid traject",
+      "Illustraties op maat (veel)",
+      "Printwerk/drukwerkbegeleiding",
+    ],
+
+    costs: {
+      price: "€950 – €1.450",
+      isStartingAt: false,
+      description: "De visuele fundering die je overal consistent kunt doorvoeren.",
+      features: ["Logo & merkstijl", "Basis UI kit", "Mini styleguide + exports"],
+    },
+
+    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
+  },
+  {
+   slug: "website-launch",
+    accent: "#2F89FF",
+    chipClass: "blue",
+    title: "Website Launch",
+    intro: "Marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op aanvragen.",
+
+    whatYouGet: [
+      "Homepage + diensten + contact (heldere flow)",
+      "SEO basis: titles, headings, interne links",
+      "Performance-first build (Astro)",
+    ],
+    steps: [
+      { nr: "01", text: "Contentstructuur: wat moet waar staan en waarom" },
+      { nr: "02", text: "Design uitwerken met focus op hiërarchie en rust" },
+      { nr: "03", text: "Build + SEO basis + performance checks" },
+    ],
+    panel: [
+      { label: "Perfect voor", value: "MKB • studios • personal brands" },
+      { label: "Focus", value: "Design • snelheid • conversie" },
+      { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
+    ],
+
+    timeline: "3–5 weken (content bepaalt tempo)",
+    idealFor: ["Nieuwe website", "Herbouw van rommelige site", "Landingspagina’s voor campagnes"],
+    includes: [
+      "Structuur + wireframe op hoofdlijnen",
+      "Design (1–2 iteraties per pagina)",
+      "Build (Astro) + basis SEO",
+      "Formulier + leadflow (incl. dankpagina)",
+      "Performance check (Core Web Vitals)",
+    ],
+    notIncluded: [
+      "Grote copy-trajecten (kan via copywriter)",
+      "Fotografie/video",
+      "Hosting/onderhoud (los of abonnement)",
+    ],
+
+    costs: {
+      price: "€2.450 – €3.750",
+      isStartingAt: false,
+      description: "Complete, snelle site die klaar is om te converteren.",
+      features: ["Astro performance build", "SEO basis", "Leadflow & formulieren"],
+    },
+
+    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
+  },
+  { slug: "technical-build",
     accent: "#22c55e",
     chipClass: "cyan",
-    title: "Maatwerk Websites",
+    title: "Technical Build",
     intro: "Koppelingen, portalen en complexe flows. Gebouwd zodat het simpel voelt voor de gebruiker en onderhoudbaar blijft.",
 
     whatYouGet: [
@@ -70,106 +164,10 @@ export const expertiseItems: ExpertiseItem[] = [
     ],
 
     costs: {
-      price: "€2.500",
-      isStartingAt: true,
-      description: "Voor projecten waar techniek en data leidend zijn.",
+      price: "€4.900 – €12.000",
+      isStartingAt: false,
+      description: "Voor projecten waar techniek, data en flows leidend zijn.",
       features: ["Custom API integraties", "Portals & dashboards", "Uitgebreide QA / testing"],
-    },
-
-    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
-  },
-
-  {
-    slug: "websites",
-    accent: "#2F89FF",
-    chipClass: "blue",
-    title: "Websites",
-    intro: "Marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op aanvragen.",
-
-    whatYouGet: [
-      "Homepage + diensten + contact (heldere flow)",
-      "SEO basis: titles, headings, interne links",
-      "Performance-first build (Astro)",
-    ],
-    steps: [
-      { nr: "01", text: "Contentstructuur: wat moet waar staan en waarom" },
-      { nr: "02", text: "Design uitwerken met focus op hiërarchie en rust" },
-      { nr: "03", text: "Build + SEO basis + performance checks" },
-    ],
-    panel: [
-      { label: "Perfect voor", value: "MKB • studios • personal brands" },
-      { label: "Focus", value: "Design • snelheid • conversie" },
-      { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
-    ],
-
-    timeline: "3–5 weken (content bepaalt tempo)",
-    idealFor: ["Nieuwe website", "Herbouw van rommelige site", "Landingspagina’s voor campagnes"],
-    includes: [
-      "Structuur + wireframe op hoofdlijnen",
-      "Design (1–2 iteraties per pagina)",
-      "Build (Astro) + basis SEO",
-      "Formulier + leadflow (incl. dankpagina)",
-      "Performance check (Core Web Vitals)",
-    ],
-    notIncluded: [
-      "Grote copy-trajecten (kan via copywriter)",
-      "Fotografie/video",
-      "Hosting/onderhoud (los of abonnement)",
-    ],
-
-    costs: {
-      price: "€1.000",
-      isStartingAt: true,
-      description: "Complete, snelle site die klaar is om te converteren.",
-      features: ["Astro performance build", "SEO basis", "Lead-capture formulieren"],
-    },
-
-    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
-  },
-
-  {
-    slug: "branding",
-    accent: "#7c3aed",
-    chipClass: "purple",
-    title: "Branding",
-    intro: "Een consistente basis: logo polish, typografie, kleuren en componenten. Zodat je merk direct professioneel voelt.",
-
-    whatYouGet: [
-      "Brand direction + look & feel",
-      "Mini design system (buttons, spacing, componenten)",
-      "Templates voor pagina’s en content",
-    ],
-    steps: [
-      { nr: "01", text: "Analyse van doel, doelgroep en context" },
-      { nr: "02", text: "Richtingen uitwerken (2–3 routes) en kiezen" },
-      { nr: "03", text: "Uitwerking + styleguide + assets opleveren" },
-    ],
-    panel: [
-      { label: "Deliverables", value: "Brand kit • UI kit • Styleguide" },
-      { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
-      { label: "Wanneer", value: "als je merk net niet klopt of inconsistent is" },
-    ],
-
-    timeline: "2–4 weken",
-    idealFor: ["Nieuwe identiteit", "Logo/stijl opschonen", "Consistentie over kanalen"],
-    includes: [
-      "Kleuren + typografie + usage rules",
-      "Logo (polish of light refresh) + exports",
-      "UI kit (basis componenten)",
-      "Mini styleguide (PDF of Notion)",
-      "2–3 templates (bv. hero/sectie/CTA)",
-    ],
-    notIncluded: [
-      "Volledige rebrand met uitgebreid traject",
-      "Illustraties op maat (veel)",
-      "Printwerk/drukwerkbegeleiding",
-    ],
-
-    costs: {
-      price: "€500",
-      isStartingAt: true,
-      description: "De visuele fundering om consistent door te trekken in web en content.",
-      features: ["Brand basics", "UI kit", "Mini styleguide + assets"],
     },
 
     cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },

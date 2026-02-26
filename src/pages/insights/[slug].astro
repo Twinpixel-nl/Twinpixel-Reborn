@@ -1,5 +1,12 @@
 ---
-// src/pages/insights/[slug].astro
+/**
+ * src/pages/insights/[slug].astro
+ * SEO-upgrade:
+ * - BaseLayout krijgt type="article" + article meta
+ * - BlogPosting JSON-LD via BaseLayout schema prop
+ * - ogImage per post (fallback op image/src -> /og.png)
+ */
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import { getCollection, render } from "astro:content";
@@ -18,10 +25,10 @@ const { data } = post;
 
 // Datum format zoals op je index pagina
 const formatDate = (d: Date) =>
-  new Intl.DateTimeFormat("nl-NL", { 
-    year: "numeric", 
-    month: "long", 
-    day: "2-digit" 
+  new Intl.DateTimeFormat("nl-NL", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
   }).format(d);
 
 // Leestijd berekenen (indien niet handmatig ingevuld in frontmatter)
@@ -31,11 +38,84 @@ const calcReadingTime = () => {
   const words = post.body ? post.body.split(/\s/g).length : 0;
   return `${Math.ceil(words / wordsPerMinute)} min leestijd`;
 };
-
 const readingTime = calcReadingTime();
+
+// URLs / SEO helpers
+const origin = (Astro.site ?? Astro.url.origin).toString();
+const pageUrl = new URL(Astro.url.pathname, origin).toString();
+
+// OG image: prefer data.ogImage, fallback naar hoofdafbeelding, anders generiek
+const ogImage = data.ogImage ?? data.image?.src ?? "/og.png";
+const ogImageAbs = new URL(ogImage, origin).toString();
+
+// Published/modified
+const published = new Date(data.date);
+const publishedISO = Number.isNaN(published.getTime()) ? null : published.toISOString();
+
+// Optioneel: data.updated in frontmatter (string/date)
+const updatedRaw = data.updated ?? data.modified ?? null;
+const updated = updatedRaw ? new Date(updatedRaw) : published;
+const updatedISO = Number.isNaN(updated.getTime()) ? publishedISO : updated.toISOString();
+
+// Tags/keywords (optioneel in frontmatter)
+const tags = Array.isArray(data.tags) ? data.tags : (Array.isArray(data.keywords) ? data.keywords : []);
+
+// BlogPosting schema
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: data.title,
+  description: data.description,
+  image: ogImageAbs,
+  datePublished: publishedISO,
+  dateModified: updatedISO,
+  author: { "@type": "Organization", name: "TwinPixel" },
+  publisher: {
+    "@type": "Organization",
+    name: "TwinPixel",
+    logo: { "@type": "ImageObject", url: `${origin}/logo.svg` },
+  },
+  mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+};
+
+// Breadcrumbs (optioneel maar sterk)
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Insights",
+      item: `${origin}/insights`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: data.title,
+      item: pageUrl,
+    },
+  ],
+};
+
+// Combine schemas (als array)
+const combinedSchema = [blogPostingSchema, breadcrumbSchema];
 ---
 
-<BaseLayout title={`${data.title} | Insights`} description={data.description}>
+<BaseLayout
+  title={`${data.title} | Insights`}
+  description={data.description}
+  ogImage={ogImage}
+  type="article"
+  article={{
+    publishedTime: publishedISO,
+    modifiedTime: updatedISO,
+    authorName: "TwinPixel",
+    section: data.category ?? "Insights",
+    tags
+  }}
+  schema={combinedSchema}
+>
   <!-- Progress bar bovenin de pagina -->
   <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
@@ -46,24 +126,25 @@ const readingTime = calcReadingTime();
       <!-- Terugknop -->
       <div class="header-nav">
         <a href="/insights" class="back-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
           Insights Overzicht
         </a>
       </div>
-      
+
       <!-- Meta info: Categorie, Datum & Leestijd -->
       <div class="meta-row">
         {data.category && <span class="cat-pill">{data.category}</span>}
-        <time class="meta-item">{formatDate(data.date)}</time>
+        <time class="meta-item" datetime={publishedISO ?? undefined}>{formatDate(data.date)}</time>
         <span class="sep"></span>
         <span class="meta-item">{readingTime}</span>
       </div>
 
       <h1 class="h1">{data.title}</h1>
-      
-      {data.description && (
-        <p class="article-lead">{data.description}</p>
-      )}
+
+      {data.description && <p class="article-lead">{data.description}</p>}
     </header>
 
     <div class="container narrow">
@@ -71,7 +152,12 @@ const readingTime = calcReadingTime();
         <!-- Hoofdafbeelding -->
         {data.image?.src && (
           <div class="main-image">
-            <img src={data.image.src} alt={data.image.alt || data.title} />
+            <img
+              src={data.image.src}
+              alt={data.image.alt || data.title}
+              loading="eager"
+              decoding="async"
+            />
           </div>
         )}
 
@@ -122,7 +208,7 @@ const readingTime = calcReadingTime();
   /* Header */
   .article-header { margin-bottom: 56px; }
   .header-nav { margin-bottom: 32px; }
-  
+
   .back-pill {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 8px 20px 8px 14px; border-radius: 100px;
@@ -132,7 +218,7 @@ const readingTime = calcReadingTime();
   .back-pill:hover { border-color: var(--brand); color: #fff; background: rgba(47, 137, 255, 0.05); transform: translateX(-4px); }
 
   .meta-row { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
-  .cat-pill { 
+  .cat-pill {
     font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
     color: var(--brand); background: rgba(47, 137, 255, 0.1); padding: 4px 12px; border-radius: 4px;
   }
@@ -172,8 +258,8 @@ const readingTime = calcReadingTime();
 
   .prose :global(p) { margin-bottom: 28px; }
 
-  .prose :global(ul) { 
-    margin: 32px 0; padding: 28px; background: rgba(255, 255, 255, 0.015); 
+  .prose :global(ul) {
+    margin: 32px 0; padding: 28px; background: rgba(255, 255, 255, 0.015);
     border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.03);
   }
   .prose :global(li) { margin-bottom: 14px; list-style: none; position: relative; padding-left: 24px; color: var(--muted); }

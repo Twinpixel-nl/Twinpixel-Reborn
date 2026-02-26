@@ -12,7 +12,12 @@ const accent =
   variant === "purple" ? "#7c3aed" :
   "#2F89FF";
 ---
-<a class="card" href={href} style={`--accent:${accent};`} aria-label={title}>
+<a
+  class="card"
+  href={href}
+  style={`--accent:${accent};`}
+  aria-label={`${title} bekijken`}
+>
   <div class="top">
     <h3 class="h3">{title}</h3>
     <span class="pill">Bekijk →</span>
@@ -24,6 +29,7 @@ const accent =
     {tags.map((t) => <span class="tag">{t}</span>)}
   </div>
 </a>
+
 <style>
   .card{
     display:block;
@@ -32,27 +38,26 @@ const accent =
     border: 1px solid rgba(255,255,255,.11);
 
     padding: 22px;
-    min-height: 320px; /* groter */
+    min-height: 320px;
     position: relative;
     overflow: hidden;
 
     transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+    outline: none;
   }
 
-  /* subtiele “ambient sheen” die niet schreeuwt */
   .card::before{
     content:"";
     position:absolute;
     inset:-1px;
     pointer-events:none;
-    opacity: .0;
+    opacity: 0;
     background:
       radial-gradient(600px 260px at 20% 0%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 62%),
       radial-gradient(520px 220px at 80% 20%, rgba(255,255,255,.06), transparent 68%);
     transition: opacity .18s ease;
   }
 
-  /* dunne accent rand bij hover (premium) */
   .card::after{
     content:"";
     position:absolute;
@@ -70,8 +75,20 @@ const accent =
   }
   .card:hover::before{ opacity: 1; }
   .card:hover::after{
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  /* keyboard focus = premium */
+  .card:focus-visible{
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 55%, rgba(255,255,255,.18));
+    background-color: rgba(255,255,255,.045);
+  }
+  .card:focus-visible::before{ opacity: 1; }
+  .card:focus-visible::after{
     box-shadow:
-      inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
+      inset 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent),
+      0 0 0 4px rgba(255,255,255,.06);
   }
 
   .top{
@@ -99,7 +116,8 @@ const accent =
     white-space: nowrap;
   }
 
-  .card:hover .pill{
+  .card:hover .pill,
+  .card:focus-visible .pill{
     border-color: color-mix(in srgb, var(--accent) 55%, rgba(255,255,255,.18));
     color: rgba(255,255,255,.88);
   }
@@ -125,5 +143,15 @@ const accent =
     border: 1px solid rgba(255,255,255,.12);
     color: rgba(255,255,255,.70);
     background: rgba(0,0,0,.10);
+  }
+
+  /* respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .card, .card::before, .card::after, .pill{
+      transition: none !important;
+    }
+    .card:hover, .card:focus-visible{
+      transform: none;
+    }
   }
 </style>

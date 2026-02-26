@@ -3,81 +3,128 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import { expertiseItems } from "../../data/expertise";
 
+type ExtraExample = { title: string; summary: string };
+type ExtraFaq = { q: string; a: string };
+type Extras = { examples: ExtraExample[]; faq: ExtraFaq[] };
+
 export function getStaticPaths() {
   return expertiseItems.map((x) => ({ params: { slug: x.slug } }));
 }
 
 const { slug } = Astro.params;
 const item = expertiseItems.find((x) => x.slug === slug);
-if (!item) throw new Error(`Unknown expertise slug: ${slug}`);
 
-const extras = {
-  branding: {
+if (!item) {
+  // nette 404 ipv build-crash (werkt in Astro)
+  return Astro.redirect("/404");
+}
+
+const extras: Record<string, Extras> = {
+  "brand-basis": {
     examples: [
       {
         title: "Scale-up Rebrand",
-        summary: "Merktaal, design system en webdesign voor een B2B SaaS, inclusief templates voor sales.",
+        summary:
+          "Merktaal, design system en webdesign voor een B2B SaaS, inclusief templates voor sales.",
       },
       {
         title: "Agency Merk Kit",
-        summary: "Logo-refresh, UI kit en tone-of-voice gids zodat alle kanalen consistent zijn.",
+        summary:
+          "Logo-refresh, UI kit en tone-of-voice gids zodat alle kanalen consistent zijn.",
       },
       {
         title: "Founders Deck + Site",
-        summary: "Look & feel, typografie en componenten die direct toepasbaar zijn in slides en website.",
+        summary:
+          "Look & feel, typografie en componenten die direct toepasbaar zijn in slides en website.",
       },
     ],
     faq: [
-      { q: "Hoe snel kunnen we live?", a: "First draft in 1-2 weken, volledige kit in 3-4 weken afhankelijk van feedback." },
-      { q: "Leveren jullie ook assets?", a: "Ja: logo files, kleur/typografie richtlijnen, UI componenten en social templates." },
-      { q: "Hoe zorgen jullie voor consistentie?", a: "We documenteren keuzes in een mini styleguide en leveren herbruikbare componenten." },
+      {
+        q: "Hoe snel kunnen we live?",
+        a: "Eerste versie binnen 1–2 weken. Volledige kit in 3–4 weken, afhankelijk van feedback.",
+      },
+      {
+        q: "Leveren jullie ook assets?",
+        a: "Ja: logo exports, kleur/typografie richtlijnen, UI-componenten en (optioneel) social templates.",
+      },
+      {
+        q: "Hoe zorgen jullie voor consistentie?",
+        a: "We leggen keuzes vast in een mini-styleguide en leveren herbruikbare componenten/regels.",
+      },
     ],
   },
-  "standard-websites": {
+
+  "website-launch": {
     examples: [
       {
         title: "Marketing Site + Landingspagina",
-        summary: "Homepage, diensten en campagnepagina's met heldere flow en SEO-basics.",
+        summary:
+          "Homepage, diensten en campagnepagina’s met heldere flow en SEO-basis.",
       },
       {
-        title: "Lead Funnel",
-        summary: "CTA-structuur, formulieren, dankpagina's en interne links voor hogere conversie.",
+        title: "Leadflow",
+        summary:
+          "CTA-structuur, formulieren, dankpagina’s en interne links voor hogere conversie.",
       },
       {
         title: "SEO Foundations",
-        summary: "Titles, headings, structured content en technische checks voor snelle indexing.",
+        summary:
+          "Titels, headings, content-structuur en technische checks voor snelle indexatie.",
       },
     ],
     faq: [
-      { q: "Wat is de doorlooptijd?", a: "Ontwerp en build in 3-5 weken, afhankelijk van content die je aanlevert." },
-      { q: "Optimaliseren jullie voor snelheid?", a: "Ja, we bouwen performance-first (Astro), meten Core Web Vitals en optimaliseren assets." },
-      { q: "Regelen jullie ook content?", a: "We helpen met structuur en microcopy; voor grote copy-trajecten werken we met een copywriter." },
+      {
+        q: "Wat is de doorlooptijd?",
+        a: "Meestal 3–5 weken. Content en feedback bepalen het tempo.",
+      },
+      {
+        q: "Optimaliseren jullie voor snelheid?",
+        a: "Ja. We bouwen performance-first (Astro), meten Core Web Vitals en optimaliseren assets.",
+      },
+      {
+        q: "Regelen jullie ook content?",
+        a: "We helpen met structuur en microcopy. Voor grotere copy-trajecten schakelen we (optioneel) een copywriter in.",
+      },
     ],
   },
-  "technical-websites": {
+
+  "technical-build": {
     examples: [
       {
         title: "Portaal of Dashboard",
-        summary: "Custom flows, filters en dataweergave die intuïtief blijven voor eindgebruikers.",
+        summary:
+          "Custom flows, filters en dataweergave die intuïtief blijven voor eindgebruikers.",
       },
       {
         title: "Integraties",
-        summary: "CRM, formulieren, analytics en automatisering, met duidelijke foutafhandeling.",
+        summary:
+          "CRM, formulieren, analytics en automatisering, met duidelijke foutafhandeling.",
       },
       {
         title: "Component-architectuur",
-        summary: "Schaalbare UI-componenten met tests/checks zodat teams sneller kunnen itereren.",
+        summary:
+          "Schaalbare UI-componenten met checks zodat teams sneller kunnen itereren.",
       },
     ],
     faq: [
-      { q: "Hoe pakken jullie complexiteit aan?", a: "We starten met een flow-inventarisatie, definiëren states en valideren met wireframes." },
-      { q: "Welke stack gebruiken jullie?", a: "Front-end met Astro/React waar nodig, API-koppelingen op basis van bestaande back-ends." },
-      { q: "Doen jullie QA?", a: "Ja, we testen flows, accessibility en performance voordat we opleveren." },
+      {
+        q: "Hoe pakken jullie complexiteit aan?",
+        a: "We starten met flow-inventarisatie, definiëren states en valideren met wireframes.",
+      },
+      {
+        q: "Welke stack gebruiken jullie?",
+        a: "Front-end met Astro (en React waar nodig), met API-koppelingen op bestaande back-ends.",
+      },
+      {
+        q: "Doen jullie QA?",
+        a: "Ja. We testen flows, toegankelijkheid en performance vóór oplevering.",
+      },
     ],
   },
 };
 
-const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
+const currentExtras: Extras = extras[item.slug] ?? { examples: [], faq: [] };
+const pricePrefix = item.costs.isStartingAt === false ? "" : "Vanaf ";
 ---
 
 <BaseLayout title={`Twinpixel | ${item.title}`} description={item.intro}>
@@ -90,7 +137,7 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
 
         <div class="blocks">
           <div class="block">
-            <h2 class="sub">Wat Je Krijgt</h2>
+            <h2 class="sub">Wat je krijgt</h2>
             <ul class="list">
               {item.whatYouGet.map((li) => <li>{li}</li>)}
             </ul>
@@ -108,21 +155,34 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
             </div>
           </div>
 
-          <!-- NIEUW: KOSTEN SECTIE -->
           <div class="block investment">
             <h2 class="sub">Investering</h2>
             <div class="cost-card">
               <div class="cost-content">
                 <p class="cost-price">
-  {item.costs.isStartingAt !== false ? "Vanaf " : ""}
-  <span class="amount" style={`color: var(--accent)`}>{item.costs.price}</span>
-</p>
+                  {pricePrefix}
+                  <span class="amount" style={`color: var(--accent)`}>{item.costs.price}</span>
+                </p>
                 <p class="cost-desc">{item.costs.description}</p>
               </div>
+
               <ul class="cost-features">
-                {item.costs.features.map(f => (
+                {item.costs.features.map((f) => (
                   <li>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--accent)"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                     {f}
                   </li>
                 ))}
@@ -130,39 +190,38 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
             </div>
           </div>
         </div>
-<div class="block">
-  <h2 class="sub">Praktisch</h2>
 
-  <div class="practical">
-    <div class="practical-card highlight">
-      <p class="practical-title">Doorlooptijd</p>
-      <p class="practical-text">{item.timeline}</p>
-    </div>
+        <div class="block">
+          <h2 class="sub">Praktisch</h2>
 
-    <div class="practical-card">
-      <p class="practical-title">Ideaal voor</p>
-      <ul class="practical-list">
-        {item.idealFor.map((x) => <li>{x}</li>)}
-      </ul>
-    </div>
+          <div class="practical">
+            <div class="practical-card highlight">
+              <p class="practical-title">Doorlooptijd</p>
+              <p class="practical-text">{item.timeline}</p>
+            </div>
 
-    <div class="practical-card">
-      <p class="practical-title">Inbegrepen</p>
-      <ul class="practical-list">
-        {item.includes.map((x) => <li>{x}</li>)}
-      </ul>
-    </div>
+            <div class="practical-card">
+              <p class="practical-title">Ideaal voor</p>
+              <ul class="practical-list">
+                {item.idealFor.map((x) => <li>{x}</li>)}
+              </ul>
+            </div>
 
-    <div class="practical-card">
-      <p class="practical-title">Niet inbegrepen</p>
-      <ul class="practical-list">
-        {item.notIncluded.map((x) => <li>{x}</li>)}
-      </ul>
-    </div>
-  </div>
-</div>
+            <div class="practical-card">
+              <p class="practical-title">Inbegrepen</p>
+              <ul class="practical-list">
+                {item.includes.map((x) => <li>{x}</li>)}
+              </ul>
+            </div>
 
-
+            <div class="practical-card">
+              <p class="practical-title">Niet inbegrepen</p>
+              <ul class="practical-list">
+                {item.notIncluded.map((x) => <li>{x}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
 
         {currentExtras.examples.length > 0 && (
           <div class="examples">
@@ -180,7 +239,7 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
 
         {currentExtras.faq.length > 0 && (
           <div class="faq">
-            <h2 class="sub">Veelgestelde Vragen</h2>
+            <h2 class="sub">Veelgestelde vragen</h2>
             <div class="faq-list">
               {currentExtras.faq.map((f) => (
                 <div class="faq-item">
@@ -193,12 +252,12 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
         )}
 
         <div class="actions">
-          <Button href="/cases" variant="primary" label="Bekijk Cases" />
-          <Button href="/contact" variant="secondary" label="Plan Kennismaking" />
+          <Button href="/cases" variant="primary" label="Bekijk cases" />
+          <Button href="/contact" variant="secondary" label="Plan kennismaking" />
         </div>
 
         <div class="back">
-          <a class="backlink" href="/expertise">← Terug Naar Expertise</a>
+          <a class="backlink" href="/expertise">← Terug naar expertise</a>
         </div>
       </div>
 
@@ -213,7 +272,7 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
         </div>
 
         <div class="sidepanel" aria-label="Andere expertise">
-          <p class="label">Andere Expertise</p>
+          <p class="label">Andere expertise</p>
           <div class="side-links">
             {expertiseItems
               .filter((x) => x.slug !== item.slug)
@@ -227,6 +286,7 @@ const currentExtras = extras[item.slug] ?? { examples: [], faq: [] };
       </div>
     </div>
   </section>
+</BaseLayout>
 
   <style>
     /* accents */

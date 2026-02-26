@@ -1,23 +1,29 @@
 ---
-title: Waarom SEO zonder scherpe keuzes zelden werkt
-description: Veel websites zijn technisch prima en zien er goed uit, maar
-  leveren te weinig op. Niet door een SEO-tekort, maar door een gebrek aan
-  focus. In deze insight laten we zien waarom scherpe keuzes belangrijker zijn
-  dan optimaliseren.
+title: "Waarom SEO zonder scherpe keuzes zelden werkt (en wat je dan wél moet doen)"
+description: "Veel websites zijn technisch goed gebouwd, maar leveren weinig aanvragen op. Ontdek waarom SEO zonder duidelijke positionering niet werkt en hoe scherpe keuzes zorgen voor meer zichtbaarheid en conversie."
+
 date: 2026-01-20
+updated: 2026-02-16
 draft: false
+
 image:
-  alt: Abstract beeld dat focus en richting in webdesign en SEO symboliseert
-  src: /uploads/b2329ebf-31f1-4c9a-ae9f-1af50b983e49.png
-category: SEO
+  src: "/uploads/b2329ebf-31f1-4c9a-ae9f-1af50b983e49.png"
+  alt: "Abstract beeld dat focus en strategische keuzes in SEO en webdesign symboliseert"
+
+ogImage: "/uploads/og/seo-zonder-focus-strategie.png"
+
+category: "SEO"
+
 tags:
-  - seo
-  - webdesign
-  - conversie
-  - focus
-  - strategie
-readingTime: 6 min
+  - "SEO strategie"
+  - "lokale SEO"
+  - "conversie optimalisatie"
+  - "webdesign Wageningen"
+  - "positionering"
+
+readingTime: "6 min"
 ---
+
 Mooie websites, weinig resultaat
 
 We zien het vaak: websites die technisch kloppen, visueel sterk zijn en inhoudelijk alles vertellen wat ze moeten.  

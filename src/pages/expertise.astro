@@ -94,24 +94,45 @@ import { expertiseItems } from "../data/expertise";
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="section cta-section">
+  <!-- Onderhoud / Doorontwikkeling -->
+  <section class="section maintenance-section" aria-label="Onderhoud en doorontwikkeling">
     <div class="container">
-      <div class="cta-card">
-        <div class="cta-content">
-          <h2 class="cta-title">Meerdere expertises combineren?</h2>
-          <p class="cta-description">
-            Websites en branding werken het beste samen. Stuur je projectbeschrijving
-            en we adviseren welke combinatie het meest effectief is voor jouw doel.
+      <div class="maintenance-bar">
+        <div class="maintenance-left">
+          <p class="kicker">Onderhoud</p>
+          <h2 class="maintenance-title">Onderhoud & doorontwikkeling</h2>
+          <p class="maintenance-desc">
+            Je site blijft snel, veilig en up-to-date. Inclusief hosting, monitoring, updates en kleine verbeteringen.
           </p>
+
+          <div class="maintenance-points">
+            <span class="mp">Hosting & updates</span>
+            <span class="mp">Monitoring & security</span>
+            <span class="mp">Tot 1 uur aanpassingen p/m</span>
+            <span class="mp">Extra uren: €85/u</span>
+          </div>
         </div>
-        <div class="cta-actions">
-          <Button href="/contact" variant="primary" label="Plan adviesgesprek" />
-          <Button href="/cases" variant="secondary" label="Bekijk voorbeelden" />
+
+        <div class="maintenance-right" aria-label="Prijs en acties">
+          <div class="maintenance-price">
+            <span class="price-label">Vanaf</span>
+            <span class="price-amount">€125</span>
+            <span class="price-period">/ maand</span>
+          </div>
+
+          <div class="maintenance-actions">
+            <Button href="/contact" variant="primary" label="Plan kennismaking" />
+            <Button href="/contact" variant="secondary" label="Vraag prijsindicatie" />
+          </div>
+
+          <p class="maintenance-note">
+            Aan te raden na oplevering voor performance, veiligheid en kleine iteraties.
+          </p>
         </div>
       </div>
     </div>
   </section>
+
 
   <style>
     @keyframes fadeInUp {
@@ -497,5 +518,142 @@ import { expertiseItems } from "../data/expertise";
         gap: 16px;
       }
     }
+
+        /* Maintenance Bar */
+    .maintenance-section{
+      padding: 0 0 80px; /* sluit mooi aan onder kaarten */
+    }
+
+    .maintenance-bar{
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.025);
+      box-shadow: 0 12px 48px rgba(0,0,0,.12);
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 28px;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .maintenance-bar::before{
+      content:"";
+      position:absolute;
+      inset:-200px -160px;
+      pointer-events:none;
+      opacity:.9;
+      background:
+        radial-gradient(900px 520px at 12% 0%, rgba(47,137,255,.18), transparent 62%),
+        radial-gradient(900px 520px at 92% 35%, rgba(124,58,237,.12), transparent 68%),
+        radial-gradient(900px 520px at 70% 120%, rgba(34,197,94,.10), transparent 70%);
+    }
+
+    .maintenance-left,
+    .maintenance-right{
+      position: relative;
+      z-index: 1;
+    }
+
+    .maintenance-title{
+      margin: 8px 0 10px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      font-weight: 650;
+    }
+
+    .maintenance-desc{
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 70ch;
+    }
+
+    .maintenance-points{
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mp{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+      color: rgba(255,255,255,.74);
+      white-space: nowrap;
+    }
+
+    .maintenance-price{
+      display:flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .price-label{
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+
+    .price-amount{
+      font-size: 44px;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
+    }
+
+    .price-period{
+      font-size: 13px;
+      color: rgba(255,255,255,.65);
+    }
+
+    .maintenance-actions{
+      display:flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .maintenance-note{
+      margin: 14px 0 0;
+      text-align: right;
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 40ch;
+      margin-left: auto;
+    }
+
+    @media (max-width: 980px){
+      .maintenance-section{ padding: 0 0 70px; }
+      .maintenance-bar{
+        grid-template-columns: 1fr;
+        padding: 28px 22px;
+      }
+      .maintenance-price{
+        justify-content: flex-start;
+      }
+      .maintenance-actions{
+        justify-content: flex-start;
+      }
+      .maintenance-note{
+        text-align: left;
+        margin-left: 0;
+        max-width: none;
+      }
+    }
+
   </style>
 </BaseLayout>

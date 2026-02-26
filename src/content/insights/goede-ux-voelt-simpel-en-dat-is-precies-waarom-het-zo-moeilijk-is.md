@@ -1,21 +1,26 @@
 ---
-title: Goede UX voelt simpel en dat is precies waarom het zo moeilijk is
-description: Goede UX valt nauwelijks op. En juist daarom is het zo lastig om
-  goed te doen. In dit artikel leggen we uit waarom simpele websites vaak het
-  resultaat zijn van moeilijke keuzes.
+title: "Goede UX voelt simpel, en dat is precies waarom het zo moeilijk is"
+description: "Goede UX lijkt vanzelfsprekend, maar bepaalt direct je conversie en gebruikservaring. Ontdek waarom simpele websites vaak het resultaat zijn van scherpe keuzes en strategisch webdesign."
 date: 2026-01-30
+updated: 2026-02-16
 draft: false
+
 image:
-  src: /uploads/yjb1vcge8ywbuyornbi-i6r2pefbw5dhkxq6lqpc0ik1iyztigv1xynwr5sfzokfm5xaetu4ovsdjrgttcm0p66a1bgyidjzpsw4pe_vzak.jpg
-  alt: Abstracte vormen die de eenvoud en complexiteit van goede UX verbeelden
-category: UX
+  src: "/uploads/yjb1vcge8ywbuyornbi-i6r2pefbw5dhkxq6lqpc0ik1iyztigv1xynwr5sfzokfm5xaetu4ovsdjrgttcm0p66a1bgyidjzpsw4pe_vzak.jpg"
+  alt: "Abstracte vormen die de eenvoud en complexiteit van goede UX verbeelden"
+
+ogImage: "/uploads/og/goede-ux-simpel-strategie.png"
+
+category: "UX"
+
 tags:
-  - ux
-  - gebruiksvriendelijkheid
-  - conversie
-  - webdesign
-  - strategie
-readingTime: 6 min
+  - "UX design"
+  - "gebruiksvriendelijke website"
+  - "conversie optimalisatie"
+  - "webdesign Wageningen"
+  - "strategisch webdesign"
+
+readingTime: "6 min"
 ---
 Goede UX voelt vaak vanzelfsprekend.
 

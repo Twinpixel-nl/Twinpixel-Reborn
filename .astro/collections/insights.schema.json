@@ -56,13 +56,19 @@
               "type": "string"
             }
           },
-          "required": [
-            "src"
-          ],
           "additionalProperties": false
         },
-        "category": {
+        "ogImage": {
           "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "Webdesign",
+            "SEO",
+            "UX",
+            "Strategie"
+          ]
         },
         "tags": {
           "type": "array",
@@ -79,6 +85,7 @@
       },
       "required": [
         "title",
+        "description",
         "date"
       ],
       "additionalProperties": false

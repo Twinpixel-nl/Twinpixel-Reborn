@@ -4,315 +4,383 @@ import Hero from "../components/Hero.astro";
 import Expertise from "../components/Expertise.astro";
 import CasesPreview from "../components/CasesPreview.astro";
 import Button from "../components/Button.astro";
-const mapsUrl = "https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu";
+
+const mapsUrl =
+  "https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu";
 ---
+
+
 <BaseLayout
-  title="Webdesign Wageningen | Snelle websites & SEO - TwinPixel"
-  description="TwinPixel ontwerpt en bouwt hoogwaardige websites voor bedrijven in Wageningen. Strak design, sterke structuur en een solide SEO-basis, met direct contact en korte lijnen."
+ title="Webdesign bureau Wageningen | High-end websites & SEO - TwinPixel"
+  description="TwinPixel is een webdesign bureau in Wageningen. We ontwerpen en bouwen high-end websites voor MKB: sterke positionering, snelle performance en een SEO-structuur die aanvragen oplevert. Direct contact, korte lijnen."
 >
+
   <Hero />
 
-<section class="section value slide-in-up" aria-label="Waarom TwinPixel">
-  <div class="container">
-    <div class="value-grid">
-      <div>
-        <p class="kicker">Expertise</p>
-        <h2 class="h2">Websites die klanten opleveren en professioneel aanvoelen.</h2>
-        <p class="lead small">
-          We bouwen hoogwaardige websites met een duidelijke boodschap, een snelle gebruikerservaring
-          en een structuur die goed scoort in Google.
-          Je werkt direct met ons, korte lijnen, snelle iteraties en heldere keuzes.
-        </p>
-      </div>
-
-      <div class="pillars" aria-label="Kernpunten">
-        <div class="pill">
-          <p class="pill-title">Sterke uitstraling</p>
-          <p class="pill-text">
-            Design dat past bij je merk en vertrouwen uitstraalt vanaf de eerste indruk.
+  <section class="section value slide-in-up" aria-label="Waarom TwinPixel">
+    <div class="container">
+      <div class="value-grid">
+        <div>
+          <p class="kicker">Expertise</p>
+          <h2 class="h2">Websites die vertrouwen opbouwen en aanvragen opleveren.</h2>
+          <p class="lead small">
+            We ontwikkelen high-end websites voor bedrijven in Wageningen en de Foodvalley.
+            Met een heldere positionering, snelle gebruikerservaring en een technische basis die
+            goed scoort in Google. Je werkt direct met ons: korte lijnen, snel schakelen en duidelijke keuzes.
           </p>
         </div>
 
-        <div class="pill">
-          <p class="pill-title">Conversiegerichte structuur</p>
-          <p class="pill-text">
-            Een helder verhaal, doordachte CTA’s en een logische route naar contact.
-          </p>
-        </div>
+        <div class="pillars" aria-label="Kernpunten">
+          <div class="pill">
+            <p class="pill-title">Sterke positionering</p>
+            <p class="pill-text">
+              Design en content die passen bij je merk en direct vertrouwen opbouwen.
+            </p>
+          </div>
 
-        <div class="pill">
-          <p class="pill-title">Goed vindbaar in Google</p>
-          <p class="pill-text">
-            Technische basis en contentstructuur die goed wordt opgepikt door zoekmachines.
-          </p>
-        </div>
+          <div class="pill">
+            <p class="pill-title">Conversiegerichte structuur</p>
+            <p class="pill-text">
+              Een logisch verhaal, scherpe CTA’s en een duidelijke route naar contact.
+            </p>
+          </div>
 
-        <div class="pill">
-          <p class="pill-title">Direct met de makers</p>
-          <p class="pill-text">
-            Geen accountlaag. Snel schakelen, eerlijk advies en duidelijke feedbackrondes.
-          </p>
+          <div class="pill">
+            <p class="pill-title">SEO-structuur die klopt</p>
+            <p class="pill-text">
+              Technische basis en pagina-opbouw die zoekmachines goed begrijpen en waarderen.
+            </p>
+          </div>
+
+          <div class="pill">
+            <p class="pill-title">Direct met de makers</p>
+            <p class="pill-text">
+              Geen accountlaag. Eerlijk advies, korte feedbackrondes en snelle iteraties.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
+  </section>
 
   <Expertise />
   <CasesPreview />
 
-<!-- Reviews Section -->
-<section class="section reviews reviews-marquee slide-in-up" aria-label="Klantreviews">
-  <div class="container">
-    <div class="reviews-header">
-      <p class="kicker">Reviews</p>
-      <h2 class="h2">Wat klanten zeggen</h2>
-      <p class="lead">Reviews uit onze Google Business Profile.</p>
-    </div>
-
-    <div class="marquee" aria-label="Reviews carrousel">
-      <div class="marquee-track">
-        <!-- track A -->
-        <div class="track">
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week!
-              De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Harvey Meurs</div>
-              <div class="author-company">Eigenaar, Wetvanstaal</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
-              Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Otto Vleeming</div>
-              <div class="author-company">Stadspartij Wageningen</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
-              Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Britt Leander</div>
-              <div class="author-company">Eigenaar, ByBrittNails</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
-              Voor maatwerk ben je hier aan het juiste adres."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Julian van Beek</div>
-              <div class="author-company">Eigenaar, Rocket Agency</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Professioneel, betrouwbaar en prettig om mee samen te werken!
-              Ze houden zich aan afspraken en leveren kwaliteit."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Dennis Weijer</div>
-              <div class="author-company">Eigenaar, Dennisweijer.nl</div>
-            </div>
-          </a>
-        </div>
-
-        <!-- track B (duplicate) -->
-        <div class="track" aria-hidden="true">
-<a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week!
-              De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Harvey Meurs</div>
-              <div class="author-company">Eigenaar, Wetvanstaal</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
-              Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Otto Vleeming</div>
-              <div class="author-company">Stadspartij Wageningen</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
-              Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Britt Leander</div>
-              <div class="author-company">Eigenaar, ByBrittNails</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
-              Voor maatwerk ben je hier aan het juiste adres."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Julian van Beek</div>
-              <div class="author-company">Eigenaar, Rocket Agency</div>
-            </div>
-          </a>
-
-          <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-            <div class="review-stars" aria-label="5 sterren">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-            <blockquote class="review-text">
-              "Professioneel, betrouwbaar en prettig om mee samen te werken!
-              Ze houden zich aan afspraken en leveren kwaliteit."
-            </blockquote>
-            <div class="review-author">
-              <div class="author-name">Dennis Weijer</div>
-              <div class="author-company">Eigenaar, Dennisweijer.nl</div>
-            </div>
-          </a>
-        </div>
+  <!-- Reviews Section -->
+  <section class="section reviews reviews-marquee slide-in-up" aria-label="Klantreviews">
+    <div class="container">
+      <div class="reviews-header">
+        <p class="kicker">Reviews</p>
+        <h2 class="h2">Wat klanten zeggen</h2>
+        <p class="lead">Reviews uit onze Google Business Profile.</p>
       </div>
-    </div>
 
-    <div class="reviews-cta">
-      <p class="reviews-note">
-        Deze reviews zijn afkomstig van onze Google Business Profile.
-        <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Bekijk alle reviews →</a>
-      </p>
-    </div>
-  </div>
-</section>
+      <div class="marquee" aria-label="Reviews carrousel">
+        <div class="marquee-track">
+          <!-- track A -->
+          <div class="track">
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week!
+                De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Harvey Meurs</div>
+                <div class="author-company">Eigenaar, Wetvanstaal</div>
+              </div>
+            </a>
 
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
+                Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Otto Vleeming</div>
+                <div class="author-company">Stadspartij Wageningen</div>
+              </div>
+            </a>
 
-<section class="section packages" aria-label="Pakketten">
-  <div class="container">
-    <div class="head">
-      <p class="kicker">Investering</p>
-      <h2 class="h2">Heldere startpunten</h2>
-      <p class="lead small">
-        Geen standaard oplossingen. Elk project is maatwerk, afgestemd op jouw ambities en groeifase.
-      </p>
-    </div>
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
+                Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Britt Leander</div>
+                <div class="author-company">Eigenaar, ByBrittNails</div>
+              </div>
+            </a>
 
-    <div class="pkg-grid">
-      <!-- Pakket 1 -->
-      <div class="pkg">
-        <div class="pkg-content">
-          <p class="pkg-name">Branding Sprint</p>
-          <p class="pkg-price">Vanaf €500</p>
-          <div class="pkg-line"></div>
-          <ul>
-            <li>Logo & Visuele identiteit</li>
-            <li>Brandbook (kleur & font)</li>
-            <li>Styleguide voor web</li>
-          </ul>
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
+                Voor maatwerk ben je hier aan het juiste adres."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Julian van Beek</div>
+                <div class="author-company">Eigenaar, Rocket Agency</div>
+              </div>
+            </a>
+
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Professioneel, betrouwbaar en prettig om mee samen te werken!
+                Ze houden zich aan afspraken en leveren kwaliteit."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Dennis Weijer</div>
+                <div class="author-company">Eigenaar, Dennisweijer.nl</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- track B (duplicate) -->
+          <div class="track" aria-hidden="true">
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd!
+                De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Harvey Meurs</div>
+                <div class="author-company">Eigenaar, Wetvanstaal</div>
+              </div>
+            </a>
+
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
+                Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Otto Vleeming</div>
+                <div class="author-company">Stadspartij Wageningen</div>
+              </div>
+            </a>
+
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
+                Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Britt Leander</div>
+                <div class="author-company">Eigenaar, ByBrittNails</div>
+              </div>
+            </a>
+
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
+                Voor maatwerk ben je hier aan het juiste adres."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Julian van Beek</div>
+                <div class="author-company">Eigenaar, Rocket Agency</div>
+              </div>
+            </a>
+
+            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google">
+              <div class="review-stars" aria-label="5 sterren">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              </div>
+              <blockquote class="review-text">
+                "Professioneel, betrouwbaar en prettig om mee samen te werken!
+                Ze houden zich aan afspraken en leveren kwaliteit."
+              </blockquote>
+              <div class="review-author">
+                <div class="author-name">Dennis Weijer</div>
+                <div class="author-company">Eigenaar, Dennisweijer.nl</div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Pakket 2 -->
-      <div class="pkg">
-        <div class="pkg-content">
-          <p class="pkg-name">Website Launch</p>
-          <p class="pkg-price">Vanaf €1000</p>
-          <div class="pkg-line"></div>
-          <ul>
-            <li>Design & Ontwikkeling</li>
-            <li>SEO & Performance basis</li>
-            <li>Leadflow optimalisatie</li>
-          </ul>
+      <div class="reviews-cta">
+        <p class="reviews-note">
+          Deze reviews zijn afkomstig van onze Google Business Profile.
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Bekijk alle reviews →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section packages" aria-label="Pakketten">
+    <div class="container">
+      <div class="head">
+        <p class="kicker">Investering</p>
+        <h2 class="h2">Heldere startpunten</h2>
+        <p class="lead small">
+          Indicatieve investering. Exacte prijs hangt af van scope, content en eventuele koppelingen.
+        </p>
+      </div>
+
+      <div class="pkg-grid">
+        <a class="pkg" href="/expertise/brand-basis" aria-label="Brand Basis">
+          <div class="pkg-content">
+            <p class="pkg-name">Brand Basis</p>
+            <p class="pkg-price">€950 – €1.450</p>
+            <div class="pkg-line"></div>
+            <ul>
+              <li>Logo & visuele basis</li>
+              <li>Kleuren, typografie & merkstijl</li>
+              <li>Basis styleguide voor web & social</li>
+            </ul>
+          </div>
+        </a>
+
+        <a class="pkg is-featured" href="/expertise/website-launch" aria-label="Website Launch">
+          <div class="pkg-badge">Meest gekozen</div>
+          <div class="pkg-content">
+            <p class="pkg-name">Website Launch</p>
+            <p class="pkg-price">€2.450 – €3.750</p>
+            <div class="pkg-line"></div>
+            <ul>
+              <li>Design & maatwerk ontwikkeling</li>
+              <li>SEO-structuur & performance basis</li>
+              <li>Conversiegerichte flow naar aanvraag</li>
+            </ul>
+          </div>
+        </a>
+
+        <a class="pkg" href="/expertise/technical-build" aria-label="Technical Build">
+          <div class="pkg-content">
+            <p class="pkg-name">Technical Build</p>
+            <p class="pkg-price">€4.900 – €12.000</p>
+            <div class="pkg-line"></div>
+            <ul>
+              <li>Maatwerk frontend of tool</li>
+              <li>API- & systeemkoppelingen</li>
+              <li>Faseerbaar: discovery → build → grow</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section clients" aria-label="Samenwerkingen">
+    <div class="container">
+      <div class="clients-header">
+        <p class="kicker">Samenwerkingen</p>
+        <h2 class="h2">Vertrouwd door organisaties als:</h2>
+      </div>
+
+      <div class="logo-row" aria-label="Logos van samenwerkingen">
+        <div class="logo-item" title="Wageningen University & Research">
+          <img
+            src="/logos/wur-logo.webp"
+            alt="Logo van Wageningen University & Research (WUR)"
+            class="client-logo"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="logo-item" title="VVD Wageningen">
+          <img
+            src="/logos/vvd-logo.webp"
+            alt="Logo van VVD Wageningen"
+            class="client-logo"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="logo-item" title="Socialmediamanager.nl">
+          <img
+            src="/logos/sc-logo.webp"
+            alt="Logo van Socialmediamanager.nl"
+            class="client-logo smm-logo"
+            loading="lazy"
+          />
         </div>
       </div>
-
-      <!-- Pakket 3 (FEATURED) -->
-      <div class="pkg is-featured">
-        <div class="pkg-badge">Meest gekozen</div>
-        <div class="pkg-content">
-          <p class="pkg-name">Technical Build</p>
-          <p class="pkg-price">Vanaf €2.500</p>
-          <div class="pkg-line"></div>
-          <ul>
-            <li>Maatwerk applicatie/frontend</li>
-            <li>API & Systeem koppelingen</li>
-            <li>Full support & Onderhoud</li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
-<section class="section clients" aria-label="Onze Partners">
-  <div class="container">
-    <div class="clients-header">
-      <p class="kicker">Portfolio</p>
-      <h2 class="h2">Impact maken voor <span class="text-gradient">marktleiders</span>.</h2>
-    </div>
+  </section>
 
-    <div class="logo-row">
-      <!-- WUR -->
-      <div class="logo-item" title="Wageningen University & Research">
-        <img src="/logos/wur-logo.png" alt="WUR Logo" class="client-logo" />
-      </div>
-      
-      <!-- VVD -->
-      <div class="logo-item" title="VVD Wageningen">
-        <img src="/logos/vvd-logo.png" alt="VVD Logo" class="client-logo" />
-      </div>
+<script>
+  // 1) Glow follow (mouse)
+  let tick = false;
 
-      <!-- SMM -->
-      <div class="logo-item" title="Socialmediamanager.nl">
-        <img src="/logos/sc-logo.png" alt="Socialmediamanager Logo" class="client-logo smm-logo" />
-      </div>
-    </div>
-  </div>
-</section>
+  window.addEventListener('mousemove', (e) => {
+    if (tick) return;
+    tick = true;
+
+    requestAnimationFrame(() => {
+      const me = /** @type {MouseEvent} */ (e);
+      const x = (me.clientX / window.innerWidth) * 100;
+      const y = (me.clientY / window.innerHeight) * 100;
+
+      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+
+      tick = false;
+    });
+  });
+
+  // 2) Magnetic buttons
+  const mags = document.querySelectorAll('.mag');
+
+  mags.forEach((node) => {
+    if (!(node instanceof HTMLElement)) return;
+    const el = node;
+
+    let rect = el.getBoundingClientRect();
+    const updateRect = () => (rect = el.getBoundingClientRect());
+
+    window.addEventListener('resize', updateRect);
+
+    el.addEventListener('mouseenter', updateRect);
+
+    el.addEventListener('mousemove', (e) => {
+      requestAnimationFrame(() => {
+        const me = /** @type {MouseEvent} */ (e);
+        const x = me.clientX - rect.left - rect.width / 2;
+        const y = me.clientY - rect.top - rect.height / 2;
+
+        el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+    });
+
+    el.addEventListener('mouseleave', () => {
+      requestAnimationFrame(() => {
+        el.style.transform = 'translate(0px, 0px)';
+      });
+    });
+  });
+</script>
+
+
+
+
     <style>
       .contact-cta {
         margin: 3.6rem 0 0;

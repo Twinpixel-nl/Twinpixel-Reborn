@@ -1,4 +1,16 @@
 // src/data/cases.js
+import brittImg from '../assets/cases/by-britt-nails.webp';
+import wurImg from '../assets/cases/wur.webp';
+import vvdImg from '../assets/cases/vvdwageningen.webp';
+import stadImg from '../assets/cases/stadspartijwageningen.webp';
+import traumaImg from '../assets/cases/hettraumavoorbij.webp';
+import bjornosImg from '../assets/cases/bjornos.webp';
+import smmImg from '../assets/cases/socialmediamanager.webp';
+import jongerenImg from '../assets/cases/jongerenraadwageningen.webp';
+import staalImg from '../assets/cases/dewetvanstaal.webp';
+import nullImg from '../assets/cases/svnull.webp';
+import benneImg from '../assets/cases/debennekamer.webp';
+import voet4uImg from '../assets/cases/voet4u.webp';
 
 export const cases = [
   // FEATURED (3)
@@ -11,7 +23,7 @@ export const cases = [
     challenge: "Britt wilde de onbetwiste nummer 1 worden in Wageningen. Haar hoofdvraag was: 'Hoe zorg ik dat ik direct bovenaan sta als iemand een nagelstudio zoekt?' Tegelijkertijd zocht ze een digitale plek die de rust en luxe van haar studio uitstraalt, waar klanten in één oogopslag de prijzen kunnen zien en haar werk kunnen bewonderen zonder te hoeven zoeken op verschillende platformen.",
     challenge: "De hoofdvraag van Britt was: 'Hoe word ik de eerste optie in Google als men lokaal zoekt?' Tegelijkertijd wilde ze de drempel voor klanten verlagen door prijzen en voorbeeldfoto's direct op één plek te tonen, volledig in de stijl van haar paarse logo-identiteit.",
     tags: ["Lokaal SEO", "Web Design", "Conversion"],
-    image: "/cases/by-britt-nails.png",
+    image: brittImg, 
     featured: true,
     accent: "#7c3aed", 
     client: "Britt Nails",
@@ -35,7 +47,7 @@ export const cases = [
     extra: "Binnen een grote organisatie als Wageningen University & Research (WUR) is het Optare-systeem een essentieel onderdeel van het arbeidscontract, maar door de honderden CAO-regels was het voor medewerkers vaak een 'black box'. Wij kregen de opdracht om dit complexe proces te digitaliseren. Het resultaat is een interactieve web-app die duizenden medewerkers helpt om met een paar klikken hun financiële keuzes te simuleren. Of het nu gaat om het uitruilen van vakantiedagen of het berekenen van reiskostenvergoedingen: de tool maakt de impact op het salarisstrookje direct visueel en begrijpelijk.",
     challenge: "De grootste uitdaging was de achterliggende logica. We moesten een enorme hoeveelheid variabelen en rekenregels uit de CAO vertalen naar een foutloos algoritme. Tegelijkertijd mocht de gebruiker niets merken van deze complexiteit. De interface moest aanvoelen als een moderne 'fintech' app: snel, overzichtelijk en betrouwbaar, zodat medewerkers zelfverzekerd hun keuzes kunnen maken zonder de HR-afdeling te hoeven raadplegen.",
     tags: ["Custom Tooling", "Fintech Design", "Digital Transformation"],
-    image: "/cases/wur.png",
+    image: wurImg,
     featured: true,
     accent: "#14b8a6",
     client: "WUR (HR-Afdeling)",
@@ -65,7 +77,7 @@ export const cases = [
     extra: "Online aanwezigheid is voor een politieke partij geen luxe, maar een noodzaak. Voor de VVD Wageningen hebben we een platform gebouwd dat technisch zo superieur is, dat Google het direct herkent als de meest relevante bron voor lokale politiek. Zoek je in Wageningen op de term 'partij Wageningen'? Dan staat de VVD op nummer 1. Dit is geen toeval, maar het resultaat van een strategie waarbij we een razendsnel fundament (Astro) hebben gecombineerd met een messcherpe content-structuur. Hierdoor is de partij niet alleen vindbaar, maar ook de onbetwiste digitale autoriteit in de regio.",
     challenge: "Politieke partijen hebben vaak te maken met een enorme hoeveelheid 'zware' documenten en complexe standpunten. De uitdaging was om al deze data zo te structureren dat zoekmachines de relevantie direct begrijpen, terwijl de burger op een telefoon binnen drie seconden het antwoord op zijn vraag vindt. Het moest een platform worden dat autoriteit uitstraalt, maar tegelijkertijd laagdrempelig en extreem snel is.",
     tags: ["Politiek", "Local SEO", "UX"],
-    image: "/cases/vvdwageningen.png",
+    image: vvdImg,
     featured: true,
     accent: "#2F89FF",
     client: "VVD Wageningen",
@@ -96,7 +108,7 @@ export const cases = [
     description: "Informatief portaal voor lokale politiek en verkiezingen.",
     challenge: "De oude website was verouderd en onoverzichtelijk. De Stadspartij had een platform nodig dat meebeweegt met de actualiteit.",
     tags: ["Politiek", "Local SEO", "UX"],
-    image: "/cases/stadspartijwageningen.png",
+    image: stadImg,
     featured: false,
     accent: "#2F89FF",
     client: "Stadspartij Wageningen",
@@ -113,7 +125,7 @@ export const cases = [
     extra: "Als psycholoog liep de eigenaresse van 'Het trauma voorbij' tegen een fysieke grens aan: er zaten simpelweg niet genoeg uren in haar dag om iedereen 1-op-1 te helpen. Wij hebben dit opgelost door een academy-omgeving te creëren waar zij haar expertise kan delen met grote groepen tegelijk. Sinds de lancering hebben al meer dan 370 unieke gebruikers hun weg naar het platform gevonden, wat resulteerde in ruim 1.800 actieve interacties. Zij kan nu eenvoudig zelf nieuwe cursussen en video's toevoegen om haar bereik te vergroten, terwijl wij op de achtergrond fungeren als haar vaste technische partner voor support en onderhoud.",
     challenge: "De hoofdvraag was: 'Hoe kan ik mijn kennis delen met een groter publiek zonder dat mijn agenda overloopt?' Er was behoefte aan een professionele omgeving waar grote groepen cliënten zelfstandig aan de slag kunnen, gecombineerd met de zekerheid dat de techniek altijd blijft draaien.",
     tags: ["Online Academy", "Video Platform", "Zorg"],
-    image: "/cases/hettraumavoorbij.png",
+    image: traumaImg,
     featured: true,
     accent: "#14b8a6", 
     client: "Het trauma voorbij",
@@ -143,7 +155,7 @@ export const cases = [
     extra: "Een DJ-website moet de energie van de muziek reflecteren zonder in te leveren op techniek. Voor Bjornos bouwden we een visueel krachtig platform dat direct streamt vanaf SoundCloud en Spotify.",
     challenge: "De wens was een 'vette' website die direct indruk maakt, maar tegelijkertijd extreem snel laadt op mobiele apparaten (bijvoorbeeld op festivals). De integratie van externe muziekplayers moest naadloos en gebruiksvriendelijk zijn.",
     tags: ["Entertainment", "Performance", "Music"],
-    image: "/cases/bjornos.png",
+    image: bjornosImg,
     featured: false,
     accent: "#7c3aed",
     client: "Bjornos",
@@ -167,7 +179,7 @@ export const cases = [
     extra: "In een verzadigde markt als social media marketing is je visuele identiteit je belangrijkste visitekaartje. Voor socialmediamanager.nl hebben we niet alleen een website gebouwd, we hebben een volledig merk neergezet. Van het allereerste logo-ontwerp tot een compleet brandbook met kleurcodes, typografie en visuele richtlijnen: alles is tot in de puntjes op elkaar afgestemd. Het resultaat is een platform dat onmiddellijk autoriteit en professionaliteit uitstraalt, waardoor de klant met vol vertrouwen de grootste opdrachten kan binnenhalen.",
     challenge: "De opdracht was om een identiteit te creëren die zowel creativiteit als zakelijke stabiliteit uitstraalt. In een wereld waar iedereen zich 'expert' noemt, moest socialmediamanager.nl visueel boven het maaiveld uitsteken. De uitdaging was om een balans te vinden tussen een flitsend modern design en een technisch fundament dat razendsnel laadt.",
     tags: ["Full Branding", "Brandbook", "Web Design"],
-    image: "/cases/socialmediamanager.png",
+    image: smmImg,
     featured: false,
     accent: "#7c3aed",
     client: "SMM Platform",
@@ -191,12 +203,12 @@ export const cases = [
   {
      slug: "jongerenraad-wageningen",
     title: "Jongerenraad Wageningen",
-    website: "https://jongerenraadwageningen.nl",
+    website: "https://jrwageningen.nl",
     description: "Van een standaard WordPress-site naar een krachtig en herkenbaar jongerenmerk.",
     extra: "De Jongerenraad Wageningen werkte voorheen met een simpele WordPress-website die weinig eigen identiteit uitstraalde. Wij hebben dit volledig getransformeerd door eerst terug te gaan naar de tekentafel voor een complete branding. Van een nieuw logo tot een energiek kleurenpalet en een moderne beeldtaal: we hebben een merk neergezet dat spreekt naar de jeugd van Wageningen. Dit hebben we vertaald naar een razendsnel platform dat niet meer aanvoelt als een stoffig politiek orgaan, maar als een dynamisch centrum voor jongerenparticipatie.",
     challenge: "De grootste uitdaging was om politiek toegankelijk en aantrekkelijk te maken voor jongeren. De oude website was statisch en mobiel onvriendelijk. Er was behoefte aan een omgeving die energie uitstraalt, waarbij informatie over evenementen en standpunten binnen één klik vindbaar is op een smartphone.",
     tags: ["Full Branding", "Youth Engagement", "Web Design"],
-    image: "/cases/jongerenraadwageningen.png",
+    image: jongerenImg,
     featured: false, // Je kunt deze op true zetten als je hem in de top 3 wilt
     accent: "#2F89FF",
     client: "Jongerenraad Wageningen",
@@ -219,6 +231,36 @@ export const cases = [
     outcome: "De Jongerenraad heeft nu een professionele uitstraling die de betrokkenheid onder jongeren aanzienlijk heeft vergroot. Het platform fungeert nu als een volwaardig communicatiekanaal tussen de jeugd en de lokale overheid."
   },
   {
+    slug: "voet4u",
+    title: "Voet4U",
+    website: "https://voet4u.nl",
+    description: "Een professionele en betrouwbare digitale presentatie voor medisch pedicure-specialist Voet4U.",
+    extra: "Voor Voet4U was de stap naar een nieuwe website bittere noodzaak. De vorige website was niet alleen verouderd, maar technisch ook onbetrouwbaar: zo kwamen aanvragen via het contactformulier vaak niet aan. Wij hebben een platform neergezet dat de zorgvuldigheid van de praktijk weerspiegelt. Het resultaat is een rustige, paarse visuele identiteit die direct vertrouwen wekt bij de doelgroep, gecombineerd met techniek die simpelweg altijd werkt. Nu kan de klant zich weer focussen op haar patiënten, in de wetenschap dat haar digitale voordeur wagenwijd openstaat.",
+    challenge: "De hoofdvraag was het herstellen van de betrouwbaarheid en het verbeteren van de aansluiting bij de doelgroep. Het oude ontwerp voelde afstandelijk en de technische mankementen zorgden voor gemiste kansen. Er was behoefte aan een moderne, mobielvriendelijke site waar cliënten eenvoudig informatie kunnen vinden en gegarandeerd contact kunnen opnemen.",
+    tags: ["Zorg & Welzijn", "Web Design", "Betrouwbaarheid"],
+    image: voet4uImg,
+    featured: false,
+    accent: "#7c3aed",
+    client: "Voet4U",
+    year: "2026",
+    stats: [
+      { label: "Status", value: "Live", icon: "plus" },
+      { label: "Contactform.", value: "100% Werkend", icon: "chart" },
+      { label: "Design", value: "User-focused", icon: "users" }
+    ],
+    overview: [
+      { 
+        title: "Conversie-Optimalisatie", 
+        desc: "Het realiseren van een feilloos werkend contact- en boekingssysteem, waardoor potentiële cliënten zonder drempels een afspraak kunnen maken." 
+      },
+      { 
+        title: "Doelgroepgerichte UI", 
+        desc: "Een ontwerp met een zacht paars kleurenpalet en duidelijke typografie, specifiek afgestemd op de rust en professionaliteit die men in een pedicurepraktijk verwacht." 
+      }
+    ],
+    outcome: "Voet4U beschikt nu over een representatieve website die technisch staat als een huis. De onzekerheid over niet-werkende formulieren is verdwenen en de praktijk wordt nu online net zo professioneel gepresenteerd als in de behandelkamer."
+  },
+  {
     slug: "de-wet-van-staal",
     title: "De Wet van Staal",
     website: "https://dewetvanstaal.nl",
@@ -226,7 +268,7 @@ export const cases = [
     extra: "De Wet van Staal is het merk van Harvey Meurs, een vakman die letterlijk met vuur en staal werkt. Harvey had een platform nodig dat net zo onverwoestbaar en strak aanvoelt als zijn eigen werk. Geen standaard website, maar een visueel krachtig portfolio om zijn laswerk en zijn expertise als professional te verkopen. Wij hebben een omgeving gecreëerd waar de details van zijn vakmanschap — van de perfecte lasnaad tot het eindproduct — de hoofdrol spelen, waardoor hij direct indruk maakt op high-end zakelijke klanten.",
     challenge: "Hoe vertaal je een rauw, fysiek ambacht naar een verfijnde digitale ervaring? De uitdaging was om Harvey niet alleen als 'iemand die last' te positioneren, maar als een betrouwbare partner in metaalbewerking. De site moest stoer en industrieel zijn, maar tegelijkertijd de precisie en professionaliteit uitstralen die nodig is voor grote opdrachten.",
     tags: ["Industrieel Design", "Portfolio", "Personal Branding"],
-    image: "/cases/dewetvanstaal.png",
+    image: staalImg,
     featured: false,
     accent: "#2F89FF", // Een krachtig, industrieel blauw
     client: "Harvey Meurs",
@@ -255,7 +297,7 @@ export const cases = [
     extra: "Voor SV Null was de uitdaging helder: stop de versnippering van informatie. Van losse Excel-lijsten en losse formulieren zijn we overgestapt naar één centraal dashboard. Dit platform digitaliseert de volledige ledenadministratie, evenementenregistratie en interne communicatie. Het resultaat is een omgeving die niet alleen technisch onberispelijk is voor de IT-studenten die het gebruiken, maar ook een bestuur dat 60% minder tijd kwijt is aan handmatige administratie.",
     challenge: "Hoe beheer je een groeiende vereniging van honderden studenten zonder de menselijke maat te verliezen? De oude systemen waren traag en foutgevoelig. Er was behoefte aan een robuust portaal dat veilig omgaat met persoonsgegevens, razendsnel laadt en een moderne UI biedt die aansluit bij de tech-identiteit van de vereniging.",
     tags: ["Dashboard", "Ledenbeheer", "Automatisering"],
-    image: "/cases/svnull.png",
+    image: nullImg,
     featured: false,
     accent: "#14b8a6",
     client: "SV Null Bestuur",
@@ -285,7 +327,7 @@ export const cases = [
     extra: "De Bennekamer is het kloppend hart van de wijk, maar de oude website vormde een drempel in plaats van een brug. Het platform was traag en informatie over activiteiten was moeilijk te vinden. Wij hebben de volledige site herzien met één hoofddoel: rust en snelheid. Door de chaos te vervangen voor een strak design en een eenvoudig, betrouwbaar contactformulier toe te voegen, is de drempel voor buurtbewoners om contact op te nemen nu lager dan ooit. Het is nu een plek waar iedere generatie direct de weg vindt naar wijkactiviteiten en informatie.",
     challenge: "De vraag was helder: 'Maak het netter en sneller'. De oude omgeving was verouderd en onoverzichtelijk, waardoor belangrijke informatie over zaalhuur en wijkagenda's niet overkwam. Er was behoefte aan een technisch solide basis die op elk apparaat, van tablet tot smartphone,  direct een professionele en warme indruk achterlaat.",
     tags: ["Lokaal Platform", "UX Design", "Toegankelijkheid"],
-    image: "/cases/debennekamer.png",
+    image: benneImg,
     featured: false,
     accent: "#7c3aed",
     client: "Stichting De Bennekamer",

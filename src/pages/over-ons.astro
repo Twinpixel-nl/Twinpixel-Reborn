@@ -6,8 +6,10 @@ const title = "Over ons | TwinPixel - technisch webbureau uit Wageningen";
 const description =
   "TwinPixel is een technisch webbureau uit Wageningen. We bouwen snelle, onderhoudbare websites en webapps met focus op performance, structuur en SEO.";
 
-const heroImageSrc = "/zelfverzekerd.webp";
-const heroImageAlt = "Twan en Emma van TwinPixel in Wageningen";
+import { Image } from "astro:assets";
+import HeroFoto from "../assets/person/zelfverzekerd.webp";
+import EmmaFoto from "../assets/person/EmmaFoto.webp";
+import TwanFoto from "../assets/person/TwanFoto.webp";
 
 const siteUrl = "https://twinpixel.nl";
 ---
@@ -30,11 +32,11 @@ const siteUrl = "https://twinpixel.nl";
     <header class="hero-section">
       <div class="hero-content">
         <div class="hero-text">
-          <p class="kicker">Over TwinPixel</p>
+          <p class="kicker fade-item" style="animation-delay: 0.1s">Over TwinPixel</p>
 
-          <h1 class="hero-title">Technisch webbureau uit Wageningen</h1>
+          <h1 class="hero-title fade-item" style="animation-delay: 0.2s">Technisch webbureau uit Wageningen</h1>
 
-          <p class="hero-description">
+          <p class="hero-description fade-item" style="animation-delay: 0.3s">
             Wij bouwen websites en webapps die snel laden, logisch zijn opgebouwd en makkelijk te onderhouden blijven.
             Je werkt direct met ons, geen accountmanager ertussen. Vaak voor mkb en organisaties die een nieuwe site nodig hebben,
             of een bestaande website technisch strak willen trekken.
@@ -48,14 +50,14 @@ const siteUrl = "https://twinpixel.nl";
         </div>
 
         <figure class="hero-image">
-          <img
-            src={heroImageSrc}
-            alt={heroImageAlt}
-            width="1200"
-            height="900"
+          <Image
+            src={HeroFoto}
+            alt="Twan en Emma van TwinPixel in Wageningen"
+            width={1200}
+            height={900}
+            quality="high"
             loading="eager"
-            fetchpriority="high"
-            decoding="async"
+            class="hero-img-optimized"
           />
           <figcaption class="image-caption">
             Wij combineren strategie, design en techniek tot websites die werken.
@@ -97,8 +99,34 @@ const siteUrl = "https://twinpixel.nl";
 <!-- RECHTER KOLOM -->
 <div class="team-mini" aria-label="Team">
 
+
   <article class="team-person">
-    <img class="team-avatar" src="/TwanFoto.webp" alt="Twan van TwinPixel" width="100" height="100" loading="lazy" />
+                <Image 
+              src={EmmaFoto} 
+              alt="Emma van TwinPixel" 
+              width={200} 
+              height={200} 
+              class="team-avatar" 
+            />
+    <div class="team-meta">
+      <h2 class="team-name">Emma</h2>
+      <p class="team-role">UX Designer</p>
+      <p class="team-note">
+        Ontwerpt de structuur en gebruikersflows.
+        Zorgt dat bezoekers begrijpen wat ze moeten doen.
+      </p>
+    </div>
+  </article>
+
+  
+  <article class="team-person">
+                <Image 
+              src={TwanFoto} 
+              alt="Twan van TwinPixel" 
+              width={200} 
+              height={200} 
+              class="team-avatar" 
+            />
     <div class="team-meta">
       <h2 class="team-name">Twan</h2>
       <p class="team-role">Technical Lead</p>
@@ -109,17 +137,6 @@ const siteUrl = "https://twinpixel.nl";
     </div>
   </article>
 
-  <article class="team-person">
-    <img class="team-avatar" src="/EmmaFoto.webp" alt="Emma van TwinPixel" width="100" height="100" loading="lazy" />
-    <div class="team-meta">
-      <h2 class="team-name">Emma</h2>
-      <p class="team-role">UX Designer</p>
-      <p class="team-note">
-        Ontwerpt de structuur en gebruikersflows.
-        Zorgt dat bezoekers begrijpen wat ze moeten doen.
-      </p>
-    </div>
-  </article>
   </div>
 </div>
 </section>

@@ -1,22 +1,29 @@
 ---
-title: "Waarom veel websites weinig opleveren: focus is belangrijker dan features"
-description: Veel websites zijn technisch prima, maar leveren te weinig op. Niet
-  door een SEO-tekort, maar door gebrek aan focus. In dit artikel laten we zien
-  waarom scherpe keuzes meer opleveren dan extra features.
+title: "Waarom veel websites weinig klanten opleveren (focus is belangrijker dan features)"
+description: "Waarom leveren veel websites weinig aanvragen op? Ontdek hoe gebrek aan focus, vage positionering en verkeerde structuur je conversie ondermijnen – en wat beter werkt dan extra features toevoegen."
+
 date: 2026-02-07
+updated: 2026-02-16
 draft: false
+
 image:
-  alt: Abstract beeld dat focus en richting in webdesign symboliseert
-  src: /uploads/1ejajcukhrrbhgqkwpwxqeajyz_chm2qalvyrearkw-pwl8cavrtz3mbdywm36ox8mcb_fvbh4uzp_zrxkddyy_ovqwlcfgwqzvibhb_n_w.jpg
-category: Webdesign
+  src: "/uploads/1ejajcukhrrbhgqkwpwxqeajyz_chm2qalvyrearkw-pwl8cavrtz3mbdywm36ox8mcb_fvbh4uzp_zrxkddyy_ovqwlcfgwqzvibhb_n_w.jpg"
+  alt: "Abstract beeld dat focus en strategische richting in webdesign symboliseert"
+
+ogImage: "/uploads/og/website-weinig-klanten-focus.png"
+
+category: "Webdesign"
+
 tags:
-  - focus
-  - conversie
-  - strategie
-  - webdesign
-  - seo
-readingTime: 5 min
+  - "website levert geen klanten op"
+  - "conversie optimalisatie"
+  - "webdesign strategie"
+  - "lokale SEO"
+  - "positionering"
+
+readingTime: "5 min"
 ---
+
 Veel websites zien er goed uit.  
 Ze zijn snel, modern en technisch prima gebouwd.
 

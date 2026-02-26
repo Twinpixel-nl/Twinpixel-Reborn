@@ -4,33 +4,34 @@ import ExpertiseCard from "./ExpertiseCard.astro";
 
 const cards = [
   {
-    title: "Branding",
-    body: "Visual identity, tone of voice en een design system dat overal klopt.",
-    tags: ["Logo", "Identity", "Design system"],
-    href: "/expertise/branding",
+    title: "Brand Basis",
+    body: "Een sterke visuele basis met logo, kleur en typografie. Duidelijk, herkenbaar en klaar voor web.",
+    tags: ["Logo", "Merkstijl", "Styleguide"],
+    href: "/expertise/brand-basis",
     variant: "purple",
   },
   {
-    title: "Standard Websites",
-    body: "Snelle marketing sites en landingspagina's die vertrouwen wekken en converteren.",
-    tags: ["Landing pages", "CMS", "Conversion"],
-    href: "/expertise/standard-websites",
+    title: "Website Launch",
+    body: "Marketing websites die vertrouwen opbouwen en gericht zijn op aanvragen. Snel, logisch en conversiegericht.",
+    tags: ["CMS", "SEO-structuur", "Leadflow"],
+    href: "/expertise/website-launch",
     variant: "blue",
   },
   {
-    title: "Technical Websites",
-    body: "Custom front-ends, integraties en complexe flows: strak en onderhoudbaar.",
-    tags: ["Integrations", "Web apps", "Performance"],
-    href: "/expertise/technical-websites",
+    title: "Technical Build",
+    body: "Maatwerk frontends, tools en integraties. Performance-first en onderhoudbaar opgebouwd.",
+    tags: ["Integraties", "Webapplicaties", "Performance"],
+    href: "/expertise/technical-build",
     variant: "cyan",
   },
 ];
 ---
-<section class="section" id="work">
+
+<section class="section" id="expertise">
   <div class="container">
     <SectionHeader
       title="Expertise"
-      subtitle="Drie kerngebieden. Klik door voor details, aanpak en voorbeelden."
+      subtitle="Drie duidelijke trajecten. Van merkbasis tot maatwerkplatform."
     />
 
     <div class="grid-3 big">
@@ -47,13 +48,12 @@ const cards = [
   </div>
 
   <style>
-    .container{
+    .container {
       width: min(1100px, calc(100% - 2rem));
       margin: 0 auto;
     }
 
-    /* ruimer grid gevoel */
-    .big{
+    .big {
       gap: 22px;
     }
   </style>
