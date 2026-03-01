@@ -10,6 +10,7 @@ import jongerenImg from '../assets/cases/jongerenraadwageningen.webp';
 import staalImg from '../assets/cases/dewetvanstaal.webp';
 import nullImg from '../assets/cases/svnull.webp';
 import benneImg from '../assets/cases/debennekamer.webp';
+import voet4uImg from '../assets/cases/voet4u.webp';
 
 export const cases = [
   // FEATURED (3)
@@ -228,6 +229,36 @@ export const cases = [
       }
     ],
     outcome: "De Jongerenraad heeft nu een professionele uitstraling die de betrokkenheid onder jongeren aanzienlijk heeft vergroot. Het platform fungeert nu als een volwaardig communicatiekanaal tussen de jeugd en de lokale overheid."
+  },
+  {
+    slug: "voet4u",
+    title: "Voet4U",
+    website: "https://voet4u.nl",
+    description: "Een professionele en betrouwbare digitale presentatie voor medisch pedicure-specialist Voet4U.",
+    extra: "Voor Voet4U was de stap naar een nieuwe website bittere noodzaak. De vorige website was niet alleen verouderd, maar technisch ook onbetrouwbaar: zo kwamen aanvragen via het contactformulier vaak niet aan. Wij hebben een platform neergezet dat de zorgvuldigheid van de praktijk weerspiegelt. Het resultaat is een rustige, paarse visuele identiteit die direct vertrouwen wekt bij de doelgroep, gecombineerd met techniek die simpelweg altijd werkt. Nu kan de klant zich weer focussen op haar patiënten, in de wetenschap dat haar digitale voordeur wagenwijd openstaat.",
+    challenge: "De hoofdvraag was het herstellen van de betrouwbaarheid en het verbeteren van de aansluiting bij de doelgroep. Het oude ontwerp voelde afstandelijk en de technische mankementen zorgden voor gemiste kansen. Er was behoefte aan een moderne, mobielvriendelijke site waar cliënten eenvoudig informatie kunnen vinden en gegarandeerd contact kunnen opnemen.",
+    tags: ["Zorg & Welzijn", "Web Design", "Betrouwbaarheid"],
+    image: voet4uImg,
+    featured: false,
+    accent: "#7c3aed",
+    client: "Voet4U",
+    year: "2026",
+    stats: [
+      { label: "Status", value: "Live", icon: "plus" },
+      { label: "Contactform.", value: "100% Werkend", icon: "chart" },
+      { label: "Design", value: "User-focused", icon: "users" }
+    ],
+    overview: [
+      { 
+        title: "Conversie-Optimalisatie", 
+        desc: "Het realiseren van een feilloos werkend contact- en boekingssysteem, waardoor potentiële cliënten zonder drempels een afspraak kunnen maken." 
+      },
+      { 
+        title: "Doelgroepgerichte UI", 
+        desc: "Een ontwerp met een zacht paars kleurenpalet en duidelijke typografie, specifiek afgestemd op de rust en professionaliteit die men in een pedicurepraktijk verwacht." 
+      }
+    ],
+    outcome: "Voet4U beschikt nu over een representatieve website die technisch staat als een huis. De onzekerheid over niet-werkende formulieren is verdwenen en de praktijk wordt nu online net zo professioneel gepresenteerd als in de behandelkamer."
   },
   {
     slug: "de-wet-van-staal",
