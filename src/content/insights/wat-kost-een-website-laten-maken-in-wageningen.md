@@ -24,8 +24,6 @@ In dit artikel leggen we concreet uit:
 * Wat je écht nodig hebt als lokaal MKB
 * Waar je op moet letten bij een webdesign bureau
 
-
-
 ## Wat kost een website in Wageningen gemiddeld?
 
 Voor MKB in Wageningen ligt de prijs meestal tussen:
@@ -40,8 +38,6 @@ Dat is voor:
 * Snelle laadtijd
 * Basis SEO-structuur
 * Contactformulier
-
-
 
 Alles daaronder is meestal:
 
@@ -132,7 +128,7 @@ Voor serieus MKB ligt een realistisch budget tussen 2.000,- en 6.000,- euro
 
 Investeer je in strategie, structuur en SEO, dan betaalt een website zich vaak binnen een paar maanden terug.
 
-## Benieuwd wat een website in Wageninge voor jou zou kosten?
+## Benieuwd wat een website in Wageningen voor jou zou kosten?
 
 We maken graag een heldere inschatting op basis van je doelen.
 
