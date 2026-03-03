@@ -6,7 +6,7 @@ description: Wat kost een website in Wageningen? Ontdek realistische prijzen,
 date: 2026-03-03
 draft: false
 image:
-  src: /uploads/tareq-ajalyakin-rh1eppm4hus-unsplash.jpg
+  src: /uploads/logan-voss-gwe5z4zynrg-unsplash.jpg
 category: Webdesign
 ---
 ## Intro
