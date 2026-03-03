@@ -134,7 +134,7 @@ Investeer je in strategie, structuur en SEO, dan betaalt een website zich vaak b
 **Benieuwd wat een website in Wageningen voor jou zou kosten?**  
 We maken graag een heldere inschatting op basis van je doelen.
 
-👉 **Neem contact op:** [twinpixel.nl/contact](https://twinpixel.nl/contact/)
+👉 **Neem contact op:** [Contact](https://twinpixel.nl/contact/)
 
 ---
 
