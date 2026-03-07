@@ -4,189 +4,171 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
 /**
- * BaseLayout: site-wide SEO defaults.
- * Tip: zet in astro.config.mjs ook `site: "https://twinpixel.nl"`.
- *
- * Nieuw:
- * - type: "website" | "article"
- * - article: { publishedTime?, modifiedTime?, authorName?, section?, tags? }
- * - schema: extra JSON-LD object (bv BlogPosting) dat je per pagina kunt meegeven
+ * BaseLayout: De technische fundering voor elke pagina.
  */
 
 const {
-  // Per page overrides:
   title = "Webdesign & development",
-  description = "TwinPixel ontwerpt en bouwt snelle, SEO-ready websites voor bedrijven in Wageningen en regio Foodvalley.",
+  description = "TwinPixel is een webdesign bureau in Wageningen. Wij ontwerpen en ontwikkelen snelle websites voor bedrijven in Wageningen en de regio Foodvalley.",
   noindex = false,
-
-  // Social preview image (zet bestand in /public/og.png):
   ogImage = "/og.png",
-
-  // Optional: override lang/locale if needed
   lang = "nl",
   ogLocale = "nl_NL",
-
-  // Optional: canonical override (meestal niet nodig)
   canonical = null,
-
-  // NEW:
-  type = "website", // "website" | "article"
-  article = null,   // { publishedTime, modifiedTime, authorName, section, tags }
-  schema = null     // extra JSON-LD object, bv BlogPosting
+  type = "website",
+  article = null,
+  schema = null // Hier kun je extra schema's (zoals FAQ) inladen per pagina
 } = Astro.props;
 
 const siteName = "TwinPixel";
+const origin = new URL(Astro.site ?? Astro.url.origin).origin;
 
-// Canonical URL (werkt het best als Astro.site is ingesteld in astro.config.mjs)
-const origin = (Astro.site ?? Astro.url.origin).toString();
+// Forceer lowercase in de URL voor SEO consistentie
 const canonicalURL = canonical
-  ? new URL(canonical, origin).toString()
-  : new URL(Astro.url.pathname, origin).toString();
+  ? new URL(canonical, origin).toString().toLowerCase()
+  : new URL(Astro.url.pathname, origin).toString().toLowerCase();
 
-const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+const fullTitle = title.toLowerCase().includes(siteName.toLowerCase())
+  ? title
+  : `${title} | ${siteName}`;
 
-// URLs
 const ogImageAbs = new URL(ogImage, origin).toString();
 
-// Socials (publieke URLs)
 const socials = {
   facebook: "https://www.facebook.com/people/Twinpixel/61574036669497/",
   instagram: "https://www.instagram.com/twinpixel.nl/",
   linkedin: "https://www.linkedin.com/company/twinpixel/"
 };
 
-// Location
-const geo = { latitude: 51.98092707836006, longitude: 5.681296752501538 };
+// Geo-coördinaten van je vestiging in Wageningen
+const geo = {
+  latitude: 51.98092707836006,
+  longitude: 5.681296752501538
+};
 
-// Helpers
-const toISO = (v) => {
-  if (!v) return null;
-  const d = v instanceof Date ? v : new Date(v);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString();
+const toISO = (value) => {
+  if (!value) return null;
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
 };
 
 const publishedISO = toISO(article?.publishedTime);
 const modifiedISO = toISO(article?.modifiedTime);
-const authorName = article?.authorName ?? "TwinPixel";
-const section = article?.section ?? null;
-const tags = Array.isArray(article?.tags) ? article.tags : null;
+
+// Centrale bedrijfsgegevens (ProfessionalService is ideaal voor een webdesign bureau)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${origin}#organization`,
+  "name": "TwinPixel",
+  "url": origin,
+  "image": ogImageAbs,
+  "email": "info@twinpixel.nl",
+  "priceRange": "€€",
+  "telephone": "+31682579179", // Voeg je echte nummer toe indien gewenst
+  "sameAs": [socials.facebook, socials.instagram, socials.linkedin],
+  "serviceType": ["Webdesign", "Webdevelopment", "SEO", "Maatwerk tools"],
+  "areaServed": [
+    { "@type": "City", "name": "Wageningen" },
+    { "@type": "City", "name": "Ede" },
+    { "@type": "City", "name": "Bennekom" },
+    { "@type": "City", "name": "Rhenen" },
+    { "@type": "City", "name": "Renkum" },
+    { "@type": "AdministrativeArea", "name": "Foodvalley" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Wageningen",
+    "addressRegion": "Gelderland",
+    "addressCountry": "NL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": geo.latitude,
+    "longitude": geo.longitude
+  }
+};
 ---
 
 <!doctype html>
 <html lang={lang}>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>{fullTitle}</title>
-<meta name="description" content={description} />
+    {/* SEO Basis */}
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="TwinPixel" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#0A2CCA" />
+    <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
 
-  <link rel="canonical" href={canonicalURL} />
-  <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
+    <link rel="canonical" href={canonicalURL} />
 
-  {/* Favicons */}
-  <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
-  <meta name="theme-color" content="#0A2CCA" />
+    {/* Performance: Preconnect naar Google services */}
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-  {/* Open Graph */}
-  <meta property="og:site_name" content={siteName} />
-  <meta property="og:title" content={fullTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:type" content={type} />
-  <meta property="og:locale" content={ogLocale} />
-  <meta property="og:image" content={ogImageAbs} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+    {/* Favicons */}
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
-  {/* Article OG extras */}
-  {type === "article" && publishedISO && (
-    <meta property="article:published_time" content={publishedISO} />
-  )}
-  {type === "article" && modifiedISO && (
-    <meta property="article:modified_time" content={modifiedISO} />
-  )}
-  {type === "article" && authorName && (
-    <meta property="article:author" content={authorName} />
-  )}
-  {type === "article" && section && (
-    <meta property="article:section" content={section} />
-  )}
-  {type === "article" && tags?.length && tags.map((t) => (
-    <meta property="article:tag" content={t} />
-  ))}
+    {/* Open Graph / Facebook */}
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={fullTitle} />
 
-  {/* Twitter */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={fullTitle} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageAbs} />
+    {/* Blog/Artikel specifieke metadata */}
+    {type === "article" && publishedISO && <meta property="article:published_time" content={publishedISO} />}
+    {type === "article" && modifiedISO && <meta property="article:modified_time" content={modifiedISO} />}
+    {type === "article" && article?.authorName && <meta property="article:author" content={article.authorName} />}
+    {type === "article" && article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
 
-  {/* Structured data: Organization / Service (site-wide) */}
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": ["ProfessionalService", "WebDesignService"],
-      "@id": `${origin}#organization`,
-      name: "TwinPixel",
-      url: origin,
-      image: ogImageAbs,
-      email: "info@twinpixel.nl",
-      sameAs: [socials.facebook, socials.instagram, socials.linkedin],
-      serviceType: ["Webdesign", "Webdevelopment", "SEO"],
-      areaServed: [
-        { "@type": "City", name: "Wageningen" },
-        { "@type": "City", name: "Ede" },
-        { "@type": "City", name: "Renkum" },
-        { "@type": "City", name: "Bennekom" }
-      ],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Wageningen",
-        addressRegion: "Gelderland",
-        addressCountry: "NL"
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: geo.latitude,
-        longitude: geo.longitude
-      }
-    })}
-  />
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
 
-  {/* Optional: extra JSON-LD (bv BlogPosting voor insights) */}
-  {schema && (
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(schema)}
+    {/* Gestructureerde data: Centrale Bedrijfsdata */}
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+    {/* Extra schema (bijv. FAQ) per pagina ingeladen via props */}
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+    {/* Google Tag (gtag.js) */}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0TE68DKL1"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-Y0TE68DKL1");
+    </script>
+  </head>
+
+  <body>
+    <Navbar />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer
+      brand="TwinPixel"
+      location="Wageningen, NL"
+      email="info@twinpixel.nl"
+      instagram={socials.instagram}
+      facebook={socials.facebook}
+      linkedin={socials.linkedin}
     />
-  )}
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0TE68DKL1"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y0TE68DKL1');
-  </script>
-</head>
-
-<body>
-  <Navbar />
-  <slot />
-  <Footer
-    brand="TwinPixel"
-    location="Wageningen, NL"
-    email="info@twinpixel.nl"
-    instagram={socials.instagram}
-    facebook={socials.facebook}
-    linkedin={socials.linkedin}
-  />
-</body>
+  </body>
 </html>

@@ -63,30 +63,6 @@ const faqs = [
   },
 ];
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "TwinPixel",
-  url: "https://twinpixel.nl",
-  image: "https://twinpixel.nl/og-image.jpg",
-  email: "info@twinpixel.nl",
-  areaServed: [
-    "Wageningen",
-    "Ede",
-    "Bennekom",
-    "Rhenen",
-    "Foodvalley",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Wageningen",
-    addressCountry: "NL",
-  },
-  sameAs: [mapsUrl],
-  description:
-    "TwinPixel is een webdesign bureau in Wageningen. Wij ontwerpen en ontwikkelen snelle websites en maatwerk tools met focus op positionering, conversie en SEO.",
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -100,13 +76,10 @@ const faqSchema = {
   })),
 };
 ---
-
 <BaseLayout
-  title="Webdesign Wageningen | Hoogwaardige websites door TwinPixel"
-  description="TwinPixel is een webdesign bureau in Wageningen. Wij ontwerpen en ontwikkelen snelle websites voor bedrijven die vertrouwen opbouwen, goed gevonden worden in Google en gericht zijn op aanvragen.">
-  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
+  title="Webdesign Wageningen | High-end websites door TwinPixel"
+  description="TwinPixel is het webdesign bureau in Wageningen voor snelle, professionele websites. Wij combineren sterk design met technische SEO voor resultaat."
+  schema={faqSchema}>
   <Hero />
 
   <section class="section value slide-in-up" aria-label="Waarom TwinPixel">
