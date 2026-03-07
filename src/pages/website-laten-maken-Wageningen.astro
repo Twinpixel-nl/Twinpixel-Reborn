@@ -2,8 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CasesPreview from "../components/CasesPreview.astro";
 import Button from "../components/Button.astro";
-import WijsFoto from "../assets/person/wijsWijzen.webp"; 
-import { lazy } from "astro:schema";
+import { Image } from "astro:assets";
+import WijsFoto from "../assets/person/website-laten-maken-wageningen.webp";
 
 // Consistent met je footer-link
 const mapsUrl = "https://maps.app.goo.gl/XJkGA7g8TkB1aJTA6";
@@ -144,12 +144,16 @@ const jsonLd = [
 
         <div class="hero-image-side">
           <div class="image-frame">
-            <img 
-              src={WijsFoto} 
-              alt="Website laten maken Wageningen - TwinPixel aan het werk" 
-              class="hero-img"
-              loading="eager"
-            />
+<Image
+  src={WijsFoto}
+  alt="Team TwinPixel overlegt over het laten maken van een website in Wageningen"
+  class="hero-img"
+  widths={[400, 800, 1200]}
+  sizes="(max-width: 1024px) 100vw, 45vw"
+  loading="eager"
+  priority
+  format="webp"
+/>
             <div class="image-overlay"></div>
           </div>
         </div>
