@@ -3,17 +3,109 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import Expertise from "../components/Expertise.astro";
 import CasesPreview from "../components/CasesPreview.astro";
-import Button from "../components/Button.astro";
 
 const mapsUrl =
   "https://www.google.com/maps/place/Twinpixel/@51.980899,5.6787299,17z/data=!4m8!3m7!1s0xa7b2749962b349e7:0x556d7170e66ed503!8m2!3d51.980899!4d5.6813048!9m1!1b1!16s%2Fg%2F11x0p6wbdm?entry=ttu";
+
+const reviews = [
+  {
+    text: "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week! De website is snel, gebruiksvriendelijk en ziet er fantastisch uit.",
+    author: "Harvey Meurs",
+    company: "Eigenaar, Wetvanstaal",
+  },
+  {
+    text: "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast. Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!",
+    author: "Otto Vleeming",
+    company: "Stadspartij Wageningen",
+  },
+  {
+    text: "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes. Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen.",
+    author: "Britt Leander",
+    company: "Eigenaar, ByBrittNails",
+  },
+  {
+    text: "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak. Voor maatwerk ben je hier aan het juiste adres.",
+    author: "Julian van Beek",
+    company: "Eigenaar, Rocket Agency",
+  },
+  {
+    text: "Professioneel, betrouwbaar en prettig om mee samen te werken! Ze houden zich aan afspraken en leveren kwaliteit.",
+    author: "Dennis Weijer",
+    company: "Eigenaar, Dennisweijer.nl",
+  },
+];
+
+const faqs = [
+  {
+    question: "Wat kost een website laten maken in Wageningen?",
+    answer:
+      "De investering hangt af van de omvang, content, gewenste functionaliteiten en eventuele koppelingen. Voor een professionele bedrijfswebsite starten projecten meestal vanaf onze Website Launch-prijs. Voor maatwerk tools of uitgebreide platformen ligt dat hoger.",
+  },
+  {
+    question: "Hoe lang duurt het bouwen van een website?",
+    answer:
+      "Een compacte website kan relatief snel live. Een uitgebreider traject met positionering, copy, designrondes en maatwerkontwikkeling duurt langer. We stemmen de planning altijd af op scope, feedbacksnelheid en contentbeschikbaarheid.",
+  },
+  {
+    question: "Werken jullie alleen in Wageningen?",
+    answer:
+      "Nee. We werken vanuit Wageningen, maar bouwen ook websites voor bedrijven in Ede, Bennekom, Rhenen en de bredere Foodvalley. De focus op Wageningen helpt vooral voor lokale zichtbaarheid en korte lijnen.",
+  },
+  {
+    question: "Bouwen jullie ook maatwerk websites en tools?",
+    answer:
+      "Ja. Naast marketingwebsites ontwikkelen we ook maatwerk frontends, interactieve tools en koppelingen met externe systemen. Daarbij letten we sterk op performance, onderhoudbaarheid en schaalbaarheid.",
+  },
+  {
+    question: "Helpen jullie ook met SEO?",
+    answer:
+      "Ja. We bouwen websites met een logische SEO-structuur, snelle techniek en duidelijke contentopbouw. Dat betekent niet alleen beter gevonden worden, maar ook een sterkere basis voor verdere groei in Google.",
+  },
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "TwinPixel",
+  url: "https://twinpixel.nl",
+  image: "https://twinpixel.nl/og-image.jpg",
+  email: "info@twinpixel.nl",
+  areaServed: [
+    "Wageningen",
+    "Ede",
+    "Bennekom",
+    "Rhenen",
+    "Foodvalley",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Wageningen",
+    addressCountry: "NL",
+  },
+  sameAs: [mapsUrl],
+  description:
+    "TwinPixel is een webdesign bureau in Wageningen. Wij ontwerpen en ontwikkelen snelle websites en maatwerk tools met focus op positionering, conversie en SEO.",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 ---
 
-
 <BaseLayout
- title="Webdesign Wageningen | High-end websites & SEO - TwinPixel"
-  description="Twinpixel is hét webdesign bureau in Wageningen voor professionele, razendsnelle websites. Wij combineren sterk design met SEO voor meer resultaat. Plan een kennismaking!"
->
+  title="Webdesign Wageningen | Webdesign bureau in Wageningen | TwinPixel"
+  description="TwinPixel is een webdesign bureau in Wageningen. Wij ontwerpen en ontwikkelen snelle websites voor bedrijven die vertrouwen opbouwen, goed gevonden worden in Google en gericht zijn op aanvragen.">
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <Hero />
 
@@ -22,7 +114,7 @@ const mapsUrl =
       <div class="value-grid">
         <div>
           <p class="kicker">Expertise</p>
-          <h2 class="h2">Websites die vertrouwen opbouwen en aanvragen opleveren.</h2>
+          <h2 class="h2">Websites die vertrouwen opbouwen en aanvragen opleveren</h2>
           <p class="lead small">
             We ontwikkelen high-end websites voor bedrijven in Wageningen en de Foodvalley.
             Met een heldere positionering, snelle gebruikerservaring en een technische basis die
@@ -63,10 +155,100 @@ const mapsUrl =
     </div>
   </section>
 
+ <section class="section local-copy slide-in-up" aria-label="Webdesign bureau in Wageningen">
+  <div class="container">
+    <div class="local-copy-intro">
+      <p class="kicker">Lokaal</p>
+      <h2 class="h2">Webdesign bureau in Wageningen</h2>
+
+<p class="lead small">
+TwinPixel is een <a href="/webdesign-wageningen">webdesign bureau in Wageningen</a>.
+  We ontwerpen en ontwikkelen websites voor bedrijven, organisaties en merken 
+  in Wageningen en de Foodvalley.
+</p>
+
+<p class="lead small">
+  We werken voor organisaties in Wageningen en omgeving en houden de lijnen bewust kort.
+  Daardoor schakelen we snel, blijven keuzes helder en bouwen we websites die niet alleen
+  mooi ogen, maar ook vertrouwen opbouwen en aanvragen ondersteunen.
+</p>
+    </div>
+
+    <div class="local-points" aria-label="Waarom een goede website belangrijk is">
+      <div class="local-point">
+        <h3>Eerste indruk die klopt</h3>
+        <p>Je website moet direct professioneel aanvoelen en laten zien waar je bedrijf voor staat.</p>
+      </div>
+      <div class="local-point">
+        <h3>Gebouwd voor vertrouwen</h3>
+        <p>Duidelijke structuur, sterke content en een logische route naar contact of aanvraag.</p>
+      </div>
+      <div class="local-point">
+        <h3>Lokale focus</h3>
+        <p>We werken vanuit Wageningen ook voor bedrijven in Ede, Bennekom, Rhenen en de Foodvalley.</p>
+      </div>
+    </div>
+
+    <div class="local-copy-outro">
+      <p class="lead small">
+        Of het nu gaat om een compacte bedrijfswebsite, een sterkere online positionering of
+        een maatwerk tool: we bouwen vanuit strategie, gebruikservaring en performance.
+      </p>
+    </div>
+  </div>
+</section>
+
+
   <Expertise />
   <CasesPreview />
 
-  <!-- Reviews Section -->
+  <section class="section process slide-in-up" aria-label="Werkwijze">
+    <div class="container">
+      <div class="head">
+        <p class="kicker">Werkwijze</p>
+        <h2 class="h2">Van positionering naar een website die echt werkt</h2>
+        <p class="lead small">
+          Een sterke website ontstaat niet uit losse keuzes. Daarom werken we in een duidelijke volgorde:
+          eerst scherpte, dan design, daarna techniek en optimalisatie.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <span class="process-step">01</span>
+          <h3>Positionering</h3>
+          <p>
+            We bepalen wat je merk moet uitstralen, voor wie de site bedoeld is en welke boodschap direct moet landen.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step">02</span>
+          <h3>Structuur & content</h3>
+          <p>
+            We bouwen een logische flow op met duidelijke pagina’s, CTA’s en contentblokken die mensen snel begrijpen.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step">03</span>
+          <h3>Design & ontwikkeling</h3>
+          <p>
+            Daarna vertalen we de strategie naar een snelle, professionele website die klopt op desktop en mobiel.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step">04</span>
+          <h3>SEO-basis & livegang</h3>
+          <p>
+            We zorgen voor een technische basis die goed indexeerbaar is, snel laadt en klaar is om verder op te bouwen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section reviews reviews-marquee slide-in-up" aria-label="Klantreviews">
     <div class="container">
       <div class="reviews-header">
@@ -76,151 +258,26 @@ const mapsUrl =
       </div>
 
       <div class="marquee" aria-label="Reviews carrousel">
-        <div class="marquee-track">
-          <!-- track A -->
+        <div class="marquee-track" id="reviewsTrack">
           <div class="track">
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd binnen een week!
-                De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Harvey Meurs</div>
-                <div class="author-company">Eigenaar, Wetvanstaal</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
-                Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Otto Vleeming</div>
-                <div class="author-company">Stadspartij Wageningen</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
-                Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Britt Leander</div>
-                <div class="author-company">Eigenaar, ByBrittNails</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
-                Voor maatwerk ben je hier aan het juiste adres."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Julian van Beek</div>
-                <div class="author-company">Eigenaar, Rocket Agency</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Professioneel, betrouwbaar en prettig om mee samen te werken!
-                Ze houden zich aan afspraken en leveren kwaliteit."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Dennis Weijer</div>
-                <div class="author-company">Eigenaar, Dennisweijer.nl</div>
-              </div>
-            </a>
-          </div>
-
-          <!-- track B (duplicate) -->
-          <div class="track" aria-hidden="true">
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "TwinPixel heeft mijn verwachtingen overtroffen. Prachtige website opgeleverd!
-                De website is snel, gebruiksvriendelijk en ziet er fantastisch uit."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Harvey Meurs</div>
-                <div class="author-company">Eigenaar, Wetvanstaal</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Nieuwe website laten maken en geweldig geholpen. Niks is teveel en alles wordt snel aangepast.
-                Ze denken goed mee en geven eerlijke adviezen. Top samenwerking!"
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Otto Vleeming</div>
-                <div class="author-company">Stadspartij Wageningen</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Professionele hulp bij mijn eerste website. Goede feedbackmomenten en duidelijke uitleg over keuzes.
-                Ze nemen de tijd om alles goed uit te leggen en staan altijd klaar voor vragen."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Britt Leander</div>
-                <div class="author-company">Eigenaar, ByBrittNails</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Super fijne samenwerking met TwinPixel. Snelle levering, goede service, hoge kwaliteit en persoonlijke aanpak.
-                Voor maatwerk ben je hier aan het juiste adres."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Julian van Beek</div>
-                <div class="author-company">Eigenaar, Rocket Agency</div>
-              </div>
-            </a>
-
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Lees review op Google" tabindex="-1">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">
-                "Professioneel, betrouwbaar en prettig om mee samen te werken!
-                Ze houden zich aan afspraken en leveren kwaliteit."
-              </blockquote>
-              <div class="review-author">
-                <div class="author-name">Dennis Weijer</div>
-                <div class="author-company">Eigenaar, Dennisweijer.nl</div>
-              </div>
-            </a>
+            {reviews.map((review) => (
+              <a
+                class="review-card"
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Lees review van ${review.author} op Google`}
+              >
+                <div class="review-stars" aria-label="5 sterren">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <blockquote class="review-text">"{review.text}"</blockquote>
+                <div class="review-author">
+                  <div class="author-name">{review.author}</div>
+                  <div class="author-company">{review.company}</div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -228,7 +285,7 @@ const mapsUrl =
       <div class="reviews-cta">
         <p class="reviews-note">
           Deze reviews zijn afkomstig van onze Google Business Profile.
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Bekijk alle reviews →</a>
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer"> Bekijk alle reviews →</a>
         </p>
       </div>
     </div>
@@ -292,7 +349,12 @@ const mapsUrl =
     <div class="container">
       <div class="clients-header">
         <p class="kicker">Samenwerkingen</p>
-        <h2 class="h2">Vertrouwd door organisaties als:</h2>
+        <h2 class="h2">Webdesign voor organisaties in Wageningen en omgeving</h2>
+        <p class="lead small center">
+          We werken voor bedrijven en organisaties in Wageningen en de regio. Daardoor begrijpen we
+          de lokale context, kunnen we snel schakelen en bouwen we websites die passen bij de ambitie
+          van ondernemers in de Foodvalley.
+        </p>
       </div>
 
       <div class="logo-row" aria-label="Logos van samenwerkingen">
@@ -326,700 +388,830 @@ const mapsUrl =
     </div>
   </section>
 
-<script>
-  // 1) Glow follow (mouse)
-  let tick = false;
+  <section class="section faq slide-in-up" aria-label="Veelgestelde vragen">
+    <div class="container ">
+      <div class="head">
+        <p class="kicker">FAQ</p>
+        <h2 class="h2">Veelgestelde vragen over webdesign in Wageningen</h2>
+        <p class="lead small">
+          Dit zijn vragen die we vaak krijgen van bedrijven die een website willen laten maken in Wageningen of omgeving.
+        </p>
+      </div>
 
-  window.addEventListener('mousemove', (e) => {
-    if (tick) return;
-    tick = true;
+      <div class="faq-wrap">
+        <div class="faq-accordion">
+          {faqs.map((faq) => (
+            <details>
+              <summary>
+                <span>{faq.question}</span>
+                <span class="chev">⌄</span>
+              </summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
-    requestAnimationFrame(() => {
-      const me = /** @type {MouseEvent} */ (e);
-      const x = (me.clientX / window.innerWidth) * 100;
-      const y = (me.clientY / window.innerHeight) * 100;
+  <section class="section contact-cta slide-in-up" aria-label="Kennismaking">
+    <div class="container">
+      <div class="cta">
+        <div class="content">
+          <p class="kicker">Kennismaken</p>
+          <h2 class="title">Op zoek naar een webdesign bureau in Wageningen?</h2>
+          <p class="text">
+            Wil je een website laten maken in Wageningen die professioneel oogt, snel laadt en gericht is op
+            resultaat? Plan dan een kennismaking. Dan kijken we samen wat er nodig is om jouw bedrijf online sterker neer te zetten.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="/contact">Plan kennismaking</a>
+            <a class="btn secondary" href="/cases">Bekijk cases</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
-      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+  <script>
+    // Glow follow
+    let tick = false;
 
-      tick = false;
-    });
-  });
+    window.addEventListener("mousemove", (e) => {
+      if (tick) return;
+      tick = true;
 
-  // 2) Magnetic buttons
-  const mags = document.querySelectorAll('.mag');
-
-  mags.forEach((node) => {
-    if (!(node instanceof HTMLElement)) return;
-    const el = node;
-
-    let rect = el.getBoundingClientRect();
-    const updateRect = () => (rect = el.getBoundingClientRect());
-
-    window.addEventListener('resize', updateRect);
-
-    el.addEventListener('mouseenter', updateRect);
-
-    el.addEventListener('mousemove', (e) => {
       requestAnimationFrame(() => {
         const me = /** @type {MouseEvent} */ (e);
-        const x = me.clientX - rect.left - rect.width / 2;
-        const y = me.clientY - rect.top - rect.height / 2;
+        const x = (me.clientX / window.innerWidth) * 100;
+        const y = (me.clientY / window.innerHeight) * 100;
 
-        el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        document.documentElement.style.setProperty("--mouse-x", `${x}%`);
+        document.documentElement.style.setProperty("--mouse-y", `${y}%`);
+
+        tick = false;
       });
     });
 
-    el.addEventListener('mouseleave', () => {
-      requestAnimationFrame(() => {
-        el.style.transform = 'translate(0px, 0px)';
+    // Magnetic buttons
+    const mags = document.querySelectorAll(".mag");
+
+    mags.forEach((node) => {
+      if (!(node instanceof HTMLElement)) return;
+      const el = node;
+
+      let rect = el.getBoundingClientRect();
+      const updateRect = () => (rect = el.getBoundingClientRect());
+
+      window.addEventListener("resize", updateRect);
+      el.addEventListener("mouseenter", updateRect);
+
+      el.addEventListener("mousemove", (e) => {
+        requestAnimationFrame(() => {
+          const me = /** @type {MouseEvent} */ (e);
+          const x = me.clientX - rect.left - rect.width / 2;
+          const y = me.clientY - rect.top - rect.height / 2;
+
+          el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+      });
+
+      el.addEventListener("mouseleave", () => {
+        requestAnimationFrame(() => {
+          el.style.transform = "translate(0px, 0px)";
+        });
       });
     });
-  });
-</script>
 
-
-
-
-    <style>
-      .contact-cta {
-        margin: 3.6rem 0 0;
-      }
-
-      .cta {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 2.2rem 2.4rem;
-        border-radius: 20px;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.04);
-      }
-
-      .content {
-        max-width: 640px;
-      }
-
-      .kicker {
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        opacity: 0.72;
-        margin-bottom: 0.6rem;
-      }
-
-      .title {
-        margin: 0 0 0.6rem;
-        font-size: clamp(1.7rem, 2.6vw, 2.15rem);
-        line-height: 1.15;
-      }
-
-      .text {
-        margin: 0 0 1.4rem;
-        opacity: 0.88;
-        line-height: 1.7;
-        max-width: 54ch;
-      }
-
-      .actions {
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.78rem 1.1rem;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-        border: 1px solid rgba(255,255,255,0.14);
-      }
-
-      .btn.primary {
-        background: rgba(255, 255, 255, 0.12);
-        color: #0b1321;
-      }
-
-      .btn.primary:hover {
-        background: rgba(255,255,255,0.16);
-      }
-
-      .btn.secondary {
-        background: transparent;
-        opacity: 0.88;
-      }
-
-      .btn.secondary:hover {
-        opacity: 1;
-        background: rgba(255,255,255,0.08);
-      }
-
-      @media (max-width: 700px) {
-        .cta {
-          padding: 1.8rem 1.6rem;
+    // Duplicate reviews on the client only for marquee effect
+    const reviewsTrack = document.getElementById("reviewsTrack");
+    if (reviewsTrack && !reviewsTrack.querySelector('[data-clone="true"]')) {
+      const firstTrack = reviewsTrack.querySelector(".track");
+      if (firstTrack) {
+        const clone = firstTrack.cloneNode(true);
+        if (clone instanceof HTMLElement) {
+          clone.setAttribute("aria-hidden", "true");
+          clone.setAttribute("data-clone", "true");
+          reviewsTrack.appendChild(clone);
         }
       }
-
-    .section{
-      padding: 70px 0;
     }
-    .container{
+  </script>
+
+  <style>
+    .section {
+      padding: 76px 0;
+    }
+
+    .container {
       width: min(1100px, calc(100% - 2rem));
       margin: 0 auto;
     }
-    .kicker{
+
+
+    .kicker {
       text-transform: uppercase;
       font-size: 12px;
-      letter-spacing: .14em;
-      color: rgba(255,255,255,.55);
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.55);
       margin: 0 0 10px;
     }
-    .h2{
+
+    .h2 {
       margin: 0;
       font-size: clamp(28px, 4vw, 42px);
       letter-spacing: -0.03em;
       line-height: 1.15;
     }
-    .lead.small{
-      margin: 10px 0 0;
-      max-width: 70ch;
-      color: rgba(255,255,255,.74);
+
+    .lead {
+      color: rgba(255, 255, 255, 0.74);
       line-height: 1.75;
     }
-    .value-grid{
+
+    .lead.small {
+      margin: 12px 0 0;
+      max-width: 72ch;
+    }
+
+    .center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .head {
+      margin-bottom: 48px;
+    }
+
+    .value-grid {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 48px;
       align-items: start;
     }
-    .pillars{
+
+    .pillars {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
     }
-    .pill{
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
+
+    .pill {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
       border-radius: 16px;
       padding: 24px 24px 28px;
-      transition: all .3s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(10px);
     }
-    .pill::before{
-      content: '';
+
+    .pill::before {
+      content: "";
       position: absolute;
-      top: 0;
-      left: -100%;
+      inset: 0 auto 0 -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(47,137,255,.12), transparent);
-      transition: left .5s ease;
+      background: linear-gradient(90deg, transparent, rgba(47, 137, 255, 0.12), transparent);
+      transition: left 0.5s ease;
     }
-    .pill-title{
+
+    .pill-title {
       margin: 0 0 8px;
       font-weight: 650;
-      color: rgba(255,255,255,.94);
-      transition: color .3s ease;
+      color: rgba(255, 255, 255, 0.94);
+      transition: color 0.3s ease;
       letter-spacing: -0.01em;
     }
-    .pill-text{
+
+    .pill-text {
       margin: 0;
-      color: rgba(255,255,255,.72);
+      color: rgba(255, 255, 255, 0.72);
       line-height: 1.65;
       font-size: 14px;
-      transition: color .3s ease;
+      transition: color 0.3s ease;
     }
-    .pill:hover{
-      border-color: rgba(47,137,255,.5);
-      background: rgba(47,137,255,.09);
+
+    .pill:hover {
+      border-color: rgba(47, 137, 255, 0.5);
+      background: rgba(47, 137, 255, 0.09);
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 16px 40px rgba(47,137,255,.2);
+      box-shadow: 0 16px 40px rgba(47, 137, 255, 0.2);
     }
-    .pill:hover::before{
+
+    .pill:hover::before {
       left: 100%;
     }
-    .pill:hover .pill-title{
-      color: rgba(47,137,255,.95);
-    }
-    .pill:hover .pill-text{
-      color: rgba(255,255,255,.85);
+
+    .pill:hover .pill-title {
+      color: rgba(47, 137, 255, 0.95);
     }
 
-    .packages .head{
-      margin-bottom: 16px;
+    .pill:hover .pill-text {
+      color: rgba(255, 255, 255, 0.85);
     }
-    .packages .head {
-    margin-bottom: 48px;
-  }
 
-  .pkg-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: stretch;
-  }
+.local-copy {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
 
-  .pkg {
-    position: relative;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 40px;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    display: flex;
-    flex-direction: column;
-  }
 
-  /* De "Technical Build" Featured look */
-  .pkg.is-featured {
-    background: rgba(47, 137, 255, 0.03);
-    border: 1px solid rgba(47, 137, 255, 0.3);
-    transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  }
-
-  .pkg.is-featured::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 24px;
-    background: linear-gradient(135deg, rgba(47, 137, 255, 0.2), transparent);
-    z-index: -1;
-  }
-
-  .pkg-badge {
-    position: absolute;
-    top: -12px;
-    left: 40px;
-    background: #2F89FF;
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .pkg-name {
-    margin: 0;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.4);
-    font-weight: 600;
-  }
-
-  .pkg-price {
-    margin: 12px 0 0;
-    font-size: 32px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.02em;
-  }
-
-  .pkg-line {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.06);
-    margin: 24px 0;
-  }
-
-  .pkg ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 12px;
-  }
-
-  .pkg ul li {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* Custom vinkje voor een clean look */
-  .pkg ul li::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    background: var(--accent, #2F89FF);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* Hover effecten */
-  .pkg:hover {
-    border-color: rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.04);
-    transform: translateY(-5px);
-  }
-
-  .pkg.is-featured:hover {
-    border-color: rgba(47, 137, 255, 0.6);
-    background: rgba(47, 137, 255, 0.06);
-  }
-
-  @media (max-width: 1024px) {
-    .pkg-grid {
-      grid-template-columns: 1fr;
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
-    .pkg.is-featured {
-      transform: none;
-      order: -1; /* Zet het belangrijkste pakket bovenaan op mobiel */
-    }
-  }
-    .faq-wrap{ display:grid; gap: 16px; }
-    .faq-accordion{
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 14px;
-      background: rgba(255,255,255,.04);
-      overflow:hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+
+    .process-card {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 18px;
+      padding: 26px;
       backdrop-filter: blur(10px);
     }
-    .faq-accordion details{
-      border-bottom: 1px solid rgba(255,255,255,.10);
-      padding: 2px 0;
-      transition: background-color .14s ease;
+
+    .process-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(47, 137, 255, 0.12);
+      color: #7db8ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
     }
-    .faq-accordion details:last-of-type{
+
+    .process-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .process-card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .reviews {
+      padding: 5rem 0;
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .reviews-header .lead {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .reviews-marquee .marquee {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-top: 2rem;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .reviews-marquee .marquee-track {
+      display: flex;
+      flex-wrap: nowrap;
+      width: max-content;
+      gap: 0;
+      padding: 0.5rem 0;
+      will-change: transform;
+      animation: reviews-marquee 35s linear infinite;
+    }
+
+    .reviews-marquee .marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .reviews-marquee .track {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    @keyframes reviews-marquee {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .reviews-marquee .review-card {
+      flex: 0 0 auto;
+      width: min(520px, 86vw);
+      display: block;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1.8rem;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .reviews-marquee .review-card:hover {
+      background: rgba(47, 137, 255, 0.08);
+      border-color: rgba(47, 137, 255, 0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(47, 137, 255, 0.15);
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .star {
+      color: #fbbf24;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .review-text {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 1.5rem 0;
+      font-style: italic;
+      position: relative;
+    }
+
+    .review-text::before {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(47, 137, 255, 0.3);
+      position: absolute;
+      top: -0.5rem;
+      left: -1rem;
+      font-family: serif;
+    }
+
+    .review-author {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1rem;
+    }
+
+    .author-name {
+      font-weight: 650;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .author-company {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .reviews-cta {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .reviews-note {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .reviews-note a {
+      color: #2f89ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .reviews-note a:hover {
+      text-decoration: underline;
+    }
+
+    .packages .head {
+      margin-bottom: 48px;
+    }
+
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .pkg {
+      position: relative;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 40px;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .pkg.is-featured {
+      background: rgba(47, 137, 255, 0.03);
+      border: 1px solid rgba(47, 137, 255, 0.3);
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .pkg.is-featured::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(47, 137, 255, 0.2), transparent);
+      z-index: -1;
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -12px;
+      left: 40px;
+      background: #2f89ff;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pkg-name {
+      margin: 0;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+    }
+
+    .pkg-price {
+      margin: 12px 0 0;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .pkg-line {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      margin: 24px 0;
+    }
+
+    .pkg ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .pkg ul li {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pkg ul li::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: var(--accent, #2f89ff);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .pkg:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-5px);
+    }
+
+    .pkg.is-featured:hover {
+      border-color: rgba(47, 137, 255, 0.6);
+      background: rgba(47, 137, 255, 0.06);
+    }
+
+    .clients {
+      padding: 120px 0;
+      border-top: 1px solid var(--stroke);
+      background: radial-gradient(circle at 50% 0%, rgba(47, 137, 255, 0.03), transparent 70%);
+    }
+
+    .clients-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .logo-item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      filter: grayscale(1) brightness(1.5);
+      opacity: 0.5;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .logo-item:hover {
+      filter: grayscale(0) brightness(1);
+      opacity: 1;
+      transform: translateY(-5px);
+    }
+
+    .client-logo {
+      width: auto;
+      height: auto;
+      max-width: 180px;
+      max-height: 50px;
+      object-fit: contain;
+      transition: all 0.4s ease;
+    }
+
+    .smm-logo {
+      max-width: 240px !important;
+      max-height: 75px !important;
+      transform: scale(1.15);
+    }
+
+    .faq-wrap {
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-accordion {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .faq-accordion details {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2px 0;
+      transition: background-color 0.14s ease;
+    }
+
+    .faq-accordion details:last-of-type {
       border-bottom: none;
     }
-    .faq-accordion summary{
+
+    .faq-accordion summary {
       cursor: pointer;
       list-style: none;
-      display:flex;
+      display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      padding: 16px 16px;
-      color: rgba(255,255,255,.94);
+      padding: 16px;
+      color: rgba(255, 255, 255, 0.94);
       font-weight: 650;
-      transition: background-color .14s ease, color .14s ease;
+      transition: background-color 0.14s ease, color 0.14s ease;
     }
-    .faq-accordion summary::-webkit-details-marker{ display:none; }
-    .faq-accordion summary .chev{ 
-      opacity: .6; 
-      transform: rotate(0deg) scale(1); 
-      transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity .2s ease; 
+
+    .faq-accordion summary::-webkit-details-marker {
+      display: none;
     }
-    .faq-accordion details[open] summary .chev{ 
-      transform: rotate(180deg) scale(1.1); 
+
+    .faq-accordion summary .chev {
+      opacity: 0.6;
+      transform: rotate(0deg) scale(1);
+      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.2s ease;
+    }
+
+    .faq-accordion details[open] summary .chev {
+      transform: rotate(180deg) scale(1.1);
       opacity: 1;
     }
-    .faq-accordion summary:hover{
-      background: rgba(47,137,255,.05);
-      color: rgba(255,255,255,.98);
+
+    .faq-accordion summary:hover {
+      background: rgba(47, 137, 255, 0.05);
+      color: rgba(255, 255, 255, 0.98);
     }
-    .faq-accordion details[open]{
-      background: rgba(47,137,255,.04);
+
+    .faq-accordion details[open] {
+      background: rgba(47, 137, 255, 0.04);
     }
-    .faq-accordion p{
+
+    .faq-accordion p {
       margin: 0;
       padding: 0 16px 16px;
-      color: rgba(255,255,255,.78);
+      color: rgba(255, 255, 255, 0.78);
       line-height: 1.8;
       font-size: 15px;
     }
 
-    .contact-cta .kicker{ margin-bottom: 0.6rem; }
-
-    .footer{
-      padding: 26px 0 40px;
-      color: rgba(255,255,255,.55);
-      font-size: 13px;
+    .contact-cta {
+      margin-top: 0;
     }
 
-    @media (max-width: 900px){
-      .value-grid{ grid-template-columns: 1fr; }
-      .pillars{ grid-template-columns: 1fr 1fr; }
-      .pkg-grid{ grid-template-columns: 1fr; }
-      .faq-grid{ grid-template-columns: 1fr; }
+    .cta {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.2rem 2.4rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
     }
-    @media (max-width: 620px){
-      .pillars{ grid-template-columns: 1fr; }
+
+    .content {
+      max-width: 700px;
     }
-.clients {
-  padding: 120px 0;
-  border-top: 1px solid var(--stroke);
-  /* Subtiele glow achter de sectie */
-  background: radial-gradient(circle at 50% 0%, rgba(47,137,255,0.03), transparent 70%);
-}
 
-.clients-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
+    .title {
+      margin: 0 0 0.6rem;
+      font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+      line-height: 1.15;
+    }
 
-.logo-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 100px; /* Enorme gap voor de luxe uitstraling */
-  max-width: 900px;
-  margin: 0 auto;
-}
+    .text {
+      margin: 0 0 1.4rem;
+      opacity: 0.88;
+      line-height: 1.7;
+      max-width: 58ch;
+    }
 
-.logo-item {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  filter: grayscale(1) brightness(1.5);
-  opacity: 0.5;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
 
-.client-logo {
-  width: 100%;
-  max-width: 180px; /* Logo's mogen nu iets groter zijn omdat het er maar 3 zijn */
-  height: 50px;
-  object-fit: contain;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.78rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
 
-.logo-item:hover {
-  filter: grayscale(0) brightness(1);
-  opacity: 1;
-  transform: translateY(-5px);
-}
+    .btn.primary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .btn.secondary:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reviews-marquee .marquee-track {
+        animation: none;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .pkg-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .pkg.is-featured {
+        transform: none;
+        order: -1;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
 
 @media (max-width: 900px) {
+  .pillars {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .logo-row {
     flex-direction: column;
     gap: 60px;
   }
+
   .client-logo {
     max-width: 140px;
   }
 }
-/* =========================
-   Reviews Section (Marquee)
-   ========================= */
+    
 
-.reviews{
-  padding: 5rem 0;
-  background: rgba(255,255,255,0.01);
+    @media (max-width: 768px) {
+      .reviews {
+        padding: 3rem 0;
+      }
+
+      .reviews-header {
+        margin-bottom: 2rem;
+      }
+
+      .reviews-marquee .marquee {
+        border-radius: 16px;
+      }
+
+      .reviews-marquee .review-card {
+        padding: 1.4rem;
+      }
+
+      .cta {
+        padding: 1.8rem 1.6rem;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+    .local-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
 }
 
-.reviews-header{
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.reviews-header .lead{
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* wrapper */
-.reviews-marquee .marquee{
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  margin-top: 2rem;
-
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-
-/* track: 2 identieke helften naast elkaar */
-.reviews-marquee .marquee-track{
-  display:flex;
-  flex-wrap:nowrap;
-  width:max-content;
-  gap: 0;                 /* belangrijk: geen gap tussen track A en B */
-  animation: reviews-marquee 35s linear infinite;
-  will-change: transform;
-}
-
-.reviews-marquee .track{
-  --g: 1.25rem;
-  display:flex;
-  flex-wrap:nowrap;
-  gap: var(--g);          /* gap tussen cards */
-}
-
-/* dit is de hele truc: trailing gap zodat de naad gelijk is */
-.reviews-marquee .track:first-child{
-  padding-right: var(--g);
-}
-
-/* en dan blijft -50% kloppen */
-@keyframes reviews-marquee{
-  from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
-}
-
-/* Specifieke aanpassing voor Socialmediamanager */
-.smm-logo {
-  max-width: 240px !important; /* Groter dan de standaard 180px */
-  max-height: 75px !important; /* Iets hoger voor betere leesbaarheid */
-  transform: scale(1.15); /* Een extra 'boost' van 15% */
-}
-
-
-/* Ter herinnering, de algemene stijl die je al had (check of deze waarden kloppen): */
-.client-logo {
-  width: auto;
-  height: auto;
-  max-width: 180px;
-  max-height: 50px;
-  object-fit: contain;
-  transition: all 0.4s ease;
-}
-
-/* cards */
-.reviews-marquee .review-card{
-  flex: 0 0 auto;
-  width: min(520px, 86vw);
-  display: block;
-
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
+.local-point {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
-  padding: 1.8rem;
-  text-decoration: none;
+  padding: 20px;
   backdrop-filter: blur(10px);
-
-  transition: transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
 }
 
-.reviews-marquee .review-card:hover{
-  background: rgba(47,137,255,0.08);
-  border-color: rgba(47,137,255,0.3);
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(47,137,255,0.15);
-}
-
-.review-stars{
-  display: flex;
-  gap: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.star{
-  color: #fbbf24;
-  font-size: 1.25rem;
-  line-height: 1;
-}
-
-.review-text{
-  color: rgba(255,255,255,0.92);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
-  font-style: italic;
-  position: relative;
-}
-
-.review-text::before{
-  content: '"';
-  font-size: 3rem;
-  color: rgba(47,137,255,0.3);
-  position: absolute;
-  top: -0.5rem;
-  left: -1rem;
-  font-family: serif;
-}
-
-.review-author{
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 1rem;
-}
-
-.author-name{
-  font-weight: 650;
+.local-point h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
   color: #fff;
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
-.author-company{
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.72);
-}
-
-.reviews-cta{
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.reviews-note{
-  color: rgba(255,255,255,0.7);
-  font-size: 0.95rem;
+.local-point p {
   margin: 0;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
-.reviews-note a{
-  color: #2F89FF;
-  text-decoration: none;
-  font-weight: 500;
-}
 
-.reviews-note a:hover{
-  text-decoration: underline;
-}
-
-@media (prefers-reduced-motion: reduce){
-  .reviews-marquee .marquee-track{
-    animation: none;
-    transform: none;
+@media (max-width: 900px) {
+  .local-points {
+    grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 768px){
-  .reviews{ padding: 3rem 0; }
-  .reviews-header{ margin-bottom: 2rem; }
-  .reviews-marquee .marquee{ border-radius: 16px; }
-  .reviews-marquee .marquee-track,
-  .reviews-marquee .track{ gap: 0.9rem; }
-  .reviews-marquee .review-card{ padding: 1.4rem; }
-}
-/* wrapper */
-.reviews-marquee .marquee{
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  margin-top: 2rem;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+.local-copy-intro,
+.local-copy-outro {
+  max-width: 860px;
 }
 
-/* track */
-.reviews-marquee .marquee-track{
-  display: flex;
-  flex-wrap: nowrap;
-  width: max-content;
-  gap: 0;                 /* GEEN gap hier */
-  padding: .5rem 0;
-  will-change: transform;
-  animation: reviews-marquee 35s linear infinite;
-}
 
-.reviews-marquee .marquee:hover .marquee-track{
-  animation-play-state: paused;
-}
-
-/* halves */
-.reviews-marquee .track{
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1.25rem;          /* gap alleen hier */
-}
-
-@keyframes reviews-marquee{
-  from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
-}
-
-</style>
+  </style>
 </BaseLayout>

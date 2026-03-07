@@ -2,10 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-
 media_folder: "public/uploads"
 public_folder: "/uploads"
-
 
 collections:
   - name: "insights"
@@ -15,23 +13,107 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
-    fields:
-      - { label: "Titel", name: "title", widget: "string" }
-      - { label: "Beschrijving", name: "description", widget: "text", required: false }
-      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
-      - { label: "Update datum", name: "updated", widget: "datetime", required: false, format: "YYYY-MM-DD", time_format: false }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
 
-      - label: "SEO afbeelding"
+    fields:
+      - label: "Titel"
+        name: "title"
+        widget: "string"
+
+      - label: "Beschrijving (meta description)"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "1–2 zinnen. Dit wordt gebruikt als Google snippet."
+
+      - label: "Datum"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        time_format: false
+
+      - label: "Update datum"
+        name: "updated"
+        widget: "datetime"
+        required: false
+        format: "YYYY-MM-DD"
+        time_format: false
+        hint: "Alleen invullen bij echte inhoudelijke update."
+
+      - label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "Hoofdafbeelding (in artikel)"
         name: "image"
         widget: "object"
         required: false
         fields:
-          - { label: "Afbeelding", name: "src", widget: "image", required: false }
-          - { label: "Alt tekst", name: "alt", widget: "string", required: false }
+          - label: "Afbeelding"
+            name: "src"
+            widget: "image"
+            required: false
+          - label: "Alt tekst"
+            name: "alt"
+            widget: "string"
+            required: false
 
-      - { label: "Categorie", name: "category", widget: "string", required: false }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
-      - { label: "Leestijd", name: "readingTime", widget: "string", required: false, hint: "Bijv: 6 min" }
+      - label: "OG afbeelding (social preview)"
+        name: "ogImage"
+        widget: "image"
+        required: false
+        hint: "1200x630 aanbevolen. Als leeg: valt terug op hoofdafbeelding of /og.png."
 
-      - { label: "Content", name: "body", widget: "markdown" }
+      - label: "Categorie"
+        name: "category"
+        widget: "select"
+        required: true
+        options:
+          - { label: "Webdesign", value: "Webdesign" }
+          - { label: "SEO", value: "SEO" }
+          - { label: "UX", value: "UX" }
+          - { label: "Strategie", value: "Strategie" }
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Gebruik echte zoektermen, bv: 'webdesign Wageningen', 'conversie optimalisatie'."
+
+      - label: "Leestijd"
+        name: "readingTime"
+        widget: "string"
+        required: false
+        hint: "Bijv: 6 min of 6-8 min"
+
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
+        default: |
+          ## Intro
+
+          Leg kort en scherp het probleem neer.
+
+          ## Waarom dit gebeurt
+
+          Analyseer waar het misgaat. Denk aan focus, positionering of structuur.
+
+          ## Wat dit betekent voor jouw website
+
+          Maak het concreet en relevant voor de lezer.
+
+          ## Wat je beter kunt doen
+
+          Geef richting. Geen trucjes, maar scherpe keuzes.
+
+          ## Tot slot
+
+          Rond af met een heldere conclusie.
+
+          ---
+
+          **Gerelateerd**
+          - [Webdesign in Wageningen](/webdesign-wageningen)
+          - [Bekijk cases](/cases)
+          - [Meer insights](/insights)
