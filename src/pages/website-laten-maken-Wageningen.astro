@@ -7,9 +7,9 @@ import Button from "../components/Button.astro";
 const mapsUrl = "https://maps.app.goo.gl/XJkGA7g8TkB1aJTA6";
 
 const page = {
-  title: "Website laten maken Wageningen | Webdesign bureau - TwinPixel",
+  title: "Website laten maken Wageningen | Kosten & Werkwijze | TwinPixel",
   description:
-    "Website laten maken in Wageningen? TwinPixel ontwerpt en bouwt professionele websites die vertrouwen wekken, snel laden en zorgen voor meer aanvragen.",
+    "Wil je een professionele website laten maken in Wageningen? TwinPixel ontwerpt snelle, SEO-vriendelijke websites die zorgen voor meer aanvragen. Bekijk onze tarieven!",
   h1: "Website laten maken in Wageningen",
 };
 
@@ -38,7 +38,6 @@ const investments = [
   },
 ];
 
-// Reviews: houd het klein, echt en klikbaar (naar Maps)
 const reviews = [
   {
     author: "Harvey Meurs",
@@ -58,54 +57,45 @@ const reviews = [
   },
 ];
 
-// Mini proof (kort, zonder overdreven claims)
 const proof = [
   {
     title: "By Britt Nails",
     text:
       "Lokale vindbaarheid als uitgangspunt: heldere structuur, snelle pagina’s en een verhaal dat direct naar contact stuurt.",
-    href: "/cases/by-britt-nails",
+    href: "/cases",
   },
   {
     title: "VVD Wageningen",
     text:
       "Autoriteit en performance: een strakke site die op mobiel net zo overtuigt als op desktop.",
-    href: "/cases/vvd-wageningen",
+    href: "/cases",
   },
 ];
 
 const faqs = [
   {
     q: "Wat kost een website laten maken in Wageningen?",
-    a: "Meestal valt dit in de range van een Website Launch-traject (€2.450–€3.750). De exacte prijs hangt af van het aantal pagina’s, content (tekst/beelden) en eventuele koppelingen. Je krijgt altijd een voorstel op maat.",
+    a: "Meestal valt dit in de range van een Website Launch-traject (€2.450–€3.750). De exacte prijs hangt af van het aantal pagina’s, content (tekst/beelden) en eventuele koppelingen.",
   },
   {
     q: "Hoe lang duurt het bouwen van een website?",
-    a: "Meestal 3 tot 5 weken. Het tempo hangt vooral af van hoe snel feedback rondes lopen en of content (tekst/beelden) al klaar ligt. Als dat scherp is, kan het sneller.",
+    a: "Meestal 3 tot 5 weken. Het tempo hangt vooral af van hoe snel feedback rondes lopen en of content (tekst/beelden) al klaar ligt.",
   },
   {
     q: "Kunnen jullie ook helpen met vindbaarheid (SEO)?",
-    a: "Ja. We bouwen een sterke technische basis (structuur, headings, indexeerbaarheid, performance) en helpen met content die past bij lokale zoekintentie. Geen trucjes: gewoon een site die klopt.",
+    a: "Ja. We bouwen een sterke technische basis (structuur, headings, indexeerbaarheid, performance) en helpen met content die past bij lokale zoekintentie.",
   },
   {
     q: "Kunnen we ook in Wageningen afspreken?",
-    a: "Ja. We zitten in Wageningen, dus even sparren op locatie kan (op afspraak). Liever online? Kan ook.",
-  },
-  {
-    q: "Werken jullie alleen in Wageningen?",
-    a: "Nee. Deze pagina is gericht op Wageningen en omgeving, maar we werken ook voor bedrijven elders in Nederland.",
+    a: "Ja. We zitten in Wageningen, dus even sparren op locatie kan op afspraak.",
   },
 ];
 
-// URL’s voor schema (pakken Astro.site als je die netjes hebt ingesteld)
 const origin = (Astro.site ?? Astro.url.origin).toString();
 const canonicalURL = new URL(Astro.url.pathname, origin).toString();
 const orgId = `${origin}#organization`;
-
 const areaServed = business.area.map((name) => ({ "@type": "City", name }));
 
-// Page-level JSON-LD: géén dubbele/risicovolle LocalBusiness markup.
-// Wel: WebPage + Service + Breadcrumb + FAQ
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -150,26 +140,26 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={page.title} description={page.description}>
+<BaseLayout 
+  title={page.title} 
+  description={page.description} 
+  schema={jsonLd}
+>
   <main>
     <!-- HERO -->
-    <section class="section hero-simple" aria-label="Webdesign Wageningen">
+    <section class="section hero-simple" aria-label="Website laten maken Wageningen">
       <div class="container">
-        <p class="kicker">Webdesign in Wageningen</p>
-
+        <p class="kicker">Webdesign & Development</p>
         <h1 class="h1">{page.h1}</h1>
-
         <p class="lead">
           Op zoek naar een professionele website voor je bedrijf in Wageningen?
           <strong> {business.name}</strong> ontwerpt en bouwt websites die vertrouwen wekken, snel laden
-          en gericht zijn op meer aanvragen, voor ondernemers in Wageningen en de regio.
+          en gericht zijn op meer aanvragen.
         </p>
-
         <div class="cta">
           <Button href="/contact" variant="primary" label="Plan kennismaking" />
           <Button href="#cases" variant="secondary" label="Bekijk ons werk" />
         </div>
-
         <div class="proof" aria-label="Key points">
           <span>Premium uitstraling</span>
           <span class="sep">/</span>
@@ -177,87 +167,25 @@ const jsonLd = [
           <span class="sep">/</span>
           <span>Vindbaar in Google</span>
         </div>
-
-        <div class="jump" aria-label="Inhoud">
-          <a class="jump-link" href="#diensten">Wat we doen</a>
-          <span class="sep-dot">·</span>
-          <a class="jump-link" href="#kosten">Kosten</a>
-          <span class="sep-dot">·</span>
-          <a class="jump-link" href="#werkwijze">Werkwijze</a>
-          <span class="sep-dot">·</span>
-          <a class="jump-link" href="#faq">FAQ</a>
-        </div>
       </div>
     </section>
 
-    <!-- INTRO -->
+    <!-- INTRO MET STRATEGISCHE INTERNE LINK -->
     <section class="section" aria-label="Webdesign bureau Wageningen">
       <div class="container">
         <h2 class="h2">Webdesign bureau in Wageningen</h2>
-
         <p class="lead small">
-          {business.name} is een webdesign bureau voor bedrijven in Wageningen en omgeving.
-          Wij bouwen websites die professioneel aanvoelen, praktisch werken en klaar zijn om conversie te pakken.
+          {business.name} is een bureau voor ondernemers die resultaat willen. Als specialist in 
+          <a class="inline-link" href="/">webdesign in Wageningen</a> bouwen wij websites die niet alleen 
+          mooi ogen, maar ook technisch perfect functioneren.
         </p>
-
         <p class="text">
-          Of je nu een nieuwe website nodig hebt of je huidige site wilt verbeteren:
-          we denken mee over uitstraling, structuur en inhoud. Je werkt direct met de makers,
-          zonder accountlagen of ruis.
+          Of je nu een compleet nieuwe website wilt laten maken of je huidige online positie wilt verbeteren: 
+          wij denken strategisch met je mee. Geen standaard templates, maar maatwerk dat past bij jouw merk.
         </p>
-
-        <p class="text">
-          <a class="inline-link" href="/contact">Contact opnemen</a> werkt het snelst. Liever eerst wat context?
-          <a class="inline-link" href="/over-ons"> Lees wie we zijn</a>.
-        </p>
-
         <div class="chips" aria-label="Regio">
           {business.area.map((c) => <span class="chip">{c}</span>)}
         </div>
-      </div>
-    </section>
-
-    <!-- LOCAL SEO -->
-    <section class="section" aria-label="Lokale SEO Wageningen" id="lokale-seo">
-      <div class="container">
-        <h2 class="h2">Lokale SEO in Wageningen</h2>
-
-        <p class="lead small">
-          Een mooie site is leuk, maar je wil vooral: <strong>gevonden worden door mensen uit Wageningen</strong>.
-          Daarom bouwen we niet alleen “een design”, maar een pagina-structuur die zoekmachines snappen
-          en bezoekers logisch naar contact stuurt.
-        </p>
-
-        <div class="pillars pillars-3" aria-label="Lokale SEO onderdelen">
-          <div class="pill">
-            <h3 class="pill-title">Zoekwoorden &amp; structuur</h3>
-            <p class="pill-text">
-              We koppelen lokale zoekintentie aan je pagina’s (diensten, cases, FAQ) en zorgen dat je site
-              één helder verhaal vertelt.
-            </p>
-          </div>
-
-          <div class="pill">
-            <h3 class="pill-title">Techniek die Google snapt</h3>
-            <p class="pill-text">
-              Snelle laadtijden, nette headings, indexeerbaarheid en een basis die klaar is voor groei.
-              Geen “SEO trucjes”, gewoon goed gebouwd.
-            </p>
-          </div>
-
-          <div class="pill">
-            <h3 class="pill-title">Google Maps &amp; vertrouwen</h3>
-            <p class="pill-text">
-              We helpen met lokale signalen: duidelijke contactinfo, link naar Google Maps en content die laat zien
-              dat je echt in/voor de regio werkt.
-            </p>
-          </div>
-        </div>
-
-        <p class="text">
-          Tip: als je ook actief bent in meerdere plaatsen, maak dan pagina’s die echt verschillen in inhoud
-          (geen knip-plak met alleen de plaatsnaam). Dat is beter voor bezoekers én SEO.
-        </p>
       </div>
     </section>
 
@@ -265,37 +193,22 @@ const jsonLd = [
     <section class="section" aria-label="Diensten" id="diensten">
       <div class="container">
         <h2 class="h2">Wat we doen</h2>
-        <p class="lead small">
-          Alles wat je nodig hebt voor een sterke website: ontwerp, bouw, technische basis en doorontwikkeling.
-        </p>
-
         <div class="pillars" aria-label="Kernpunten">
           <div class="pill">
             <h3 class="pill-title">Website laten maken</h3>
-            <p class="pill-text">
-              Van eerste opzet tot livegang. Een website die past bij je bedrijf en klaar is om klanten te overtuigen.
-            </p>
+            <p class="pill-text">Van eerste concept tot de livegang. Wij regelen het volledige traject voor jouw nieuwe platform.</p>
           </div>
-
           <div class="pill">
-            <h3 class="pill-title">Webdesign &amp; structuur</h3>
-            <p class="pill-text">
-              Een helder verhaal, logische pagina-opbouw en een ontwerp dat vertrouwen uitstraalt vanaf de eerste indruk.
-            </p>
+            <h3 class="pill-title">Conversie & Design</h3>
+            <p class="pill-text">Een ontwerp dat bezoekers verleidt en een structuur die ze feilloos naar de contactpagina leidt.</p>
           </div>
-
           <div class="pill">
-            <h3 class="pill-title">Technische basis &amp; SEO</h3>
-            <p class="pill-text">
-              Snelle laadtijden, goede indexeerbaarheid en een basis die zoekmachines snappen, zonder onzin.
-            </p>
+            <h3 class="pill-title">Technische SEO</h3>
+            <p class="pill-text">Een razendsnelle basis en een structuur die Google begrijpt, zodat je ook echt gevonden wordt.</p>
           </div>
-
           <div class="pill">
-            <h3 class="pill-title">Onderhoud &amp; doorontwikkeling</h3>
-            <p class="pill-text">
-              Ook na oplevering helpen we met verbeteringen, uitbreidingen en optimalisatie.
-            </p>
+            <h3 class="pill-title">Lokaal resultaat</h3>
+            <p class="pill-text">Focus op Wageningen en de regio Foodvalley voor een sterke lokale aanwezigheid.</p>
           </div>
         </div>
       </div>
@@ -306,11 +219,8 @@ const jsonLd = [
       <div class="container">
         <div class="section-head">
           <h2 class="h2">Wat kost een website laten maken in Wageningen?</h2>
-          <p class="lead small">
-            We werken met heldere startpunten. Exacte prijs hangt af van scope, content en eventuele koppelingen.
-          </p>
+          <p class="lead small">Helderheid vooraf. Geen verrassingen achteraf.</p>
         </div>
-
         <div class="costs-grid" aria-label="Investering">
           {investments.map((p) => (
             <div class="cost-card">
@@ -318,82 +228,15 @@ const jsonLd = [
                 <div class="cost-title">{p.title}</div>
                 <div class="cost-price">{p.price}</div>
               </div>
-              <ul class="cost-list" aria-label={`${p.title} onderdelen`}>
+              <ul class="cost-list">
                 {p.points.map((x) => <li>{x}</li>)}
               </ul>
               <p class="cost-note">{p.note}</p>
               <div class="cost-actions">
-                <Button href="/contact" variant="primary" label="Check jouw scope" />
-                <a class="cta-link subtle" href="#werkwijze">Hoe we werken →</a>
+                <Button href="/contact" variant="primary" label="Vraag offerte aan" />
               </div>
             </div>
           ))}
-        </div>
-
-        <p class="text">
-          Wil je een snelle indicatie? Stuur je huidige site (of voorbeelden) en je doel. Dan kunnen we in 10 minuten zeggen
-          of je in “Launch” valt of dat het richting maatwerk gaat.
-        </p>
-      </div>
-    </section>
-
-    <!-- PROOF -->
-    <section class="section proof-mini" aria-label="Voorbeelden" id="proof">
-      <div class="container">
-        <h2 class="h2">Kort bewijs</h2>
-        <p class="lead small">
-          Geen lange verhalen. Gewoon projecten die laten zien wat je kunt verwachten.
-        </p>
-
-        <div class="proof-grid" aria-label="Mini cases">
-          {proof.map((p) => (
-            <a class="proof-card" href={p.href}>
-              <div class="proof-title">{p.title}</div>
-              <p class="proof-text">{p.text}</p>
-              <span class="proof-link">Bekijk case →</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section" aria-label="Werkwijze" id="werkwijze">
-      <div class="container">
-        <h2 class="h2">Zo pakken we het aan</h2>
-
-        <div class="steps" aria-label="Stappen">
-          <div class="step">
-            <div class="step-no">1</div>
-            <div>
-              <p class="step-title">Kennismaking</p>
-              <p class="step-text">Doel, doelgroep, voorbeelden en wat je site moet opleveren.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-no">2</div>
-            <div>
-              <p class="step-title">Structuur &amp; design</p>
-              <p class="step-text">Pagina’s, contentflow, CTA’s en een ontwerp dat past bij je merk.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-no">3</div>
-            <div>
-              <p class="step-title">Bouw &amp; livegang</p>
-              <p class="step-text">Snelle implementatie, check op mobiel/desktop, analytics en live.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-no">4</div>
-            <div>
-              <p class="step-title">Verbeteren</p>
-              <p class="step-text">Meten, bijsturen en verder bouwen zodra je nieuwe doelen hebt.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -402,56 +245,16 @@ const jsonLd = [
     <section class="section" aria-label="Cases" id="cases">
       <div class="container">
         <div class="section-head">
-          <h2 class="h2">Voorbeelden van werk</h2>
-          <p class="lead small">
-            Een paar projecten om gevoel te krijgen bij stijl, niveau en aanpak.
-          </p>
+          <h2 class="h2">Recent werk</h2>
         </div>
       </div>
       <CasesPreview />
-      <div class="container after-cases">
-        <Button href="/cases" variant="secondary" label="Bekijk alle cases" />
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="section reviews" aria-label="Reviews" id="reviews">
-      <div class="container">
-        <div class="section-head center">
-          <p class="kicker">Reviews</p>
-          <h2 class="h2">Wat klanten zeggen</h2>
-          <p class="lead small">Geselecteerde reviews. Bekijk alles op Google Maps.</p>
-        </div>
-
-        <div class="reviews-grid" aria-label="Klantreviews">
-          {reviews.map((r) => (
-            <a class="review-card" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-              <div class="review-stars" aria-label="5 sterren">
-                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              </div>
-              <blockquote class="review-text">“{r.text}”</blockquote>
-              <div class="review-author">
-                <div class="author-name">{r.author}</div>
-                <div class="author-company">{r.company}</div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <p class="reviews-note">
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer">Bekijk alle reviews →</a>
-        </p>
-      </div>
     </section>
 
     <!-- FAQ -->
     <section class="section faq" aria-label="FAQ" id="faq">
       <div class="container">
         <h2 class="h2">Veelgestelde vragen</h2>
-        <p class="lead small">
-          Kort en duidelijk. En als je wil sparren: plan gewoon even een kennismaking.
-        </p>
-
         <div class="faq-wrap">
           {faqs.map((f) => (
             <details class="faq-item">
@@ -469,376 +272,55 @@ const jsonLd = [
         <div class="cta-box">
           <div>
             <p class="kicker">Kennismaken</p>
-            <h2 class="h2">Website laten maken in Wageningen?</h2>
-            <p class="lead small">
-              Plan een vrijblijvende kennismaking. Dan kijken we samen wat je nodig hebt en wat het ongeveer kost.
-            </p>
-
-            <p class="text contact-mini">
-              <strong>{business.name}</strong> · {business.addressLocality}, {business.addressCountry}<br />
-              <a class="inline-link" href={`mailto:${business.email}`}>{business.email}</a>
-              <span class="sep-dot">·</span>
-              <a class="inline-link" href={`tel:${business.phone.replaceAll(" ", "")}`}>{business.phone}</a>
-            </p>
+            <h2 class="h2">Jouw project bespreken?</h2>
+            <p class="lead small">Plan een afspraak in Wageningen of online.</p>
           </div>
-
           <div class="cta-actions">
             <Button href="/contact" variant="primary" label="Plan kennismaking" />
-            <a class="cta-link" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-              Bekijk TwinPixel op Google Maps →
-            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Page-level structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
   <style>
-    /* Basic layout helpers (keep consistent with your design system) */
     .section { padding: 70px 0; }
     .container { width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
-
-    .kicker{
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: .14em;
-      color: rgba(255,255,255,.55);
-      margin: 0 0 10px;
-    }
-
-    .h1{
-      margin: 0;
-      font-size: clamp(40px, 4.6vw, 68px);
-      letter-spacing: -0.045em;
-      line-height: 1.05;
-      font-weight: 650;
-    }
-
-    .h2{
-      margin: 0;
-      font-size: clamp(28px, 4vw, 42px);
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    .lead{
-      margin: 18px 0 0;
-      color: rgba(255,255,255,.74);
-      line-height: 1.75;
-      font-size: 18px;
-      max-width: 72ch;
-    }
-    .lead.small{
-      font-size: 16px;
-      margin-top: 10px;
-      max-width: 80ch;
-    }
-
-    .text{
-      margin: 14px 0 0;
-      color: rgba(255,255,255,.68);
-      line-height: 1.8;
-      max-width: 80ch;
-    }
-
-    .inline-link{
-      color: rgba(47,137,255,.95);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(47,137,255,.35);
-    }
-    .inline-link:hover{
-      border-bottom-color: rgba(47,137,255,.9);
-    }
-    .sep-dot{ opacity: .5; margin: 0 8px; }
-
-    /* Hero */
+    .kicker{ text-transform: uppercase; font-size: 12px; letter-spacing: .14em; color: rgba(255,255,255,.55); margin: 0 0 10px; }
+    .h1{ margin: 0; font-size: clamp(40px, 4.6vw, 68px); letter-spacing: -0.045em; line-height: 1.05; font-weight: 650; }
+    .h2{ margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.03em; line-height: 1.15; }
+    .lead{ margin: 18px 0 0; color: rgba(255,255,255,.74); line-height: 1.75; font-size: 18px; max-width: 72ch; }
+    .lead.small{ font-size: 16px; margin-top: 10px; max-width: 80ch; }
+    .text{ margin: 14px 0 0; color: rgba(255,255,255,.68); line-height: 1.8; max-width: 80ch; }
+    .inline-link{ color: rgba(47,137,255,.95); text-decoration: none; border-bottom: 1px solid rgba(47,137,255,.35); }
     .hero-simple{ padding-top: 130px; }
     .cta{ margin-top: 26px; display:flex; gap: 12px; flex-wrap: wrap; }
-    .proof{
-      margin-top: 22px;
-      display:flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      color: rgba(255,255,255,.52);
-      font-size: 14px;
-    }
+    .proof{ margin-top: 22px; display:flex; flex-wrap: wrap; gap: 12px; color: rgba(255,255,255,.52); font-size: 14px; }
     .sep{ opacity: .35; }
-    .jump{
-      margin-top: 16px;
-      color: rgba(255,255,255,.55);
-      font-size: 14px;
-    }
-    .jump-link{
-      color: rgba(255,255,255,.72);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,.18);
-    }
-    .jump-link:hover{
-      color: rgba(255,255,255,.92);
-      border-bottom-color: rgba(255,255,255,.5);
-    }
-
-    /* Chips */
     .chips{ margin-top: 18px; display:flex; flex-wrap:wrap; gap: 10px; }
-    .chip{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      border-radius: 999px;
-      padding: 8px 12px;
-      color: rgba(255,255,255,.78);
-      font-size: 13px;
-    }
-
-    /* Pillars */
-    .pillars{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .pillars.pillars-3{
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .pill{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.025);
-      border-radius: 16px;
-      padding: 20px;
-    }
-    .pill-title{
-      margin: 0 0 8px;
-      font-weight: 650;
-      color: rgba(255,255,255,.92);
-      font-size: 16px;
-    }
-    .pill-text{
-      margin: 0;
-      color: rgba(255,255,255,.70);
-      line-height: 1.65;
-      font-size: 14px;
-    }
-
-    /* Costs */
-    .costs-grid{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .cost-card{
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.03);
-      border-radius: 16px;
-      padding: 18px;
-    }
-    .cost-top{
-      display:flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-      margin-bottom: 10px;
-    }
-    .cost-title{
-      font-weight: 700;
-      color: rgba(255,255,255,.92);
-    }
-    .cost-price{
-      color: rgba(255,255,255,.72);
-      font-weight: 650;
-      white-space: nowrap;
-    }
-    .cost-list{
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display:grid;
-      gap: 8px;
-    }
-    .cost-list li{
-      color: rgba(255,255,255,.72);
-      line-height: 1.6;
-      padding-left: 18px;
-      position: relative;
-      font-size: 14px;
-    }
-    .cost-list li::before{
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: rgba(47,137,255,.95);
-      font-weight: 700;
-    }
-    .cost-note{
-      margin: 12px 0 0;
-      color: rgba(255,255,255,.62);
-      line-height: 1.7;
-      font-size: 14px;
-    }
-    .cost-actions{
-      margin-top: 14px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-    .cta-link.subtle{
-      border: none;
-      color: rgba(255,255,255,.68);
-    }
-    .cta-link.subtle:hover{ color: rgba(255,255,255,.9); }
-
-    /* Proof mini */
-    .proof-grid{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .proof-card{
-      text-decoration:none;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.02);
-      border-radius: 16px;
-      padding: 18px;
-      display:block;
-    }
-    .proof-title{
-      font-weight: 700;
-      color: rgba(255,255,255,.92);
-      margin-bottom: 8px;
-    }
-    .proof-text{
-      margin: 0;
-      color: rgba(255,255,255,.70);
-      line-height: 1.7;
-    }
-    .proof-link{
-      display:inline-block;
-      margin-top: 10px;
-      color: rgba(47,137,255,.95);
-    }
-
-    /* Steps */
-    .steps{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .step{
-      display:flex;
-      gap: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.025);
-      border-radius: 14px;
-      padding: 16px;
-    }
-    .step-no{
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.14);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: rgba(255,255,255,.85);
-      font-weight: 650;
-      flex: 0 0 auto;
-    }
-    .step-title{ margin: 0; font-weight: 650; color: rgba(255,255,255,.92); }
-    .step-text{ margin: 6px 0 0; color: rgba(255,255,255,.70); line-height: 1.65; }
-
-    /* Reviews */
-    .section-head{ margin-bottom: 18px; }
-    .section-head.center{ text-align:center; }
-    .reviews{ background: rgba(255,255,255,0.01); }
-    .reviews-grid{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .review-card{
-      display:block;
-      text-decoration:none;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      border-radius: 16px;
-      padding: 18px;
-    }
-    .review-stars{ display:flex; gap: 4px; margin-bottom: 12px; }
-    .star{ color:#fbbf24; font-size: 18px; line-height: 1; }
-    .review-text{
-      margin: 0 0 12px;
-      color: rgba(255,255,255,0.86);
-      line-height: 1.65;
-      font-style: italic;
-    }
-    .review-author{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px; }
-    .author-name{ font-weight: 650; color: #fff; }
-    .author-company{ color: rgba(255,255,255,0.70); font-size: 13px; margin-top: 2px; }
-    .reviews-note{ margin: 14px 0 0; text-align:center; }
-    .reviews-note a{ color: #2F89FF; text-decoration: none; }
-    .reviews-note a:hover{ text-decoration: underline; }
-
-    /* FAQ */
+    .chip{ border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); border-radius: 999px; padding: 8px 12px; color: rgba(255,255,255,.78); font-size: 13px; }
+    .pillars{ margin-top: 18px; display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .pill{ border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.025); border-radius: 16px; padding: 20px; }
+    .pill-title{ margin: 0 0 8px; font-weight: 650; color: rgba(255,255,255,.92); font-size: 16px; }
+    .pill-text{ margin: 0; color: rgba(255,255,255,.70); line-height: 1.65; font-size: 14px; }
+    .costs-grid{ margin-top: 18px; display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .cost-card{ border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); border-radius: 16px; padding: 18px; }
+    .cost-top{ display:flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 10px; }
+    .cost-title{ font-weight: 700; color: rgba(255,255,255,.92); }
+    .cost-price{ color: rgba(255,255,255,.72); font-weight: 650; white-space: nowrap; }
+    .cost-list{ margin: 0; padding: 0; list-style: none; display:grid; gap: 8px; }
+    .cost-list li{ color: rgba(255,255,255,.72); line-height: 1.6; padding-left: 18px; position: relative; font-size: 14px; }
+    .cost-list li::before{ content: "→"; position: absolute; left: 0; color: rgba(47,137,255,.95); font-weight: 700; }
+    .cost-note{ margin: 12px 0 0; color: rgba(255,255,255,.62); line-height: 1.7; font-size: 14px; }
+    .cost-actions{ margin-top: 14px; }
     .faq-wrap{ margin-top: 18px; display:grid; gap: 12px; }
-    .faq-item{
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 14px;
-      background: rgba(255,255,255,.025);
-      padding: 4px 0;
-      overflow:hidden;
-    }
-    .faq-item summary{
-      cursor: pointer;
-      list-style: none;
-      padding: 16px;
-      font-weight: 650;
-      color: rgba(255,255,255,.92);
-    }
-    .faq-item summary::-webkit-details-marker{ display:none; }
-    .faq-item p{
-      margin: 0;
-      padding: 0 16px 16px;
-      color: rgba(255,255,255,.74);
-      line-height: 1.8;
-    }
-
-    /* Cases footer */
-    .after-cases{
-      padding-top: 18px;
-      display:flex;
-      justify-content:center;
-    }
-
-    /* Contact CTA */
-    .cta-box{
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      border-radius: 20px;
-      padding: 22px;
-      display:flex;
-      gap: 18px;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .cta-actions{ display:flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-    .cta-link{ color: rgba(255,255,255,.72); text-decoration: none; }
-    .cta-link:hover{ color: rgba(255,255,255,.9); }
-    .contact-mini{ max-width: 55ch; }
+    .faq-item{ border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(255,255,255,.025); padding: 4px 0; overflow:hidden; }
+    .faq-item summary{ cursor: pointer; list-style: none; padding: 16px; font-weight: 650; color: rgba(255,255,255,.92); }
+    .faq-item p{ margin: 0; padding: 0 16px 16px; color: rgba(255,255,255,.74); line-height: 1.8; }
+    .cta-box{ border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); border-radius: 20px; padding: 22px; display:flex; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 
     @media (max-width: 900px){
-      .pillars{ grid-template-columns: 1fr; }
-      .pillars.pillars-3{ grid-template-columns: 1fr; }
-      .costs-grid{ grid-template-columns: 1fr; }
-      .proof-grid{ grid-template-columns: 1fr; }
-      .steps{ grid-template-columns: 1fr; }
-      .reviews-grid{ grid-template-columns: 1fr; }
+      .pillars, .costs-grid, .cta-box { grid-template-columns: 1fr; }
       .hero-simple{ padding-top: 110px; }
     }
   </style>
