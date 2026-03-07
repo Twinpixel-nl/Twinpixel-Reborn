@@ -78,8 +78,8 @@ const tags = Array.isArray(article?.tags) ? article.tags : null;
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Webdesign Wageningen | High-end Websites & Groei - Twinpixel</title>
-  <meta name="description" content="Twinpixel is hét webdesign bureau in Wageningen voor professionele, razendsnelle websites. Wij combineren sterk design met SEO voor meer resultaat. Plan een kennismaking!" />
+  <title>{fullTitle}</title>
+<meta name="description" content={description} />
 
   <link rel="canonical" href={canonicalURL} />
   <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
