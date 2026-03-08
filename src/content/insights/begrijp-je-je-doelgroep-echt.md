@@ -27,8 +27,6 @@ Hier is je tekst, met:
 * Ritme behouden
 * Direct kopieerbaar
 
-
-
 ## Intro
 
 De meeste bedrijven kunnen hun doelgroep benoemen.
@@ -43,8 +41,6 @@ Dat is een categorie.
 
 **En categorieën converteren niet.**
 
-
-
 ## Waarom dit gebeurt
 
 Doelgroepen worden vaak te oppervlakkig gedefinieerd:
@@ -57,8 +53,6 @@ Doelgroepen worden vaak te oppervlakkig gedefinieerd:
 Dat zegt iets over wie iemand is.
 
 **Maar niets over waarom iemand beslist.**
-
-
 
 ## Wat dit betekent voor jouw website
 
@@ -76,8 +70,6 @@ Ze voelen geen urgentie.
 En ze nemen geen beslissing.
 
 > Een website die niemand uitsluit, sluit ook niemand écht in.
-
-
 
 ## Wat je beter kunt doen
 
@@ -108,8 +100,6 @@ Hoe scherper je je doelgroep begrijpt,
 hoe eenvoudiger je website wordt
 en hoe sterker je conversie.
 
-
-
 ## Tot slot
 
 Een sterke website voelt persoonlijk.
@@ -123,12 +113,8 @@ Maar tegen de juiste persoon.
 Dat is het verschil tussen denken dat je je doelgroep kent
 en hem echt begrijpen.
 
-
-
 **Gerelateerd**
 
-* [Webdesign in Wageningen](/webdesign-wageningen)
+* [Website laten maken Wageningen](https://twinpixel.nl/website-laten-maken-wageningen/)
 * [Bekijk cases](/cases)
 * [Meer insights](/insights)
-
-
