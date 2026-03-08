@@ -84,56 +84,108 @@ const faqSchema = {
 >
   <Hero />
 
-  <section class="section value slide-in-up" aria-label="Waarom TwinPixel">
-    <div class="container">
-      <div class="value-grid">
-        <div>
-          <p class="kicker">Expertise</p>
-          <h2 class="h2">Websites die vertrouwen opbouwen en aanvragen opleveren</h2>
-          <p class="lead small">
-            TwinPixel is een <a href="/website-laten-maken-wageningen" class="inline-link">webdesign bureau in Wageningen</a>.
-         We ontwikkelen high-end websites voor bedrijven in Wageningen en de Foodvalley.
-            Met een heldere positionering, snelle gebruikerservaring en een technische basis die
-            goed scoort in Google. Je werkt direct met ons: korte lijnen, snel schakelen en duidelijke keuzes.
+<section class="section value slide-in-up" aria-label="Waarom TwinPixel">
+  <div class="container">
+    <div class="value-grid">
+      <div>
+<p class="kicker">Waarom TwinPixel</p>
+<h2 class="h2">Websites die vertrouwen opbouwen en aanvragen opleveren</h2>
+<p class="lead small">
+  We ontwerpen en ontwikkelen snelle, doordachte websites voor bedrijven die professioneel
+  willen overkomen en online resultaat willen halen. Met een heldere positionering,
+  sterke structuur en techniek die goed scoort in Google.
+</p>
+<p class="lead small">
+  Wil je een
+  <a href="/website-laten-maken-wageningen" class="inline-link">website laten maken in Wageningen</a>?
+  TwinPixel helpt bedrijven met een sterke online uitstraling, heldere structuur en een technische basis die klaar is voor groei.
+</p>
+</div>
+
+      <div class="pillars" aria-label="Kernpunten">
+        <div class="pill">
+          <p class="pill-title">Sterke positionering</p>
+          <p class="pill-text">
+            Design en content die passen bij je merk en direct vertrouwen opbouwen.
           </p>
         </div>
 
-        <div class="pillars" aria-label="Kernpunten">
-          <div class="pill">
-            <p class="pill-title">Sterke positionering</p>
-            <p class="pill-text">
-              Design en content die passen bij je merk en direct vertrouwen opbouwen.
-            </p>
-          </div>
+        <div class="pill">
+          <p class="pill-title">Conversiegerichte structuur</p>
+          <p class="pill-text">
+            Een logisch verhaal, scherpe CTA’s en een duidelijke route naar contact.
+          </p>
+        </div>
 
-          <div class="pill">
-            <p class="pill-title">Conversiegerichte structuur</p>
-            <p class="pill-text">
-              Een logisch verhaal, scherpe CTA’s en een duidelijke route naar contact.
-            </p>
-          </div>
+        <div class="pill">
+          <p class="pill-title">SEO-structuur die klopt</p>
+          <p class="pill-text">
+            Technische basis en pagina-opbouw die zoekmachines goed begrijpen en waarderen.
+          </p>
+        </div>
 
-          <div class="pill">
-            <p class="pill-title">SEO-structuur die klopt</p>
-            <p class="pill-text">
-              Technische basis en pagina-opbouw die zoekmachines goed begrijpen en waarderen.
-            </p>
-          </div>
-
-          <div class="pill">
-            <p class="pill-title">Direct met de makers</p>
-            <p class="pill-text">
-              Geen accountlaag. Eerlijk advies, korte feedbackrondes en snelle iteraties.
-            </p>
-          </div>
+        <div class="pill">
+          <p class="pill-title">Direct met de makers</p>
+          <p class="pill-text">
+            Geen accountlaag. Eerlijk advies, korte feedbackrondes en snelle iteraties.
+          </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+
+<section class="section process slide-in-up" aria-label="Werkwijze">
+  <div class="container">
+    <div class="head">
+      <p class="kicker">Werkwijze</p>
+      <h2 class="h2">Van positionering naar een website die echt werkt</h2>
+      <p class="lead small">
+        Een sterke website ontstaat niet uit losse keuzes. Daarom werken we in een duidelijke
+        volgorde: eerst scherpte, dan design, daarna techniek en optimalisatie.
+      </p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="process-step">01</span>
+        <h3>Positionering</h3>
+        <p>
+          We bepalen wat je merk moet uitstralen, voor wie de site bedoeld is en welke boodschap direct moet landen.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <span class="process-step">02</span>
+        <h3>Structuur & content</h3>
+        <p>
+          We bouwen een logische flow op met duidelijke pagina’s, CTA’s en contentblokken die mensen snel begrijpen.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <span class="process-step">03</span>
+        <h3>Design & ontwikkeling</h3>
+        <p>
+          Daarna vertalen we de strategie naar een snelle, professionele website die klopt op desktop en mobiel.
+        </p>
+      </div>
+
+      <div class="process-card">
+        <span class="process-step">04</span>
+        <h3>SEO-basis & livegang</h3>
+        <p>
+          We zorgen voor een technische basis die goed indexeerbaar is, snel laadt en klaar is om verder op te bouwen.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <Expertise />
   <CasesPreview />
+  
 <!-- REVIEWS SECTION -->
 <section class="section reviews reviews-marquee slide-in-up" aria-label="Klantreviews">
   <div class="container">
@@ -145,39 +197,50 @@ const faqSchema = {
 
     <div class="marquee">
       <div class="marquee-track">
-        <!-- Track A -->
-        <div class="track">
-          {reviews.map((review) => (
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <div class="review-content">
-                <blockquote class="review-text">{review.text}</blockquote>
-              </div>
-              <div class="review-author">
-                <span class="author-name">{review.author}</span>
-                <span class="author-company">{review.company}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Track B (Exacte kopie voor naadloze loop) -->
-        <div class="track" aria-hidden="true">
-          {reviews.map((review) => (
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <div class="review-content">
-                <blockquote class="review-text">{review.text}</blockquote>
-              </div>
-              <div class="review-author">
-                <span class="author-name">{review.author}</span>
-                <span class="author-company">{review.company}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+      <!-- Track A -->
+<div class="track">
+  {reviews.map((review) => (
+    <a
+      class="review-card"
+      href={mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Lees review van ${review.author} op Google`}
+    >
+      <div class="review-stars">★★★★★</div>
+      <div class="review-content">
+        <blockquote class="review-text">{review.text}</blockquote>
       </div>
-    </div>
+      <div class="review-author">
+        <span class="author-name">{review.author}</span>
+        <span class="author-company">{review.company}</span>
+      </div>
+    </a>
+  ))}
+</div>
+
+<!-- Track B (Exacte kopie voor naadloze loop) -->
+<div class="track" aria-hidden="true">
+  {reviews.map((review) => (
+    <a
+      class="review-card"
+      href={mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+     tabindex="-1"
+      aria-label={`Lees review van ${review.author} op Google`}
+    >
+      <div class="review-stars">★★★★★</div>
+      <div class="review-content">
+        <blockquote class="review-text">{review.text}</blockquote>
+      </div>
+      <div class="review-author">
+        <span class="author-name">{review.author}</span>
+        <span class="author-company">{review.company}</span>
+      </div>
+    </a>
+  ))}
+</div>
 
     <div class="reviews-cta center">
       <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="reviews-note">
@@ -186,6 +249,10 @@ const faqSchema = {
     </div>
   </div>
 </section>
+
+
+
+
 
   <section class="section packages" aria-label="Pakketten">
     <div class="container">
@@ -241,7 +308,8 @@ const faqSchema = {
     </div>
   </section>
 
-  <section class="section clients" aria-label="Samenwerkingen">
+
+    <section class="section clients" aria-label="Samenwerkingen">
     <div class="container">
       <div class="clients-header">
         <p class="kicker">Samenwerkingen</p>
@@ -283,6 +351,7 @@ const faqSchema = {
       </div>
     </div>
   </section>
+
 
   <section class="section faq slide-in-up" aria-label="Veelgestelde vragen">
     <div class="container">
@@ -377,7 +446,6 @@ const faqSchema = {
   </script>
 
   <style>
-    .section {
 .section {
   padding: 80px 0;
 }
@@ -852,13 +920,20 @@ const faqSchema = {
 }
 
 
+@media (prefers-reduced-motion: reduce) {
   .pill,
   .pkg,
   .review-card,
-  .btn {
+  .btn,
+  .process-card {
     transition: none;
   }
+
+  .marquee-track {
+    animation: none;
+  }
 }
+
 /* 1. De grote onderlijn bij de sectie titel */
   .reviews-header .h2 {
     display: inline-block;
@@ -872,19 +947,23 @@ const faqSchema = {
     position: relative;
     overflow: hidden;
     margin-top: 40px;
-    padding: 30px 0 60px; /* Ruimte voor de kaart om omhoog te 'bouncen' */
+    padding: 20px 0 30px; /* Ruimte voor de kaart om omhoog te 'bouncen' */
     mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-
   }
 
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: reviews-marquee 45s linear infinite;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    animation: reviews-marquee 35s linear infinite;    
   }
 
+.reviews-cta {
+  margin-top: 1px; /* Dit duwt de lijn weg van de marquee container */
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Dit is de lijn die je ziet */
+  padding-top: 2rem;
+  text-align: center;
+}
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
@@ -977,7 +1056,68 @@ const faqSchema = {
     .review-card { width: 85vw; padding: 25px; }
     .review-author { flex-direction: column; gap: 4px; }
   }
-  
+  .process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.process-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 18px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(47, 137, 255, 0.3);
+  background: rgba(47, 137, 255, 0.05);
+  box-shadow: 0 16px 40px rgba(47, 137, 255, 0.12);
+}
+
+.process-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(47, 137, 255, 0.14);
+  color: #8ab9ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
+
+.process-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.process-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
   </style>
 </BaseLayout>
