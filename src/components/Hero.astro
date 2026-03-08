@@ -1,13 +1,7 @@
 ---
 import Button from "./Button.astro";
-
-// Zorg dat de foto in de map 'public' staat
 import { Image } from "astro:assets";
-
-// 2. Importeer de foto als een object (let op de hoofdletters in het pad!)
-// Als dit bestand in src/components staat, is het pad naar assets: ../assets/...
-import BureauFoto from "../assets/person/webdesign-wageningen-twinpixel.webp"; 
-import { lazy } from "astro:schema";
+import BureauFoto from "../assets/person/webdesign-wageningen-twinpixel.webp";
 ---
 
 <section class="hero" id="top">
@@ -53,14 +47,18 @@ import { lazy } from "astro:schema";
       <div class="image-wrapper">
         <div class="image-container">
           <!-- De foto -->
-                    <Image 
-            src={BureauFoto} 
-            width={1200}
-            alt="Webdesign bureau TwinPixel in Wageningen - hoogwaardige websites en development" 
-            class="hero-img" 
-            loading="eager"
-            fetchpriority="high"
-          />
+<Image 
+  src={BureauFoto}
+  widths={[400, 480, 560, 720]}
+  sizes="(max-width: 1024px) 80vw, 440px"
+  alt="Webdesign bureau TwinPixel in Wageningen - hoogwaardige websites en development"
+  class="hero-img"
+  loading="eager"
+  fetchpriority="high"
+  format="webp"
+  quality={75}
+  decoding="async"
+/>
           <!-- Overlay die de foto laat 'faden' naar de achtergrondkleur -->
           <div class="img-gradient"></div>
           
