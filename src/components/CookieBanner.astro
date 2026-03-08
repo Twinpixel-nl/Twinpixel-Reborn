@@ -1,0 +1,84 @@
+---
+const GA_ID = "G-Y0TE68DKL1";
+---
+
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="cookie-banner__inner">
+    <p>
+      Wij gebruiken alleen statistische cookies om de website te verbeteren.
+    </p>
+
+    <div class="cookie-banner__actions">
+      <button id="cookie-accept" type="button">Accepteren</button>
+      <button id="cookie-reject" type="button">Weigeren</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ GA_ID }}>
+  const CONSENT_KEY = "tp_cookie_consent";
+
+  function loadAnalytics() {
+    if (window.__analyticsLoaded) return;
+    window.__analyticsLoaded = true;
+
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID, {
+      anonymize_ip: true
+    });
+  }
+
+  function setConsent(value) {
+    localStorage.setItem(CONSENT_KEY, value);
+  }
+
+  function getConsent() {
+    return localStorage.getItem(CONSENT_KEY);
+  }
+
+  function showBanner() {
+    const banner = document.getElementById("cookie-banner");
+    if (banner) banner.hidden = false;
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById("cookie-banner");
+    if (banner) banner.hidden = true;
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const consent = getConsent();
+    const acceptBtn = document.getElementById("cookie-accept");
+    const rejectBtn = document.getElementById("cookie-reject");
+
+    if (consent === "accepted") {
+      loadAnalytics();
+      hideBanner();
+    } else if (consent === "rejected") {
+      hideBanner();
+    } else {
+      showBanner();
+    }
+
+    acceptBtn?.addEventListener("click", () => {
+      setConsent("accepted");
+      loadAnalytics();
+      hideBanner();
+    });
+
+    rejectBtn?.addEventListener("click", () => {
+      setConsent("rejected");
+      hideBanner();
+    });
+  });
+</script>
