@@ -197,50 +197,52 @@ const faqSchema = {
 
     <div class="marquee">
       <div class="marquee-track">
-      <!-- Track A -->
-<div class="track">
-  {reviews.map((review) => (
-    <a
-      class="review-card"
-      href={mapsUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Lees review van ${review.author} op Google`}
-    >
-      <div class="review-stars">★★★★★</div>
-      <div class="review-content">
-        <blockquote class="review-text">{review.text}</blockquote>
-      </div>
-      <div class="review-author">
-        <span class="author-name">{review.author}</span>
-        <span class="author-company">{review.company}</span>
-      </div>
-    </a>
-  ))}
-</div>
+        <!-- Track A -->
+        <div class="track">
+          {reviews.map((review) => (
+            <a
+              class="review-card"
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Lees review van ${review.author} op Google`}
+            >
+              <div class="review-stars">★★★★★</div>
+              <div class="review-content">
+                <blockquote class="review-text">{review.text}</blockquote>
+              </div>
+              <div class="review-author">
+                <span class="author-name">{review.author}</span>
+                <span class="author-company">{review.company}</span>
+              </div>
+            </a>
+          ))}
+        </div>
 
-<!-- Track B (Exacte kopie voor naadloze loop) -->
-<div class="track" aria-hidden="true">
-  {reviews.map((review) => (
-    <a
-      class="review-card"
-      href={mapsUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-     tabindex="-1"
-      aria-label={`Lees review van ${review.author} op Google`}
-    >
-      <div class="review-stars">★★★★★</div>
-      <div class="review-content">
-        <blockquote class="review-text">{review.text}</blockquote>
+        <!-- Track B -->
+        <div class="track" aria-hidden="true">
+          {reviews.map((review) => (
+            <a
+              class="review-card"
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabindex="-1"
+              aria-label={`Lees review van ${review.author} op Google`}
+            >
+              <div class="review-stars">★★★★★</div>
+              <div class="review-content">
+                <blockquote class="review-text">{review.text}</blockquote>
+              </div>
+              <div class="review-author">
+                <span class="author-name">{review.author}</span>
+                <span class="author-company">{review.company}</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
-      <div class="review-author">
-        <span class="author-name">{review.author}</span>
-        <span class="author-company">{review.company}</span>
-      </div>
-    </a>
-  ))}
-</div>
+    </div>
 
     <div class="reviews-cta center">
       <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="reviews-note">
