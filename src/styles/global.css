@@ -229,4 +229,45 @@ img{ max-width:100%; display:block; }
   .cookie-banner__actions button {
     flex: 1;
   }
+  .cookie-banner {
+  animation: cookie-slide 0.4s ease;
+}
+
+@keyframes cookie-slide {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.legal-page {
+  padding: 120px 20px;
+}
+
+.legal-page .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-page h1 {
+  margin-bottom: 2rem;
+}
+
+.legal-page h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.legal-page ul {
+  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+}
 }
