@@ -16,28 +16,28 @@ readingTime: 6-7 min
 ---
 ## Intro
 
-Veel ondernemers denken dat een mooie website genoeg is.  
+Veel ondernemers denken dat een mooie website genoeg is.\
 Strak design, sterke beelden, moderne animaties. Klaar.
 
-Maar een mooie website is geen strategie.  
+Maar een mooie website is geen strategie.\
 En zonder strategie levert design zelden klanten op.
 
 ## Waarom dit gebeurt
 
 De verwarring zit in focus.
 
-Een website wordt vaak benaderd als visueel project.  
-"Het moet er professioneel uitzien."  
+Een website wordt vaak benaderd als visueel project.\
+"Het moet er professioneel uitzien."\
 "Het moet passen bij onze huisstijl."
 
 Dat is logisch — maar het is niet genoeg.
 
 Wat vaak ontbreekt:
 
-- Duidelijke positionering  
-- Eén primaire doelgroep  
-- Een scherpe kernboodschap  
-- Een duidelijke conversieroute  
+* Duidelijke positionering  
+* Eén primaire doelgroep  
+* Een scherpe kernboodschap  
+* Een duidelijke conversieroute  
 
 Zonder die basis wordt een website een digitaal visitekaartje. Geen verkoopinstrument.
 
@@ -47,17 +47,18 @@ Dat zien we regelmatig bij bedrijven die investeren in design, maar geen duideli
 
 Als je website weinig aanvragen oplevert, ligt het meestal niet aan:
 
-- De kleur van je knop  
-- De animatie in je hero  
-- Of je logo links of rechts staat  
+* De kleur van je knop  
+* De animatie in je hero  
+* Of je logo links of rechts staat  
 
 Het ligt bijna altijd aan structuur en scherpte.
 
 Bezoekers begrijpen niet direct:
-- Voor wie je er bent  
-- Welk probleem je oplost  
-- Waarom jij anders bent  
-- Wat de volgende stap is  
+
+* Voor wie je er bent  
+* Welk probleem je oplost  
+* Waarom jij anders bent  
+* Wat de volgende stap is  
 
 En als dat niet binnen enkele seconden duidelijk is, vertrekken ze.
 
@@ -74,23 +75,24 @@ Begin niet bij design. Begin bij keuzes.
 
 Pas daarna komt design.
 
-Design moet versterken wat al scherp is.  
+Design moet versterken wat al scherp is.\
 Niet compenseren wat vaag is.
 
 Wil je zien hoe dat in de praktijk werkt? Bekijk onze [cases](/cases) en zie hoe structuur en focus het verschil maken.
 
 ## Tot slot
 
-Een mooie website trekt aandacht.  
+Een mooie website trekt aandacht.\
 Een strategische website trekt klanten.
 
 Het verschil zit niet in pixels, maar in keuzes.
 
 Wie online wil groeien, moet durven versimpelen. Duidelijkheid wint altijd van complexiteit.
 
----
+- - -
 
 **Gerelateerd**
-- [Webdesign in Wageningen](/webdesign-wageningen)
-- [Bekijk cases](/cases)
-- [Meer insights](/insights)
+
+* [Website laten maken Wageningen](https://twinpixel.nl/website-laten-maken-wageningen/)
+* [Bekijk cases](/cases)
+* [Meer insights](/insights)
