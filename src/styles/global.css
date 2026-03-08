@@ -270,4 +270,8 @@ img{ max-width:100%; display:block; }
   margin-bottom: 1rem;
   padding-left: 1.2rem;
 }
+.cookie-banner a {
+  text-decoration: underline;
+  opacity: 0.85;
+}
 }
