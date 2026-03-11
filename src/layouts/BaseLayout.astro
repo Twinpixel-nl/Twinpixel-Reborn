@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import CookieBanner from "../components/CookieBanner.astro";
+
 /**
  * BaseLayout: De technische fundering voor elke pagina.
  */
@@ -17,7 +18,7 @@ const {
   canonical = null,
   type = "website",
   article = null,
-  schema = null // Hier kun je extra schema's (zoals FAQ) inladen per pagina
+  schema = null
 } = Astro.props;
 
 const siteName = "TwinPixel";
@@ -55,37 +56,37 @@ const toISO = (value) => {
 const publishedISO = toISO(article?.publishedTime);
 const modifiedISO = toISO(article?.modifiedTime);
 
-// Centrale bedrijfsgegevens (ProfessionalService is ideaal voor een webdesign bureau)
+// Centrale bedrijfsgegevens
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": `${origin}#organization`,
-  "name": "TwinPixel",
-  "url": origin,
-  "image": ogImageAbs,
-  "email": "info@twinpixel.nl",
-  "priceRange": "€€",
-  "telephone": "+31682579179", // Voeg je echte nummer toe indien gewenst
-  "sameAs": [socials.facebook, socials.instagram, socials.linkedin],
-  "serviceType": ["Webdesign", "Webdevelopment", "SEO", "Maatwerk tools"],
-  "areaServed": [
-    { "@type": "City", "name": "Wageningen" },
-    { "@type": "City", "name": "Ede" },
-    { "@type": "City", "name": "Bennekom" },
-    { "@type": "City", "name": "Rhenen" },
-    { "@type": "City", "name": "Renkum" },
-    { "@type": "AdministrativeArea", "name": "Foodvalley" }
+  name: "TwinPixel",
+  url: origin,
+  image: ogImageAbs,
+  email: "info@twinpixel.nl",
+  priceRange: "€€",
+  telephone: "+31682579179",
+  sameAs: [socials.facebook, socials.instagram, socials.linkedin],
+  serviceType: ["Webdesign", "Webdevelopment", "SEO", "Maatwerk tools"],
+  areaServed: [
+    { "@type": "City", name: "Wageningen" },
+    { "@type": "City", name: "Ede" },
+    { "@type": "City", name: "Bennekom" },
+    { "@type": "City", name: "Rhenen" },
+    { "@type": "City", name: "Renkum" },
+    { "@type": "AdministrativeArea", name: "Foodvalley" }
   ],
-  "address": {
+  address: {
     "@type": "PostalAddress",
-    "addressLocality": "Wageningen",
-    "addressRegion": "Gelderland",
-    "addressCountry": "NL"
+    addressLocality: "Wageningen",
+    addressRegion: "Gelderland",
+    addressCountry: "NL"
   },
-  "geo": {
+  geo: {
     "@type": "GeoCoordinates",
-    "latitude": geo.latitude,
-    "longitude": geo.longitude
+    latitude: geo.latitude,
+    longitude: geo.longitude
   }
 };
 ---
@@ -96,26 +97,20 @@ const organizationSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    {/* SEO Basis */}
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content="TwinPixel" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#0A2CCA" />
     <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
-
     <link rel="canonical" href={canonicalURL} />
 
-
-
-    {/* Favicons */}
     <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
 
-    {/* Open Graph / Facebook */}
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -127,39 +122,33 @@ const organizationSchema = {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={fullTitle} />
 
-    {/* Blog/Artikel specifieke metadata */}
-    {type === "article" && publishedISO && <meta property="article:published_time" content={publishedISO} />}
-    {type === "article" && modifiedISO && <meta property="article:modified_time" content={modifiedISO} />}
-    {type === "article" && article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
+    {type === "article" && publishedISO && (
+      <meta property="article:published_time" content={publishedISO} />
+    )}
+    {type === "article" && modifiedISO && (
+      <meta property="article:modified_time" content={modifiedISO} />
+    )}
+    {type === "article" &&
+      article?.tags?.map((tag) => (
+        <meta property="article:tag" content={tag} />
+      ))}
 
-    {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbs} />
 
-    {/* Gestructureerde data: Centrale Bedrijfsdata */}
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-
-    {/* Extra schema (bijv. FAQ) per pagina ingeladen via props */}
-    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-
-    
-  </head>
-
-  <body>
-    <Navbar />
-    <main id="main-content">
-      <slot />
-    </main>
-    <Footer
-      brand="TwinPixel"
-      location="Wageningen, NL"
-      email="info@twinpixel.nl"
-      instagram={socials.instagram}
-      facebook={socials.facebook}
-      linkedin={socials.linkedin}
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
     />
+
+    {schema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(schema)}
+      />
+    )}
   </head>
 
   <body>
