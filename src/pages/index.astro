@@ -311,48 +311,31 @@ const faqSchema = {
   </section>
 
 
-    <section class="section clients" aria-label="Samenwerkingen">
-    <div class="container">
-      <div class="clients-header">
-        <p class="kicker">Samenwerkingen</p>
-        <h2 class="h2">Vertrouwd door organisaties als:</h2>
-        <p class="lead small center">
-          We werken voor bedrijven en organisaties in Wageningen en de regio. Daardoor begrijpen we
-          de lokale context, kunnen we snel schakelen en bouwen we websites die passen bij de ambitie
-          van ondernemers in de Foodvalley.
-        </p>
+<section class="section clients" aria-label="Samenwerkingen">
+  <div class="container">
+    <div class="clients-header">
+      <p class="kicker">Samenwerkingen</p>
+      <h2 class="h2">Vertrouwd door organisaties als</h2>
+      <p class="lead small">
+        We werken voor bedrijven en organisaties in Wageningen en de regio. Daardoor begrijpen we de lokale context, kunnen we snel schakelen en bouwen we websites die passen bij de ambitie van ondernemers in de Foodvalley.
+      </p>
+    </div>
+
+    <div class="logo-row" aria-label="Logos van samenwerkingen">
+      <div class="logo-item" title="Wageningen University & Research">
+        <img src="/logos/wur-logo.webp" alt="WUR" class="client-logo" />
       </div>
 
-      <div class="logo-row" aria-label="Logos van samenwerkingen">
-        <div class="logo-item" title="Wageningen University & Research">
-          <img
-            src="/logos/wur-logo.webp"
-            alt="Logo van Wageningen University & Research (WUR)"
-            class="client-logo"
-            loading="lazy"
-          />
-        </div>
+      <div class="logo-item" title="VVD Wageningen">
+        <img src="/logos/vvd-logo.webp" alt="VVD" class="client-logo" />
+      </div>
 
-        <div class="logo-item" title="VVD Wageningen">
-          <img
-            src="/logos/vvd-logo.webp"
-            alt="Logo van VVD Wageningen"
-            class="client-logo"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="logo-item" title="Gemeente Wageningen">
-          <img
-            src="/logos/Logo-wageningen.webp"
-            alt="Logo van Gemeente Wageningen"
-            class="client-logo client-logo-lg"
-            loading="lazy"
-          />
-        </div>
+      <div class="logo-item" title="Gemeente Wageningen">
+        <img src="/logos/Logo-wageningen.webp" alt="Gemeente Wageningen" class="client-logo client-logo-lg" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
   <section class="section faq slide-in-up" aria-label="Veelgestelde vragen">
@@ -707,9 +690,11 @@ const faqSchema = {
 
 .clients-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .logo-row {
   display: flex;
   justify-content: center;
