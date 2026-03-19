@@ -6,7 +6,7 @@ description: De meeste websites verliezen bezoekers binnen 5 seconden. Ontdek
 date: 2026-03-19
 draft: false
 image:
-  src: /uploads/chatgpt-image-19-mrt-2026-16_53_55.png
+  src: /uploads/chatgpt-image-19-mrt-2026-16_56_26.png
 category: UX
 ---
 ## Intro
