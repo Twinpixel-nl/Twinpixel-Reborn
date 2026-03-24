@@ -192,19 +192,24 @@ const siteUrl = "https://twinpixel.nl";
   </div>
 </section>
 
+
 <!-- WERKEN BIJ -->
 <section class="join-section" aria-label="Werken bij TwinPixel">
   <div class="join-content">
     <p class="join-kicker">Bouwen met TwinPixel</p>
-    <h2 class="join-title">We staan open voor goede mensen</h2>
+
+    <h2 class="join-title">
+      Zin om mee te bouwen?
+    </h2>
 
     <p class="join-description">
       We krijgen regelmatig de vraag of we plek hebben voor werkstudenten of samenwerkingen.
-      Dat verschilt per moment — maar als je goed bent in wat je doet, komen we graag in contact.
+      Dat verschilt per moment — maar als je bouwt, denkt en verantwoordelijkheid pakt,
+      komen we graag in contact.
     </p>
 
     <div class="join-actions">
-      <a href="/werken-bij" class="join-link">Bekijk mogelijkheden</a>
+      <a href="/werken-bij" class="join-link">Kom in contact</a>
     </div>
   </div>
 </section>
@@ -655,49 +660,50 @@ const siteUrl = "https://twinpixel.nl";
     padding: 1.5rem 1rem;
   }
 }
-
 /* Join / Werken bij */
 .join-section {
-  margin-top: -1rem;
+  margin: 1rem 0 2.5rem;
 }
 
 .join-content {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
   text-align: center;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
+  padding: 2rem 1.5rem;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .join-content:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .join-kicker {
   text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 0.75rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 0.6rem 0;
 }
 
 .join-title {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.01em;
+  margin: 0 0 0.9rem 0;
+  letter-spacing: -0.015em;
 }
 
 .join-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0 0 1.75rem 0;
+  line-height: 1.65;
+  margin: 0 0 1.6rem 0;
 }
 
 .join-actions {
@@ -706,17 +712,19 @@ const siteUrl = "https://twinpixel.nl";
 }
 
 .join-link {
-  padding: 0.75rem 1.4rem;
+  padding: 0.7rem 1.3rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   text-decoration: none;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+
   transition: all 0.25s ease;
 }
 
 .join-link:hover {
-  border-color: rgba(255, 255, 255, 0.45);
+  border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
 }
