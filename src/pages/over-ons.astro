@@ -192,6 +192,23 @@ const siteUrl = "https://twinpixel.nl";
   </div>
 </section>
 
+<!-- WERKEN BIJ -->
+<section class="join-section" aria-label="Werken bij TwinPixel">
+  <div class="join-content">
+    <p class="join-kicker">Bouwen met TwinPixel</p>
+    <h2 class="join-title">We staan open voor goede mensen</h2>
+
+    <p class="join-description">
+      We krijgen regelmatig de vraag of we plek hebben voor werkstudenten of samenwerkingen.
+      Dat verschilt per moment — maar als je goed bent in wat je doet, komen we graag in contact.
+    </p>
+
+    <div class="join-actions">
+      <a href="/werken-bij" class="join-link">Bekijk mogelijkheden</a>
+    </div>
+  </div>
+</section>
+
     <!-- CTA -->
     <section class="cta-section" aria-label="Call to action">
       <div class="cta-content">
@@ -639,6 +656,69 @@ const siteUrl = "https://twinpixel.nl";
   }
 }
 
+/* Join / Werken bij */
+.join-section {
+  margin-top: -1rem;
+}
 
+.join-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.join-content:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.join-kicker {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 0.75rem 0;
+}
+
+.join-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.01em;
+}
+
+.join-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 1.75rem 0;
+}
+
+.join-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.join-link {
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  transition: all 0.25s ease;
+}
+
+.join-link:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
   </style>
 </BaseLayout>
