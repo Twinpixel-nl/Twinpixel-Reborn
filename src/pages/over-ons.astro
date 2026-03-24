@@ -191,20 +191,18 @@ const siteUrl = "https://twinpixel.nl";
 
   </div>
 </section>
-
-
 <!-- WERKEN BIJ -->
 <section class="join-section" aria-label="Werken bij TwinPixel">
-  <div class="join-content">
+  <div class="join-inner">
     <p class="join-kicker">Bouwen met TwinPixel</p>
 
     <h2 class="join-title">
-      Zin om mee te bouwen?
+      Zin om mee te bouwen aan TwinPixel?
     </h2>
 
     <p class="join-description">
       We krijgen regelmatig de vraag of we plek hebben voor werkstudenten of samenwerkingen.
-      Dat verschilt per moment — maar als je bouwt, denkt en verantwoordelijkheid pakt,
+      Dat verschilt per moment, maar als je bouwt, denkt en verantwoordelijkheid pakt,
       komen we graag in contact.
     </p>
 
@@ -661,27 +659,20 @@ const siteUrl = "https://twinpixel.nl";
   }
 }
 
+
 /* Join / Werken bij */
 .join-section {
-  margin: 1.25rem 0 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.join-content {
-  max-width: 840px;
+.join-inner {
+  max-width: 720px; /* tekstbreedte, niet kaart */
   margin: 0 auto;
   text-align: center;
-  padding: 2.4rem 2.25rem;
-
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.018);
-
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-.join-content:hover {
-  border-color: rgba(255, 255, 255, 0.11);
-  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: 1rem;
 }
 
 .join-kicker {
@@ -689,24 +680,23 @@ const siteUrl = "https://twinpixel.nl";
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.55);
-  margin: 0 0 0.65rem 0;
+  margin: 0;
 }
 
 .join-title {
-  font-size: clamp(1.7rem, 2.2vw, 2rem);
+  font-size: clamp(1.8rem, 2.4vw, 2.2rem);
   font-weight: 700;
   color: #fff;
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.015em;
-  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .join-description {
-  max-width: 60ch;
-  margin: 0 auto 1.75rem;
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.05rem;
   line-height: 1.7;
+  margin: 0 auto 0.75rem;
+  max-width: 60ch;
 }
 
 .join-actions {
@@ -715,38 +705,19 @@ const siteUrl = "https://twinpixel.nl";
 }
 
 .join-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.78rem 1.4rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   transition: all 0.25s ease;
 }
 
 .join-link:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.45);
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
-}
-
-@media (max-width: 768px) {
-  .join-section {
-    margin: 0.5rem 0 2.5rem;
-  }
-
-  .join-content {
-    max-width: 100%;
-    padding: 2rem 1.35rem;
-  }
-
-  .join-description {
-    font-size: 1rem;
-  }
 }
   </style>
 </BaseLayout>
