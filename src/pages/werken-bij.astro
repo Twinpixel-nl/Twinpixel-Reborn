@@ -71,21 +71,27 @@ const faqs = [
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Wat je kunt verwachten">
-          <p class="panel-kicker">Wat je hier niet vindt</p>
-          <ul class="panel-list">
-            <li>Geen logge organisatie</li>
-            <li>Geen eindeloze overleglagen</li>
-            <li>Geen rol waarin je alleen uitvoert</li>
-          </ul>
+<aside class="hero-panel" aria-label="Wat je kunt verwachten">
 
-          <p class="panel-kicker second">Wat je hier wel vindt</p>
-          <ul class="panel-list">
-            <li>Korte lijnen en directe feedback</li>
-            <li>Ruimte om mee te denken en keuzes te maken</li>
-            <li>Werk dat zichtbaar beter wordt door jouw bijdrage</li>
-          </ul>
-        </aside>
+  <div class="panel-block">
+    <p class="panel-kicker">Wat je hier niet vindt</p>
+    <ul class="panel-list">
+      <li>Geen logge organisatie</li>
+      <li>Geen eindeloze overleglagen</li>
+      <li>Geen rol waarin je alleen uitvoert</li>
+    </ul>
+  </div>
+
+  <div class="panel-block">
+    <p class="panel-kicker">Wat je hier wel vindt</p>
+    <ul class="panel-list">
+      <li>Korte lijnen en directe feedback</li>
+      <li>Ruimte om mee te denken en keuzes te maken</li>
+      <li>Werk dat zichtbaar beter wordt door jouw bijdrage</li>
+    </ul>
+  </div>
+
+</aside>
       </div>
     </header>
 
@@ -384,9 +390,6 @@ const faqs = [
       color: rgba(255, 255, 255, 0.52);
     }
 
-    .panel-kicker.second {
-      margin-top: 0.5rem;
-    }
 
     .panel-list {
       list-style: none;
@@ -686,5 +689,13 @@ const faqs = [
         padding: 1.4rem;
       }
     }
+    .panel-block {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.panel-block + .panel-block {
+  margin-top: 1.2rem;
+}
   </style>
 </BaseLayout>
