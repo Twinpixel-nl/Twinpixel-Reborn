@@ -75,7 +75,7 @@ const faqs = [
   <div class="panel-block">
     <p class="panel-kicker">Wat je hier niet vindt</p>
     <ul class="panel-list">
-      <li>Geen logge organisatie</li>
+      <li>Geen trage organisatie</li>
       <li>Geen eindeloze overleglagen</li>
       <li>Geen rol waarin je alleen uitvoert</li>
     </ul>
@@ -369,16 +369,14 @@ const faqs = [
       color: #fff;
       border-bottom-color: rgba(255, 255, 255, 0.5);
     }
-
 .hero-panel {
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100%;
+  padding: 1.5rem;
+  align-self: start;
+  display: grid;
+  gap: 0;
 }
 
 .panel-block {
@@ -388,6 +386,8 @@ const faqs = [
 
 .panel-block + .panel-block {
   margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .panel-kicker {
