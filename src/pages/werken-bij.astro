@@ -1,0 +1,690 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+
+const title = "Werken bij TwinPixel | Bouw mee aan websites en webapplicaties";
+const description =
+  "Werken bij TwinPixel? We staan open voor mensen die willen bouwen, meedenken en verantwoordelijkheid pakken. Bekijk hoe we werken en wanneer contact logisch is.";
+
+const siteUrl = "https://twinpixel.nl";
+
+const faqs = [
+  {
+    question: "Hebben jullie op dit moment een vacature openstaan?",
+    answer:
+      "Niet altijd. We groeien bewust en nemen alleen mensen erbij als het echt past. Maar als je denkt dat je iets toevoegt, kun je altijd contact opnemen.",
+  },
+  {
+    question: "Zoeken jullie vooral werkstudenten of vaste krachten?",
+    answer:
+      "Dat verschilt per moment. Soms is een samenwerking als werkstudent logisch, soms een freelance constructie en soms iets structurelers. We kijken vooral naar fit, niveau en initiatief.",
+  },
+  {
+    question: "Moet ik al veel ervaring hebben?",
+    answer:
+      "Nee, maar je moet wel zelfstandig kunnen denken, zorgvuldig werken en verantwoordelijkheid pakken. We zoeken geen passieve uitvoerders.",
+  },
+  {
+    question: "Waar letten jullie vooral op?",
+    answer:
+      "Op scherpte, betrouwbaarheid, eigenaarschap en gevoel voor kwaliteit. Technische skill is belangrijk, maar houding en manier van samenwerken wegen net zo zwaar.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: title,
+      description,
+      url: `${siteUrl}/werken-bij`,
+      isPartOf: {
+        "@id": `${siteUrl}#organization`,
+      },
+    })}
+  />
+
+  <main class="page">
+    <header class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="kicker">Werken bij TwinPixel</p>
+          <h1 class="hero-title">Bouwen in een klein team, zonder ruis ertussen</h1>
+          <p class="hero-description">
+            TwinPixel is klein, direct en technisch. We bouwen websites en webapplicaties voor
+            organisaties die kwaliteit willen, geen half werk. Daarom zoeken we mensen die zelf
+            nadenken, verantwoordelijkheid pakken en willen bouwen aan werk dat echt klopt.
+          </p>
+
+          <div class="hero-bullets" aria-label="Kernpunten">
+            <div class="bullet"><span class="dot" aria-hidden="true"></span> Direct samenwerken, zonder lagen ertussen</div>
+            <div class="bullet"><span class="dot" aria-hidden="true"></span> Kleine projecten met echte verantwoordelijkheid</div>
+            <div class="bullet"><span class="dot" aria-hidden="true"></span> Focus op kwaliteit, structuur en scherpte</div>
+          </div>
+
+          <div class="hero-actions">
+            <Button href="/contact" variant="primary" label="Kom in contact" />
+            <a href="/over-ons" class="text-link">Meer over TwinPixel</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Wat je kunt verwachten">
+          <p class="panel-kicker">Wat je hier niet vindt</p>
+          <ul class="panel-list">
+            <li>Geen logge organisatie</li>
+            <li>Geen eindeloze overleglagen</li>
+            <li>Geen rol waarin je alleen uitvoert</li>
+          </ul>
+
+          <p class="panel-kicker second">Wat je hier wel vindt</p>
+          <ul class="panel-list">
+            <li>Korte lijnen en directe feedback</li>
+            <li>Ruimte om mee te denken en keuzes te maken</li>
+            <li>Werk dat zichtbaar beter wordt door jouw bijdrage</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section two-col" aria-label="Voor wie dit past">
+      <div class="section-head">
+        <p class="kicker">Voor wie dit past</p>
+        <h2 class="section-title">Je hoeft niet perfect te zijn, wel scherp</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3 class="card-title">Dit past waarschijnlijk bij je als je…</h3>
+          <ul class="check-list">
+            <li>zelf initiatief neemt in plaats van af te wachten</li>
+            <li>netjes werkt en details belangrijk vindt</li>
+            <li>interesse hebt in websites, UX of webapplicaties</li>
+            <li>kritisch kunt denken over wat beter kan</li>
+            <li>graag direct met makers samenwerkt</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Dit past minder goed als je…</h3>
+          <ul class="check-list muted">
+            <li>vooral duidelijke taakjes wilt afvinken</li>
+            <li>niet goed om kunt gaan met verantwoordelijkheid</li>
+            <li>feedback snel persoonlijk maakt</li>
+            <li>weinig gevoel hebt voor kwaliteit of afwerking</li>
+            <li>liever in een grote organisatie met veel structuur zit</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Hoe we werken">
+      <div class="section-head">
+        <p class="kicker">Hoe we werken</p>
+        <h2 class="section-title">Klein team, hoge standaard</h2>
+        <p class="section-intro">
+          We werken compact en direct. Dat betekent minder ruis, maar ook minder plek om je te
+          verschuilen. Als je met ons werkt, bouw je echt mee.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <span class="process-step">01</span>
+          <h3>Je denkt mee</h3>
+          <p>
+            We zoeken geen handjes alleen. We willen mensen die mee kunnen kijken, vragen stellen
+            en verbeteringen zien.
+          </p>
+        </article>
+
+        <article class="process-card">
+          <span class="process-step">02</span>
+          <h3>Je bouwt zorgvuldig</h3>
+          <p>
+            Of het nu om design, content of development gaat: het moet netjes, logisch en
+            onderhoudbaar zijn.
+          </p>
+        </article>
+
+        <article class="process-card">
+          <span class="process-step">03</span>
+          <h3>Je pakt verantwoordelijkheid</h3>
+          <p>
+            We werken met korte lijnen. Dat geeft ruimte, maar vraagt ook dat je eigenaarschap
+            laat zien in je werk.
+          </p>
+        </article>
+
+        <article class="process-card">
+          <span class="process-step">04</span>
+          <h3>Je groeit in het echte werk</h3>
+          <p>
+            Geen oefenomgeving. Je werkt mee aan projecten die live gaan en waar klanten echt iets
+            aan hebben.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Wat voor samenwerkingen logisch zijn">
+      <div class="section-head">
+        <p class="kicker">Samenwerking</p>
+        <h2 class="section-title">Wat voor vormen logisch kunnen zijn</h2>
+      </div>
+
+      <div class="types-grid">
+        <article class="type-card">
+          <h3 class="type-title">Werkstudent</h3>
+          <p class="type-text">
+            Voor iemand die naast zijn studie serieus mee wil bouwen en sneller wil groeien door
+            echte projecten.
+          </p>
+        </article>
+
+        <article class="type-card">
+          <h3 class="type-title">Freelance samenwerking</h3>
+          <p class="type-text">
+            Voor specialisten die inhoudelijk sterk zijn en zelfstandig kwaliteit kunnen leveren
+            zonder veel aansturing.
+          </p>
+        </article>
+
+        <article class="type-card">
+          <h3 class="type-title">Open gesprek</h3>
+          <p class="type-text">
+            Soms past iemand goed voordat er een officiële plek is. Dan is het slim om gewoon
+            eerst kennis te maken.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq-section" aria-label="Veelgestelde vragen">
+      <div class="section-head">
+        <p class="kicker">FAQ</p>
+        <h2 class="section-title">Veelgestelde vragen</h2>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              <span>{faq.question}</span>
+              <span class="chev">⌄</span>
+            </summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-section" aria-label="Open sollicitatie">
+      <div class="cta-content">
+        <p class="cta-kicker">Interesse?</p>
+        <h2 class="cta-title">Denk je dat je bij TwinPixel past?</h2>
+        <p class="cta-description">
+          Stuur een kort bericht met wie je bent, waar je goed in bent en waarom je denkt dat dit
+          logisch is. Geen opgeblazen motivatiebrief. Gewoon helder en eerlijk.
+        </p>
+
+        <div class="cta-actions">
+          <Button href="/contact" variant="primary" label="Kom in contact" />
+          <a class="cta-link" href="mailto:info@twinpixel.nl">Mail direct</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+      display: grid;
+      gap: 4rem;
+    }
+
+    .section {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 72ch;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.68);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.15;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 64ch;
+    }
+
+    .hero-section {
+      padding: 2rem 0 0.5rem;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-text {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.88);
+      margin: 0;
+      max-width: 62ch;
+    }
+
+    .hero-bullets {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      max-width: 62ch;
+    }
+
+    .bullet {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.5;
+      font-size: 0.98rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #2f89ff;
+      box-shadow: 0 0 0 3px rgba(47, 137, 255, 0.18);
+      flex: 0 0 auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .text-link {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .text-link:hover {
+      color: #fff;
+      border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.75rem;
+      display: grid;
+      gap: 1rem;
+      align-self: stretch;
+    }
+
+    .panel-kicker {
+      margin: 0;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.52);
+    }
+
+    .panel-kicker.second {
+      margin-top: 0.5rem;
+    }
+
+    .panel-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .panel-list li {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .panel-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #2f89ff;
+      opacity: 0.95;
+    }
+
+    .two-col .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card,
+    .type-card,
+    .process-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.8rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover,
+    .type-card:hover,
+    .process-card:hover {
+      background: rgba(255, 255, 255, 0.045);
+      border-color: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .card-title,
+    .type-title,
+    .process-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      font-weight: 650;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .check-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .check-list li {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.65;
+      padding-left: 1.45rem;
+      position: relative;
+    }
+
+    .check-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #2f89ff;
+      font-weight: 800;
+    }
+
+    .check-list.muted li {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .type-text {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .process-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(47, 137, 255, 0.14);
+      color: #8ab9ff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .process-card p {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .faq-list {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.15rem 1.25rem;
+      color: rgba(255, 255, 255, 0.94);
+      font-weight: 650;
+      transition: background-color 0.2s ease;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary:hover {
+      background: rgba(47, 137, 255, 0.05);
+    }
+
+    .faq-item .chev {
+      opacity: 0.7;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .faq-item[open] .chev {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .faq-item p {
+      margin: 0;
+      padding: 0 1.25rem 1.25rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.75;
+    }
+
+    .cta-section {
+      margin-top: 0.5rem;
+    }
+
+    .cta-content {
+      background: linear-gradient(135deg, rgba(47, 137, 255, 0.1), rgba(47, 137, 255, 0.05));
+      border: 1px solid rgba(47, 137, 255, 0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .cta-kicker {
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      margin: 0 0 1rem 0;
+    }
+
+    .cta-title {
+      font-size: clamp(1.7rem, 2.4vw, 2.15rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 1rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-description {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.86);
+      margin: 0 auto 1.8rem;
+      line-height: 1.7;
+      max-width: 58ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.875rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.92);
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .cta-link:hover {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    @media (max-width: 1024px) {
+      .page {
+        gap: 3rem;
+        padding: 3rem 1.5rem 4.5rem;
+      }
+
+      .hero-content,
+      .two-col .grid,
+      .types-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        gap: 2.5rem;
+        padding: 2.5rem 1rem 3.25rem;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+        max-width: none;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-content {
+        padding: 2rem 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 2rem 1rem 2.75rem;
+        gap: 2rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .card,
+      .type-card,
+      .process-card {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</BaseLayout>
