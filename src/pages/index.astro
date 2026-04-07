@@ -51,11 +51,11 @@ const faqs = [
     answer:
       "Nee. We werken vanuit Wageningen, maar bouwen ook websites voor bedrijven in Ede, Bennekom, Rhenen en de bredere Foodvalley. De focus op Wageningen helpt vooral voor lokale zichtbaarheid en korte lijnen.",
   },
-  {
-    question: "Bouwen jullie ook maatwerk websites en tools?",
-    answer:
-      "Ja. Naast marketingwebsites ontwikkelen we ook maatwerk frontends, interactieve tools en koppelingen met externe systemen. Daarbij letten we sterk op performance, onderhoudbaarheid en schaalbaarheid.",
-  },
+{
+  question: "Bouwen jullie ook webapplicaties en maatwerk tools?",
+  answer:
+    "Ja. Naast marketingwebsites ontwikkelen we ook webapplicaties, portals, rekentools en koppelingen met bestaande systemen. Daarbij letten we op gebruiksgemak, snelheid en een oplossing die in de praktijk goed werkt.",
+},
   {
     question: "Helpen jullie ook met SEO?",
     answer:
@@ -270,13 +270,13 @@ const faqSchema = {
         <a class="pkg" href="/expertise/brand-basis" aria-label="Brand Basis">
           <div class="pkg-content">
             <p class="pkg-name">Brand Basis</p>
-            <p class="pkg-price">€950 – €1.450</p>
+            <p class="pkg-price">€250 – €450</p>
             <div class="pkg-line"></div>
-            <ul>
-              <li>Logo & visuele basis</li>
-              <li>Kleuren, typografie & merkstijl</li>
-              <li>Basis styleguide voor web & social</li>
-            </ul>
+<ul>
+  <li>Herkenbare visuele identiteit die vertrouwen uitstraalt</li>
+  <li>Consistente stijl voor web en social</li>
+  <li>Praktische basis om professioneel naar buiten te treden</li>
+</ul>
           </div>
         </a>
 
@@ -284,75 +284,59 @@ const faqSchema = {
           <div class="pkg-badge">Meest gekozen</div>
           <div class="pkg-content">
             <p class="pkg-name">Website Launch</p>
-            <p class="pkg-price">€2.450 – €3.750</p>
+            <p class="pkg-price">€1.450 – €2.750</p>
             <div class="pkg-line"></div>
-            <ul>
-              <li>Design & maatwerk ontwikkeling</li>
-              <li>SEO-structuur & performance basis</li>
-              <li>Conversiegerichte flow naar aanvraag</li>
-            </ul>
+<ul>
+  <li>Website die vertrouwen opbouwt en klanten overtuigt</li>
+  <li>Geoptimaliseerd voor Google en snelheid</li>
+  <li>Duidelijke structuur die bezoekers omzet naar aanvragen</li>
+</ul>
           </div>
         </a>
 
-        <a class="pkg" href="/expertise/technical-build" aria-label="Technical Build">
-          <div class="pkg-content">
-            <p class="pkg-name">Technical Build</p>
-            <p class="pkg-price">€4.900 – €12.000</p>
-            <div class="pkg-line"></div>
-            <ul>
-              <li>Maatwerk frontend of tool</li>
-              <li>API- & systeemkoppelingen</li>
-              <li>Faseerbaar: discovery → build → grow</li>
-            </ul>
-          </div>
-        </a>
-      </div>
+        <a class="pkg" href="/expertise/technical-build" aria-label="Webapplicaties & Tools">
+  <div class="pkg-content">
+    <p class="pkg-name">Webapplicaties & Tools</p>
+    <p class="pkg-price">€2.500 – €6.000</p>
+    <div class="pkg-line"></div>
+    <ul>
+      <li>Slimme tools die handmatig werk automatiseren</li>
+      <li>Webapplicaties die precies passen bij jouw processen</li>
+      <li>Koppelingen met bestaande systemen en data</li>
+    </ul>
+    <p class="pkg-note">Bijv. dashboards, portals of HR-rekentools</p>
+  </div>
+</a>
+</div>
     </div>
   </section>
 
 
-    <section class="section clients" aria-label="Samenwerkingen">
-    <div class="container">
-      <div class="clients-header">
-        <p class="kicker">Samenwerkingen</p>
-        <h2 class="h2">Vertrouwd door organisaties als:</h2>
-        <p class="lead small center">
-          We werken voor bedrijven en organisaties in Wageningen en de regio. Daardoor begrijpen we
-          de lokale context, kunnen we snel schakelen en bouwen we websites die passen bij de ambitie
-          van ondernemers in de Foodvalley.
-        </p>
+<section class="section clients" aria-label="Samenwerkingen">
+  <div class="container">
+    <div class="clients-header">
+      <p class="kicker">Samenwerkingen</p>
+      <h2 class="h2">Vertrouwd door organisaties als</h2>
+      <p class="lead small">
+        We werken voor bedrijven en organisaties in Wageningen en de regio. Daardoor begrijpen we de lokale context, kunnen we snel schakelen en bouwen we websites die passen bij de ambitie van ondernemers in de Foodvalley.
+      </p>
+    </div>
+
+    <div class="logo-row" aria-label="Logos van samenwerkingen">
+      <div class="logo-item" title="Wageningen University & Research">
+        <img src="/logos/wur-logo.webp" alt="WUR" class="client-logo" />
       </div>
 
-      <div class="logo-row" aria-label="Logos van samenwerkingen">
-        <div class="logo-item" title="Wageningen University & Research">
-          <img
-            src="/logos/wur-logo.webp"
-            alt="Logo van Wageningen University & Research (WUR)"
-            class="client-logo"
-            loading="lazy"
-          />
-        </div>
+      <div class="logo-item" title="VVD Wageningen">
+        <img src="/logos/vvd-logo.webp" alt="VVD" class="client-logo" />
+      </div>
 
-        <div class="logo-item" title="VVD Wageningen">
-          <img
-            src="/logos/vvd-logo.webp"
-            alt="Logo van VVD Wageningen"
-            class="client-logo"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="logo-item" title="Gemeente Wageningen">
-          <img
-            src="/logos/Logo-wageningen.webp"
-            alt="Logo van Gemeente Wageningen"
-            class="client-logo client-logo-lg"
-            loading="lazy"
-          />
-        </div>
+      <div class="logo-item" title="Gemeente Wageningen">
+        <img src="/logos/Logo-wageningen.webp" alt="Gemeente Wageningen" class="client-logo client-logo-lg" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
   <section class="section faq slide-in-up" aria-label="Veelgestelde vragen">
@@ -707,9 +691,11 @@ const faqSchema = {
 
 .clients-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .logo-row {
   display: flex;
   justify-content: center;
@@ -1072,7 +1058,12 @@ const faqSchema = {
   backdrop-filter: blur(10px);
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
-
+.pkg-note {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  opacity: 0.75;
+}
 .process-card:hover {
   transform: translateY(-6px);
   border-color: rgba(47, 137, 255, 0.3);

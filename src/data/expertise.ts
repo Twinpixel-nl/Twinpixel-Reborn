@@ -3,7 +3,6 @@ export type ExpertiseItem = {
   accent: string;
   chipClass: "purple" | "blue" | "cyan";
 
-  // content
   title: string;
   intro: string;
 
@@ -12,21 +11,24 @@ export type ExpertiseItem = {
 
   panel: { label: string; value: string }[];
 
-  // NEW: decision info
-  timeline: string;          // bv "3–5 weken"
-  idealFor: string[];        // herkenning
-  includes: string[];        // wat zit er in
-  notIncluded: string[];     // wat niet (kort, eerlijk)
+  timeline: string;
+  idealFor: string[];
+  includes: string[];
+  notIncluded: string[];
 
   costs: {
-    price: string;           // "€1.000"
-    isStartingAt?: boolean;  // default true
+    price: string;
+    isStartingAt?: boolean;
     description: string;
     features: string[];
   };
 
-  // optional: CTA per item
-  cta?: { primaryLabel?: string; primaryHref?: string; secondaryLabel?: string; secondaryHref?: string };
+  cta?: {
+    primaryLabel?: string;
+    primaryHref?: string;
+    secondaryLabel?: string;
+    secondaryHref?: string;
+  };
 };
 
 export const expertiseItems: ExpertiseItem[] = [
@@ -39,137 +41,162 @@ export const expertiseItems: ExpertiseItem[] = [
     intro: "Een consistente visuele basis: logo, typografie, kleuren en richtlijnen. Zodat je merk direct professioneel voelt.",
 
     whatYouGet: [
-      "Brand direction + look & feel",
-      "Mini design system (buttons, spacing, componenten)",
-      "Templates voor pagina’s en content",
+      "Herkenbare visuele identiteit die vertrouwen uitstraalt",
+      "Consistente stijl voor web en social",
+      "Praktische basis om professioneel naar buiten te treden",
     ],
     steps: [
       { nr: "01", text: "Analyse van doel, doelgroep en context" },
-      { nr: "02", text: "Richtingen uitwerken (2–3 routes) en kiezen" },
-      { nr: "03", text: "Uitwerking + styleguide + assets opleveren" },
+      { nr: "02", text: "Richtingen uitwerken en samen kiezen" },
+      { nr: "03", text: "Uitwerking en oplevering van alle assets" },
     ],
     panel: [
       { label: "Deliverables", value: "Brand kit • UI kit • Styleguide" },
-      { label: "Resultaat", value: "Consistentie + trust + sneller bouwen" },
-      { label: "Wanneer", value: "als je merk net niet klopt of inconsistent is" },
+      { label: "Resultaat", value: "Consistentie en professionele uitstraling" },
+      { label: "Wanneer", value: "Als je merk nog niet scherp of consistent is" },
     ],
 
     timeline: "2–4 weken",
-    idealFor: ["Nieuwe identiteit", "Logo/stijl opschonen", "Consistentie over kanalen"],
+    idealFor: ["Nieuwe identiteit", "Logo/stijl verbeteren", "Consistentie over kanalen"],
     includes: [
-      "Kleuren + typografie + usage rules",
-      "Logo (polish of light refresh) + exports",
-      "UI kit (basis componenten)",
-      "Mini styleguide (PDF of Notion)",
-      "2–3 templates (bv. hero/sectie/CTA)",
+      "Kleuren + typografie + richtlijnen",
+      "Logo (polish of refresh) + exports",
+      "Basis UI componenten",
+      "Mini styleguide",
     ],
     notIncluded: [
-      "Volledige rebrand met uitgebreid traject",
-      "Illustraties op maat (veel)",
-      "Printwerk/drukwerkbegeleiding",
+      "Volledig rebrand traject",
+      "Illustraties op maat",
+      "Printwerk",
     ],
 
     costs: {
-      price: "€950 – €1.450",
+      price: "€250 – €450",
       isStartingAt: false,
-      description: "De visuele fundering die je overal consistent kunt doorvoeren.",
-      features: ["Logo & merkstijl", "Basis UI kit", "Mini styleguide + exports"],
+      description: "De visuele basis waarmee alles samenkomt.",
+      features: ["Logo & merkstijl", "Basis UI kit", "Styleguide + exports"],
     },
 
-    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
+    cta: {
+      primaryLabel: "Plan kennismaking",
+      primaryHref: "/contact",
+      secondaryLabel: "Bekijk cases",
+      secondaryHref: "/cases",
+    },
   },
+
   {
-   slug: "website-launch",
+    slug: "website-launch",
     accent: "#2F89FF",
     chipClass: "blue",
     title: "Website Launch",
-    intro: "Marketing sites en landingspagina’s die snel laden, logisch lezen en gericht zijn op aanvragen.",
+    intro: "Websites die vertrouwen opbouwen, snel laden en gericht zijn op aanvragen.",
 
     whatYouGet: [
-      "Homepage + diensten + contact (heldere flow)",
-      "SEO basis: titles, headings, interne links",
-      "Performance-first build (Astro)",
+      "Website die bezoekers overtuigt en richting actie stuurt",
+      "Geoptimaliseerd voor Google en snelheid",
+      "Duidelijke structuur en conversiegerichte flow",
     ],
     steps: [
-      { nr: "01", text: "Contentstructuur: wat moet waar staan en waarom" },
-      { nr: "02", text: "Design uitwerken met focus op hiërarchie en rust" },
+      { nr: "01", text: "Structuur bepalen: wat moet waar en waarom" },
+      { nr: "02", text: "Design met focus op rust en hiërarchie" },
       { nr: "03", text: "Build + SEO basis + performance checks" },
     ],
     panel: [
-      { label: "Perfect voor", value: "MKB • studios • personal brands" },
+      { label: "Perfect voor", value: "MKB • studios • ondernemers" },
       { label: "Focus", value: "Design • snelheid • conversie" },
-      { label: "Wanneer", value: "als je site traag, rommelig of weinig overtuigend is" },
+      { label: "Wanneer", value: "Als je site niet overtuigt of verouderd is" },
     ],
 
-    timeline: "3–5 weken (content bepaalt tempo)",
-    idealFor: ["Nieuwe website", "Herbouw van rommelige site", "Landingspagina’s voor campagnes"],
+    timeline: "3–5 weken",
+    idealFor: ["Nieuwe website", "Herbouw van bestaande site", "Landingspagina’s"],
     includes: [
-      "Structuur + wireframe op hoofdlijnen",
-      "Design (1–2 iteraties per pagina)",
-      "Build (Astro) + basis SEO",
-      "Formulier + leadflow (incl. dankpagina)",
-      "Performance check (Core Web Vitals)",
+      "Structuur en wireframe",
+      "Design",
+      "Build + SEO basis",
+      "Formulier en leadflow",
+      "Performance check",
     ],
     notIncluded: [
-      "Grote copy-trajecten (kan via copywriter)",
+      "Uitgebreide copywriting",
       "Fotografie/video",
-      "Hosting/onderhoud (los of abonnement)",
+      "Hosting/onderhoud",
     ],
 
     costs: {
-      price: "€2.450 – €3.750",
+      price: "€1.450 – €2.750",
       isStartingAt: false,
-      description: "Complete, snelle site die klaar is om te converteren.",
-      features: ["Astro performance build", "SEO basis", "Leadflow & formulieren"],
+      description: "Complete website die klaar is om te converteren.",
+      features: ["Snelle build", "SEO basis", "Conversiegerichte flow"],
     },
 
-    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
+    cta: {
+      primaryLabel: "Plan kennismaking",
+      primaryHref: "/contact",
+      secondaryLabel: "Bekijk cases",
+      secondaryHref: "/cases",
+    },
   },
-  { slug: "technical-build",
+
+  {
+    slug: "technical-build",
     accent: "#22c55e",
     chipClass: "cyan",
-    title: "Technical Build",
-    intro: "Koppelingen, portalen en complexe flows. Gebouwd zodat het simpel voelt voor de gebruiker en onderhoudbaar blijft.",
+    title: "Webapplicaties & Tools",
+    intro: "Voor organisaties die meer nodig hebben dan een website. We bouwen slimme tools en webapplicaties die processen automatiseren en beter laten werken.",
 
     whatYouGet: [
-      "Koppelingen (CRM, formulieren, analytics, automatisering)",
-      "Maatwerk flows (filters, portals, dashboards)",
-      "Schaalbare component-architectuur",
+      "Slimme tools die handmatig werk automatiseren",
+      "Webapplicaties die aansluiten op jouw processen",
+      "Koppelingen met bestaande systemen en data",
     ],
     steps: [
-      { nr: "01", text: "Inventarisatie van flows, data en afhankelijkheden" },
-      { nr: "02", text: "UX voor complexiteit: simpel aanvoelen voor de gebruiker" },
-      { nr: "03", text: "Build met onderhoudbare componenten + QA checks" },
+      { nr: "01", text: "We brengen processen en logica scherp in kaart" },
+      { nr: "02", text: "We vertalen dat naar een duidelijke en bruikbare flow" },
+      { nr: "03", text: "We bouwen en testen tot het echt werkt in de praktijk" },
     ],
     panel: [
-      { label: "Gebruikscases", value: "SaaS • platforms • portals" },
-      { label: "Resultaat", value: "Schaalbaar zonder rommel" },
-      { label: "Wanneer", value: "als je meer nodig hebt dan een standaard marketing site" },
+      { label: "Toepassingen", value: "Portals • dashboards • rekentools" },
+      { label: "Resultaat", value: "Minder handmatig werk en meer overzicht" },
+      { label: "Wanneer", value: "Als een website niet genoeg is" },
     ],
 
-    timeline: "4–8 weken (afhankelijk van scope)",
-    idealFor: ["Portalen en dashboards", "Koppelingen met bestaande systemen", "Webapp-achtige flows"],
+    timeline: "4–8 weken",
+    idealFor: [
+      "Interne tools of dashboards",
+      "Rekentools of portals",
+      "Koppelingen tussen systemen",
+    ],
     includes: [
-      "Flow + datainventarisatie",
-      "Wireframes voor kritieke schermen",
-      "Build + integraties + foutafhandeling",
-      "Performance & accessibility checks",
-      "Korte overdracht (beheer/updates)",
+      "Analyse van processen en data",
+      "Opzet van flows en schermen",
+      "Bouw van webapplicatie of tool",
+      "Koppelingen met systemen",
+      "Tests en optimalisatie",
     ],
     notIncluded: [
-      "Copywriting (volledig traject)",
+      "Volledige copywriting",
       "Fotografie/video",
-      "Doorlopende support/onderhoud (kan wél)",
-      "Licenties van externe tools",
+      "Doorlopend onderhoud",
+      "Licenties externe tools",
     ],
 
     costs: {
-      price: "€4.900 – €12.000",
+      price: "€2.500 – €6.000",
       isStartingAt: false,
-      description: "Voor projecten waar techniek, data en flows leidend zijn.",
-      features: ["Custom API integraties", "Portals & dashboards", "Uitgebreide QA / testing"],
+      description: "Voor maatwerk oplossingen die processen slimmer maken.",
+      features: [
+        "Webapplicaties op maat",
+        "Integraties met systemen",
+        "Grondig getest",
+      ],
     },
 
-    cta: { primaryLabel: "Plan kennismaking", primaryHref: "/contact", secondaryLabel: "Bekijk cases", secondaryHref: "/cases" },
+    cta: {
+      primaryLabel: "Plan kennismaking",
+      primaryHref: "/contact",
+      secondaryLabel: "Bekijk cases",
+      secondaryHref: "/cases",
+    },
   },
 ];
