@@ -76,6 +76,6 @@ En dat is precies waar de meeste websites het laten liggen.
 
 **Gerelateerd**
 
-* [website laten maken wageningen](website-laten-maken-wageningen/)
+* [website laten maken wageningen](/website-laten-maken-wageningen)
 * [Bekijk cases](/cases)
 * [Meer insights](/insights)
