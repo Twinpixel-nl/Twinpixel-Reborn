@@ -41,7 +41,7 @@ Wat vaak ontbreekt:
 
 Zonder die basis wordt een website een digitaal visitekaartje. Geen verkoopinstrument.
 
-Dat zien we regelmatig bij bedrijven die investeren in design, maar geen duidelijke richting bepalen voor hun [webdesign in Wageningen](/webdesign-wageningen). Het resultaat: een mooie site die weinig oplevert.
+Dat zien we regelmatig bij bedrijven die investeren in design, maar geen duidelijke richting bepalen voor hun. Het resultaat: een mooie site die weinig oplevert.
 
 ## Wat dit betekent voor jouw website
 
