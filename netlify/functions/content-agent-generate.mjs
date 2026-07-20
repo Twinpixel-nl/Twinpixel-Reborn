@@ -85,7 +85,7 @@ export default async (req, context) => {
       `Bronnen en notities:\n${input.sourceNotes || "Geen externe bronnen aangeleverd. Maak dan geen feitelijke claims die broncontrole vereisen."}`,
     ].join("\n\n");
 
-    const response = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
+    const response = await fetch(`${baseUrl.replace(/\/$/, "")}/v1/chat/completions`, {
       method: "POST",
       headers: {
         authorization: `Bearer ${apiKey}`,
