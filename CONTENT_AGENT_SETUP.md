@@ -1,44 +1,50 @@
-# TwinPixel contentagent
+# TwinPixel contentautopilot
 
-Deze uitbreiding maakt via `/content-agent/` één contentpakket met:
+De autopilot publiceert maximaal één volledig contentpakket per ISO-week zonder handmatige controle:
 
-- een SEO-blog die als concept in Decap CMS verschijnt;
+- een nieuw evergreen SEO-onderwerp dat bestaande artikelen niet herhaalt;
+- een blog van 900-1400 woorden;
+- een vierkante AI-afbeelding;
 - een LinkedIn-post voor de TwinPixel-bedrijfspagina;
-- een Instagram-caption;
-- een socialwachtrij die pas start nadat `Draft` in Decap is uitgezet.
+- een Instagram-caption en afbeelding.
 
-## Publicatieflow
+De bestaande handmatige contentagent op `/content-agent/` blijft beschikbaar voor extra artikelen.
 
-1. Log in op `https://twinpixel.nl/content-agent/`.
-2. Vul onderwerp, doelgroep, zoekterm, bronnen en een publieke vierkante afbeelding in.
-3. Genereer en controleer het volledige pakket.
-4. Sla het op. De blog wordt met `draft: true` toegevoegd aan `src/content/insights`.
-5. Open Decap, pas waar nodig aan en zet pas na controle `Draft` uit.
-6. De scheduled function controleert iedere 15 minuten of de blog en afbeelding live staan.
-7. Daarna wordt het pakket eenmalig naar Make gestuurd. Make publiceert naar LinkedIn en Instagram.
+## Automatische flow
 
-## Netlify instellen
+1. Iedere ochtend om 07:00 UTC start een korte scheduler.
+2. De autopilot controleert in `.content-agent/automation-state.json` of die week al content is gepubliceerd.
+3. Zo niet, dan kiest GPT-5.6 Terra een nieuw evergreen onderwerp op basis van de bestaande Insights.
+4. Gemini 3.1 Flash Image maakt een vierkante afbeelding zonder tekst of logo.
+5. De afbeelding, blog en socialwachtrij worden naar GitHub geschreven.
+6. De blog krijgt direct `draft: false` en Netlify publiceert hem.
+7. Zodra blog en afbeelding live staan, stuurt de socialdispatcher het pakket naar Make.
+8. Make publiceert het bericht op LinkedIn en Instagram.
+9. De wachtrij wordt gemarkeerd, zodat hetzelfde pakket niet opnieuw wordt verstuurd.
 
-Schakel **AI Gateway** in voor de site. De contentagent gebruikt het model `gpt-5.6-terra`.
+De scheduler draait dagelijks zodat een technische storing de volgende dag opnieuw geprobeerd kan worden. De state zorgt dat er toch maximaal één artikel per week verschijnt.
 
-Voeg daarna deze environment variables toe:
+## Netlify-configuratie
 
-| Variabele | Verplicht | Waarde |
+De volgende variabelen zijn nodig:
+
+| Variabele | Status | Waarde |
 |---|---:|---|
-| `CONTENT_AGENT_ALLOWED_EMAILS` | ja | Komma-gescheiden e-mailadressen die de agent mogen gebruiken |
-| `GITHUB_CONTENT_TOKEN` | ja | Fine-grained GitHub-token met Contents: Read and write voor alleen deze repository |
-| `GITHUB_CONTENT_REPOSITORY` | nee | Standaard: `Twinpixel-nl/Twinpixel-Reborn` |
-| `GITHUB_CONTENT_BRANCH` | nee | Standaard: `main` |
-| `SOCIAL_WEBHOOK_URL` | ja voor social | Custom webhook-URL van het Make-scenario |
+| `CONTENT_AUTOMATION_SECRET` | ingesteld | Willekeurig intern secret voor het starten van de background function |
+| `CONTENT_AGENT_ALLOWED_EMAILS` | ingesteld | Toegang tot de optionele handmatige agent |
+| `GITHUB_CONTENT_TOKEN` | nog instellen | Fine-grained GitHub-token met alleen Contents: Read and write voor `Twinpixel-nl/Twinpixel-Reborn` |
+| `SOCIAL_WEBHOOK_URL` | nog instellen | Custom webhook-URL van het Make-scenario |
+| `GITHUB_CONTENT_REPOSITORY` | optioneel | Standaard: `Twinpixel-nl/Twinpixel-Reborn` |
+| `GITHUB_CONTENT_BRANCH` | optioneel | Standaard: `main` |
 
-Gebruik voor `GITHUB_CONTENT_TOKEN` geen persoonlijk token met bredere rechten dan nodig.
+Gebruik voor het GitHub-token geen bredere rechten dan nodig. Netlify AI Gateway levert automatisch de OpenAI- en Gemini-credentials binnen Functions.
 
 ## Make-scenario
 
-Maak een scenario met deze modules:
+Maak één scenario:
 
 1. **Webhooks → Custom webhook**
-2. Optioneel: controleer dat `event` gelijk is aan `twinpixel.insight.published`
+2. Filter op `event = twinpixel.insight.published`
 3. **LinkedIn → Create an organization post**
    - organisatie: TwinPixel
    - tekst: `linkedin.text`
@@ -47,11 +53,18 @@ Maak een scenario met deze modules:
    - afbeelding: `article.imageUrl`
    - caption: `instagram.caption`
 
-Het webhook-pakket bevat ook `idempotencyKey`. Sla die in Make op wanneer je extra bescherming tegen dubbele berichten wilt. De repository markeert een pakket al als `sent_to_automation` zodra Make een succesvolle HTTP-status teruggeeft.
+Gebruik `idempotencyKey` eventueel in een Make Data Store als extra bescherming tegen dubbele posts. De repository markeert een pakket zelf al als `sent_to_automation` zodra Make een succesvolle HTTP-status teruggeeft.
 
-## Belangrijke grenzen
+## Inhoudelijke grenzen
 
-- Instagram accepteert alleen een publiek bereikbare afbeelding. Daarom is de afbeelding verplicht.
-- LinkedIn- en Instagram-login blijven in Make beheerd. Er staan geen social tokens in de repository.
-- De agent publiceert nooit een blog zonder menselijke controle: nieuwe blogs zijn altijd eerst een Decap-draft.
-- Een succesvolle webhook betekent dat Make het pakket heeft ontvangen. Controleer in Make de foutafhandeling en history voor eventuele platformfouten.
+De autopilot:
+
+- kiest alleen evergreen onderwerpen binnen Webdesign, SEO, UX en Strategie;
+- doet geen actuele claims zonder aangeleverde bron;
+- verzint geen cijfers, onderzoeken, klanten of resultaten;
+- hergebruikt geen bestaande artikeltitel;
+- publiceert maximaal één artikel per week;
+- gebruikt alleen vooraf bepaalde interne links;
+- genereert visuals zonder tekst, logo's, watermerken of herkenbare personen.
+
+Volledige automatisering betekent dat een incidentele minder sterke formulering alsnog online kan komen. De prompt is daarom bewust conservatief en gericht op evergreen advies.
