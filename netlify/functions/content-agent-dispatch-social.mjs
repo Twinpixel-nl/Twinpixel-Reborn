@@ -74,7 +74,7 @@ export default async () => {
         event: "twinpixel.insight.published",
         idempotencyKey: `insight:${queue.slug}`,
         article: {
-          title: blogFile.name.replace(/\.md$/, ""),
+          title: queue.title,
           url: articleUrl,
           imageUrl,
         },
