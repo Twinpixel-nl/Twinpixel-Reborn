@@ -29,7 +29,10 @@ export async function requireEditor(req, context) {
     .map((email) => email.trim().toLowerCase())
     .filter(Boolean);
 
-  if (allowed.length && !allowed.includes(String(user.email || "").toLowerCase())) {
+  if (!allowed.length) {
+    throw new HttpError(503, "CONTENT_AGENT_ALLOWED_EMAILS is nog niet ingesteld.");
+  }
+  if (!allowed.includes(String(user.email || "").toLowerCase())) {
     throw new HttpError(403, "Dit account heeft geen toegang tot de contentagent.");
   }
 
