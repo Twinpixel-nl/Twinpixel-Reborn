@@ -25,7 +25,7 @@ Voeg daarna deze environment variables toe:
 
 | Variabele | Verplicht | Waarde |
 |---|---:|---|
-| `CONTENT_AGENT_ALLOWED_EMAILS` | aanbevolen | Komma-gescheiden e-mailadressen die de agent mogen gebruiken |
+| `CONTENT_AGENT_ALLOWED_EMAILS` | ja | Komma-gescheiden e-mailadressen die de agent mogen gebruiken |
 | `GITHUB_CONTENT_TOKEN` | ja | Fine-grained GitHub-token met Contents: Read and write voor alleen deze repository |
 | `GITHUB_CONTENT_REPOSITORY` | nee | Standaard: `Twinpixel-nl/Twinpixel-Reborn` |
 | `GITHUB_CONTENT_BRANCH` | nee | Standaard: `main` |
