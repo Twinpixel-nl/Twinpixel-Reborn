@@ -62,6 +62,7 @@ export default async (req, context) => {
     const queue = {
       version: 1,
       slug,
+      title: pkg.title,
       status: "waiting_for_publish",
       publishAt: input.publishAt || null,
       articleUrl: `https://twinpixel.nl/insights/${slug}`,
