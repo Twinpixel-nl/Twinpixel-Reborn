@@ -71,7 +71,7 @@ export function yamlString(value) {
   return JSON.stringify(String(value ?? ""));
 }
 
-export function renderInsight(pkg, imageUrl) {
+export function renderInsight(pkg, imageUrl, { draft = true } = {}) {
   const date = new Date().toISOString().slice(0, 10);
   const tags = Array.isArray(pkg.tags) ? pkg.tags.slice(0, 8) : [];
   const lines = [
@@ -79,7 +79,7 @@ export function renderInsight(pkg, imageUrl) {
     `title: ${yamlString(pkg.title)}`,
     `description: ${yamlString(pkg.description)}`,
     `date: ${date}`,
-    "draft: true",
+    `draft: ${draft ? "true" : "false"}`,
   ];
 
   if (imageUrl) {
@@ -141,6 +141,20 @@ export async function putRepoFile(path, content, message, sha) {
       message,
       branch,
       content: Buffer.from(content, "utf8").toString("base64"),
+      ...(sha ? { sha } : {}),
+    }),
+  });
+}
+
+export async function putRepoBase64(path, base64Content, message, sha) {
+  const { repository, branch } = githubSettings();
+  const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+  return githubRequest(`/repos/${repository}/contents/${encodedPath}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      message,
+      branch,
+      content: String(base64Content).replace(/\s/g, ""),
       ...(sha ? { sha } : {}),
     }),
   });
