@@ -48,10 +48,11 @@ export default async () => {
   }
 
   const candidates = (Array.isArray(files) ? files : [])
-    .filter((file) => file.type === "file" && file.name.endsWith(".json"))
-    .slice(0, 10);
+    .filter((file) => file.type === "file" && file.name.endsWith(".json"));
 
+  let dispatched = 0;
   for (const entry of candidates) {
+    if (dispatched >= 10) break;
     const queueFile = await getRepoFile(`${QUEUE_FOLDER}/${entry.name}`);
     const queue = JSON.parse(decodeRepoContent(queueFile));
     if (queue.status !== "waiting_for_publish" || !isDue(queue.publishAt)) continue;
@@ -88,6 +89,7 @@ export default async () => {
       continue;
     }
 
+    dispatched += 1;
     queue.status = "sent_to_automation";
     queue.dispatchedAt = new Date().toISOString();
     await putRepoFile(
