@@ -28,9 +28,6 @@ export async function generateSocialImage(pkg) {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           responseModalities: ["TEXT", "IMAGE"],
-          responseFormat: {
-            image: { aspectRatio: "1:1", imageSize: "1K" },
-          },
         },
       }),
     },
