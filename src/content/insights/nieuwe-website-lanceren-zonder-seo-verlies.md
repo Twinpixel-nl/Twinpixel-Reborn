@@ -1,5 +1,9 @@
 ---
 title: "Nieuwe website lanceren zonder SEO-verlies: zo pak je een websitemigratie aan"
+seoTitle: "Website migreren zonder SEO-verlies | TwinPixel"
+seoDescription: "Nieuwe website lanceren? Volg deze praktische aanpak voor URL-mapping, redirects, canonicals en controles zonder onnodig organisch verkeer te verliezen."
+primaryKeyword: "website migreren zonder SEO-verlies"
+searchIntent: "informatief"
 description: "Een praktische gids voor mkb en organisaties die een nieuwe website lanceren zonder onnodig organisch verkeer, waardevolle URL’s en bestaande vindbaarheid kwijt te raken."
 date: 2026-07-22
 draft: false
