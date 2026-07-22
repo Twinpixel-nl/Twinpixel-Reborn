@@ -1,5 +1,9 @@
 ---
 title: "Waarom SEO zonder scherpe keuzes zelden werkt (en wat je dan wél moet doen)"
+seoTitle: "SEO zonder scherpe keuzes werkt zelden | TwinPixel"
+seoDescription: "Ontdek waarom SEO zonder duidelijke keuzes weinig oplevert en hoe een scherpe positionering zorgt voor betere vindbaarheid én relevante aanvragen."
+primaryKeyword: "SEO-strategie met focus"
+searchIntent: "informatief"
 description: "Veel websites zijn technisch goed gebouwd, maar leveren weinig aanvragen op. Ontdek waarom SEO zonder duidelijke positionering niet werkt en hoe scherpe keuzes zorgen voor meer zichtbaarheid en conversie."
 
 date: 2026-01-20
