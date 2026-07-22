@@ -17,7 +17,7 @@ export async function generateSocialImage(pkg) {
   ].join("\n");
 
   const response = await fetch(
-    `${baseUrl.replace(/\/$/, "")}/v1/models/gemini-3.1-flash-image:generateContent`,
+    `${baseUrl.replace(/\/$/, "")}/v1beta/models/gemini-3.1-flash-image:generateContent`,
     {
       method: "POST",
       headers: {
