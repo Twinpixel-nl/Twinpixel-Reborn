@@ -25,7 +25,7 @@ export async function generateSocialImage(pkg) {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
         generationConfig: {
           responseModalities: ["TEXT", "IMAGE"],
         },
