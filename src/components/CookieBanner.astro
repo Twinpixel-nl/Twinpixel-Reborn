@@ -60,7 +60,8 @@ const GA_ID = "G-Y0TE68DKL1";
 
   function trackCurrentPageLead() {
     const params = new URLSearchParams(window.location.search);
-    if (window.location.pathname !== "/contact/" || params.get("success") !== "1") return;
+    const contactPath = window.location.pathname.replace(/\/+$/, "") || "/";
+    if (contactPath !== "/contact" || params.get("success") !== "1") return;
 
     const sessionKey = "tp_contact_lead_tracked";
     if (sessionStorage.getItem(sessionKey)) return;
