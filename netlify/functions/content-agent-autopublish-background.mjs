@@ -166,7 +166,28 @@ export default async (req) => {
     );
     console.log(`Automatisch gepubliceerd: ${pkg.title}`);
   } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     console.error("Content autopilot mislukt:", error);
+
+    const failedState = {
+      week,
+      status: "failed",
+      startedAt: runningState.startedAt,
+      failedAt: new Date().toISOString(),
+      error: message.slice(0, 500),
+    };
+
+    try {
+      await putRepoFile(
+        STATE_PATH,
+        JSON.stringify(failedState, null, 2) + "\n",
+        `Record content autopilot failure ${week}`,
+        runningResult.content?.sha,
+      );
+    } catch (stateError) {
+      console.error("Autopilot-foutstatus opslaan mislukt:", stateError);
+    }
+
     throw error;
   }
 };
