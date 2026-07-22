@@ -1,5 +1,7 @@
 {
   "week": "2026-W30",
-  "status": "running",
-  "startedAt": "2026-07-22T16:27:43.947Z"
+  "status": "failed",
+  "startedAt": "2026-07-22T16:27:43.947Z",
+  "failedAt": "2026-07-22T16:28:27.870Z",
+  "error": "Afbeeldingsmodel: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Please use a valid role: user, model.\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n"
 }
