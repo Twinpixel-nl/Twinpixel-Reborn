@@ -1,5 +1,7 @@
 {
   "week": "2026-W30",
-  "status": "running",
-  "startedAt": "2026-07-22T16:20:38.804Z"
+  "status": "failed",
+  "startedAt": "2026-07-22T16:20:38.804Z",
+  "failedAt": "2026-07-22T16:21:20.038Z",
+  "error": "Afbeeldingsmodel: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Invalid value at 'generation_config.response_format.image.aspect_ratio' (type.googleapis.com/google.cloud.aiplatform.v1.ImageResponseFormat.AspectRatio), \\\"1:1\\\"\\nInvalid value at 'generation_config.response_format.image.image_size' (type.googleapis.co"
 }
