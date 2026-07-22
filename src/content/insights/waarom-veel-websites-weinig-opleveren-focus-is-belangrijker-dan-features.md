@@ -1,5 +1,9 @@
 ---
 title: "Waarom veel websites weinig klanten opleveren (focus is belangrijker dan features)"
+seoTitle: "Meer websiteklanten door scherpe focus | TwinPixel"
+seoDescription: "Meer functies maken een website niet automatisch beter. Ontdek hoe een scherpe doelgroep, boodschap en route naar contact voor meer aanvragen zorgen."
+primaryKeyword: "website focus voor meer klanten"
+searchIntent: "informatief"
 description: "Waarom leveren veel websites weinig aanvragen op? Ontdek hoe gebrek aan focus, vage positionering en verkeerde structuur je conversie ondermijnen – en wat beter werkt dan extra features toevoegen."
 
 date: 2026-02-07

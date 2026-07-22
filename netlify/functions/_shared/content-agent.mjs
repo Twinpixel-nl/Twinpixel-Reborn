@@ -78,6 +78,10 @@ export function renderInsight(pkg, imageUrl, { draft = true } = {}) {
     "---",
     `title: ${yamlString(pkg.title)}`,
     `description: ${yamlString(pkg.description)}`,
+    `seoTitle: ${yamlString(pkg.seoTitle)}`,
+    `seoDescription: ${yamlString(pkg.seoDescription)}`,
+    `primaryKeyword: ${yamlString(pkg.primaryKeyword)}`,
+    `searchIntent: ${yamlString(pkg.searchIntent)}`,
     `date: ${date}`,
     `draft: ${draft ? "true" : "false"}`,
   ];

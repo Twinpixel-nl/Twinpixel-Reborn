@@ -1,5 +1,9 @@
 ---
 title: Wat kost een website laten maken in Wageningen?
+seoTitle: "Wat kost een website in Wageningen? | TwinPixel"
+seoDescription: "Bekijk wat een professionele website in Wageningen kost, welke keuzes de prijs bepalen en wanneer een template of maatwerk de verstandigste investering is."
+primaryKeyword: "kosten website laten maken Wageningen"
+searchIntent: "commercieel"
 description: Wat kost een website in Wageningen? Ontdek realistische prijzen,
   verschillen tussen template en maatwerk en wat nodig is voor een website die
   aanvragen oplevert.

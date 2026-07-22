@@ -1,5 +1,9 @@
 ---
 title: Waarom een mooie website geen strategie is (en wat ondernemers verwarren)
+seoTitle: "Een mooie website is nog geen strategie | TwinPixel"
+seoDescription: "Een mooi ontwerp alleen levert zelden aanvragen op. Lees hoe positionering, structuur en conversiekeuzes van je website een effectief verkoopkanaal maken."
+primaryKeyword: "website strategie voor ondernemers"
+searchIntent: "informatief"
 description: Veel ondernemers investeren in design, maar missen strategie. Lees
   waarom een mooie website niet automatisch klanten oplevert, en wat wel werkt.
 date: 2026-02-21

@@ -1,5 +1,9 @@
 ---
 title: Waarom bezoekers binnen 5 seconden afhaken (en wat je mist)
+seoTitle: "Waarom bezoekers snel van je website afhaken | TwinPixel"
+seoDescription: "Ontdek waarom bezoekers binnen enkele seconden afhaken en hoe een heldere boodschap, sterke structuur en duidelijke vervolgstap ze langer vasthouden."
+primaryKeyword: "waarom bezoekers website verlaten"
+searchIntent: "informatief"
 description: De meeste websites verliezen bezoekers binnen 5 seconden. Ontdek
   waarom dat gebeurt en hoe je dit direct verbetert met een duidelijke structuur
   en focus.

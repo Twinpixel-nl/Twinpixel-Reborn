@@ -1,5 +1,9 @@
 ---
 title: "Goede UX voelt simpel, en dat is precies waarom het zo moeilijk is"
+seoTitle: "Waarom goede UX simpel aanvoelt | TwinPixel"
+seoDescription: "Goede UX voelt vanzelfsprekend, maar vraagt om scherpe keuzes. Ontdek hoe structuur, rust en duidelijke interacties je website beter laten converteren."
+primaryKeyword: "goede UX voor websites"
+searchIntent: "informatief"
 description: "Goede UX lijkt vanzelfsprekend, maar bepaalt direct je conversie en gebruikservaring. Ontdek waarom simpele websites vaak het resultaat zijn van scherpe keuzes en strategisch webdesign."
 date: 2026-01-30
 updated: 2026-02-16

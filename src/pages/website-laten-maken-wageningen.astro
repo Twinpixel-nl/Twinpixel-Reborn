@@ -9,9 +9,9 @@ import WijsFoto from "../assets/person/website-laten-maken-wageningen.webp";
 const mapsUrl = "https://maps.app.goo.gl/XJkGA7g8TkB1aJTA6";
 
 const page = {
-  title: "Website laten maken Wageningen | Kosten & Werkwijze | TwinPixel",
+  title: "Website laten maken Wageningen | Vanaf €1.450 | TwinPixel",
   description:
-    "Wil je een professionele website laten maken in Wageningen? TwinPixel ontwerpt snelle, SEO-vriendelijke websites die zorgen voor meer aanvragen. Bekijk onze tarieven!",
+    "Professionele website laten maken in Wageningen vanaf €1.450. Maatwerk design, snelle techniek en een sterke SEO-basis. Bekijk cases en werkwijze.",
   h1: "Website laten maken in Wageningen",
 };
 
@@ -61,7 +61,7 @@ const reviews = [
 const faqs = [
   {
     q: "Wat kost een website laten maken in Wageningen?",
-    a: "Meestal valt dit in de range van een Website Launch-traject (€2.450–€3.750). De exacte prijs hangt af van het aantal pagina’s, content en eventuele koppelingen.",
+    a: "Een Website Launch-traject ligt meestal tussen €1.450 en €2.750. De exacte prijs hangt af van het aantal pagina’s, content en eventuele koppelingen.",
   },
   {
     q: "Hoe lang duurt het bouwen van een website?",
@@ -78,7 +78,8 @@ const faqs = [
 ];
 
 const origin = (Astro.site ?? Astro.url.origin).toString();
-const canonicalURL = new URL(Astro.url.pathname, origin).toString();
+const canonicalPath = "/website-laten-maken-wageningen/";
+const canonicalURL = new URL(canonicalPath, origin).toString();
 const orgId = `${origin}#organization`;
 const areaServed = business.area.map((name) => ({ "@type": "City", name }));
 
@@ -100,6 +101,13 @@ const jsonLd = [
     provider: { "@id": orgId },
     areaServed,
     url: canonicalURL,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "EUR",
+      lowPrice: "1450",
+      highPrice: "2750",
+      offerCount: 1,
+    },
   },
   {
     "@context": "https://schema.org",
@@ -115,7 +123,8 @@ const jsonLd = [
 
 <BaseLayout 
   title={page.title} 
-  description={page.description} 
+  description={page.description}
+  canonical={canonicalPath}
   schema={jsonLd}
 >
   <main>
@@ -126,19 +135,19 @@ const jsonLd = [
           <p class="kicker">Webdesign & Development</p>
           <h1 class="h1">{page.h1}</h1>
           <p class="lead">
-            {business.name} ontwerpt en bouwt high-end websites die vertrouwen wekken, razendsnel laden
-            en gericht zijn op meer aanvragen voor ondernemers in Wageningen.
+            Vanaf €1.450 bouwt {business.name} snelle maatwerkwebsites die vertrouwen wekken en gericht zijn
+            op meer aanvragen. Je werkt rechtstreeks met de makers in Wageningen, van structuur tot livegang.
           </p>
           <div class="cta">
-            <Button href="/contact" variant="primary" label="Plan kennismaking" />
+            <Button href="/contact/" variant="primary" label="Bespreek je website" />
             <Button href="#cases" variant="secondary" label="Bekijk ons werk" />
           </div>
           <div class="proof" aria-label="Key points">
-            <span>Premium uitstraling</span>
+            <span>Vanaf €1.450</span>
             <span class="sep">/</span>
-            <span>SEO-proof</span>
+            <span>Direct met de makers</span>
             <span class="sep">/</span>
-            <span>Maatwerk</span>
+            <span>Gevestigd in Wageningen</span>
           </div>
         </div>
 
@@ -163,10 +172,10 @@ const jsonLd = [
     <!-- INTRO MET INTERNE LINK NAAR HOMEPAGE -->
     <section class="section">
       <div class="container">
-        <h2 class="h2">Webdesign bureau in Wageningen</h2>
+        <h2 class="h2">Een professionele website voor je bedrijf in Wageningen</h2>
         <p class="lead small">
-          TwinPixel is hét bureau voor ondernemers die online willen groeien. Als specialist in 
-          <a class="inline-link" href="/">webdesign in Wageningen</a> kijken we verder dan alleen een mooi plaatje; we bouwen digitale fundamenten die resultaat opleveren.
+          TwinPixel helpt ondernemers en organisaties die hun website serieus willen laten bijdragen aan groei.
+          Van positionering en structuur tot <a class="inline-link" href="/">webdesign in Wageningen</a>: iedere keuze moet vertrouwen opbouwen en de stap naar contact makkelijker maken.
         </p>
         <p class="text">
           Of je nu een nieuwe website wilt laten maken of je huidige platform wilt professionaliseren: wij denken strategisch met je mee over positionering, conversie en techniek.
@@ -221,7 +230,7 @@ const jsonLd = [
               </ul>
               <p class="cost-note">{p.note}</p>
               <div class="cost-actions">
-                <Button href="/contact" variant="primary" label="Vraag voorstel aan" />
+                <Button href="/contact/" variant="primary" label="Vraag voorstel aan" />
               </div>
             </div>
           ))}
@@ -279,7 +288,7 @@ const jsonLd = [
             <h2 class="h2">Samenwerken met TwinPixel?</h2>
             <p class="lead small">Laten we bespreken hoe we jouw website naar het volgende niveau tillen.</p>
           </div>
-          <Button href="/contact" variant="primary" label="Start jouw project" />
+          <Button href="/contact/" variant="primary" label="Start jouw project" />
         </div>
       </div>
     </section>

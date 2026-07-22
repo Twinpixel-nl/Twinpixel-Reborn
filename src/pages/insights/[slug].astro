@@ -22,6 +22,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const { data } = post;
+const seoTitle = data.seoTitle ?? `${data.title} | Insights`;
+const seoDescription = data.seoDescription ?? data.description;
 
 // Datum format zoals op je index pagina
 const formatDate = (d: Date) =>
@@ -65,7 +67,7 @@ const blogPostingSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: data.title,
-  description: data.description,
+  description: seoDescription,
   image: ogImageAbs,
   datePublished: publishedISO,
   dateModified: updatedISO,
@@ -103,8 +105,8 @@ const combinedSchema = [blogPostingSchema, breadcrumbSchema];
 ---
 
 <BaseLayout
-  title={`${data.title} | Insights`}
-  description={data.description}
+  title={seoTitle}
+  description={seoDescription}
   ogImage={ogImage}
   type="article"
   article={{

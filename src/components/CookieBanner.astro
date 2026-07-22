@@ -8,7 +8,7 @@ const GA_ID = "G-Y0TE68DKL1";
       Wij gebruiken alleen statistische cookies om de website te verbeteren. 
     </p>
     <p>
-      Lees meer in onze <a href="/privacy">privacyverklaring</a>.
+      Lees meer in onze <a href="/privacy/">privacyverklaring</a>.
     </p>
 
     <div class="cookie-banner__actions">
@@ -37,7 +37,8 @@ const GA_ID = "G-Y0TE68DKL1";
 
     window.gtag("js", new Date());
     window.gtag("config", GA_ID, {
-      anonymize_ip: true
+      anonymize_ip: true,
+      allow_google_signals: false
     });
   }
 
@@ -47,6 +48,25 @@ const GA_ID = "G-Y0TE68DKL1";
 
   function getConsent() {
     return localStorage.getItem(CONSENT_KEY);
+  }
+
+  function trackEvent(name, params = {}) {
+    if (getConsent() !== "accepted" || typeof window.gtag !== "function") return;
+    window.gtag("event", name, {
+      page_path: window.location.pathname,
+      ...params
+    });
+  }
+
+  function trackCurrentPageLead() {
+    const params = new URLSearchParams(window.location.search);
+    const contactPath = window.location.pathname.replace(/\/+$/, "") || "/";
+    if (contactPath !== "/contact" || params.get("success") !== "1") return;
+
+    const sessionKey = "tp_contact_lead_tracked";
+    if (sessionStorage.getItem(sessionKey)) return;
+    trackEvent("generate_lead", { form_name: "contact" });
+    sessionStorage.setItem(sessionKey, "1");
   }
 
   function showBanner() {
@@ -66,6 +86,7 @@ const GA_ID = "G-Y0TE68DKL1";
 
     if (consent === "accepted") {
       loadAnalytics();
+      trackCurrentPageLead();
       hideBanner();
     } else if (consent === "rejected") {
       hideBanner();
@@ -76,12 +97,27 @@ const GA_ID = "G-Y0TE68DKL1";
     acceptBtn?.addEventListener("click", () => {
       setConsent("accepted");
       loadAnalytics();
+      trackCurrentPageLead();
       hideBanner();
     });
 
     rejectBtn?.addEventListener("click", () => {
       setConsent("rejected");
       hideBanner();
+    });
+
+    document.addEventListener("click", (event) => {
+      const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+      if (!link) return;
+
+      const href = link.getAttribute("href") || "";
+      if (href.startsWith("mailto:")) {
+        trackEvent("contact_email_click");
+      } else if (href.includes("wa.me") || href.includes("whatsapp")) {
+        trackEvent("contact_whatsapp_click");
+      } else if (href === "/contact" || href === "/contact/") {
+        trackEvent("cta_contact_click", { destination: "/contact/" });
+      }
     });
   });
 </script>

@@ -1,5 +1,9 @@
 ---
 title: Begrijp je je doelgroep echt? | Website conversie verbeteren
+seoTitle: "Doelgroep begrijpen voor meer conversie | TwinPixel"
+seoDescription: "Leer hoe je de echte vragen, twijfels en beslismomenten van je doelgroep ontdekt en vertaalt naar een website die meer bezoekers overtuigt."
+primaryKeyword: "doelgroep begrijpen voor website"
+searchIntent: "informatief"
 description: Veel bedrijven denken hun doelgroep te kennen, maar missen inzicht
   in beslismomenten en motivatie. Ontdek hoe beter doelgroepbegrip je website
   conversie verhoogt.

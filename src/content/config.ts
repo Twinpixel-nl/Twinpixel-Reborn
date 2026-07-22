@@ -5,8 +5,14 @@ const insights = defineCollection({
   schema: z.object({
     title: z.string(),
 
-    // Maak description verplicht voor consistente SEO
+    // Artikelintro en optionele, specifieke zoekresultaatmetadata
     description: z.string(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    primaryKeyword: z.string().optional(),
+    searchIntent: z
+      .enum(["informatief", "commercieel", "lokaal", "transactioneel"])
+      .optional(),
 
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),

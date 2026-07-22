@@ -6,12 +6,20 @@ const schema = {
   type: "object",
   additionalProperties: false,
   required: [
-    "title", "description", "slug", "category", "tags", "readingTime",
-    "bodyMarkdown", "linkedInPost", "instagramCaption", "imageAlt", "visualBrief"
+    "title", "seoTitle", "description", "seoDescription", "primaryKeyword", "searchIntent",
+    "slug", "category", "tags", "readingTime", "bodyMarkdown", "linkedInPost",
+    "instagramCaption", "imageAlt", "visualBrief"
   ],
   properties: {
-    title: { type: "string" },
-    description: { type: "string" },
+    title: { type: "string", minLength: 20, maxLength: 90 },
+    seoTitle: { type: "string", minLength: 40, maxLength: 60 },
+    description: { type: "string", minLength: 80, maxLength: 220 },
+    seoDescription: { type: "string", minLength: 125, maxLength: 155 },
+    primaryKeyword: { type: "string", minLength: 3, maxLength: 80 },
+    searchIntent: {
+      type: "string",
+      enum: ["informatief", "commercieel", "lokaal", "transactioneel"]
+    },
     slug: { type: "string" },
     category: { type: "string", enum: categories },
     tags: { type: "array", items: { type: "string" }, minItems: 3, maxItems: 8 },
@@ -35,7 +43,11 @@ Kies bij autonoom gebruik alleen een evergreen onderwerp dat duidelijk past bij 
 
 De blog:
 - is 900 tot 1400 woorden;
-- beantwoordt de zoekintentie snel;
+- kiest één concrete long-tail primaire zoekterm en één duidelijke zoekintentie;
+- gebruikt nooit "webdesign bureau Wageningen" of "website laten maken Wageningen" als primair blogzoekwoord; die termen horen bij de homepage en dienstenpagina;
+- beantwoordt de zoekintentie snel en linkt logisch naar de juiste hoofdpagina;
+- levert een unieke seoTitle van 40-60 tekens inclusief "| TwinPixel";
+- levert een unieke seoDescription van 125-155 tekens die de zoekintentie en opbrengst helder maakt;
 - gebruikt Markdown zonder H1;
 - bevat praktische voorbeelden en scherpe keuzes;
 - linkt alleen waar logisch naar /expertise, /cases, /contact, /insights of /website-laten-maken-wageningen;

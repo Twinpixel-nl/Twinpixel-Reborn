@@ -1,5 +1,9 @@
 ---
 title: Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)
+seoTitle: "Waarom je website geen aanvragen oplevert | TwinPixel"
+seoDescription: "Levert je website in Wageningen weinig aanvragen op? Ontdek welke problemen in boodschap, structuur, vertrouwen en lokale vindbaarheid dit veroorzaken."
+primaryKeyword: "website levert geen aanvragen op"
+searchIntent: "lokaal"
 description: Levert je website weinig aanvragen op? Ontdek waarom veel websites
   in Wageningen niet converteren en wat er nodig is voor strategisch webdesign,
   lokale SEO en meer klanten.

@@ -19,11 +19,39 @@ collections:
         name: "title"
         widget: "string"
 
-      - label: "Beschrijving (meta description)"
+      - label: "SEO-titel"
+        name: "seoTitle"
+        widget: "string"
+        required: false
+        hint: "40–60 tekens, inclusief | TwinPixel. Als leeg wordt de artikeltitel gebruikt."
+
+      - label: "Intro / samenvatting"
         name: "description"
         widget: "text"
         required: true
-        hint: "1–2 zinnen. Dit wordt gebruikt als Google snippet."
+        hint: "Korte inhoudelijke introductie die ook op de overzichtspagina kan verschijnen."
+
+      - label: "SEO-beschrijving"
+        name: "seoDescription"
+        widget: "text"
+        required: false
+        hint: "125–155 tekens voor de Google-snippet. Als leeg wordt de intro gebruikt."
+
+      - label: "Primair zoekwoord"
+        name: "primaryKeyword"
+        widget: "string"
+        required: false
+        hint: "Eén specifieke long-tail zoekterm; voorkom overlap met de hoofdpagina's."
+
+      - label: "Zoekintentie"
+        name: "searchIntent"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Informatief", value: "informatief" }
+          - { label: "Commercieel", value: "commercieel" }
+          - { label: "Lokaal", value: "lokaal" }
+          - { label: "Transactioneel", value: "transactioneel" }
 
       - label: "Datum"
         name: "date"
@@ -114,6 +142,7 @@ collections:
           ---
 
           **Gerelateerd**
-          - [Webdesign in Wageningen](/webdesign-wageningen)
-          - [Bekijk cases](/cases)
-          - [Meer insights](/insights)
+          - [Webdesignbureau Wageningen](/)
+          - [Website laten maken in Wageningen](/website-laten-maken-wageningen/)
+          - [Bekijk cases](/cases/)
+          - [Meer insights](/insights/)
