@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "interne-links-op-je-website-verbeteren",
   "title": "Interne links op je website verbeteren: zo bouw je logische routes",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/interne-links-op-je-website-verbeteren",
   "imageUrl": "/uploads/agent/interne-links-op-je-website-verbeteren.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere editorialfoto van een bureau van bovenaf. Een laptop toont een abstract schema van verbonden pagina-kaarten met dunne lijnen, naast losse blanco notitiekaarten en een potlood. Neutrale zand-, grijs- en zachtblauwe tinten, natuurlijk daglicht, veel rustige negatieve ruimte. Geen leesbare tekst, geen logo’s, geen personen.",
   "createdAt": "2026-07-27T07:15:09.532Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-07-27T07:18:07.696Z"
 }
