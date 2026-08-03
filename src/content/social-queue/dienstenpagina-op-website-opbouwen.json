@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "dienstenpagina-op-website-opbouwen",
   "title": "Een dienstenpagina opbouwen die aanvragen oplevert",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/dienstenpagina-op-website-opbouwen",
   "imageUrl": "/uploads/agent/dienstenpagina-op-website-opbouwen.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere redactionele foto van een bureau met een laptop waarop een neutraal wireframe van een zakelijke dienstenpagina zichtbaar is. Daarnaast losse notitiekaarten met eenvoudige blokindeling en pijlen. Zacht daglicht, rustige grijsblauwe en warme zandtinten, veel negatieve ruimte. Geen leesbare tekst op scherm of kaarten, geen logo’s en geen personen in beeld.",
   "createdAt": "2026-08-03T07:02:18.611Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-08-03T07:16:19.533Z"
 }
