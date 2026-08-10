@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "core-web-vitals-verbeteren-zakelijke-website",
   "title": "Core Web Vitals verbeteren voor je zakelijke website",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/core-web-vitals-verbeteren-zakelijke-website",
   "imageUrl": "/uploads/agent/core-web-vitals-verbeteren-zakelijke-website.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, rustige redactionele foto van een modern bureau met open laptop waarop een abstracte, niet-herkenbare website-interface met eenvoudige laad- en prestatiegrafieken zichtbaar is. Daarnaast een notitieblok, pen en subtiele technische schetsen. Natuurlijk daglicht, blauw-grijze en warme neutrale tinten, minimalistisch, zonder leesbare tekst, logo’s of personen.",
   "createdAt": "2026-08-10T07:01:24.881Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-08-10T07:15:26.388Z"
 }
