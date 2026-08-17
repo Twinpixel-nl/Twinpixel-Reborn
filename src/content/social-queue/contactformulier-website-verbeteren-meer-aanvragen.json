@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "contactformulier-website-verbeteren-meer-aanvragen",
   "title": "Je contactformulier verbeteren voor meer relevante aanvragen",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/contactformulier-website-verbeteren-meer-aanvragen",
   "imageUrl": "/uploads/agent/contactformulier-website-verbeteren-meer-aanvragen.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, rustige foto in natuurlijk daglicht van een bureau met een open laptop waarop een abstract, niet-leesbaar formulier met enkele invoervelden zichtbaar is. Hand van opzij bij trackpad, neutrale kantooromgeving, zachte blauw-grijze en warme zandtinten. Geen tekst, logo’s, herkenbare personen of merkbare interface-elementen.",
   "createdAt": "2026-08-17T07:01:27.603Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-08-17T07:15:20.869Z"
 }
