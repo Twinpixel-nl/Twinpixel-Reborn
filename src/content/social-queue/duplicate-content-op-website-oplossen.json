@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "slug": "duplicate-content-op-website-oplossen",
+  "title": "Duplicate content op je website oplossen: zo kies je de juiste URL",
+  "status": "waiting_for_publish",
+  "publishAt": null,
+  "articleUrl": "https://twinpixel.nl/insights/duplicate-content-op-website-oplossen",
+  "imageUrl": "/uploads/agent/duplicate-content-op-website-oplossen.png",
+  "linkedIn": {
+    "organizationUrl": "https://www.linkedin.com/company/twinpixel",
+    "text": "Duplicate content wordt vaak te snel vertaald naar: “we moeten alle teksten uniek maken.”\n\nDat is zelden het beste vertrekpunt. Het echte probleem zit regelmatig in URL-varianten, oude pagina’s die dezelfde dienst behandelen, filterpagina’s of een testomgeving die mee indexeert.\n\nDe relevante vraag is: welke URL moet voor deze zoekintentie de hoofdrol krijgen?\n\nPas als die keuze helder is, kies je de juiste maatregel:\n\n• 301-redirect wanneer een pagina definitief vervalt\n• canonical bij technisch noodzakelijke, vergelijkbare varianten\n• noindex voor pagina’s die niet in zoekresultaten hoeven\n• samenvoegen wanneer pagina’s dezelfde vraag beantwoorden\n\nDat is niet alleen beter voor zoekmachines. Bezoekers krijgen ook een helderder pad naar de informatie of dienst die ze zoeken.\n\nWe hebben de aanpak, inclusief voorbeelden en een technische checklist, uitgewerkt in ons nieuwste artikel.\n\n#SEO #TechnischeSEO #Webstrategie"
+  },
+  "instagram": {
+    "caption": "Niet elke dubbele tekst is een SEO-probleem.\n\nMaar meerdere URL’s voor dezelfde vraag kunnen wel zorgen voor verwarring: welke pagina moet Google tonen, en waar gaan je interne links naartoe?\n\nDe oplossing is niet altijd herschrijven. Kies eerst één voorkeurs-URL. Daarna bepaal je of je samenvoegt, omleidt, een canonical instelt of een pagina uit de index houdt.\n\nIn ons nieuwe artikel leggen we het verschil praktisch uit. Link in bio.\n\n#technischeseo #zakelijkewebsite #mkb #webstrategie"
+  },
+  "visualBrief": "Vierkante, sobere redactionele foto van bovenaf: een laptop met een abstracte, onleesbare URL-structuur als subtiele interface op het scherm, enkele papieren kaartjes met neutrale lijnen en pijlen ernaast, rustig bureau in warm grijs en diepblauw daglicht. Geen zichtbare tekst, geen logo’s, geen personen.",
+  "createdAt": "2026-09-14T07:01:23.130Z",
+  "createdBy": "TwinPixel content autopilot"
+}
