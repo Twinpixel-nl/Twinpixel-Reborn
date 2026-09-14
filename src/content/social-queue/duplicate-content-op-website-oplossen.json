@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "duplicate-content-op-website-oplossen",
   "title": "Duplicate content op je website oplossen: zo kies je de juiste URL",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/duplicate-content-op-website-oplossen",
   "imageUrl": "/uploads/agent/duplicate-content-op-website-oplossen.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere redactionele foto van bovenaf: een laptop met een abstracte, onleesbare URL-structuur als subtiele interface op het scherm, enkele papieren kaartjes met neutrale lijnen en pijlen ernaast, rustig bureau in warm grijs en diepblauw daglicht. Geen zichtbare tekst, geen logo’s, geen personen.",
   "createdAt": "2026-09-14T07:01:23.130Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-09-14T07:15:23.087Z"
 }
