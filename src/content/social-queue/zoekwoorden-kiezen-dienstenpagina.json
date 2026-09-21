@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "zoekwoorden-kiezen-dienstenpagina",
   "title": "Zo kies je zoekwoorden voor een dienstenpagina",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/zoekwoorden-kiezen-dienstenpagina",
   "imageUrl": "/uploads/agent/zoekwoorden-kiezen-dienstenpagina.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere overheadfoto van een bureau met een open notitieboek. Op de pagina staan abstracte blokken, pijlen en korte, onleesbare markeringen die een keuzeproces en paginastructuur suggereren. Daarnaast een laptop met een neutraal wireframe-scherm, een donker potlood en zacht daglicht. Rustig kleurenpalet van gebroken wit, antraciet en gedempt blauw. Geen leesbare tekst, logo’s of personen.",
   "createdAt": "2026-09-21T07:01:37.787Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-09-21T07:15:23.884Z"
 }
