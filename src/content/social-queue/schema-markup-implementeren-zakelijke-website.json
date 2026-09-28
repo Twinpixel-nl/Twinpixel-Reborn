@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "slug": "schema-markup-implementeren-zakelijke-website",
+  "title": "Schema markup implementeren op een zakelijke website",
+  "status": "waiting_for_publish",
+  "publishAt": null,
+  "articleUrl": "https://twinpixel.nl/insights/schema-markup-implementeren-zakelijke-website",
+  "imageUrl": "/uploads/agent/schema-markup-implementeren-zakelijke-website.png",
+  "linkedIn": {
+    "organizationUrl": "https://www.linkedin.com/company/twinpixel",
+    "text": "Schema markup is nuttig, maar vaak niet om de reden die mensen verwachten.\n\nStructured data helpt zoekmachines begrijpen wat er op een pagina staat. Bijvoorbeeld welke organisatie achter een website zit, welke dienst wordt aangeboden of hoe een pagina in de sitestructuur past.\n\nDat betekent niet dat je elke pagina moet volzetten met schema’s. Of dat FAQ-markup automatisch meer zichtbaarheid oplevert.\n\nEen betere aanpak:\n• begin met je homepage en belangrijkste dienstenpagina’s;\n• markeer alleen informatie die bezoekers ook echt kunnen zien;\n• houd bedrijfsgegevens en diensten actueel;\n• controleer zowel de code als de inhoud;\n• zie schema als ondersteuning van een scherpe website, niet als losse SEO-tactiek.\n\nIn ons nieuwe artikel leggen we uit welke typen structured data voor zakelijke websites vaak relevant zijn, en welke valkuilen je beter voorkomt.\n\n#technischeseo #websiteontwikkeling #structureddata"
+  },
+  "instagram": {
+    "caption": "Schema markup is geen SEO-trucje.\n\nHet helpt zoekmachines vooral om beter te begrijpen wat er al duidelijk op je pagina staat: je organisatie, diensten, breadcrumbs of veelgestelde vragen.\n\nDe fout die we vaak zien? Alles markeren, zonder na te denken over de inhoud eronder.\n\nBegin bij je belangrijkste pagina’s. Zorg dat de zichtbare informatie klopt. Voeg daarna alleen structured data toe die die inhoud verduidelijkt.\n\nLees het volledige artikel via de link in bio.\n\n#technischeseo #structureddata #zakelijkewebsite #webontwikkeling"
+  },
+  "visualBrief": "Vierkante, sobere redactionele foto in zacht daglicht: een bureau met open laptop waarop abstracte codeblokken en een eenvoudige websitestructuur zichtbaar zijn, naast een notitieboek met diagramlijnen. Neutrale grijs-, blauw- en zandtinten, rustige compositie, geen leesbare tekst op scherm of papier, geen logo’s en geen herkenbare personen.",
+  "createdAt": "2026-09-28T07:01:27.230Z",
+  "createdBy": "TwinPixel content autopilot"
+}
