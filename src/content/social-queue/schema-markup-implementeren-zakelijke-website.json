@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "schema-markup-implementeren-zakelijke-website",
   "title": "Schema markup implementeren op een zakelijke website",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/schema-markup-implementeren-zakelijke-website",
   "imageUrl": "/uploads/agent/schema-markup-implementeren-zakelijke-website.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere redactionele foto in zacht daglicht: een bureau met open laptop waarop abstracte codeblokken en een eenvoudige websitestructuur zichtbaar zijn, naast een notitieboek met diagramlijnen. Neutrale grijs-, blauw- en zandtinten, rustige compositie, geen leesbare tekst op scherm of papier, geen logo’s en geen herkenbare personen.",
   "createdAt": "2026-09-28T07:01:27.230Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-09-28T07:15:25.178Z"
 }
