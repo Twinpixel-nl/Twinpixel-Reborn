@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "website-redesign-checklist-mkb",
   "title": "Website redesign checklist voor mkb: zo bereid je een nieuwe site goed voor",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/website-redesign-checklist-mkb",
   "imageUrl": "/uploads/agent/website-redesign-checklist-mkb.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere documentaire stillevenfoto van een houten bureau met blanco kaartjes in een heldere sitemap-structuur, een open laptop met een abstract raster zonder leesbare tekst en een eenvoudig potlood. Neutraal daglicht, zachte grijs-blauwe en warme houttinten, van boven schuin gefotografeerd. Geen tekst, logo’s, herkenbare personen of merkinterfaces.",
   "createdAt": "2026-10-12T07:01:31.865Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-10-12T07:15:30.295Z"
 }
