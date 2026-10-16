@@ -34,7 +34,7 @@ const investments = [
   },
   {
     title: "Technical Build",
-    price: "€4.900 – €12.000",
+    price: "€2.500 – €6.000",
     points: ["Maatwerk frontend of tool", "API- & systeemkoppelingen", "Faseerbaar: discovery → build → grow"],
     note: "Voor platformen, tooling en complexere wensen.",
   },
@@ -61,7 +61,7 @@ const reviews = [
 const faqs = [
   {
     q: "Wat kost een website laten maken in Wageningen?",
-    a: "Een Website Launch-traject ligt meestal tussen €1.450 en €2.750. De exacte prijs hangt af van het aantal pagina’s, content en eventuele koppelingen.",
+    a: "Een Website Launch-traject ligt meestal tussen €1.450 en €2.750, exclusief btw. De exacte prijs hangt af van het aantal pagina’s, content en eventuele koppelingen.",
   },
   {
     q: "Hoe lang duurt het bouwen van een website?",
@@ -127,7 +127,7 @@ const jsonLd = [
   canonical={canonicalPath}
   schema={jsonLd}
 >
-  <main>
+  <div>
     <!-- HERO SPLIT -->
     <section class="hero-split">
       <div class="container hero-grid">
@@ -143,7 +143,7 @@ const jsonLd = [
             <Button href="#cases" variant="secondary" label="Bekijk ons werk" />
           </div>
           <div class="proof" aria-label="Key points">
-            <span>Vanaf €1.450</span>
+            <span>Vanaf €1.450 excl. btw</span>
             <span class="sep">/</span>
             <span>Direct met de makers</span>
             <span class="sep">/</span>
@@ -216,7 +216,7 @@ const jsonLd = [
       <div class="container">
         <div class="section-head">
           <h2 class="h2">Investering</h2>
-          <p class="lead small">Heldere prijzen voor een professionele website in Wageningen.</p>
+          <p class="lead small">Indicatieve prijzen, exclusief btw. De omvang en prijs stemmen we samen af op jouw website.</p>
         </div>
         <div class="costs-grid">
           {investments.map((p) => (
@@ -243,7 +243,7 @@ const jsonLd = [
       <div class="container">
         <h2 class="h2">Recent werk</h2>
       </div>
-      <CasesPreview />
+      <CasesPreview id="recente-projecten" />
     </section>
 
     <!-- REVIEWS -->
@@ -292,7 +292,7 @@ const jsonLd = [
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
   <style>
     /* Algemene stijlen */

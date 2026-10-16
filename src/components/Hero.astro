@@ -20,26 +20,25 @@ import BureauFoto from "../assets/person/webdesign-wageningen-twinpixel.webp";
       <p class="kicker">Webdesign bureau Wageningen</p>
 
       <h1 class="h1 pop">
-        High-end webdesign in Wageningen
-        <span class="dot">.</span>
+        High-end webdesign in Wageningen<span class="dot">.</span>
       </h1>
 
       <p class="lead">
-        We ontwerpen en ontwikkelen websites die je bedrijf professioneel positioneren en gericht zijn op groei.
-        Sterk design, heldere structuur en een technische basis die snel laadt.
+        Wij zijn Twan en Emma. Vanuit Wageningen ontwerpen en bouwen we snelle websites voor ondernemers
+        en organisaties die online sterker voor de dag willen komen. Van eerste idee tot livegang werk je direct met ons.
       </p>
 
       <div class="cta">
-        <Button href="/cases" variant="primary" label="Bekijk cases" />
-        <Button href="/contact" variant="secondary" label="Plan kennismaking" />
+        <Button href="/contact" variant="primary" label="Vraag een kennismaking aan" />
+        <Button href="#cases" variant="secondary" label="Bekijk ons werk" />
       </div>
 
       <div class="proof" aria-label="Key points">
-        <span>Sterke positionering</span>
+        <span>Maatwerk design</span>
         <span class="sep">/</span>
         <span>SEO-structuur</span>
         <span class="sep">/</span>
-        <span>Meer aanvragen</span>
+        <span>Persoonlijk contact</span>
       </div>
     </div>
 
@@ -51,7 +50,7 @@ import BureauFoto from "../assets/person/webdesign-wageningen-twinpixel.webp";
   src={BureauFoto}
   widths={[400, 480, 560, 720]}
   sizes="(max-width: 1024px) 80vw, 440px"
-  alt="Webdesign bureau TwinPixel in Wageningen - hoogwaardige websites en development"
+  alt="Twan en Emma van TwinPixel aan het werk in Wageningen"
   class="hero-img"
   loading="eager"
   fetchpriority="high"
@@ -266,7 +265,8 @@ import BureauFoto from "../assets/person/webdesign-wageningen-twinpixel.webp";
   .proof {
     margin-top: 48px;
     display: flex;
-    gap: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
     color: rgba(255,255,255,.35);
     font-size: 12px;
     text-transform: uppercase;

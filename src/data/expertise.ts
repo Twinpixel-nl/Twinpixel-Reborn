@@ -78,7 +78,7 @@ export const expertiseItems: ExpertiseItem[] = [
     },
 
     cta: {
-      primaryLabel: "Plan kennismaking",
+      primaryLabel: "Vraag een kennismaking aan",
       primaryHref: "/contact",
       secondaryLabel: "Bekijk cases",
       secondaryHref: "/cases",
@@ -112,8 +112,8 @@ export const expertiseItems: ExpertiseItem[] = [
     idealFor: ["Nieuwe website", "Herbouw van bestaande site", "Landingspagina’s"],
     includes: [
       "Structuur en wireframe",
-      "Design",
-      "Build + SEO basis",
+      "Maatwerk design voor desktop en mobiel",
+      "Bouw + technische SEO-basis",
       "Formulier en leadflow",
       "Performance check",
     ],
@@ -126,12 +126,12 @@ export const expertiseItems: ExpertiseItem[] = [
     costs: {
       price: "€1.450 – €2.750",
       isStartingAt: false,
-      description: "Complete website die klaar is om te converteren.",
+      description: "Een maatwerkwebsite. De prijs hangt af van het aantal pagina’s, de inhoud en de gewenste functionaliteit.",
       features: ["Snelle build", "SEO basis", "Conversiegerichte flow"],
     },
 
     cta: {
-      primaryLabel: "Plan kennismaking",
+      primaryLabel: "Vraag een kennismaking aan",
       primaryHref: "/contact",
       secondaryLabel: "Bekijk cases",
       secondaryHref: "/cases",
@@ -193,7 +193,7 @@ export const expertiseItems: ExpertiseItem[] = [
     },
 
     cta: {
-      primaryLabel: "Plan kennismaking",
+      primaryLabel: "Vraag een kennismaking aan",
       primaryHref: "/contact",
       secondaryLabel: "Bekijk cases",
       secondaryHref: "/cases",

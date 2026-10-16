@@ -16,6 +16,8 @@ export const cases = [
   // FEATURED (3)
   {
     slug: "by-britt-nails",
+    previewChallenge: "Prijzen en werkvoorbeelden op één herkenbare plek tonen.",
+    previewResult: "Een website in de eigen huisstijl, met behandelingen, prijzen en foto’s.",
     title: "By Britt Nails",
     website: "https://bybrittnails.nl",
     description: "Dominantie in de lokale zoekresultaten door een SEO-gedreven design.",
@@ -41,6 +43,9 @@ export const cases = [
   },
   {
         slug: "wur-optare",
+    previewTitle: "WUR Optare Tool",
+    previewChallenge: "Complexe keuzes in arbeidsvoorwaarden begrijpelijk maken.",
+    previewResult: "Een interactieve rekentool waarmee medewerkers scenario’s vergelijken.",
     title: "Wageningen University & Research Optare Tool",
     website: "https://wuroptarerekentool.netlify.app/",
     description: "Een high-end interactieve simulatietool voor complexe secundaire arbeidsvoorwaarden.",
@@ -71,6 +76,8 @@ export const cases = [
   },
   {
     slug: "vvd-wageningen",
+    previewChallenge: "Standpunten en partijinformatie makkelijk vindbaar maken.",
+    previewResult: "Een mobielvriendelijke website met informatie per thema.",
     title: "VVD Wageningen",
     website: "https://vvdwageningen.nl",
     description: "De digitale koploper in de lokale politiek: autoriteit door techniek.",

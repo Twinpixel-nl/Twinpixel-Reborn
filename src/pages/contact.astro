@@ -21,15 +21,15 @@ const company = {
 ---
 
 <BaseLayout title={page.title} description={page.description}>
-  <main class="page">
+  <div class="page">
     <section class="hero" aria-label="Contact">
       <div class="bg-glow"></div>
       <div class="container hero-inner">
         <p class="kicker">Contact opnemen</p>
         <h1 class="h1">Neem contact op<span class="dot">.</span></h1>
         <p class="lead">
-          Vertel kort waar je aan werkt of waar je hulp bij zoekt. We reageren snel en laten je weten
-          wat de beste volgende stap is.
+          Vertel kort wat je wilt bereiken. Twan of Emma reageert binnen één werkdag om
+          samen een passend moment voor een kennismaking af te stemmen.
         </p>
         <div class="meta-pills">
           <span>Snelle reactie</span>
@@ -47,8 +47,8 @@ const company = {
           <!-- Formulier links -->
           <div id="aanvraag" class="card main-card form-card">
             <div class="card-head">
-              <h2 class="h2">Projectaanvraag</h2>
-              <p class="muted">Deel je plannen en we reageren binnen één werkdag.</p>
+              <h2 class="h2">Vraag een kennismaking aan</h2>
+              <p class="muted">We bespreken je doelen, wensen en planning. Daarna bepalen we samen welke aanpak past. Je hoeft nog geen compleet projectplan te hebben.</p>
 
               {Astro.url.searchParams.get("success") === "1" && (
                 <div class="success-box" role="status">
@@ -100,12 +100,12 @@ const company = {
                     name="message"
                     rows="5"
                     required
-                    placeholder="Wat zijn je doelen, wensen of vragen?"
+                    placeholder="Waar zoek je hulp bij? Een paar zinnen over je idee of huidige website is genoeg."
                   ></textarea>
                 </label>
               </div>
 
-              <button type="submit" class="btn primary fullwidth">Project aanvraag versturen</button>
+              <button type="submit" class="btn primary fullwidth">Verstuur je aanvraag</button>
             </form>
           </div>
 
@@ -178,7 +178,7 @@ const company = {
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
   <style>
     :root {

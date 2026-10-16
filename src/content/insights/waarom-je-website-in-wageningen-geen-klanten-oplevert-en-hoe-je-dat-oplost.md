@@ -23,8 +23,6 @@ tags:
   - conversie optimalisatie
 readingTime: 6-8 min
 ---
-# Waarom je website in Wageningen geen klanten oplevert (en hoe je dat oplost)
-
 Veel websites in Wageningen zien er goed uit.
 
 Strak design.  

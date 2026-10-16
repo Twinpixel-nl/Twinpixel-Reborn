@@ -83,7 +83,23 @@ const extras: Record<string, Extras> = {
       },
       {
         q: "Helpen jullie ook met inhoud en structuur?",
-        a: "Ja. We denken mee over opbouw, inhoud en microcopy, zodat de website niet alleen mooi is maar ook werkt.",
+        a: "Ja. We denken mee over opbouw, inhoud en korte teksten. Uitgebreide copywriting en fotografie vallen buiten de basisprijs.",
+      },
+      {
+        q: "Hoeveel pagina’s zijn inbegrepen?",
+        a: "Er is geen vast aantal pagina’s. We kijken samen welke pagina’s nodig zijn voor je aanbod en doelen. Daarop stemmen we de omvang en prijs van het project af.",
+      },
+      {
+        q: "Hoeveel feedbackrondes zijn er?",
+        a: "We werken niet met een vooraf bepaald aantal feedbackrondes. We bespreken je feedback en werken samen toe naar een website waar je tevreden mee bent.",
+      },
+      {
+        q: "Kan ik zelf teksten aanpassen?",
+        a: "De vaste websiteteksten pas je niet standaard zelf aan. Voor onderdelen die je regelmatig bijwerkt, zoals nieuwsberichten, kunnen we in overleg een CMS inrichten. We kijken welke onderdelen je zelf wilt beheren en nemen dat mee in het voorstel.",
+      },
+      {
+        q: "Wat kost hosting en onderhoud na oplevering?",
+        a: "Hosting en onderhoud zijn niet inbegrepen in de projectprijs. Ons onderhoudsaanbod start vanaf €20 per maand, exclusief btw. Op de expertisepagina vind je wat daarin is opgenomen. De afspraken voor jouw website stemmen we samen af.",
       },
     ],
   },
@@ -164,6 +180,7 @@ const pricePrefix = item.costs.isStartingAt === false ? "" : "Vanaf ";
                   <span class="amount" style={`color: var(--accent)`}>{item.costs.price}</span>
                 </p>
                 <p class="cost-desc">{item.costs.description}</p>
+                <p class="cost-desc">Exclusief btw.</p>
               </div>
 
               <ul class="cost-features">
@@ -251,9 +268,13 @@ const pricePrefix = item.costs.isStartingAt === false ? "" : "Vanaf ";
           </div>
         )}
 
+        {item.slug === "website-launch" && (
+          <p class="p"><a class="backlink" href="/expertise#onderhoud">Bekijk hosting en onderhoud →</a></p>
+        )}
+
         <div class="actions">
           <Button href="/cases" variant="primary" label="Bekijk cases" />
-          <Button href="/contact" variant="secondary" label="Plan kennismaking" />
+          <Button href="/contact" variant="secondary" label="Vraag een kennismaking aan" />
         </div>
 
         <div class="back">
