@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "verschil-website-en-webapp-mkb",
   "title": "Website of webapp: wat heeft je organisatie nodig?",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/verschil-website-en-webapp-mkb",
   "imageUrl": "/uploads/agent/verschil-website-en-webapp-mkb.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere redactionele illustratie in zachte neutrale tinten. Bovenaanzicht van een bureau met links een laptop waarop een eenvoudige openbare pagina met abstracte contentblokken staat en rechts een tablet met abstracte dashboardkaarten, statusindicatoren en een subtiel slot-icoon. Daartussen een rustige verbindende lijn met twee vertakkingen. Geen tekst, logo’s, merknamen of herkenbare personen.",
   "createdAt": "2026-10-19T07:01:45.467Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-10-19T07:15:33.164Z"
 }
