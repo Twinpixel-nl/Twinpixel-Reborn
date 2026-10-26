@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "b2b-homepage-opbouwen-meer-aanvragen",
   "title": "Een B2B-homepage opbouwen voor meer relevante aanvragen",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/b2b-homepage-opbouwen-meer-aanvragen",
   "imageUrl": "/uploads/agent/b2b-homepage-opbouwen-meer-aanvragen.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, rustige redactionele foto van een modern bureau van bovenaf. Een laptop toont een abstract wireframe met duidelijke contentblokken en een call-to-action-vorm, zonder leesbare tekst. Daarnaast liggen een notitieblok met eenvoudige schetslijnen, pen en bril. Natuurlijk daglicht, zachte grijsblauwe en warme neutrale tinten, strak maar menselijk. Geen tekst, logo’s, herkenbare personen of merkschermen.",
   "createdAt": "2026-10-26T07:01:45.918Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-10-26T07:15:25.634Z"
 }
