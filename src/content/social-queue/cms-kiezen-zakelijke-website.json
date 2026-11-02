@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "cms-kiezen-zakelijke-website",
   "title": "CMS kiezen voor een zakelijke website: waar let je op?",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/cms-kiezen-zakelijke-website",
   "imageUrl": "/uploads/agent/cms-kiezen-zakelijke-website.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, sobere foto in natuurlijk daglicht van een rustige werktafel. Een open laptop toont abstracte, onleesbare contentblokken; daarnaast liggen wireframes, een notitieboek met eenvoudige schema’s en een pen. Neutrale grijs-, zand- en zachtblauwe tinten, veel negatieve ruimte, geen tekst, geen logo’s en geen herkenbare personen.",
   "createdAt": "2026-11-02T07:01:47.047Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-11-02T07:15:27.284Z"
 }
