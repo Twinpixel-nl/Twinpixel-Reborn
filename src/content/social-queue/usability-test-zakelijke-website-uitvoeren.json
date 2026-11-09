@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "usability-test-zakelijke-website-uitvoeren",
   "title": "Zo voer je een usability test uit voor je zakelijke website",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/usability-test-zakelijke-website-uitvoeren",
   "imageUrl": "/uploads/agent/usability-test-zakelijke-website-uitvoeren.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, rustige documentaire foto van een bureau tijdens een gebruikstest: laptop van schuin boven met een abstracte zakelijke webinterface zonder leesbare tekst, notitieblok met eenvoudige observatiemarks, pen en twee paar niet-herkenbare handen aan de rand van het beeld. Natuurlijk daglicht, neutrale blauwgrijze en warme beige tinten, veel rust en geen zichtbare gezichten, logo’s of tekst.",
   "createdAt": "2026-11-09T07:01:49.667Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-11-09T07:15:26.921Z"
 }
