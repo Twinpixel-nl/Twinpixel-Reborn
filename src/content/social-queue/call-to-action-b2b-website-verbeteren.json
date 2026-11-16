@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "call-to-action-b2b-website-verbeteren",
   "title": "Call to actions op je B2B-website verbeteren",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/call-to-action-b2b-website-verbeteren",
   "imageUrl": "/uploads/agent/call-to-action-b2b-website-verbeteren.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, rustige redactionele foto van een bureau van bovenaf. Een laptop zonder zichtbaar merk toont een abstracte wireframe-indeling met subtiele knopelementen; daarnaast liggen enkele blanco papieren kaartjes in een heldere route. Zachte natuurlijke lichtinval, neutrale blauwgrijze en warme beige tinten, strak maar niet steriel. Geen tekst, logo’s, herkenbare personen of leesbare scherminhoud.",
   "createdAt": "2026-11-16T07:01:55.653Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-11-16T07:15:27.456Z"
 }
