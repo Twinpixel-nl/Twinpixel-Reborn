@@ -2,7 +2,7 @@
   "version": 1,
   "slug": "website-briefing-maken",
   "title": "Een website briefing maken die richting geeft",
-  "status": "waiting_for_publish",
+  "status": "sent_to_automation",
   "publishAt": null,
   "articleUrl": "https://twinpixel.nl/insights/website-briefing-maken",
   "imageUrl": "/uploads/agent/website-briefing-maken.png",
@@ -15,5 +15,6 @@
   },
   "visualBrief": "Vierkante, rustige editorial foto van een lichte houten werktafel van bovenaf. In beeld: een open notitieboek met eenvoudige neutrale blokken en lijnen die een paginastructuur suggereren, losse blanco kaartjes, een donkergrijze pen en de hoek van een laptop. Zachte natuurlijke zijlichtinval, ingetogen kleuren in gebroken wit, warm grijs en diepblauw. Geen leesbare tekst, geen logo’s, geen herkenbare personen.",
   "createdAt": "2026-11-23T07:02:06.551Z",
-  "createdBy": "TwinPixel content autopilot"
+  "createdBy": "TwinPixel content autopilot",
+  "dispatchedAt": "2026-11-23T07:15:32.411Z"
 }
