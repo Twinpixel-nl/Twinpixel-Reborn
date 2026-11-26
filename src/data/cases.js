@@ -13,7 +13,6 @@ import benneImg from '../assets/cases/debennekamer.webp';
 import voet4uImg from '../assets/cases/voet4u.webp';
 
 export const cases = [
-  // FEATURED (3)
   {
     slug: "by-britt-nails",
     previewChallenge: "Prijzen en werkvoorbeelden op één herkenbare plek tonen.",
@@ -75,6 +74,37 @@ export const cases = [
     outcome: "Een professionele tool die de kloof tussen complexe HR-regels en de medewerker heeft gedicht. Het heeft niet alleen de medewerkerservaring verbeterd, maar ook de administratieve druk op de HR-afdeling aanzienlijk verlaagd."
   },
   {
+    slug: "de-wet-van-staal",
+    previewChallenge: "Het vakmanschap achter het laswerk zichtbaar maken voor potentiële opdrachtgevers.",
+    previewResult: "Een portfolio met projectfoto’s en een duidelijke route naar een offerteaanvraag.",
+    title: "De Wet van Staal",
+    website: "https://dewetvanstaal.nl",
+    description: "Een robuust digitaal portfolio voor industrieel vakmanschap en lastechniek.",
+    extra: "De Wet van Staal is het merk van Harvey Meurs, een vakman die letterlijk met vuur en staal werkt. Harvey had een platform nodig dat net zo onverwoestbaar en strak aanvoelt als zijn eigen werk. Geen standaard website, maar een visueel krachtig portfolio om zijn laswerk en zijn expertise als professional te verkopen. Wij hebben een omgeving gecreëerd waar de details van zijn vakmanschap — van de perfecte lasnaad tot het eindproduct — de hoofdrol spelen, waardoor hij direct indruk maakt op high-end zakelijke klanten.",
+    challenge: "Hoe vertaal je een rauw, fysiek ambacht naar een verfijnde digitale ervaring? De uitdaging was om Harvey niet alleen als 'iemand die last' te positioneren, maar als een betrouwbare partner in metaalbewerking. De site moest stoer en industrieel zijn, maar tegelijkertijd de precisie en professionaliteit uitstralen die nodig is voor grote opdrachten.",
+    tags: ["Industrieel Design", "Portfolio", "Personal Branding"],
+    image: staalImg,
+    featured: true,
+    accent: "#2F89FF", // Een krachtig, industrieel blauw
+    client: "Harvey Meurs",
+    year: "2025",
+    stats: [
+      { label: "Design", value: "Industrieel", icon: "chart" },
+      { label: "Focus", value: "Portfolio & Expertise", icon: "plus" },
+    ],
+    overview: [
+      {
+        title: "Visuele Showcase",
+        desc: "Focus op high-quality fotografie van projecten, waardoor potentiële klanten direct de kwaliteit van het laswerk kunnen beoordelen."
+      },
+      {
+        title: "Personal Brand Building",
+        desc: "Positionering van Harvey als hét gezicht achter de kwaliteit, wat zorgt voor vertrouwen en een kortere weg naar een offerte-aanvraag."
+      }
+    ],
+    outcome: "Een technisch visitekaartje dat staat als een huis. Harvey heeft nu een professionele showcase waarmee hij zijn werk en zichzelf als expert in de markt zet, wat de drempel voor zakelijke aanvragen aanzienlijk heeft verlaagd."
+  },
+  {
     slug: "vvd-wageningen",
     previewChallenge: "Standpunten en partijinformatie makkelijk vindbaar maken.",
     previewResult: "Een mobielvriendelijke website met informatie per thema.",
@@ -85,7 +115,7 @@ export const cases = [
     challenge: "Politieke partijen hebben vaak te maken met een enorme hoeveelheid 'zware' documenten en complexe standpunten. De uitdaging was om al deze data zo te structureren dat zoekmachines de relevantie direct begrijpen, terwijl de burger op een telefoon binnen drie seconden het antwoord op zijn vraag vindt. Het moest een platform worden dat autoriteit uitstraalt, maar tegelijkertijd laagdrempelig en extreem snel is.",
     tags: ["Politiek", "Local SEO", "UX"],
     image: vvdImg,
-    featured: true,
+    unlisted: true,
     accent: "#2F89FF",
     client: "VVD Wageningen",
     year: "2025",
@@ -106,8 +136,6 @@ export const cases = [
     ],
     outcome: "Een digitaal hoofdkwartier dat de VVD Wageningen direct bovenaan de zoekresultaten heeft geplaatst. De partij is nu de meest zichtbare politieke kracht in de stad, met een website die sneller laadt dan die van elke andere lokale fractie."
   },
-
-  // REST (9)
   {
     slug: "stadspartij-wageningen",
     title: "Stadspartij Wageningen",
@@ -268,35 +296,6 @@ export const cases = [
     outcome: "Voet4U beschikt nu over een representatieve website die technisch staat als een huis. De onzekerheid over niet-werkende formulieren is verdwenen en de praktijk wordt nu online net zo professioneel gepresenteerd als in de behandelkamer."
   },
   {
-    slug: "de-wet-van-staal",
-    title: "De Wet van Staal",
-    website: "https://dewetvanstaal.nl",
-    description: "Een robuust digitaal portfolio voor industrieel vakmanschap en lastechniek.",
-    extra: "De Wet van Staal is het merk van Harvey Meurs, een vakman die letterlijk met vuur en staal werkt. Harvey had een platform nodig dat net zo onverwoestbaar en strak aanvoelt als zijn eigen werk. Geen standaard website, maar een visueel krachtig portfolio om zijn laswerk en zijn expertise als professional te verkopen. Wij hebben een omgeving gecreëerd waar de details van zijn vakmanschap — van de perfecte lasnaad tot het eindproduct — de hoofdrol spelen, waardoor hij direct indruk maakt op high-end zakelijke klanten.",
-    challenge: "Hoe vertaal je een rauw, fysiek ambacht naar een verfijnde digitale ervaring? De uitdaging was om Harvey niet alleen als 'iemand die last' te positioneren, maar als een betrouwbare partner in metaalbewerking. De site moest stoer en industrieel zijn, maar tegelijkertijd de precisie en professionaliteit uitstralen die nodig is voor grote opdrachten.",
-    tags: ["Industrieel Design", "Portfolio", "Personal Branding"],
-    image: staalImg,
-    featured: false,
-    accent: "#2F89FF", // Een krachtig, industrieel blauw
-    client: "Harvey Meurs",
-    year: "2025",
-    stats: [
-      { label: "Design", value: "Industrieel", icon: "chart" },
-      { label: "Focus", value: "Portfolio & Expertise", icon: "plus" },
-    ],
-    overview: [
-      { 
-        title: "Visuele Showcase", 
-        desc: "Focus op high-quality fotografie van projecten, waardoor potentiële klanten direct de kwaliteit van het laswerk kunnen beoordelen." 
-      },
-      { 
-        title: "Personal Brand Building", 
-        desc: "Positionering van Harvey als hét gezicht achter de kwaliteit, wat zorgt voor vertrouwen en een kortere weg naar een offerte-aanvraag." 
-      }
-    ],
-    outcome: "Een technisch visitekaartje dat staat als een huis. Harvey heeft nu een professionele showcase waarmee hij zijn werk en zichzelf als expert in de markt zet, wat de drempel voor zakelijke aanvragen aanzienlijk heeft verlaagd."
-  },
-  {
     slug: "sv-null",
     title: "SV Null Platform",
     website: "https://svnull.nl",
@@ -356,3 +355,5 @@ export const cases = [
     outcome: "De Bennekamer beschikt nu over een digitaal visitekaartje dat de professionaliteit van de stichting onderstreept. De site laadt flitsendsnel, ziet er netjes uit en nodigt buurtbewoners uit om actief deel te nemen aan het wijkleven."
   },
 ];
+
+export const listedCases = cases.filter((c) => !c.unlisted);

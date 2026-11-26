@@ -2,9 +2,9 @@
 import SectionHeader from "./SectionHeader.astro";
 import CaseCard from "./CaseCard.astro";
 import Button from "./Button.astro";
-import { cases } from "../data/cases.js";
+import { listedCases } from "../data/cases.js";
 
-const top3 = cases.filter(c => c.featured).slice(0, 3);
+const top3 = listedCases.filter(c => c.featured).slice(0, 3);
 const { id = "cases" } = Astro.props;
 ---
 
